@@ -1,0 +1,107 @@
+.page-container {
+  
+}
+
+.content-container {
+  flex-grow: 1;
+  transition: margin-left 0.5s ease;
+}
+
+.Bar.move-right .content-container {
+  margin-left: 250px; /* ou la largeur de votre barre latérale */
+}
+/* Sidebar.css */
+
+/* Styles pour la barre latérale */
+.Bar {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  bottom: 0;
+  background-color: rgb(9, 90, 144);
+  color: white;
+  transition: 150ms;
+}
+
+
+.main {
+  text-align: start;
+}
+
+.sub-menu {
+  list-style-type: none;
+  padding: 0;
+ margin-right: 50%;
+ margin-left: 0;
+  margin-top: 10%;
+}
+
+.sub-menu li {
+  padding: 0px;
+  
+  background-color: #666565;
+  color: #fff;
+  cursor: pointer;
+}
+
+.sub-menu li:hover {
+  background-color: #555;
+}
+
+.icon {
+  height: 30px;
+  width: 20%;
+  cursor: pointer;
+}
+
+/* Styles pour le contenu de la page */
+.page-container {
+  display: flex;
+}
+
+.content-container {
+  flex-grow: 1;
+  transition: margin-left 0.2s ease;
+}
+
+.Bar.move-right .content-container {
+  margin-left: 250px; /* ou la largeur de votre barre latérale */
+}
+
+ul {
+  padding: 15px 0 0 15px;
+  list-style: none;
+}
+.sidebar{
+  height: 100Vh;
+
+  background-color: rgb(9, 90, 144);
+   margin: 0;
+  color: white;
+  transition: 150ms;
+  
+}
+ .sidebar1{
+  height: 100Vh;
+  transition: 150ms;
+  margin: 0;
+  background-color: rgb(9, 90, 144);
+  
+}
+.sidebar1 .icon{
+ width: 100%;
+  
+}
+li {
+  text-align: start;
+  margin-top: 16px;
+  font-size: 22px;
+  display: flex;
+  cursor: pointer;
+}
+
+h2 {
+  font-size: 22px;
+  margin: 5px 0 0 10px;
+  cursor: pointer;
+}

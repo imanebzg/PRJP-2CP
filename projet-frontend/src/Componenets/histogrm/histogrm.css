@@ -1,0 +1,104 @@
+@import url('https://fonts.cdnfonts.com/css/gilroy-bold');
+@import url('https://fonts.cdnfonts.com/css/proxima-nova-condensed');
+
+.Histogrm {
+  font-family: 'Proxima Nova Condensed';
+}
+
+.Histogrm .container {
+    max-width: 95%;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1),
+                0px 5px 12px -2px rgba(0, 0, 0, 0.1),
+                0px 18px 36px -6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 40px;
+}
+
+.Histogrm .title {
+    padding: 17px;
+    background: #E0E8F5;
+    color: #031273;
+    font-family:'Proxima Nova Condensed';
+}
+
+.Histogrm .user_details {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 25px;
+}
+
+.Histogrm .title_big p {
+  font-size: 20px;
+  background: #fcfdff;
+  color: #031273;
+  margin-left: 30px;
+  font-weight: bold;
+  margin-top: 30px;
+  font-family: 'gilroy-bold';
+}
+
+.Histogrm .programming-stats,
+.Histogrm .programming-stats2,
+.Histogrm .programming-stats3 {
+  font-family: 'gilroy-bold';
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Réduire l'espace entre les éléments */
+  margin: 1 auto;
+  margin-bottom: 20px; /* Réduire l'espace entre les blocs */
+  width: fit-content;
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  padding: 8px 16px; /* Réduire le padding */
+  color: #0f2f3f;
+  transition: all 400ms ease;
+}
+
+.Histogrm .programming-stats:hover,
+.Histogrm .programming-stats2:hover,
+.Histogrm .programming-stats3:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 16px -7px rgba(0, 0, 0, 0.3);
+}
+
+.Histogrm .programming-stats .details ul,
+.Histogrm .programming-stats2 .details2 ul,
+.Histogrm .programming-stats3 .details3 ul {
+  list-style: none;
+  padding: 0;
+}
+
+.Histogrm .programming-stats .details ul li,
+.Histogrm .programming-stats2 .details2 ul li,
+.Histogrm .programming-stats3 .details3 ul li {
+  font-size: 16px;
+  margin: 8px 0; /* Réduire la marge */
+  text-transform: uppercase;
+}
+
+.Histogrm .programming-stats .details .percentage,
+.Histogrm .programming-stats2 .details2 .percentage,
+.Histogrm .programming-stats3 .details3 .percentage {
+  font-weight: bold;
+  color: #000000;
+}
+
+@media screen and (max-width: 584px) {
+  .Histogrm .user_details {
+    max-height: 340px;
+    overflow-y: scroll;
+  }
+
+  .Histogrm .user_details::-webkit-scrollbar {
+    width: 0;
+  }
+
+  .Histogrm .user_details .input_box {
+    width: 100%;
+  }
+}

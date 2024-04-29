@@ -1,0 +1,119 @@
+ @import url('https://fonts.cdnfonts.com/css/gilroy-bold'); 
+ @import url('https://fonts.cdnfonts.com/css/proxima-nova-condensed'); 
+
+.learn h1 {
+  font-size: 2.1875rem;  /* 35px / 16px */
+  margin-top: 0;
+  color: #031273;
+  font-family: 'Proxima Nova Condensed';
+}
+
+.learn .line {
+  width: 85%;
+  height: 0.0125rem;  /* 0.2px / 16px */
+  margin: 0 auto;
+  border: 1px solid #000000;
+}
+
+.learn .buttons {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 12.5rem;  /* 200px / 16px */
+  padding-left: 12.5rem;  /* 200px / 16px */
+}
+
+.learn button.active {
+  text-decoration: overline;
+  text-decoration-thickness: 0.3125rem; /* 5px / 16px */
+  color: #031273;
+}
+
+.learn button {
+  font-size: 1.5625rem;  /* 25px / 16px */
+  color: black;
+  font-family: 'Proxima Nova Condensed';
+  font-weight: 800;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  background: none;
+  text-transform: uppercase;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: color;
+}
+
+.learn button.focus,
+.learn button:hover {
+  color: black;
+}
+
+.learn button:after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  bottom: 0; /* Changed from -2px to 0 for underline effect */
+  left: 50%;
+  width: 0%;
+  height: 0.125rem;  /* 2px / 16px */
+  background-color: black; /* underline color */
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: width, left;
+}
+
+/* Styles du conteneur de texte */
+
+.learn .text-container .content {
+  margin-top: 1.25rem;  /* 20px / 16px */
+  margin-bottom: 4.375rem; /* 70px / 16px */
+  text-align: left;
+  padding: 1.25rem;    /* 20px / 16px */
+  padding-left: 9.375rem; /* 150px / 16px */
+  padding-right: 9.375rem; /* 150px / 16px */
+  font-size: 1.125rem;   /* 18px / 16px */
+  font-family: 'Gilroy-Regular';
+  color: rgba(0, 0, 0, 0.541);
+}
+
+
+  .learn .table-style {
+    border-collapse: collapse;
+    box-shadow: 0 0.3125rem 3.125rem rgba(0, 0, 0, 0.15); /* 0 5px 50px rgba(0,0,0,0.15) / 16px */
+    cursor: pointer;
+    font-family: 'Gilroy-Regular';
+    margin: 0 auto;
+    border: 0.125rem solid #031273;
+  }
+  
+  .learn thead tr {
+    background-color: #031273;
+    color: #fff;
+    text-align: left;
+  }
+  
+  .learn th, .learn td {
+    padding: 0.9375rem 1.25rem; /* 15px 20px / 16px */
+    text-align: center;
+  }
+  
+  .learn tbody tr, .learn td, .learn th {
+    border: 0.0625rem solid #E0E8F5; /* 1px solid #E0E8F5 / 16px */
+  }
+  
+  .learn tbody tr:nth-child(even) {
+    background-color: #e0e8f5b6;
+  }
+  
+  @media screen {
+    .learn.table-style {
+      width: 100%;
+      margin: 0;
+      font-size: 0.625rem;  /* 10px / 16px */
+    }
+  
+    .learn th, .learn td {
+      padding: 0.625rem 0.4375rem; /* 10px 7px / 16px */
+    }
+  
+}

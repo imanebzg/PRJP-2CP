@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/loginpage.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="/auth/login" method="POST">
+            <input type="text" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="submit" value="Login">
+        </form>
+        <div class="signup-link">
+            <p>If you don't have an account, sign up <a href="signup">here</a>.</p>
+        </div>
+        {{#if message}} 
+            <p class="alert alert-danger mt-4">{{message}}</p>
+        {{/if}}
+    </div>
+
+</body>
+</html>

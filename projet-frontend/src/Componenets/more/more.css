@@ -1,0 +1,128 @@
+@import url('https://fonts.cdnfonts.com/css/gilroy-bold'); 
+.more {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 68.75rem;  /* 1100px / 16px */
+  margin: auto;
+  min-height: 100vh;
+  width: 100%;
+  background-size: cover;
+}
+
+/* Card styles */
+.more .card {
+  position: relative;
+  width: 20rem;        /* 320px / 16px */
+  height: 20rem;       /* 320px / 16px */
+  margin: 0.9375rem;  /* 15px / 16px */
+  margin-top: -12.5rem; /* -200px / 16px */
+  overflow: hidden;
+  border-radius: 0.625rem; /* 10px / 16px */
+  box-shadow: 0 0.1875rem 0.3125rem rgba(0, 0, 0, 0.352); /* 0px 3px 5px rgba(0, 0, 0, 0.352) / 16px */
+}
+
+/* Image container styles */
+.more .card .contentBx {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Image styles */
+.more .card .imgBx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.625rem; /* 10px / 16px */
+}
+
+/* Overlay pseudo-element */
+.more .card .contentBx::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: transform 0.2s ease-in-out;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition-delay: 0.1s;
+}
+
+/* Card hover styles */
+.more .card:hover .contentBx::before {
+  transition: transform 0.1s ease-in-out;
+  transform: scaleX(1);
+  transform-origin: left;
+  transition-delay: 0s;
+}
+
+.more .card .contentBx .contents {
+  position: relative;
+  padding: 1.0625rem;  /* 17px / 16px */
+  z-index: 1;
+  transition: 0.1s;
+  transform: translateX(-18.75rem); /* -300px / 16px */
+  transition-delay: 0s;
+  color: #ffffff;
+}
+
+/* Card hover content styles */
+.more .card:hover .contentBx .contents {
+  transform: translateX(0); /* Hovered state translation */
+  transition-delay: 0.1s;
+}
+
+.more .card:hover .contentBx {
+  transition-delay: 0.1s;
+  background-color: #df2200b9;
+  border-radius: 0.625rem; /* 10px / 16px */
+}
+
+/* Content heading styles */
+.more .card .contentBx .contents h3 {
+  font-size: 1.3em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center
+}
+
+/* Content paragraph styles */
+.more .card .contentBx .contents h6 {
+  font-size: 0.625em;  /* 1em / 16px */
+  line-height: 1.4em;
+  font-weight: 300;
+  margin: auto;
+  text-align: left;
+}
+
+.more .card .contentBx .contents p {
+  font-size: 0.9925em;  /* 1em / 16px */
+  line-height: 1.4em;
+  font-weight:400;
+  text-align: left;
+  margin: auto;
+}
+
+@media screen {
+  .more {
+    margin-top: 33.75%; /* 30% / 16px */
+  }
+
+  .more .card {
+    margin-bottom: 35.875%; /* 35% / 16px */
+  }
+}
