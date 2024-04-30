@@ -4,8 +4,8 @@ import React, { useEffect, useState } from 'react';
 
 function MyForm() {
 
-  //const [formResults, setFormResults] = useState([]);
-  //const [totalSum, setTotalSum] = useState(0);
+  const [formResults, setFormResults] = useState([]);
+  const [totalSum, setTotalSum] = useState(0);
 
   const [secteur1, setSecteur1] = useState('');
   const [secteur2, setSecteur2] = useState(''); 
@@ -318,7 +318,7 @@ function MyForm() {
     //verification: '',
 });
 
-
+/*
     const handleCalcul = async (event) => {
       event.preventDefault();
       console.log(JSON.stringify(calcInfo));
@@ -331,13 +331,40 @@ function MyForm() {
 
         const data = await response.json();
         if (response.ok) {
-          alert(data.carbonBalance);
+          return (data.carbonBalance);
 
         }
       } catch (error) {
 
       }
     }
+*/
+
+const handleCalcul = (event) => {
+  event.preventDefault();
+  console.log(JSON.stringify(calcInfo));
+
+  return new Promise((resolve, reject) => {
+    fetch('http://localhost:3001/calc/bilan', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(calcInfo)
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to fetch');
+        }
+        return response.json();
+      })
+      .then(data => {
+        resolve(data.carbonBalance);
+      })
+      .catch(error => {
+        console.error('Error in handleCalcul:', error);
+        reject(error);
+      });
+  });
+};
 
     const updateCalcInfo = (field, value) => {
       setCalcInfo(prev => ({ ...prev, [field]: value }));
@@ -347,10 +374,136 @@ function MyForm() {
       setter(value);
       updateCalcInfo(fieldName, value);
   };
+/*
+  const handleAddProduct = (e) => {
+    e.preventDefault();
+    const result = await handleCalcul(e); // Implement your calculation function
+    setFormResults(prevResults => [...prevResults, result]);
+    setTotalSum(prevSum => prevSum + result);
+    setCalcInfo({
+      secteur1: '',
+      secteur2: '',
+      secteur3: '',
+      secteur4: '',
+      secteur5: '',
+      nom: '',
+      ligne: '',
+      poste: '',
+      quantite: '',
+      unite: '',
+      NomAttribut: '',
+      NomFrontiere: '',
+      contributeur: '', 
+      localisation: '',
+      souslocalisation: ''
+      // Reset other form fields as needed
+    });
+  };
+
+  const handleFinalSubmit = (e) => {
+    e.preventDefault();
+    const result = await handleCalcul(e); // Implement your calculation function
+    setFormResults(prevResults => [...prevResults, result]);
+    setTotalSum(prevSum => prevSum + result);
+    setCalcInfo({
+      secteur1: '',
+      secteur2: '',
+      secteur3: '',
+      secteur4: '',
+      secteur5: '',
+      nom: '',
+      ligne: '',
+      poste: '',
+      quantite: '',
+      unite: '',
+      NomAttribut: '',
+      NomFrontiere: '',
+      contributeur: '', 
+      localisation: '',
+      souslocalisation: ''
+      // Reset other form fields as needed
+    });
+    alert(`Total sum: ${totalSum}`);
+  };
+*/
+
+
+  // Load totalSum from local storage on component mount
+  useEffect(() => {
+    const savedTotalSum = JSON.parse(localStorage.getItem('totalSum'));
+    if (savedTotalSum) {
+      setTotalSum(savedTotalSum);
+    }
+  }, []);
+  const handleAddProduct = (e) => {
+    e.preventDefault();
+    handleCalcul(e).then(result => {
+      setFormResults(prevResults => [...prevResults, result]);
+      setTotalSum(prevSum => prevSum + result);
+      setCalcInfo(prevCalcInfo => ({
+        ...prevCalcInfo,
+        secteur1: '',
+        secteur2: '',
+        secteur3: '',
+        secteur4: '',
+        secteur5: '',
+        nom: '',
+        ligne: '',
+        poste: '',
+        quantite: '',
+        unite: '',
+        NomAttribut: '',
+        NomFrontiere: '',
+        contributeur: '', 
+        localisation: '',
+        souslocalisation: ''
+        // Reset other form fields as needed
+      }));
+      localStorage.setItem('totalSum', JSON.stringify(totalSum + result));
+      window.location.reload();
+    }).catch(error => {
+      console.error('Error in handleAddProduct:', error);
+    });
+  };
+  const handleFinalSubmit = (e) => {
+    e.preventDefault();
+    handleCalcul(e)
+      .then(result => {
+        setFormResults(prevResults => [...prevResults, result]);
+        setTotalSum(prevSum => prevSum + result);
+        setCalcInfo(prevCalcInfo => ({
+          ...prevCalcInfo,
+          secteur1: '',
+          secteur2: '',
+          secteur3: '',
+          secteur4: '',
+          secteur5: '',
+          nom: '',
+          ligne: '',
+          poste: '',
+          quantite: '',
+          unite: '',
+          NomAttribut: '',
+          NomFrontiere: '',
+          contributeur: '', 
+          localisation: '',
+          souslocalisation: ''
+          // Reset other form fields as needed
+        }));
+        alert(`Total sum: ${totalSum}`);
+        // Clear totalSum from local storage
+        localStorage.setItem('totalSum', JSON.stringify(0));
+      })
+      .catch(error => {
+        console.error('Error in handleFinalSubmit:', error);
+      });
+  };
+  
+  
 
   return (
     <div>
-      <form onSubmit={handleCalcul}>
+      <form onSubmit={handleFinalSubmit}>
         <label htmlFor="secteur1">Secteur1:</label>
         <select id="sector1" name="secteur1" value={calcInfo.secteur1} onChange={handleChange(setSecteur1, 'secteur1')}>
           <option value="">--select--</option>
@@ -464,6 +617,7 @@ function MyForm() {
           {souslocalisationOptions.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
+        <button onClick={handleAddProduct}>Add Product</button>
         <input type="submit" value="Submit" />
       </form>
     </div>
