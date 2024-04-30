@@ -14,6 +14,7 @@ import Tableau from "../../Componenets/tableau/tableau"
 import Form1 from "../../Componenets/CalcForm/MyForm"
 import Form2 from "../../Componenets/CalcForm/MyForm2"
 import Form3 from "../../Componenets/CalcForm/ParentForm"
+import { Form } from "react-router-dom"
 const second_page = (props) => {
   
   
@@ -22,7 +23,7 @@ const second_page = (props) => {
         <div > 
 
 <Sdb/>
-
+            <Form1/>
            <Avancement/>
            <Info_entreprise/>
            <Notif/>

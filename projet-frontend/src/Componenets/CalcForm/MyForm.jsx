@@ -28,7 +28,6 @@ function MyForm() {
 
   // State to store options fetched for Secteur2
   const [secteur2Options, setSecteur2Options] = useState([]);
-
   const [secteur3Options, setSecteur3Options] = useState([]);
   const [secteur4Options, setSecteur4Options] = useState([]);
   const [secteur5Options, setSecteur5Options] = useState([]);
@@ -45,7 +44,7 @@ function MyForm() {
 
   async function fetchOptions(url, updateState) {
     try {
-      const response = await fetch(`http://localhost:3309/getters/getSector2Options?sector1=${encodeURIComponent(secteur1)}`);
+      const response = await fetch(`http://localhost:3001/getters/getSector2Options?sector1=${encodeURIComponent(secteur1)}`);
       const data = await response.json();
       updateState(data); // Directly updating state passed as a function
       console.log('data',data)
@@ -69,7 +68,7 @@ function MyForm() {
   useEffect(() => {
     if (secteur1 && secteur2) { 
       console.log('hna')
-      fetch3Options(`http://localhost:3309/getters/getSector3Options?sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}`, setSecteur3Options);
+      fetch3Options(`http://localhost:3001/getters/getSector3Options?sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}`, setSecteur3Options);
       console.log('setSecteur3Options',secteur3Options)
 
     }
@@ -77,7 +76,7 @@ function MyForm() {
   async function fetch3Options(url, update2State) {
     try {
       let sec2=encodeURIComponent(secteur2);
-      const response = await fetch(`http://localhost:3309/getters/getSector3Options?sector1=${encodeURIComponent(secteur1)}&sector2=${sec2}`);
+      const response = await fetch(`http://localhost:3001/getters/getSector3Options?sector1=${encodeURIComponent(secteur1)}&sector2=${sec2}`);
       const data2 = await response.json();
       update2State(data2); // Directly updating state passed as a function
       console.log('data2',data2)
@@ -89,7 +88,7 @@ function MyForm() {
 
   useEffect(() => {
     if (secteur1 && secteur2 && secteur3) { 
-      fetch4Options(`http://localhost:3309/getters/getSector4Options?sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&&sector3=${encodeURIComponent(secteur3)}`, setSecteur4Options);
+      fetch4Options(`http://localhost:3001/getters/getSector4Options?sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&&sector3=${encodeURIComponent(secteur3)}`, setSecteur4Options);
     }
   }, [secteur1, secteur2 ,secteur3]);  
 
@@ -97,7 +96,7 @@ function MyForm() {
     try {
       let sec3=encodeURIComponent(secteur3);
       let sec2=encodeURIComponent(secteur2);
-      const response = await fetch(`http://localhost:3309/getters/getSector4Options?sector1=${encodeURIComponent(secteur1)}&sector2=${sec2}&sector3=${sec3}`);
+      const response = await fetch(`http://localhost:3001/getters/getSector4Options?sector1=${encodeURIComponent(secteur1)}&sector2=${sec2}&sector3=${sec3}`);
       const data3 = await response.json();
       update3State(data3); // Directly updating state passed as a function
 
@@ -109,7 +108,7 @@ function MyForm() {
   
   useEffect(() => {
     if (secteur1 && secteur2 && secteur3  && secteur4) { 
-      fetch5Options(`http://localhost:3309/getters/getSector5Options?sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&&sector3=${encodeURIComponent(secteur3)}&&sector4=${encodeURIComponent(secteur4)}`, setSecteur5Options);
+      fetch5Options(`http://localhost:3001/getters/getSector5Options?sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&&sector3=${encodeURIComponent(secteur3)}&&sector4=${encodeURIComponent(secteur4)}`, setSecteur5Options);
     }
   }, [secteur1, secteur2 ,secteur3,secteur4]);  
 
@@ -118,7 +117,7 @@ function MyForm() {
       let sec4=encodeURIComponent(secteur4);
       let sec3=encodeURIComponent(secteur3);
       let sec2=encodeURIComponent(secteur2);
-      const response = await fetch(`http://localhost:3309/getters/getSector5Options?sector1=${encodeURIComponent(secteur1)}&sector2=${sec2}&sector3=${sec3}&sector4=${sec4}`);
+      const response = await fetch(`http://localhost:3001/getters/getSector5Options?sector1=${encodeURIComponent(secteur1)}&sector2=${sec2}&sector3=${sec3}&sector4=${sec4}`);
       const data4 = await response.json();
       update4State(data4); // Directly updating state passed as a function
 
@@ -130,7 +129,7 @@ function MyForm() {
 
   async function fetchproductOptions(url, updateState) {
     try {
-      const response = await fetch(`http://localhost:3309/getters/getProductOptions?sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&&sector3=${encodeURIComponent(secteur3)}&&sector4=${encodeURIComponent(secteur4)}&&sector5=${encodeURIComponent(secteur5)}`);
+      const response = await fetch(`http://localhost:3001/getters/getProductOptions?sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&&sector3=${encodeURIComponent(secteur3)}&&sector4=${encodeURIComponent(secteur4)}&&sector5=${encodeURIComponent(secteur5)}`);
       const data = await response.json();
       updateState(data); // Directly updating state passed as a function
     } catch (error) {
@@ -148,7 +147,7 @@ function MyForm() {
 
   async function fetchposteOptions(url, updateState) {
     try {
-      const response = await fetch(`http://localhost:3309/getters/getPosteOptions?nom=${encodeURIComponent(produit)}&typeLigne=${encodeURIComponent(ligne)}`);
+      const response = await fetch(`http://localhost:3001/getters/getPosteOptions?nom=${encodeURIComponent(produit)}&typeLigne=${encodeURIComponent(ligne)}`);
       const data = await response.json();
       updateState(data); // Directly updating state passed as a function
       console.log('data',data)
@@ -167,7 +166,7 @@ function MyForm() {
 
   async function fetchligneOptions(url, updateState) {
     try {
-      const response = await fetch(`http://localhost:3309/getters/getligneOptions?nom=${encodeURIComponent(produit)}`);
+      const response = await fetch(`http://localhost:3001/getters/getligneOptions?nom=${encodeURIComponent(produit)}`);
       const data = await response.json();
       updateState(data); // Directly updating state passed as a function
       console.log('data',data)
@@ -186,7 +185,7 @@ function MyForm() {
   
   async function fetchuniteOptions(url, updateState) {
     try {
-      const response = await fetch(`http://localhost:3309/getters/getunitoptions?nom=${encodeURIComponent(produit)}`);
+      const response = await fetch(`http://localhost:3001/getters/getunitoptions?nom=${encodeURIComponent(produit)}`);
       const data = await response.json();
       updateState(data); // Directly updating state passed as a function
       console.log('data',data)
@@ -205,7 +204,7 @@ function MyForm() {
 
   async function fetchattributOptions(url, updateState) {
     try {
-      const response = await fetch(`http://localhost:3309/getters/getnomattributoptions?nom=${encodeURIComponent(produit)}`);
+      const response = await fetch(`http://localhost:3001/getters/getnomattributoptions?nom=${encodeURIComponent(produit)}`);
       const data = await response.json();
       updateState(data); // Directly updating state passed as a function
       console.log('data',data)
@@ -224,7 +223,7 @@ function MyForm() {
   
   async function fetchfrontiereOptions(url, updateState) {
     try {
-      const response = await fetch(`http://localhost:3309/getters/getnomfrontiereoptions?nom=${encodeURIComponent(produit)}&NomAttribut=${encodeURIComponent(NomAttribut)}`);
+      const response = await fetch(`http://localhost:3001/getters/getnomfrontiereoptions?nom=${encodeURIComponent(produit)}&NomAttribut=${encodeURIComponent(NomAttribut)}`);
       const data = await response.json();
       updateState(data); // Directly updating state passed as a function
       console.log('data',data)
@@ -242,7 +241,7 @@ function MyForm() {
   
   async function fetchcontributeurOptions(url, updateState) {
     try {
-      const response = await fetch(`http://localhost:3309/getters/getcontributeuroptions?nom=${encodeURIComponent(produit)}&NomAttribut=${encodeURIComponent(NomAttribut)}&NomFrontiere=${encodeURIComponent(NomFrontiere)}`);
+      const response = await fetch(`http://localhost:3001/getters/getcontributeuroptions?nom=${encodeURIComponent(produit)}&NomAttribut=${encodeURIComponent(NomAttribut)}&NomFrontiere=${encodeURIComponent(NomFrontiere)}`);
       const data = await response.json();
       updateState(data); // Directly updating state passed as a function
       console.log('data',data)
@@ -262,7 +261,7 @@ function MyForm() {
   
   async function fetchlocalisationOptions(url, updateState) {
     try {
-      const response = await fetch(`http://localhost:3309/getters/getlocalisationoptions?nom=${encodeURIComponent(produit)}&NomAttribut=${encodeURIComponent(NomAttribut)}&NomFrontiere=${encodeURIComponent(NomFrontiere)}&contributeur=${encodeURIComponent(contributeur)}`);
+      const response = await fetch(`http://localhost:3001/getters/getlocalisationoptions?nom=${encodeURIComponent(produit)}&NomAttribut=${encodeURIComponent(NomAttribut)}&NomFrontiere=${encodeURIComponent(NomFrontiere)}&contributeur=${encodeURIComponent(contributeur)}`);
       const data = await response.json();
       updateState(data); // Directly updating state passed as a function
       console.log('data',data)
@@ -280,7 +279,7 @@ function MyForm() {
   
   async function fetchsouslocalisationOptions(url, updateState) {
     try {
-      const response = await fetch(`http://localhost:3309/getters/getsouslocalisationoptions?nom=${encodeURIComponent(produit)}&NomAttribut=${encodeURIComponent(NomAttribut)}&NomFrontiere=${encodeURIComponent(NomFrontiere)}&contributeur=${encodeURIComponent(contributeur)}&localisation=${encodeURIComponent(localisation)}`);
+      const response = await fetch(`http://localhost:3001/getters/getsouslocalisationoptions?nom=${encodeURIComponent(produit)}&NomAttribut=${encodeURIComponent(NomAttribut)}&NomFrontiere=${encodeURIComponent(NomFrontiere)}&contributeur=${encodeURIComponent(contributeur)}&localisation=${encodeURIComponent(localisation)}`);
       const data = await response.json();
       updateState(data); // Directly updating state passed as a function
       console.log('data',data)
@@ -300,7 +299,7 @@ function MyForm() {
 
   return (
     <div>
-      <form action="http://localhost:3309/calc/bilan" method="POST">
+      <form action="http://localhost:3001/calc/bilan" method="POST">
         <label htmlFor="secteur1">Secteur1:</label>
         <select id="sector1" name="secteur1" value={secteur1} onChange={handleChange(setSecteur1)}>
           <option value="">--select--</option>
@@ -332,10 +331,19 @@ function MyForm() {
 
         <label htmlFor="secteur5">Secteur5:</label>
         <select id="Secteur5" name="secteur5" value={secteur5} onChange={handleChange(setSecteur5)}>
-          <option value="">--select--</option>
-          {secteur5Options.map((option, index) => 
-      <option key={index} value={option}>{option === '' ? '\u00A0' : option}</option>
-    )}        </select>
+  <option value="">--select--</option>
+  {secteur5Options.length > 0 ? (
+    <>
+      <option value="" disabled hidden>Empty</option>
+      {secteur5Options.map((option, index) => (
+        <option key={index} value={option}>{option}</option>
+      ))}
+    </>
+  ) : (
+    <option value="" disabled>No options available</option>
+  )}
+</select>
+
         <br/>
 
 

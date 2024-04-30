@@ -1,6 +1,7 @@
 const express = require('express');
 const session = require('express-session');
 const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
 const path = require('path');
 const cors = require('cors');
 const app = express();
@@ -22,6 +23,7 @@ const getOriginRoutes = require('./routes/pages');
 const getAuthRoutes = require('./routes/auth');
 const getCalcRoutes = require('./routes/calc');
 const getOptionsRoutes = require('./routes/getOptions');
+const getSendRoutes = require('./routes/sendings');
 /*
 app.use(session({
   secret: 'some secret', 
@@ -29,11 +31,14 @@ app.use(session({
   saveUninitialized: false
 }))
 */
+
+
 // defining routes
 app.use('/', getOriginRoutes);
 app.use('/auth', getAuthRoutes);
 app.use('/calc', getCalcRoutes); // Assuming calcRoutes are for calculation-related endpoints
 app.use('/getters', getOptionsRoutes);
+app.use('/sendings', getSendRoutes);
 
 
 app.use((req, res, next) => {

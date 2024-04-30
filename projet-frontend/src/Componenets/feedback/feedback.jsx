@@ -31,7 +31,13 @@ const Feedback = () => {
     setUserEmail(event.target.value);
   };
 
-  const handleAddFeedback = () => {
+
+
+  const toggleFeedbackView = () => {
+    setShowPreviousFeedbacks(!showPreviousFeedbacks);
+  };
+
+  const handleAddFeedback = async () => {
     if (currentFeedback.trim() !== '' && userName.trim() !== '' && userEmail.trim() !== '') {
       const newFeedback = {
         name: userName,
@@ -42,11 +48,24 @@ const Feedback = () => {
       setCurrentFeedback('');
       setUserName('');
       setUserEmail('');
-    }
-  };
 
-  const toggleFeedbackView = () => {
-    setShowPreviousFeedbacks(!showPreviousFeedbacks);
+      try {
+        const response = await fetch('http://localhost:3001/sendings/send-feedback', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(newFeedback),
+        });
+        if (response.ok) {
+          console.log('Feedback email sent successfully.');
+        } else {
+          console.error('Failed to send feedback email.');
+        }
+      } catch (error) {
+        console.error('Error sending feedback email:', error);
+      }
+    }
   };
 
   return (
