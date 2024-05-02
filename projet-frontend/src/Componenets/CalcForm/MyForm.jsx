@@ -61,7 +61,7 @@ function MyForm() {
 
   useEffect(() => {
     if (secteur1) { 
-      fetchOptions(`/getters/getSector2Options?sector1=${encodeURIComponent(secteur1)}`, setSecteur2Options);
+      fetchOptions(`http://localhost:3001/getters/getSector2Options?sector1=${encodeURIComponent(secteur1)}`, setSecteur2Options);
 
     }
   }, [secteur1]);  
