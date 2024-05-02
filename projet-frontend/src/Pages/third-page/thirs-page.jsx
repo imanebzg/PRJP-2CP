@@ -18,7 +18,7 @@ const Thirdpage = (props) => {
     return (
 
         <div > 
- <Sdb/>
+          {/*<Sdb/>
 
            <Avancement/>
          
@@ -27,7 +27,9 @@ const Thirdpage = (props) => {
            <Histogrm_T/>  <Info_entreprise/>
            <Notif/>
            <Security/>
-           <Supprimer/>
+           <Supprimer/>*/}
+          
+          <Tableau/>
           
                   
         </div>

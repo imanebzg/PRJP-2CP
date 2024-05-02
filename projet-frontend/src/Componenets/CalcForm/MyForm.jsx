@@ -47,6 +47,36 @@ function MyForm() {
   const [souslocalisationOptions, setsouslocalisationOptions] = useState([]);
 
 
+
+
+/////////////////////
+const fetchProductData = (productName) => {
+  fetch(`http://localhost:3001/api/products?productName=${encodeURIComponent(produit)}`)
+    .then(response => response.json())
+    .then(data => {
+      console.log("Product Data:", data);
+      // Handle additional state updates or operations based on the fetched data
+    })
+    .catch(error => console.error('Failed to fetch product data:', error));
+};
+
+useEffect(() => {
+  if (produit) { // Only fetch data if a product is selected
+    fetchProductData(produit);
+  }
+}, [produit]); 
+////////////////////
+
+
+
+
+
+
+
+
+
+
+
   async function fetchOptions(url, updateState) {
     try {
       const response = await fetch(`http://localhost:3001/getters/getSector2Options?sector1=${encodeURIComponent(secteur1)}`);
@@ -369,11 +399,24 @@ const handleCalcul = (event) => {
     const updateCalcInfo = (field, value) => {
       setCalcInfo(prev => ({ ...prev, [field]: value }));
   };
+
+  const handleChange = (setter, fieldName) => (event) => {
+    const value = event.target.value;
+    setter(value);
+    updateCalcInfo(fieldName, value);
+
+    if (fieldName === 'nom') {
+        localStorage.setItem('selectedProduct', value); // Persist selected product
+    }
+};
+
+
+  /* ////////////////////
   const handleChange = (setter, fieldName) => (event) => {
       const value = event.target.value;
       setter(value);
       updateCalcInfo(fieldName, value);
-  };
+  };*/
 /*
   const handleAddProduct = (e) => {
     e.preventDefault();

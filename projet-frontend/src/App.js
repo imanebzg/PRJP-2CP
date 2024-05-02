@@ -16,7 +16,6 @@ function App() {
           <Route path='second-page' element={ <Secondpage />} />
           <Route path='third-page' element={ <Thirdpage />} />
           <Route path='first-page' element={ <Firstpage />} />
-    
         </Routes>
       </main>
     </Router>
