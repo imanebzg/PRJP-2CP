@@ -14,7 +14,9 @@
   color: #ffffff; /* Couleur du texte blanc */
 }
 
-  
+  .footer .no-underline {
+    text-decoration: none;
+  }
             
 .footer .heading {
     color: #fefefe;

@@ -8,7 +8,6 @@ import Security from "../../Componenets/Securite/Securite"
 import Supprimer from "../../Componenets/Supprimer/Supprimer"
 import Histogrm_s from "../../Componenets/histogrm/histogrm"
 import Histogrm_T from "../../Componenets/histogrm-total/TOTAL"
-import Info from "../../Componenets/info_personel/Info_personel"
 import Sdb from "../../Componenets/Sidebar/Sidebar"
 import Tableau from "../../Componenets/tableau/tableau"
 
@@ -19,18 +18,18 @@ const Thirdpage = (props) => {
     return (
 
         <div > 
-
+ <Sdb/>
 
            <Avancement/>
-           <Info_entreprise/>
-           <Notif/>
+         
            <Postes/>
-           <Rapport/>
+           <Rapport/>   <Histogrm_s/> 
+           <Histogrm_T/>  <Info_entreprise/>
+           <Notif/>
            <Security/>
            <Supprimer/>
-           <Info/>
-           <Histogrm_s/> 
-           <Histogrm_T/>          
+          
+                  
         </div>
       );
 }

@@ -5,6 +5,10 @@ import Page2 from "../Componenets/page1/page12/page12";
 import Page3 from "../Componenets/page1/page13/page13";
 import Page4 from "../Componenets/page1/page14/page14";
 import Page5 from "../Componenets/page1/page15/page15";
+import Entrp from "../Componenets/Info_entreprise/Info_entreprise";
+import Notif from "../Componenets/Notifications/Notifications";
+import Securite from "../Componenets/Securite/Securite";
+import Supprimer from "../Componenets/Supprimer/Supprimer";
 
 export default function AppRouter() {
   return (
@@ -15,6 +19,7 @@ export default function AppRouter() {
         <Route path="/gestion-de-comptes" element={<Page3 />} />
         <Route path="/inviter-utilisateur" element={<Page4 />} />
         <Route path="/user-space" element={<Page5 />} />
+   
       </Routes>
     </Router>
   );

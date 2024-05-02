@@ -1,39 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './contact.css';
 
-const Contact = () => {
-  const [contacts, setContacts] = useState([]);
-  const [userName, setUserName] = useState('');
-  const [userEmail, setUserEmail] = useState('');
-  const [currentContact, setCurrentContact] = useState('');
-
-
-  const handleContact = async () => {
-      if (currentContact.trim() !== '' && userName.trim() !== '' && userEmail.trim() !== '') {
-        const newContact = {
-          name: userName,
-          email: userEmail,
-          contact: currentContact
-      };
-      try {
-        const response = await fetch('http://localhost:3001/sendings/send-contact-us', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(newContact),
-        });
-        if (response.ok) {
-          console.log('Contact email sent successfully.');
-        } else {
-          console.error('Failed to send contact email.');
-        }
-      } catch (error) {
-        console.error('Error sending contact email:', error);
-      }
-    }
-  };
-
+const contact = () => {
   return (
     <div class="contact" id="contact">
 <h2 className='title'>Nous contacter</h2>
@@ -63,7 +31,7 @@ const Contact = () => {
         <label htmlFor="message"><strong>Message:</strong></label>
         <input id="message" name="message" rows="4"></input>
       </div>
-      <button className = "boutton2" onClick={handleContact} type="submit">Envoyer</button>
+      <button className = "boutton2" type="submit">Envoyer</button>
     </form>
   </div>
 </div>
@@ -72,4 +40,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default contact;

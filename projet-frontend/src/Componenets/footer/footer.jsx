@@ -10,10 +10,10 @@ const Footer = () => {
             <h2>CAS | Carbon Accountibility Solution</h2>
         
 
-            <div className="buttons-container">
+            <div className="buttons-container"><a href="#sign-in"className="no-underline">
                 <div className="button">
                   <span className="text">S'identifier</span> <span class="arrow"></span>
-                </div>
+                </div></a >
                 <div className="button">
                   <span className="text "mail>Contacter</span> <span class="arrow"></span>
                 </div>

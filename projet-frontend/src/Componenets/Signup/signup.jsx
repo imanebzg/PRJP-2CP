@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom';
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './sign-up.css';
@@ -115,7 +115,7 @@ const Signup = () => {
 
 
     return (
-        <div className="sign-in">
+        <div className="sign-in" id='sign-in'>
             <div className="container" id="container" ref={containerRef}>
                 <div className="form-container sign-up-container">
 
@@ -164,7 +164,7 @@ const Signup = () => {
 <p>Connectez-vous pour commencer à calculer votre bilan de carbone</p>
                         <input type="text" value={signInEmail} onChange={(e) => setSignInEmail(e.target.value)} placeholder="Email" required/>
                         <input type="password" value={signInPassword} onChange={(e) => setSignInPassword(e.target.value)} placeholder="Mot de passe" required/>
-                        <button class='btn' type="submit">Se connecter</button>
+                        <Link to="/second-page">    <button class='btn' type="submit">Se connecter</button>  </Link > 
                     </form>
                 </div>
                 <div className="overlay-container">
@@ -172,12 +172,12 @@ const Signup = () => {
                         <div className="overlay-panel overlay-left">
                           <img src={myGif2} alt="Gif2" /> 
                             <p>Pour rester connecté avec nous, veuillez vous connecter avec vos informations personnelles</p>
-                            <button className="btn2" id="signIn">Se connecter</button>
+                            <Link to="/second-page">        <button className="btn2" id="signIn">Se connecter</button></Link > 
                         </div>
                         <div className="overlay-panel overlay-right">
                              <img src={myGif} alt="Gif1" />
                             <p>Entrez vos coordonnées personnelles et commencez votre parcours avec nous</p>
-                            <button className="btn2" id="signUp">Inscrivez-vous</button>
+                             <button className="btn2" id="signUp">Inscrivez-vous</button>
                         </div>
                     </div>
                 </div>

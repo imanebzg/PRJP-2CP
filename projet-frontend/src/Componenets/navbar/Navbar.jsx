@@ -36,12 +36,13 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <li>
-            <div className="button1">
-            <Link to="/second-page">
-              <span className="text start now">Commencer</span></Link>
-              <span className="arrow1"></span>
-            </div>
+          <li>  <a href="#sign-in" className="no-underline" > 
+          <div className="button1">
+ 
+    <span className="text start now">Commencer</span>
+    <span className="arrow1"></span>
+
+</div>  </a>
           </li>
         </ul>
       </div>

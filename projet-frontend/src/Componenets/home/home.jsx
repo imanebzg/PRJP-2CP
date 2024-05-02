@@ -10,9 +10,9 @@ const Home = () => {
       <br/>
       <p>  Calculez du bilan carbone de votre entreprise  </p>
       <br />
-      
-      <button className="btn2" style={{ margin: '0.3125rem' }}>Demo</button>
-      <button className="btn1">Commencer</button>
+     
+      <button className="btn2" style={{ margin: '0.3125rem' }}>Demo</button> <a href="#sign-in">
+      <button className="btn1">Commencer</button> </a>
       <br/>
       
     </div>

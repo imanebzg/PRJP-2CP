@@ -1,0 +1,8 @@
+.second .content{
+    position: relative;
+    width: calc(100%-11%);
+    height: 100vh;
+    margin: 13%;
+    margin-top: 0%;
+    margin-left: 15%;
+}

@@ -165,8 +165,11 @@
 
 .button1:hover .text {
   color: #fff;
-}
 
+}
+ .no-underline {
+  text-decoration: none !important; /* Utilisation de !important pour s'assurer que le style est appliqué */
+}
 .button1 {
   --color: #e14c31;
   padding: 0.625rem 1.25rem; /* 1rem 2rem / 16px */
