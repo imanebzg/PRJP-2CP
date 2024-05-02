@@ -50,8 +50,9 @@ function MyForm() {
 
 
 /////////////////////
-const fetchProductData = (productName) => {
-  fetch(`http://localhost:3001/api/products?productName=${encodeURIComponent(produit)}`)
+const fetchProductData = (produit,ligne,poste,unite,NomAttribut,NomFrontiere,contributeur,localisation,souslocalisation,secteur1,secteur2,secteur3,secteur4,secteur5) => {
+  fetch(`http://localhost:3001/api/products?productName=${encodeURIComponent(produit)}&Type_Ligne=${encodeURIComponent(ligne)}&Nom_attribut_français=${encodeURIComponent(NomAttribut)}&Nom_frontière_français=${encodeURIComponent(NomFrontiere)}&Secteur1 =${encodeURIComponent(secteur1)}&Secteur2=${encodeURIComponent(secteur2)}&Secteur3 =${encodeURIComponent(secteur3)}&Secteur4 =${encodeURIComponent(secteur4)}&Secteur5=${encodeURIComponent(secteur5)}& Unite_français =${encodeURIComponent(unite)}&Contributeur =${encodeURIComponent(contributeur)}&Localisation_geographique =${encodeURIComponent(localisation)}&Sous_localisation_geographique_français =${encodeURIComponent(souslocalisation)}&Type_poste=${encodeURIComponent(poste)} `)
+
     .then(response => response.json())
     .then(data => {
       console.log("Product Data:", data);
@@ -61,10 +62,11 @@ const fetchProductData = (productName) => {
 };
 
 useEffect(() => {
-  if (produit) { // Only fetch data if a product is selected
-    fetchProductData(produit);
+  if ( produit && ligne && poste &&unite && NomAttribut && NomFrontiere && contributeur && localisation && souslocalisation && secteur1 && secteur2 && secteur3 && secteur4 && secteur5
+  ) { // Only fetch data if a product is selected
+    fetchProductData(produit,ligne,poste,unite,NomAttribut,NomFrontiere,contributeur,localisation,souslocalisation,secteur1,secteur2,secteur3,secteur4,secteur5);
   }
-}, [produit]); 
+}, [ produit,ligne,poste,unite,NomAttribut,NomFrontiere,contributeur,localisation,souslocalisation,secteur1,secteur2,secteur3,secteur4,secteur5]); 
 ////////////////////
 
 
@@ -399,7 +401,7 @@ const handleCalcul = (event) => {
     const updateCalcInfo = (field, value) => {
       setCalcInfo(prev => ({ ...prev, [field]: value }));
   };
-
+/*
   const handleChange = (setter, fieldName) => (event) => {
     const value = event.target.value;
     setter(value);
@@ -409,7 +411,13 @@ const handleCalcul = (event) => {
         localStorage.setItem('selectedProduct', value); // Persist selected product
     }
 };
+*/
 
+const handleChange = (setter, fieldName) => event => {
+  const { value } = event.target;
+  setter(value);
+  localStorage.setItem(fieldName, value); // Store each field's value in localStorage
+};
 
   /* ////////////////////
   const handleChange = (setter, fieldName) => (event) => {
@@ -594,7 +602,6 @@ const handleCalcul = (event) => {
         <br/>
 
 
-
         <label htmlFor="nom">Nom du produit:</label>
         <select id="nom" name="nom" value={produit} onChange={handleChange(setproduit, 'nom')}>
           <option value="">--select--</option>
@@ -627,35 +634,35 @@ const handleCalcul = (event) => {
         <br/>
 
         <label htmlFor="NomAttribut">le nom de l'attribut :</label>
-        <select id="NomAttribut" name="NomAttribut" value={NomAttribut} onChange={handleChange(setNomAttribut)}>
+        <select id="NomAttribut" name="NomAttribut" value={NomAttribut} onChange={handleChange(setNomAttribut , 'NomAttribut')}>
           <option value=" ">--select--</option>
           {NomAttributOptions.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
         
         <label htmlFor="NomFrontiere">le nom de la frontiere :</label>
-        <select id="NomFrontiere" name="NomFrontiere" value={NomFrontiere} onChange={handleChange(setNomFrontiere)}>
+        <select id="NomFrontiere" name="NomFrontiere" value={NomFrontiere} onChange={handleChange(setNomFrontiere, 'NomFrontiere')}>
           <option value=" ">--select--</option>
           {NomFrontiereOptions.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
         
         <label htmlFor="contributeur">le contributeur:</label>
-        <select id="contributeur" name="contributeur" value={contributeur} onChange={handleChange(setcontributeur)}>
+        <select id="contributeur" name="contributeur" value={contributeur} onChange={handleChange(setcontributeur, 'contributeur')}>
           <option value=" ">--select--</option>
           {contributeurOptions.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
         
         <label htmlFor="localisation">la localisation:</label>
-        <select id="localisation" name="localisation" value={localisation} onChange={handleChange(setlocalisation)}>
+        <select id="localisation" name="localisation" value={localisation} onChange={handleChange(setlocalisation,'localisation')}>
           <option value=" ">--select--</option>
           {localisationOptions.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
 
         <label htmlFor="souslocalisation">la sous localisation:</label>
-        <select id="souslocalisation" name="souslocalisation" value={souslocalisation} onChange={handleChange(setsouslocalisation)}>
+        <select id="souslocalisation" name="souslocalisation" value={souslocalisation} onChange={handleChange(setsouslocalisation ,'souslocalisation')}>
           <option value=" ">--select--</option>
           {souslocalisationOptions.map(option => <option key={option} value={option}>{option}</option>)}
         </select>

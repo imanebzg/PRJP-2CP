@@ -81,6 +81,20 @@ const Tableau = () => {
 
     useEffect(() => {
         const productName = localStorage.getItem('selectedProduct');
+        const Type_Ligne = localStorage.getItem('ligne') || '';
+        const Nom_attribut_français = localStorage.getItem('Nom_attribut_français') || '';
+        const Nom_frontière_français = localStorage.getItem('Nom_frontière_français') || '';
+        const Secteur1 = localStorage.getItem('secteur1') || '';
+        const Secteur2 = localStorage.getItem('secteur2') || '';
+        const Secteur3 = localStorage.getItem('secteur3') || '';
+        const Secteur4 = localStorage.getItem('secteur4') || '';
+        const Secteur5 = localStorage.getItem('secteur5') || '';
+        const Unite_français = localStorage.getItem('unite') || '';
+        const Contributeur = localStorage.getItem('contributeur') || '';
+        const Localisation_geographique = localStorage.getItem('localisation') || '';
+        const Sous_localisation_geographique_français = localStorage.getItem('souslocalisation') || '';
+        const Type_poste = localStorage.getItem('poste') || '';
+        
         console.log("productname", productName);
         if (!productName) {
             console.error("No product selected");
@@ -89,7 +103,8 @@ const Tableau = () => {
 
         const fetchData = async () => {
             try {
-                const response = await fetch(`http://localhost:3001/api/products?productName=${encodeURIComponent(productName)}`);
+                const response = await fetch(`http://localhost:3001/api/products?productName=${encodeURIComponent(productName)}&Type_Ligne=${encodeURIComponent(Type_Ligne)}&Nom_attribut_français=${encodeURIComponent(Nom_attribut_français)}&Nom_frontière_français=${encodeURIComponent(Nom_frontière_français)}& Secteur1 =${encodeURIComponent(Secteur1)}&Secteur2=${encodeURIComponent(Secteur2)}&Secteur3 =${encodeURIComponent(Secteur3)}&Secteur4 =${encodeURIComponent(Secteur4)}&Secteur5=${encodeURIComponent(Secteur5)}& Unite_français =${encodeURIComponent(Unite_français)}&Contributeur =${encodeURIComponent(Contributeur)}&Localisation_geographique =${encodeURIComponent(Localisation_geographique)}&Sous_localisation_geographique_français =${encodeURIComponent(Sous_localisation_geographique_français)}&Type_poste=${encodeURIComponent(Type_poste)} 
+                `);
                 const jsonData = await response.json();
                 if (jsonData && jsonData.rows) {
                     setData(jsonData);
