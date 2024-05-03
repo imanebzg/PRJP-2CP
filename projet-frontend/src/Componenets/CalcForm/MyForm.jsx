@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 //mport { calc } from '../../../../back-end/controllers/calc';
+import Tableau from "./MyForm2"
 
 
 function MyForm() {
 
+  // useState to hold the fetched data
   const [formResults, setFormResults] = useState([]);
   const [totalSum, setTotalSum] = useState(0);
 
@@ -22,6 +24,9 @@ function MyForm() {
   const [localisation, setlocalisation] = useState('');
   const [souslocalisation, setsouslocalisation] = useState('');
   const [quantite, setQuantite] = useState('');
+
+  const [tableData, setTableData] = useState(null);
+
 
   
 
@@ -49,22 +54,29 @@ function MyForm() {
 
 
 
+
+
+
+
+
+
 /////////////////////
 const fetchProductData = (produit,quantite,unite,NomAttribut,NomFrontiere,contributeur,localisation,souslocalisation,secteur1,secteur2,secteur3,secteur4,secteur5) => {
   fetch(`http://localhost:3001/api/products?nom=${encodeURIComponent(produit)}&Secteur1=${encodeURIComponent(secteur1)}&Secteur2=${encodeURIComponent(secteur2)}&Secteur3=${encodeURIComponent(secteur3)}&Secteur4=${encodeURIComponent(secteur4)}&Secteur5=${encodeURIComponent(secteur5)}&Unite_français=${encodeURIComponent(unite)}&Nom_attribut_français=${encodeURIComponent(NomAttribut)}&Nom_frontière_français=${encodeURIComponent(NomFrontiere)}&Contributeur=${encodeURIComponent(contributeur)}&Localisation_geographique=${encodeURIComponent(localisation)}&Sous_localisation_geographique_français=${encodeURIComponent(souslocalisation)}&Quantite=${encodeURIComponent(quantite)}`)
 
     .then(response => response.json())
-    .then(data => {
-      console.log("Product Data:", data);
+    .then(datatable => {
+      console.log("Product Data:", datatable);
+      setTableData(datatable);
       // Handle additional state updates or operations based on the fetched data
     })
     .catch(error => console.error('Failed to fetch product data:', error));
 };
 
 useEffect(() => {
-  if ( produit && quantite &&unite && NomAttribut && NomFrontiere && contributeur && localisation && souslocalisation && secteur1 && secteur2 && secteur3 && secteur4 && secteur5
-  ) { // Only fetch data if a product is selected
+  if ( produit && quantite &&unite && NomAttribut && NomFrontiere && contributeur && localisation && souslocalisation && secteur1 && secteur2 && secteur3 && secteur4 && secteur5 ) { // Only fetch data if a product is selected
     fetchProductData(produit,quantite,unite,NomAttribut,NomFrontiere,contributeur,localisation,souslocalisation,secteur1,secteur2,secteur3,secteur4,secteur5);
+
   }
 }, [ produit,quantite,unite,NomAttribut,NomFrontiere,contributeur,localisation,souslocalisation,secteur1,secteur2,secteur3,secteur4,secteur5]); 
 ////////////////////
@@ -670,6 +682,10 @@ const handleChange = (setter, fieldName) => event => {
         <button onClick={handleAddProduct}>Add Product</button>
         <input type="submit" value="Submit" />
       </form>
+
+      {tableData && <Tableau data={tableData }  facteur ={quantite} />} 
+
+
     </div>
   );
 }

@@ -201,6 +201,7 @@ const Tableau = () => {
             const url = `http://localhost:3001/api/products?nom=${encodeURIComponent(productName)}&Secteur1=${encodeURIComponent(Secteur1)}&Secteur2=${encodeURIComponent(Secteur2)}&Secteur3=${encodeURIComponent(Secteur3)}&Secteur4=${encodeURIComponent(Secteur4)}&Secteur5=${encodeURIComponent(Secteur5)}&Unite_français=${encodeURIComponent(Unite_français)}&Nom_attribut_français=${encodeURIComponent(Nom_attribut_français)}&Nom_frontière_français=${encodeURIComponent(Nom_frontière_français)}&Contributeur=${encodeURIComponent(Contributeur)}&Localisation_geographique=${encodeURIComponent(Localisation_geographique)}&Sous_localisation_geographique_français=${encodeURIComponent(Sous_localisation_geographique_français)}`
             try {
                 const response = await fetch(url);
+                console.log("response", response);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }

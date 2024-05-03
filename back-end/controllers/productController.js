@@ -76,5 +76,6 @@ console.log( selectedunite );
     console.log("rows in the controller",rows)
 
     res.json({ rows, sums }); // Envoie les données sous forme de JSON
+    
   });
 };

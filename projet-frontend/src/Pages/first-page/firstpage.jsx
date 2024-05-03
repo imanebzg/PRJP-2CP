@@ -11,7 +11,6 @@ const Firstpage = (props) => {
                  <P1/>
                  <P2/>
                  <MyForm />
-                 <Tableau />
                
         </div>
       );
