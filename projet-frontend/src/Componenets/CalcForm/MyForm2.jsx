@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Tableau = ({ data , facteur }) => { // Destructure the data directly from props
-console.log("facteur",facteur)
     return (
         <div style={{ fontFamily: 'Montserrat, sans-serif' }}>
             <table style={{

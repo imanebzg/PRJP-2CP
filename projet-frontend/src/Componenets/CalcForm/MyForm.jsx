@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 //mport { calc } from '../../../../back-end/controllers/calc';
-import Tableau from "./MyForm2"
+import Tableau from "../tableau/tableau"
 
 
 function MyForm() {
@@ -55,11 +55,6 @@ function MyForm() {
 
 
 
-
-
-
-
-
 /////////////////////
 const fetchProductData = (produit,quantite,unite,NomAttribut,NomFrontiere,contributeur,localisation,souslocalisation,secteur1,secteur2,secteur3,secteur4,secteur5) => {
   fetch(`http://localhost:3001/api/products?nom=${encodeURIComponent(produit)}&Secteur1=${encodeURIComponent(secteur1)}&Secteur2=${encodeURIComponent(secteur2)}&Secteur3=${encodeURIComponent(secteur3)}&Secteur4=${encodeURIComponent(secteur4)}&Secteur5=${encodeURIComponent(secteur5)}&Unite_français=${encodeURIComponent(unite)}&Nom_attribut_français=${encodeURIComponent(NomAttribut)}&Nom_frontière_français=${encodeURIComponent(NomFrontiere)}&Contributeur=${encodeURIComponent(contributeur)}&Localisation_geographique=${encodeURIComponent(localisation)}&Sous_localisation_geographique_français=${encodeURIComponent(souslocalisation)}&Quantite=${encodeURIComponent(quantite)}`)
@@ -82,15 +77,7 @@ useEffect(() => {
 ////////////////////
 
 
-
-
-
-
-
-
-
-
-
+//secteur2
   async function fetchOptions(url, updateState) {
     try {
       const response = await fetch(`http://localhost:3001/getters/getSector2Options?sector1=${encodeURIComponent(secteur1)}`);
@@ -102,15 +89,13 @@ useEffect(() => {
       console.error('Failed to fetch options:', error);
     }
   }
-
   useEffect(() => {
     if (secteur1) { 
       fetchOptions(`http://localhost:3001/getters/getSector2Options?sector1=${encodeURIComponent(secteur1)}`, setSecteur2Options);
 
     }
   }, [secteur1]);  
-
-    
+//secteur3
   useEffect(() => {
     if (secteur1 && secteur2) { 
       console.log('hna')
@@ -131,13 +116,12 @@ useEffect(() => {
       console.error('Failed to fetch options:', error);
     }
   }
-
+//secteur4
   useEffect(() => {
     if (secteur1 && secteur2 && secteur3) { 
       fetch4Options(`http://localhost:3001/getters/getSector4Options?sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&&sector3=${encodeURIComponent(secteur3)}`, setSecteur4Options);
     }
   }, [secteur1, secteur2 ,secteur3]);  
-
   async function fetch4Options(url, update3State) {
     try {
       let sec3=encodeURIComponent(secteur3);
@@ -150,14 +134,12 @@ useEffect(() => {
       console.error('Failed to fetch options:', error);
     }
   }
-
-  
+//secteur5 
   useEffect(() => {
     if (secteur1 && secteur2 && secteur3  && secteur4) { 
       fetch5Options(`http://localhost:3001/getters/getSector5Options?sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&&sector3=${encodeURIComponent(secteur3)}&&sector4=${encodeURIComponent(secteur4)}`, setSecteur5Options);
     }
   }, [secteur1, secteur2 ,secteur3,secteur4]);  
-
   async function fetch5Options(url, update4State) {
     try {
       let sec4=encodeURIComponent(secteur4);
@@ -172,7 +154,7 @@ useEffect(() => {
     }
   }
 
-
+//produit
   async function fetchproductOptions(url, updateState) {
     try {
       const response = await fetch(`http://localhost:3001/getters/getProductOptions?sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&&sector3=${encodeURIComponent(secteur3)}&&sector4=${encodeURIComponent(secteur4)}&&sector5=${encodeURIComponent(secteur5)}`);
@@ -182,15 +164,12 @@ useEffect(() => {
       console.error('Failed to fetch options:', error);
     }
   }
-
-
   useEffect(() => {
     if (secteur5) { 
       fetchproductOptions(`/getters/getProductOptions?sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&&sector3=${encodeURIComponent(secteur3)}&&sector4=${encodeURIComponent(secteur4)}&&sector5=${encodeURIComponent(secteur5)}`, setproduitOptions);
     }
   }, [secteur5]);  
-
-
+//poste
   async function fetchposteOptions(url, updateState) {
     try {
       const response = await fetch(`http://localhost:3001/getters/getPosteOptions?nom=${encodeURIComponent(produit)}&typeLigne=${encodeURIComponent(ligne)}`);
@@ -202,14 +181,13 @@ useEffect(() => {
       console.error('Failed to fetch options:', error);
     }
   }
-
   useEffect(() => {
     if (produit && ligne) { 
       fetchposteOptions(`getters/getPosteOptions?nom=${encodeURIComponent(produit)}&typeLigne=${encodeURIComponent(ligne)}`, setposteOptions);
 
     }
   }, [produit , ligne]);  
-
+//ligne
   async function fetchligneOptions(url, updateState) {
     try {
       const response = await fetch(`http://localhost:3001/getters/getligneOptions?nom=${encodeURIComponent(produit)}`);
@@ -221,17 +199,16 @@ useEffect(() => {
       console.error('Failed to fetch options:', error);
     }
   }
-
   useEffect(() => {
     if (produit) { 
       fetchligneOptions(`getters/getligneOptions?nom=${encodeURIComponent(produit)}`, setligneOptions);
 
     }
   }, [produit]); 
-  
+//unite
   async function fetchuniteOptions(url, updateState) {
     try {
-      const response = await fetch(`http://localhost:3001/getters/getunitoptions?nom=${encodeURIComponent(produit)}`);
+      const response = await fetch(`http://localhost:3001/getters/getunitoptions?nom=${encodeURIComponent(produit)}&sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&sector3=${encodeURIComponent(secteur3)}&sector4=${encodeURIComponent(secteur4)}&sector5=${encodeURIComponent(secteur5)}`);
       const data = await response.json();
       updateState(data); // Directly updating state passed as a function
       console.log('data',data)
@@ -240,17 +217,17 @@ useEffect(() => {
       console.error('Failed to fetch options:', error);
     }
   }
-
   useEffect(() => {
-    if (produit) { 
-      fetchuniteOptions(`getters/getunitoptions?nom=${encodeURIComponent(produit)}`, setuniteOptions);
-
+    if (secteur1 && secteur2 && secteur3  && secteur4 && secteur5 && produit) { 
+      fetchuniteOptions(`http://localhost:3001/getters/getunitoptions?nom=${encodeURIComponent(produit)}&sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&sector3=${encodeURIComponent(secteur3)}&sector4=${encodeURIComponent(secteur4)}&sector5=${encodeURIComponent(secteur5)}`, setuniteOptions);
     }
-  }, [produit]); 
+  }, [secteur1, secteur2 ,secteur3,secteur4 , secteur5 , produit]);  
 
+//attribut
   async function fetchattributOptions(url, updateState) {
     try {
-      const response = await fetch(`http://localhost:3001/getters/getnomattributoptions?nom=${encodeURIComponent(produit)}`);
+      const response = await fetch( `http://localhost:3001/getters/getnomattributoptions?nom=${encodeURIComponent(produit)}&sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&sector3=${encodeURIComponent(secteur3)}&sector4=${encodeURIComponent(secteur4)}&sector5=${encodeURIComponent(secteur5)}&unite=${encodeURIComponent(unite)}`);
+     
       const data = await response.json();
       updateState(data); // Directly updating state passed as a function
       console.log('data',data)
@@ -259,17 +236,16 @@ useEffect(() => {
       console.error('Failed to fetch options:', error);
     }
   }
-
   useEffect(() => {
-    if (produit) { 
-      fetchattributOptions(`getters/getnomattributoptions?nom=${encodeURIComponent(produit)}`, setNomAttributOptions);
+    if (secteur1 && secteur2 && secteur3  && secteur4 && secteur5 && produit && unite) { 
+      fetchattributOptions(`http://localhost:3001/getters/getnomattributoptions?nom=${encodeURIComponent(produit)}&sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&sector3=${encodeURIComponent(secteur3)}&sector4=${encodeURIComponent(secteur4)}&sector5=${encodeURIComponent(secteur5)}&unite=${encodeURIComponent(unite)}`, setNomAttributOptions);
     }
-  }, [produit]); 
+  }, [secteur1, secteur2 ,secteur3,secteur4 , secteur5 , produit , unite]); 
 
-  
+//frontiere
   async function fetchfrontiereOptions(url, updateState) {
     try {
-      const response = await fetch(`http://localhost:3001/getters/getnomfrontiereoptions?nom=${encodeURIComponent(produit)}&NomAttribut=${encodeURIComponent(NomAttribut)}`);
+      const response = await fetch(`http://localhost:3001/getters/getnomfrontiereoptions?nom=${encodeURIComponent(produit)}&sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&sector3=${encodeURIComponent(secteur3)}&sector4=${encodeURIComponent(secteur4)}&sector5=${encodeURIComponent(secteur5)}&unite=${encodeURIComponent(unite)}&NomAttribut=${encodeURIComponent(NomAttribut)}` );
       const data = await response.json();
       updateState(data); // Directly updating state passed as a function
       console.log('data',data)
@@ -278,36 +254,35 @@ useEffect(() => {
       console.error('Failed to fetch options:', error);
     }
   }
-
   useEffect(() => {
-    if (produit && NomAttribut) { 
-      fetchfrontiereOptions(`getters/getnomfrontiereoptions?nom=${encodeURIComponent(produit)}&NomAttribut=${encodeURIComponent(NomAttribut)}`, setNomFrontiereOptions);
+    if (secteur1 && secteur2 && secteur3  && secteur4 && secteur5 && produit && unite && NomAttribut) { 
+      fetchfrontiereOptions(`http://localhost:3001/getters/getnomfrontiereoptions?nom=${encodeURIComponent(produit)}&sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&sector3=${encodeURIComponent(secteur3)}&sector4=${encodeURIComponent(secteur4)}&sector5=${encodeURIComponent(secteur5)}&unite=${encodeURIComponent(unite)}&NomAttribut=${encodeURIComponent(NomAttribut)}`, setNomFrontiereOptions);
     }
-  }, [produit , NomAttribut]); 
-  
+  }, [secteur1, secteur2 ,secteur3,secteur4 , secteur5 , produit , unite , NomAttribut]); 
+
+//contributeur
   async function fetchcontributeurOptions(url, updateState) {
     try {
-      const response = await fetch(`http://localhost:3001/getters/getcontributeuroptions?nom=${encodeURIComponent(produit)}&NomAttribut=${encodeURIComponent(NomAttribut)}&NomFrontiere=${encodeURIComponent(NomFrontiere)}`);
+      const response = await fetch(`http://localhost:3001/getters/getcontributeuroptions?nom=${encodeURIComponent(produit)}&sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&sector3=${encodeURIComponent(secteur3)}&sector4=${encodeURIComponent(secteur4)}&sector5=${encodeURIComponent(secteur5)}&unite=${encodeURIComponent(unite)}&NomAttribut=${encodeURIComponent(NomAttribut)}&NomFrontiere=${encodeURIComponent(NomFrontiere)}`);
       const data = await response.json();
       updateState(data); // Directly updating state passed as a function
       console.log('data',data)
-
     } catch (error) {
       console.error('Failed to fetch options:', error);
     }
   }
 
   useEffect(() => {
-    if (produit && NomAttribut && NomFrontiere) { 
-      fetchcontributeurOptions(`getters/getcontributeuroptions?nom=${encodeURIComponent(produit)}&NomAttribut=${encodeURIComponent(NomAttribut)}&NomFrontiere=${encodeURIComponent(NomFrontiere)}`, setcontributeurOptions);
+    if (secteur1 && secteur2 && secteur3  && secteur4 && secteur5 && produit && unite && NomAttribut && NomFrontiere) { 
+      fetchcontributeurOptions(`http://localhost:3001/getters/getcontributeuroptions?nom=${encodeURIComponent(produit)}&sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&sector3=${encodeURIComponent(secteur3)}&sector4=${encodeURIComponent(secteur4)}&sector5=${encodeURIComponent(secteur5)}&unite=${encodeURIComponent(unite)}&NomAttribut=${encodeURIComponent(NomAttribut)}&NomFrontiere=${encodeURIComponent(NomFrontiere)}`, setcontributeurOptions);
     }
-  }, [produit , NomAttribut , NomFrontiere]); 
+  }, [secteur1, secteur2 ,secteur3,secteur4 , secteur5 , produit , unite , NomAttribut , NomFrontiere]); 
 
 
-  
+//localisation
   async function fetchlocalisationOptions(url, updateState) {
     try {
-      const response = await fetch(`http://localhost:3001/getters/getlocalisationoptions?nom=${encodeURIComponent(produit)}&NomAttribut=${encodeURIComponent(NomAttribut)}&NomFrontiere=${encodeURIComponent(NomFrontiere)}&contributeur=${encodeURIComponent(contributeur)}`);
+      const response = await fetch(`http://localhost:3001/getters/getlocalisationoptions?nom=${encodeURIComponent(produit)}&sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&sector3=${encodeURIComponent(secteur3)}&sector4=${encodeURIComponent(secteur4)}&sector5=${encodeURIComponent(secteur5)}&unite=${encodeURIComponent(unite)}&NomAttribut=${encodeURIComponent(NomAttribut)}&NomFrontiere=${encodeURIComponent(NomFrontiere)}&contributeur=${encodeURIComponent(contributeur)}`);
       const data = await response.json();
       updateState(data); // Directly updating state passed as a function
       console.log('data',data)
@@ -315,17 +290,18 @@ useEffect(() => {
     } catch (error) {
       console.error('Failed to fetch options:', error);
     }
-  }
-
+  } 
   useEffect(() => {
-    if (produit && NomAttribut && NomFrontiere && contributeur) { 
-      fetchlocalisationOptions(`getters/getlocalisationoptions?nom=${encodeURIComponent(produit)}&NomAttribut=${encodeURIComponent(NomAttribut)}&NomFrontiere=${encodeURIComponent(NomFrontiere)}&contributeur=${encodeURIComponent(contributeur)}`, setlocalisationOptions);
+    if (secteur1 && secteur2 && secteur3  && secteur4 && secteur5 && produit && unite && NomAttribut && NomFrontiere && contributeur) { 
+      fetchlocalisationOptions(`http://localhost:3001/getters/getlocalisationoptions?nom=${encodeURIComponent(produit)}&sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&sector3=${encodeURIComponent(secteur3)}&sector4=${encodeURIComponent(secteur4)}&sector5=${encodeURIComponent(secteur5)}&unite=${encodeURIComponent(unite)}&NomAttribut=${encodeURIComponent(NomAttribut)}&NomFrontiere=${encodeURIComponent(NomFrontiere)}&contributeur=${encodeURIComponent(contributeur)}`, setlocalisationOptions);
     }
-  }, [produit , NomAttribut , NomFrontiere , contributeur]); 
-  
+  }, [secteur1, secteur2 ,secteur3,secteur4 , secteur5 , produit , unite , NomAttribut , NomFrontiere , contributeur]); 
+
+
+// sous localisation 
   async function fetchsouslocalisationOptions(url, updateState) {
     try {
-      const response = await fetch(`http://localhost:3001/getters/getsouslocalisationoptions?nom=${encodeURIComponent(produit)}&NomAttribut=${encodeURIComponent(NomAttribut)}&NomFrontiere=${encodeURIComponent(NomFrontiere)}&contributeur=${encodeURIComponent(contributeur)}&localisation=${encodeURIComponent(localisation)}`);
+      const response = await fetch(`http://localhost:3001/getters/getsouslocalisationoptions?nom=${encodeURIComponent(produit)}&sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&sector3=${encodeURIComponent(secteur3)}&sector4=${encodeURIComponent(secteur4)}&sector5=${encodeURIComponent(secteur5)}&unite=${encodeURIComponent(unite)}&NomAttribut=${encodeURIComponent(NomAttribut)}&NomFrontiere=${encodeURIComponent(NomFrontiere)}&contributeur=${encodeURIComponent(contributeur)}&localisation=${encodeURIComponent(localisation)}`);
       const data = await response.json();
       updateState(data); // Directly updating state passed as a function
       console.log('data',data)
@@ -336,10 +312,11 @@ useEffect(() => {
   }
 
   useEffect(() => {
-    if (produit && NomAttribut && NomFrontiere && contributeur && localisation) { 
-      fetchsouslocalisationOptions(`getters/getsouslocalisationoptions?nom=${encodeURIComponent(produit)}&NomAttribut=${encodeURIComponent(NomAttribut)}&NomFrontiere=${encodeURIComponent(NomFrontiere)}&contributeur=${encodeURIComponent(contributeur)}&localisation=${encodeURIComponent(localisation)}`, setsouslocalisationOptions);
+    if (secteur1 && secteur2 && secteur3  && secteur4 && secteur5 && produit && unite && NomAttribut && NomFrontiere && contributeur && localisation) { 
+      fetchsouslocalisationOptions(`http://localhost:3001/getters/getsouslocalisationoptions?nom=${encodeURIComponent(produit)}&sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&sector3=${encodeURIComponent(secteur3)}&sector4=${encodeURIComponent(secteur4)}&sector5=${encodeURIComponent(secteur5)}&unite=${encodeURIComponent(unite)}&NomAttribut=${encodeURIComponent(NomAttribut)}&NomFrontiere=${encodeURIComponent(NomFrontiere)}&contributeur=${encodeURIComponent(contributeur)}&localisation=${encodeURIComponent(localisation)}`, setsouslocalisationOptions);
     }
-  }, [produit , NomAttribut , NomFrontiere , contributeur , localisation]); 
+  }, [secteur1, secteur2 ,secteur3,secteur4 , secteur5 , produit , unite , NomAttribut , NomFrontiere , contributeur , localisation]); 
+
 
 
 
@@ -584,21 +561,21 @@ const handleChange = (setter, fieldName) => event => {
 
         <label htmlFor="secteur3">Secteur3:</label>
         <select id="Secteur3" name="secteur3" value={secteur3} onChange={handleChange(setSecteur3, 'secteur3')}>
-          <option value=" ">--select--</option>
+          <option value=" ">--no option--</option>
           {secteur3Options.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
 
         <label htmlFor="secteur4">Secteur4:</label>
         <select id="Secteur4" name="secteur4" value={secteur4} onChange={handleChange(setSecteur4, 'secteur4')}>
-          <option value=" ">--select--</option>
+          <option value=" ">--no option--</option>
           {secteur4Options.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
 
         <label htmlFor="secteur5">Secteur5:</label>
         <select id="Secteur5" name="secteur5" value={secteur5} onChange={handleChange(setSecteur5, 'secteur5')}>
-  <option value=" ">--select--</option>
+  <option value=" ">--no option--</option>
   {secteur5Options.length > 0 ? (
     <>
       <option value=" " disabled hidden>Empty</option>
@@ -616,7 +593,7 @@ const handleChange = (setter, fieldName) => event => {
 
         <label htmlFor="nom">Nom du produit:</label>
         <select id="nom" name="nom" value={produit} onChange={handleChange(setproduit,'nom')}>
-          <option value="">--select--</option>
+          <option value="">--no option--</option>
           {produitOptions.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
@@ -640,42 +617,42 @@ const handleChange = (setter, fieldName) => event => {
 
         <label htmlFor="unite">l'unite :</label>
         <select id="unite" name="unite" value={unite} onChange={handleChange(setunite, 'unite')}>
-          <option value=" ">--select--</option>
+          <option value=" ">--no option--</option>
           {uniteOptions.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
 
         <label htmlFor="NomAttribut">le nom de l'attribut :</label>
         <select id="NomAttribut" name="NomAttribut" value={NomAttribut} onChange={handleChange(setNomAttribut , 'NomAttribut')}>
-          <option value=" ">--select--</option>
+          <option value=" ">--no option--</option>
           {NomAttributOptions.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
         
         <label htmlFor="NomFrontiere">le nom de la frontiere :</label>
         <select id="NomFrontiere" name="NomFrontiere" value={NomFrontiere} onChange={handleChange(setNomFrontiere, 'NomFrontiere')}>
-          <option value=" ">--select--</option>
+          <option value=" ">--no option--</option>
           {NomFrontiereOptions.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
         
         <label htmlFor="contributeur">le contributeur:</label>
         <select id="contributeur" name="contributeur" value={contributeur} onChange={handleChange(setcontributeur, 'contributeur')}>
-          <option value=" ">--select--</option>
+          <option value=" ">--no option--</option>
           {contributeurOptions.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
         
         <label htmlFor="localisation">la localisation:</label>
         <select id="localisation" name="localisation" value={localisation} onChange={handleChange(setlocalisation,'localisation')}>
-          <option value=" ">--select--</option>
+          <option value=" ">--no option--</option>
           {localisationOptions.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
 
         <label htmlFor="souslocalisation">la sous localisation:</label>
         <select id="souslocalisation" name="souslocalisation" value={souslocalisation} onChange={handleChange(setsouslocalisation ,'souslocalisation')}>
-          <option value=" ">--select--</option>
+          <option value=" ">--no option--</option>
           {souslocalisationOptions.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>

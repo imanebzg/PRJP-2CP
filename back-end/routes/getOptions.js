@@ -91,8 +91,8 @@ router.get('/getSector5Options', async (req, res) => {
 
   router.get('/getunitoptions', async (req, res) => {
     try {
-      const {nom} = req.query; 
-      const unitOptions = await     getUnit(nom, res); 
+      const {nom,sector1, sector2, sector3, sector4,sector5} = req.query; 
+      const unitOptions = await     getUnit(nom,sector1, sector2, sector3, sector4,sector5, res); 
       return res.status(200).json(unitOptions);
     } catch (err) {
       console.error('Error getting unit options:', err);
@@ -102,8 +102,8 @@ router.get('/getSector5Options', async (req, res) => {
 
   router.get('/getnomattributoptions', async (req, res) => {
     try {
-      const {nom} = req.query; 
-      const NomAttributOptions = await   getNomAttribut(nom, res); 
+      const {nom,sector1, sector2, sector3, sector4,sector5,unite} = req.query; 
+      const NomAttributOptions = await   getNomAttribut(nom,sector1, sector2, sector3, sector4,sector5,unite, res); 
       return res.status(200).json(NomAttributOptions);
     } catch (err) {
       console.error('Error getting nom attribut options:', err);
@@ -113,8 +113,8 @@ router.get('/getSector5Options', async (req, res) => {
 
   router.get('/getnomfrontiereoptions', async (req, res) => {
     try {
-      const {nom,NomAttribut} = req.query; 
-      const NomFrontiereOptions = await  getNomFrontiere(nom,NomAttribut, res); 
+      const {nom,sector1, sector2, sector3, sector4,sector5,unite,NomAttribut} = req.query; 
+      const NomFrontiereOptions = await  getNomFrontiere(nom,sector1, sector2, sector3, sector4,sector5,unite,NomAttribut, res); 
       return res.status(200).json(NomFrontiereOptions);
     } catch (err) {
       console.error('Error getting nom frontiere options:', err);
@@ -124,8 +124,8 @@ router.get('/getSector5Options', async (req, res) => {
 
   router.get('/getcontributeuroptions', async (req, res) => {
     try {
-      const {nom,NomAttribut,NomFrontiere} = req.query; 
-      const contributeurOptions = await  getContributeur(nom,NomAttribut,NomFrontiere, res); 
+      const {nom,sector1, sector2, sector3, sector4,sector5,unite,NomAttribut,NomFrontiere} = req.query; 
+      const contributeurOptions = await  getContributeur(nom,sector1, sector2, sector3, sector4,sector5,unite,NomAttribut,NomFrontiere, res); 
       return res.status(200).json(contributeurOptions);
     } catch (err) {
       console.error('Error getting contributeur options:', err);
@@ -135,8 +135,8 @@ router.get('/getSector5Options', async (req, res) => {
 
   router.get('/getlocalisationoptions', async (req, res) => {
     try {
-      const {nom,NomAttribut,NomFrontiere,contributeur} = req.query; 
-      const localisationOptions = await  getLocalisation(nom,NomAttribut,NomFrontiere,contributeur, res); 
+      const {nom,sector1, sector2, sector3, sector4,sector5,unite,NomAttribut,NomFrontiere,contributeur} = req.query; 
+      const localisationOptions = await  getLocalisation(nom,sector1, sector2, sector3, sector4,sector5,unite,NomAttribut,NomFrontiere,contributeur, res); 
       return res.status(200).json(localisationOptions);
     } catch (err) {
       console.error('Error getting localisation options:', err);
@@ -146,8 +146,8 @@ router.get('/getSector5Options', async (req, res) => {
 
   router.get('/getsouslocalisationoptions', async (req, res) => {
     try {
-      const {nom,NomAttribut,NomFrontiere,contributeur,localisation} = req.query; 
-      const souslocalisationOptions = await  getSousLocalisation(nom,NomAttribut,NomFrontiere,contributeur,localisation, res); 
+      const {nom,sector1, sector2, sector3, sector4,sector5,unite,NomAttribut,NomFrontiere,contributeur,localisation} = req.query; 
+      const souslocalisationOptions = await  getSousLocalisation(nom,sector1, sector2, sector3, sector4,sector5,unite,NomAttribut,NomFrontiere,contributeur,localisation, res); 
       return res.status(200).json(souslocalisationOptions);
     } catch (err) {
       console.error('Error getting sous localisation options:', err);
