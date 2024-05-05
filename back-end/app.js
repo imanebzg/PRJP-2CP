@@ -24,13 +24,7 @@ const getAuthRoutes = require('./routes/auth');
 const getCalcRoutes = require('./routes/calc');
 const getOptionsRoutes = require('./routes/getOptions');
 const getSendRoutes = require('./routes/sendings');
-/*
-app.use(session({
-  secret: 'some secret', 
-  cookie: {maxAge: 30000}, 
-  saveUninitialized: false
-}))
-*/
+const getScopesRoutes = require('./routes/getScopes');
 
 
 // defining routes
@@ -38,6 +32,7 @@ app.use('/', getOriginRoutes);
 app.use('/auth', getAuthRoutes);
 app.use('/calc', getCalcRoutes); // Assuming calcRoutes are for calculation-related endpoints
 app.use('/getters', getOptionsRoutes);
+app.use('/scopes', getScopesRoutes)
 app.use('/sendings', getSendRoutes);
 
 
@@ -50,5 +45,4 @@ app.listen(port, (err) => {
   if (err) console.log(`Error listening on port ${port}`);
   else  console.log(`Running on port ${port}`);
 });
-
 

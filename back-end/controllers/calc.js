@@ -69,7 +69,7 @@ exports.calc = async (req, res) => {
     const { ligne, nom, secteur1, secteur2, secteur3, secteur4, secteur5, unite, poste, quantite } = req.body;
     const info = [ligne, nom, secteur1, secteur2, secteur3, secteur4, secteur5, unite, poste, quantite];
     try {
-        const totalPosteNonDecompose = await gettaux(ligne, nom, secteur1, secteur2, secteur3, secteur4, secteur5, unite, poste, quantite);
+        const totalPosteNonDecompose = await gettaux(ligne, nom, secteur1, secteur2, secteur3, secteur4, secteur5, unite, poste);
         const carbonBalance = parseFloat(totalPosteNonDecompose) * parseFloat(quantite);
         return res.status(200).json({ info, carbonBalance });
     } catch (error) {

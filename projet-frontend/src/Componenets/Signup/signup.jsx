@@ -52,9 +52,9 @@ const Signup = () => {
             containerRef.current.classList.remove("right-panel-active");
         });
     }, []);
-
     const handleSignIn = async (event) => {
         event.preventDefault();
+  
         const response = await fetch('http://localhost:3001/auth/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -63,8 +63,8 @@ const Signup = () => {
     
         const data = await response.json();
         if (response.ok) {
-            alert('Login successful');
             localStorage.setItem('authToken', data.token);
+            navigate('/second-page');
             // Set session timeout for 1 day (24 hours)
             setTimeout(() => {
                 localStorage.removeItem('authToken'); // Clear authToken after timeout
@@ -93,10 +93,12 @@ const Signup = () => {
                 alert('Registration successful');
                 //navigate('../profile/profile.jsx'); // to create the page "profile"
                 localStorage.setItem('authToken', data.token);
+                //navigate('/second-page')
                 // Set session timeout for 1 day (24 hours)
                 setTimeout(() => {
                     localStorage.removeItem('authToken'); // Clear authToken after timeout
                 // Redirect or perform any other action on session timeout
+
                 }, 86400000); // 24 hours timeout
             } else {
                 alert(data.message || "An unknown error occurred"); // Provide a fallback message
@@ -164,7 +166,7 @@ const Signup = () => {
 <p>Connectez-vous pour commencer à calculer votre bilan de carbone</p>
                         <input type="text" value={signInEmail} onChange={(e) => setSignInEmail(e.target.value)} placeholder="Email" required/>
                         <input type="password" value={signInPassword} onChange={(e) => setSignInPassword(e.target.value)} placeholder="Mot de passe" required/>
-                        <Link to="/second-page">    <button class='btn' type="submit">Se connecter</button>  </Link > 
+                            <button class='btn' type="submit">Se connecter</button>  
                     </form>
                 </div>
                 <div className="overlay-container">
