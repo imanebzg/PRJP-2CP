@@ -5,11 +5,12 @@ const nodemailer = require('nodemailer');
 const path = require('path');
 const cors = require('cors');
 const app = express();
+
 const dbConfig = require('./config/database');
 const port = 3001;
 const corsOptions = {
   origin: 'http://localhost:3000', // Allow requests from this origin
-  methods: ['GET', 'POST'], // Allow specified HTTP methods
+  methods: ['GET', 'POST', 'PUT' , 'DELETE'], // Allow specified HTTP methods
 };
 app.use(cors(corsOptions));
 const publicDirectory = path.join(__dirname, '/public'); 
@@ -25,6 +26,7 @@ const getCalcRoutes = require('./routes/calc');
 const getOptionsRoutes = require('./routes/getOptions');
 const getSendRoutes = require('./routes/sendings');
 const getproductRoutes = require('./routes/productRoutes');
+const getcompanyRoutes = require('./routes/infoRoute');
 
 /*
 app.use(session({
@@ -42,6 +44,7 @@ app.use('/calc', getCalcRoutes); // Assuming calcRoutes are for calculation-rela
 app.use('/getters', getOptionsRoutes);
 app.use('/sendings', getSendRoutes);
 app.use('/api', getproductRoutes);
+app.use('/info', getcompanyRoutes);
 
 
 app.use((req, res, next) => {

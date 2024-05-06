@@ -10,6 +10,7 @@ import Histogrm_s from "../../Componenets/histogrm/histogrm"
 import Histogrm_T from "../../Componenets/histogrm-total/TOTAL"
 import Sdb from "../../Componenets/Sidebar/Sidebar"
 import Tableau from "../../Componenets/tableau/tableau"
+import CompanyProfilePage from "../../Componenets/Info_entreprise/Info_entreprise"
 
 
 const Thirdpage = (props) => {
@@ -28,8 +29,7 @@ const Thirdpage = (props) => {
            <Notif/>
            <Security/>
            <Supprimer/>*/}
-          
-          <Tableau/>
+          <CompanyProfilePage/>
           
                   
         </div>

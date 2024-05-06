@@ -545,7 +545,7 @@ const handleChange = (setter, fieldName) => event => {
     <div>
       <form onSubmit={handleFinalSubmit}>
         <label htmlFor="secteur1">Secteur1:</label>
-        <select id="sector1" name="secteur1" value={calcInfo.secteur1} onChange={handleChange(setSecteur1, 'secteur1')}>
+        <select id="sector1" name="secteur1" value={secteur1} onChange={handleChange(setSecteur1, 'secteur1')}>
           <option value="">--select--</option>
           {secteur1Options.map(option => <option key={option} value={option}>{option}</option>)}
         </select>

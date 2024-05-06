@@ -105,6 +105,21 @@ async function gettaux(ligne, nom, secteur1, secteur2, secteur3, secteur4, secte
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /*console.log("query : "+sqlquery);
     const results = await connection.query(sqlquery);
 

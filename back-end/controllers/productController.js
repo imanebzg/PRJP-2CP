@@ -16,22 +16,6 @@ exports.getProductData = (req, res) => {
  
   const selectedquantite = req.query.Quantite;
 
-  //const selectedProduct = 'Tourbe';
-console.log(selectedProduct);
-console.log(selectedSecteur1 );
-console.log( selectedSecteur2 );
-console.log(selectedSecteur3);
-console.log(selectedSecteur4 );
-console.log(selectedSecteur5 );
-console.log( selectedcontributeur );
-console.log( selectedlocalisation );
-console.log( selectedsouslocalisation );
-console.log(selectedquantite );
-console.log(selectednomattribut);
-console.log( selectednomfrontiere );
-console.log( selectedunite );
-
-
   const query = `SELECT * FROM base_de_donnees WHERE Nom = ? AND Secteur1 = ? AND Secteur2 = ? AND Secteur3 = ? AND Secteur4 = ? AND Secteur5 = ? AND Unite_français= ? AND Nom_attribut_français = ? AND Nom_frontière_français = ? AND Contributeur = ? AND Localisation_geographique = ? AND Sous_localisation_geographique_français = ?;`;
 
 
@@ -73,7 +57,6 @@ console.log( selectedunite );
     if (!shouldReverse) {
       rows.reverse();
     }
-    console.log("rows in the controller",rows)
 
     res.json({ rows, sums }); // Envoie les données sous forme de JSON
     
