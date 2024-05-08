@@ -1,0 +1,255 @@
+@import url('https://fonts.cdnfonts.com/css/gilroy-bold');
+@import url('https://fonts.cdnfonts.com/css/proxima-nova-condensed');
+
+
+
+
+
+    .Selectionner {
+ 
+    align-items: center;
+ 
+    max-width: 100%;
+ 
+    padding: 2%;
+    border-radius: 8px;
+    border: 2px solid  #E0E8F5;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    
+      }
+
+
+.SELECTION {
+ 
+align-items: center;
+
+
+  }
+
+
+.radio-input input[type="radio"] {
+    display: none; /* Pour cacher les cases à cocher par défaut */
+    
+  }
+  
+  
+  .radio-input {
+    max-width: 100%;
+    height: 40%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 9999px;
+    background-color: #E0E8F5;
+    color: #000000;
+    width: var(--container_width);
+    overflow: hidden;
+    border: 0.3px solid rgba(53, 52, 52, 0.226);
+  }
+  
+  .radio-input label {
+    width: 100%;
+    
+    padding:1.5%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    font-weight: 600;
+    letter-spacing: 0.7px;
+    font-size: 15px;
+    text-align: center;
+  }
+  
+  .selection {
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: calc(var(--container_width) / 4);
+    z-index: 0;
+    left: 0;
+    
+    top: 0;
+    transition: .15s;
+  }
+  .radio-input label:has(input:checked) {
+    color:white;  background-color: #5963A3;
+  
+    display: inline-block;
+    text-align: center;
+  }
+  .Selectionner .btn2 {
+    display: inline-block;
+    font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
+    padding: 0.625rem 3.4375rem; /* 10px 55px / 16px */
+    border: 0.125rem solid  #4CA950;/* 2px solid #e14c31 / 16px */
+    background-color: #ffffff;
+    color: #031273;
+    font-size: 1rem;   /* 20px / 16px */
+    font-weight: bold;
+    padding-left: 2%;
+    padding-right: 2%;
+    text-transform: uppercase;
+    letter-spacing: 0.04rem; /* 0.1em / 16px */
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.625rem; /* 10px / 16px */
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .Selectionner .btn2::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color:  #4CA950;
+    opacity: 0.2;
+    border-radius: 50%;
+    transform: translate  (-50%, -50%);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .Selectionner .btn2:hover {
+    background-color: #4CA950;
+    color: white;
+    box-shadow:  #4CA950;
+  }
+  
+  .Selectionner .btn2:hover::before {
+    width: 200%;
+    height: 200%;
+  }
+
+.formulaire{
+
+  padding-top: 5%;
+justify-content: center;
+
+}
+.formulaire form {
+    background-color: #ffffff;
+    max-width: 600px;
+    margin:auto;
+    padding: 30px;
+    border-radius: 8px;
+    border: 2px solid #4CA950; 
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+
+.formulaire select, .formulaire input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.formulaire select:focus,.formulaire input[type="text"]:focus {
+    outline: none;
+    border-color: #031273;
+    box-shadow: 0 0 5px #031273;
+}
+
+
+.formulaire 
+.btn1 {
+  display: inline-block;
+  
+  font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
+  padding: 0.625rem 1.25rem; /* 10px 20px / 16px */
+  border: 0.125rem solid #4CA950; /* 2px solid #e14c31 / 16px */
+  background-color:  #4CA950; 
+  font-size: 1rem;   /* 20px / 16px */
+  font-weight: bold;
+  color: #031273;
+  text-transform: uppercase;
+  letter-spacing: 0.0625rem; /* 0.1em / 16px */
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.625rem; /* 10px / 16px */
+  transition: all 0.3s ease-in-out;
+}
+
+.formulaire .btn1::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: #fff;
+  opacity: 0.2;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease-in-out;
+}
+
+.formulaire .btn1:hover {
+  background-color: #fff;
+  color:  #4CA950; 
+  box-shadow: #4CA950; 
+}
+
+.formulaire .btn1:hover::before {
+  width: 200%;
+  height: 200%;
+}
+
+    
+  
+  
+  /* Styles pour le bouton de soumission personnalisé */
+.formulaire input[type="submit"].custom-submit-button {
+    display: inline-block;
+    font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
+    padding: 6px 13px;
+    margin: 8px;
+    border: 2px solid #4CA950;
+    background-color:white;
+    color:#e14c31; 
+    font-size: 17px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .formulaire input[type="submit"].custom-submit-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color:  #4CA950;
+    opacity: 0.2;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .formulaire input[type="submit"].custom-submit-button:hover {
+    background-color: #4CA950;
+    color: #031273;
+    box-shadow: #e14c31;
+  }
+  
+  .formulaire input[type="submit"].custom-submit-button:hover::before {
+    width: 200%;
+    height: 200%;
+  }
+  
+  
+  

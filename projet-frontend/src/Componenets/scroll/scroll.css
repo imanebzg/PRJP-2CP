@@ -1,0 +1,16 @@
+.animated-element {
+    opacity: 0;
+    animation: openStairs 0.5s ease forwards;
+  }
+  
+  @keyframes openStairs {
+    from {
+      transform: translateY(100px) scaleY(0);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0) scaleY(1);
+      opacity: 1;
+    }
+  }
+  

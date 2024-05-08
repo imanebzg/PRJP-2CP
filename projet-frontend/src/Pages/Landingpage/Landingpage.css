@@ -1,4 +1,4 @@
-.grid-container {
+.landing .grid-container {
     display: grid;
     grid-template-columns: 1fr; /* Single column for background and home */
     grid-template-rows: 100%; /* Full height for both components */

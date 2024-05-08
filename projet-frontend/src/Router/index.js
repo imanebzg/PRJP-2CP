@@ -19,7 +19,11 @@ export default function AppRouter() {
         <Route path="/gestion-de-comptes" element={<Page3 />} />
         <Route path="/inviter-utilisateur" element={<Page4 />} />
         <Route path="/user-space" element={<Page5 />} />
-   
+        <Route path="/Notification" element={<Notif/>} />
+        <Route path="/Info_entreprise" element={<Entrp/> } />
+        <Route path='/Securite' element={<Securite />} />
+        <Route path="/Sup" element={<Supprimer/> } />
+        <Route path="/Sup" element={<Supprimer/> } />
       </Routes>
     </Router>
   );

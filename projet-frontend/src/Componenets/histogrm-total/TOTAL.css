@@ -26,10 +26,10 @@
 }
 
 .Total .title_big p {
-  font-size: 20px;
+  font-size: 24px;
   background: #fcfdff;
   color: #031273;
-  margin-left: 30px;
+  margin-left: 0px;
   font-weight: 500;
   margin-top: 30px;
   font-family: "gilroy", sans-serif;
@@ -37,7 +37,7 @@
 
 .Total .programming-stats4,
 .Total .programming-stats5 {
-  font-family: "Poppins", sans-serif;
+  font-family: "gilroy", sans-serif;
   display: flex;
   align-items: center;
   gap: 24px;
@@ -90,3 +90,4 @@
     width: 100%;
   }
 }
+

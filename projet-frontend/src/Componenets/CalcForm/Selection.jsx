@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from 'react';
-//mport { calc } from '../../../../back-end/controllers/calc';
-import './form.css';
 
-function MyForm() {
+ // Assurez-vous d'importer correctement Form2
 
+ import React, { useEffect, useState } from 'react';
+ // import { calc } from '../../../../back-end/controllers/calc';
+  import './form.css';
+  import Tableau from "../tableau/tableau"
+function Sele() {
+ 
+  // useState to hold the fetched data
+  
   const [formResults, setFormResults] = useState([]);
   const [totalSum, setTotalSum] = useState(0);
 
@@ -22,6 +27,9 @@ function MyForm() {
   const [localisation, setlocalisation] = useState('');
   const [souslocalisation, setsouslocalisation] = useState('');
   const [quantite, setQuantite] = useState('');
+
+  const [tableData, setTableData] = useState(null);
+
 
   
 
@@ -47,6 +55,32 @@ function MyForm() {
   const [souslocalisationOptions, setsouslocalisationOptions] = useState([]);
 
 
+
+
+
+/////////////////////
+const fetchProductData = (produit,quantite,unite,NomAttribut,NomFrontiere,contributeur,localisation,souslocalisation,secteur1,secteur2,secteur3,secteur4,secteur5) => {
+  fetch(`http://localhost:3001/api/products?nom=${encodeURIComponent(produit)}&Secteur1=${encodeURIComponent(secteur1)}&Secteur2=${encodeURIComponent(secteur2)}&Secteur3=${encodeURIComponent(secteur3)}&Secteur4=${encodeURIComponent(secteur4)}&Secteur5=${encodeURIComponent(secteur5)}&Unite_français=${encodeURIComponent(unite)}&Nom_attribut_français=${encodeURIComponent(NomAttribut)}&Nom_frontière_français=${encodeURIComponent(NomFrontiere)}&Contributeur=${encodeURIComponent(contributeur)}&Localisation_geographique=${encodeURIComponent(localisation)}&Sous_localisation_geographique_français=${encodeURIComponent(souslocalisation)}&Quantite=${encodeURIComponent(quantite)}`)
+
+    .then(response => response.json())
+    .then(datatable => {
+      console.log("Product Data:", datatable);
+      setTableData(datatable);
+      // Handle additional state updates or operations based on the fetched data
+    })
+    .catch(error => console.error('Failed to fetch product data:', error));
+};
+
+useEffect(() => {
+  if ( produit && quantite &&unite && NomAttribut && NomFrontiere && contributeur && localisation && souslocalisation && secteur1 && secteur2 && secteur3 && secteur4 && secteur5 ) { // Only fetch data if a product is selected
+    fetchProductData(produit,quantite,unite,NomAttribut,NomFrontiere,contributeur,localisation,souslocalisation,secteur1,secteur2,secteur3,secteur4,secteur5);
+
+  }
+}, [ produit,quantite,unite,NomAttribut,NomFrontiere,contributeur,localisation,souslocalisation,secteur1,secteur2,secteur3,secteur4,secteur5]); 
+////////////////////
+
+
+//secteur2
   async function fetchOptions(url, updateState) {
     try {
       const response = await fetch(`http://localhost:3001/getters/getSector2Options?sector1=${encodeURIComponent(secteur1)}`);
@@ -58,15 +92,13 @@ function MyForm() {
       console.error('Failed to fetch options:', error);
     }
   }
-
   useEffect(() => {
     if (secteur1) { 
-      fetchOptions(`/getters/getSector2Options?sector1=${encodeURIComponent(secteur1)}`, setSecteur2Options);
+      fetchOptions(`http://localhost:3001/getters/getSector2Options?sector1=${encodeURIComponent(secteur1)}`, setSecteur2Options);
 
     }
   }, [secteur1]);  
-
-    
+//secteur3
   useEffect(() => {
     if (secteur1 && secteur2) { 
       console.log('hna')
@@ -87,13 +119,12 @@ function MyForm() {
       console.error('Failed to fetch options:', error);
     }
   }
-
+//secteur4
   useEffect(() => {
     if (secteur1 && secteur2 && secteur3) { 
       fetch4Options(`http://localhost:3001/getters/getSector4Options?sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&&sector3=${encodeURIComponent(secteur3)}`, setSecteur4Options);
     }
   }, [secteur1, secteur2 ,secteur3]);  
-
   async function fetch4Options(url, update3State) {
     try {
       let sec3=encodeURIComponent(secteur3);
@@ -106,14 +137,12 @@ function MyForm() {
       console.error('Failed to fetch options:', error);
     }
   }
-
-  
+//secteur5 
   useEffect(() => {
     if (secteur1 && secteur2 && secteur3  && secteur4) { 
       fetch5Options(`http://localhost:3001/getters/getSector5Options?sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&&sector3=${encodeURIComponent(secteur3)}&&sector4=${encodeURIComponent(secteur4)}`, setSecteur5Options);
     }
   }, [secteur1, secteur2 ,secteur3,secteur4]);  
-
   async function fetch5Options(url, update4State) {
     try {
       let sec4=encodeURIComponent(secteur4);
@@ -128,7 +157,7 @@ function MyForm() {
     }
   }
 
-
+//produit
   async function fetchproductOptions(url, updateState) {
     try {
       const response = await fetch(`http://localhost:3001/getters/getProductOptions?sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&&sector3=${encodeURIComponent(secteur3)}&&sector4=${encodeURIComponent(secteur4)}&&sector5=${encodeURIComponent(secteur5)}`);
@@ -138,15 +167,12 @@ function MyForm() {
       console.error('Failed to fetch options:', error);
     }
   }
-
-
   useEffect(() => {
     if (secteur5) { 
       fetchproductOptions(`/getters/getProductOptions?sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&&sector3=${encodeURIComponent(secteur3)}&&sector4=${encodeURIComponent(secteur4)}&&sector5=${encodeURIComponent(secteur5)}`, setproduitOptions);
     }
   }, [secteur5]);  
-
-
+//poste
   async function fetchposteOptions(url, updateState) {
     try {
       const response = await fetch(`http://localhost:3001/getters/getPosteOptions?nom=${encodeURIComponent(produit)}&typeLigne=${encodeURIComponent(ligne)}`);
@@ -158,14 +184,13 @@ function MyForm() {
       console.error('Failed to fetch options:', error);
     }
   }
-
   useEffect(() => {
     if (produit && ligne) { 
       fetchposteOptions(`getters/getPosteOptions?nom=${encodeURIComponent(produit)}&typeLigne=${encodeURIComponent(ligne)}`, setposteOptions);
 
     }
   }, [produit , ligne]);  
-
+//ligne
   async function fetchligneOptions(url, updateState) {
     try {
       const response = await fetch(`http://localhost:3001/getters/getligneOptions?nom=${encodeURIComponent(produit)}`);
@@ -177,17 +202,16 @@ function MyForm() {
       console.error('Failed to fetch options:', error);
     }
   }
-
   useEffect(() => {
     if (produit) { 
       fetchligneOptions(`getters/getligneOptions?nom=${encodeURIComponent(produit)}`, setligneOptions);
 
     }
   }, [produit]); 
-  
+//unite
   async function fetchuniteOptions(url, updateState) {
     try {
-      const response = await fetch(`http://localhost:3001/getters/getunitoptions?nom=${encodeURIComponent(produit)}`);
+      const response = await fetch(`http://localhost:3001/getters/getunitoptions?nom=${encodeURIComponent(produit)}&sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&sector3=${encodeURIComponent(secteur3)}&sector4=${encodeURIComponent(secteur4)}&sector5=${encodeURIComponent(secteur5)}`);
       const data = await response.json();
       updateState(data); // Directly updating state passed as a function
       console.log('data',data)
@@ -196,17 +220,17 @@ function MyForm() {
       console.error('Failed to fetch options:', error);
     }
   }
-
   useEffect(() => {
-    if (produit) { 
-      fetchuniteOptions(`getters/getunitoptions?nom=${encodeURIComponent(produit)}`, setuniteOptions);
-
+    if (secteur1 && secteur2 && secteur3  && secteur4 && secteur5 && produit) { 
+      fetchuniteOptions(`http://localhost:3001/getters/getunitoptions?nom=${encodeURIComponent(produit)}&sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&sector3=${encodeURIComponent(secteur3)}&sector4=${encodeURIComponent(secteur4)}&sector5=${encodeURIComponent(secteur5)}`, setuniteOptions);
     }
-  }, [produit]); 
+  }, [secteur1, secteur2 ,secteur3,secteur4 , secteur5 , produit]);  
 
+//attribut
   async function fetchattributOptions(url, updateState) {
     try {
-      const response = await fetch(`http://localhost:3001/getters/getnomattributoptions?nom=${encodeURIComponent(produit)}`);
+      const response = await fetch( `http://localhost:3001/getters/getnomattributoptions?nom=${encodeURIComponent(produit)}&sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&sector3=${encodeURIComponent(secteur3)}&sector4=${encodeURIComponent(secteur4)}&sector5=${encodeURIComponent(secteur5)}&unite=${encodeURIComponent(unite)}`);
+     
       const data = await response.json();
       updateState(data); // Directly updating state passed as a function
       console.log('data',data)
@@ -215,17 +239,16 @@ function MyForm() {
       console.error('Failed to fetch options:', error);
     }
   }
-
   useEffect(() => {
-    if (produit) { 
-      fetchattributOptions(`getters/getnomattributoptions?nom=${encodeURIComponent(produit)}`, setNomAttributOptions);
+    if (secteur1 && secteur2 && secteur3  && secteur4 && secteur5 && produit && unite) { 
+      fetchattributOptions(`http://localhost:3001/getters/getnomattributoptions?nom=${encodeURIComponent(produit)}&sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&sector3=${encodeURIComponent(secteur3)}&sector4=${encodeURIComponent(secteur4)}&sector5=${encodeURIComponent(secteur5)}&unite=${encodeURIComponent(unite)}`, setNomAttributOptions);
     }
-  }, [produit]); 
+  }, [secteur1, secteur2 ,secteur3,secteur4 , secteur5 , produit , unite]); 
 
-  
+//frontiere
   async function fetchfrontiereOptions(url, updateState) {
     try {
-      const response = await fetch(`http://localhost:3001/getters/getnomfrontiereoptions?nom=${encodeURIComponent(produit)}&NomAttribut=${encodeURIComponent(NomAttribut)}`);
+      const response = await fetch(`http://localhost:3001/getters/getnomfrontiereoptions?nom=${encodeURIComponent(produit)}&sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&sector3=${encodeURIComponent(secteur3)}&sector4=${encodeURIComponent(secteur4)}&sector5=${encodeURIComponent(secteur5)}&unite=${encodeURIComponent(unite)}&NomAttribut=${encodeURIComponent(NomAttribut)}` );
       const data = await response.json();
       updateState(data); // Directly updating state passed as a function
       console.log('data',data)
@@ -234,36 +257,35 @@ function MyForm() {
       console.error('Failed to fetch options:', error);
     }
   }
-
   useEffect(() => {
-    if (produit && NomAttribut) { 
-      fetchfrontiereOptions(`getters/getnomfrontiereoptions?nom=${encodeURIComponent(produit)}&NomAttribut=${encodeURIComponent(NomAttribut)}`, setNomFrontiereOptions);
+    if (secteur1 && secteur2 && secteur3  && secteur4 && secteur5 && produit && unite && NomAttribut) { 
+      fetchfrontiereOptions(`http://localhost:3001/getters/getnomfrontiereoptions?nom=${encodeURIComponent(produit)}&sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&sector3=${encodeURIComponent(secteur3)}&sector4=${encodeURIComponent(secteur4)}&sector5=${encodeURIComponent(secteur5)}&unite=${encodeURIComponent(unite)}&NomAttribut=${encodeURIComponent(NomAttribut)}`, setNomFrontiereOptions);
     }
-  }, [produit , NomAttribut]); 
-  
+  }, [secteur1, secteur2 ,secteur3,secteur4 , secteur5 , produit , unite , NomAttribut]); 
+
+//contributeur
   async function fetchcontributeurOptions(url, updateState) {
     try {
-      const response = await fetch(`http://localhost:3001/getters/getcontributeuroptions?nom=${encodeURIComponent(produit)}&NomAttribut=${encodeURIComponent(NomAttribut)}&NomFrontiere=${encodeURIComponent(NomFrontiere)}`);
+      const response = await fetch(`http://localhost:3001/getters/getcontributeuroptions?nom=${encodeURIComponent(produit)}&sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&sector3=${encodeURIComponent(secteur3)}&sector4=${encodeURIComponent(secteur4)}&sector5=${encodeURIComponent(secteur5)}&unite=${encodeURIComponent(unite)}&NomAttribut=${encodeURIComponent(NomAttribut)}&NomFrontiere=${encodeURIComponent(NomFrontiere)}`);
       const data = await response.json();
       updateState(data); // Directly updating state passed as a function
       console.log('data',data)
-
     } catch (error) {
       console.error('Failed to fetch options:', error);
     }
   }
 
   useEffect(() => {
-    if (produit && NomAttribut && NomFrontiere) { 
-      fetchcontributeurOptions(`getters/getcontributeuroptions?nom=${encodeURIComponent(produit)}&NomAttribut=${encodeURIComponent(NomAttribut)}&NomFrontiere=${encodeURIComponent(NomFrontiere)}`, setcontributeurOptions);
+    if (secteur1 && secteur2 && secteur3  && secteur4 && secteur5 && produit && unite && NomAttribut && NomFrontiere) { 
+      fetchcontributeurOptions(`http://localhost:3001/getters/getcontributeuroptions?nom=${encodeURIComponent(produit)}&sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&sector3=${encodeURIComponent(secteur3)}&sector4=${encodeURIComponent(secteur4)}&sector5=${encodeURIComponent(secteur5)}&unite=${encodeURIComponent(unite)}&NomAttribut=${encodeURIComponent(NomAttribut)}&NomFrontiere=${encodeURIComponent(NomFrontiere)}`, setcontributeurOptions);
     }
-  }, [produit , NomAttribut , NomFrontiere]); 
+  }, [secteur1, secteur2 ,secteur3,secteur4 , secteur5 , produit , unite , NomAttribut , NomFrontiere]); 
 
 
-  
+//localisation
   async function fetchlocalisationOptions(url, updateState) {
     try {
-      const response = await fetch(`http://localhost:3001/getters/getlocalisationoptions?nom=${encodeURIComponent(produit)}&NomAttribut=${encodeURIComponent(NomAttribut)}&NomFrontiere=${encodeURIComponent(NomFrontiere)}&contributeur=${encodeURIComponent(contributeur)}`);
+      const response = await fetch(`http://localhost:3001/getters/getlocalisationoptions?nom=${encodeURIComponent(produit)}&sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&sector3=${encodeURIComponent(secteur3)}&sector4=${encodeURIComponent(secteur4)}&sector5=${encodeURIComponent(secteur5)}&unite=${encodeURIComponent(unite)}&NomAttribut=${encodeURIComponent(NomAttribut)}&NomFrontiere=${encodeURIComponent(NomFrontiere)}&contributeur=${encodeURIComponent(contributeur)}`);
       const data = await response.json();
       updateState(data); // Directly updating state passed as a function
       console.log('data',data)
@@ -271,17 +293,18 @@ function MyForm() {
     } catch (error) {
       console.error('Failed to fetch options:', error);
     }
-  }
-
+  } 
   useEffect(() => {
-    if (produit && NomAttribut && NomFrontiere && contributeur) { 
-      fetchlocalisationOptions(`getters/getlocalisationoptions?nom=${encodeURIComponent(produit)}&NomAttribut=${encodeURIComponent(NomAttribut)}&NomFrontiere=${encodeURIComponent(NomFrontiere)}&contributeur=${encodeURIComponent(contributeur)}`, setlocalisationOptions);
+    if (secteur1 && secteur2 && secteur3  && secteur4 && secteur5 && produit && unite && NomAttribut && NomFrontiere && contributeur) { 
+      fetchlocalisationOptions(`http://localhost:3001/getters/getlocalisationoptions?nom=${encodeURIComponent(produit)}&sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&sector3=${encodeURIComponent(secteur3)}&sector4=${encodeURIComponent(secteur4)}&sector5=${encodeURIComponent(secteur5)}&unite=${encodeURIComponent(unite)}&NomAttribut=${encodeURIComponent(NomAttribut)}&NomFrontiere=${encodeURIComponent(NomFrontiere)}&contributeur=${encodeURIComponent(contributeur)}`, setlocalisationOptions);
     }
-  }, [produit , NomAttribut , NomFrontiere , contributeur]); 
-  
+  }, [secteur1, secteur2 ,secteur3,secteur4 , secteur5 , produit , unite , NomAttribut , NomFrontiere , contributeur]); 
+
+
+// sous localisation 
   async function fetchsouslocalisationOptions(url, updateState) {
     try {
-      const response = await fetch(`http://localhost:3001/getters/getsouslocalisationoptions?nom=${encodeURIComponent(produit)}&NomAttribut=${encodeURIComponent(NomAttribut)}&NomFrontiere=${encodeURIComponent(NomFrontiere)}&contributeur=${encodeURIComponent(contributeur)}&localisation=${encodeURIComponent(localisation)}`);
+      const response = await fetch(`http://localhost:3001/getters/getsouslocalisationoptions?nom=${encodeURIComponent(produit)}&sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&sector3=${encodeURIComponent(secteur3)}&sector4=${encodeURIComponent(secteur4)}&sector5=${encodeURIComponent(secteur5)}&unite=${encodeURIComponent(unite)}&NomAttribut=${encodeURIComponent(NomAttribut)}&NomFrontiere=${encodeURIComponent(NomFrontiere)}&contributeur=${encodeURIComponent(contributeur)}&localisation=${encodeURIComponent(localisation)}`);
       const data = await response.json();
       updateState(data); // Directly updating state passed as a function
       console.log('data',data)
@@ -292,10 +315,11 @@ function MyForm() {
   }
 
   useEffect(() => {
-    if (produit && NomAttribut && NomFrontiere && contributeur && localisation) { 
-      fetchsouslocalisationOptions(`getters/getsouslocalisationoptions?nom=${encodeURIComponent(produit)}&NomAttribut=${encodeURIComponent(NomAttribut)}&NomFrontiere=${encodeURIComponent(NomFrontiere)}&contributeur=${encodeURIComponent(contributeur)}&localisation=${encodeURIComponent(localisation)}`, setsouslocalisationOptions);
+    if (secteur1 && secteur2 && secteur3  && secteur4 && secteur5 && produit && unite && NomAttribut && NomFrontiere && contributeur && localisation) { 
+      fetchsouslocalisationOptions(`http://localhost:3001/getters/getsouslocalisationoptions?nom=${encodeURIComponent(produit)}&sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&sector3=${encodeURIComponent(secteur3)}&sector4=${encodeURIComponent(secteur4)}&sector5=${encodeURIComponent(secteur5)}&unite=${encodeURIComponent(unite)}&NomAttribut=${encodeURIComponent(NomAttribut)}&NomFrontiere=${encodeURIComponent(NomFrontiere)}&contributeur=${encodeURIComponent(contributeur)}&localisation=${encodeURIComponent(localisation)}`, setsouslocalisationOptions);
     }
-  }, [produit , NomAttribut , NomFrontiere , contributeur , localisation]); 
+  }, [secteur1, secteur2 ,secteur3,secteur4 , secteur5 , produit , unite , NomAttribut , NomFrontiere , contributeur , localisation]); 
+
 
 
 
@@ -369,64 +393,16 @@ const handleCalcul = (event) => {
     const updateCalcInfo = (field, value) => {
       setCalcInfo(prev => ({ ...prev, [field]: value }));
   };
+
+
   const handleChange = (setter, fieldName) => (event) => {
-      const value = event.target.value;
-      setter(value);
-      updateCalcInfo(fieldName, value);
-  };
-/*
-  const handleAddProduct = (e) => {
-    e.preventDefault();
-    const result = await handleCalcul(e); // Implement your calculation function
-    setFormResults(prevResults => [...prevResults, result]);
-    setTotalSum(prevSum => prevSum + result);
-    setCalcInfo({
-      secteur1: '',
-      secteur2: '',
-      secteur3: '',
-      secteur4: '',
-      secteur5: '',
-      nom: '',
-      ligne: '',
-      poste: '',
-      quantite: '',
-      unite: '',
-      NomAttribut: '',
-      NomFrontiere: '',
-      contributeur: '', 
-      localisation: '',
-      souslocalisation: ''
-      // Reset other form fields as needed
-    });
-  };
+    const value = event.target.value;
+    setter(value);
+    updateCalcInfo(fieldName, value);
+};
 
-  const handleFinalSubmit = (e) => {
-    e.preventDefault();
-    const result = await handleCalcul(e); // Implement your calculation function
-    setFormResults(prevResults => [...prevResults, result]);
-    setTotalSum(prevSum => prevSum + result);
-    setCalcInfo({
-      secteur1: '',
-      secteur2: '',
-      secteur3: '',
-      secteur4: '',
-      secteur5: '',
-      nom: '',
-      ligne: '',
-      poste: '',
-      quantite: '',
-      unite: '',
-      NomAttribut: '',
-      NomFrontiere: '',
-      contributeur: '', 
-      localisation: '',
-      souslocalisation: ''
-      // Reset other form fields as needed
-    });
-    alert(`Total sum: ${totalSum}`);
-  };
-*/
 
+ 
 
   // Load totalSum from local storage on component mount
   useEffect(() => {
@@ -435,13 +411,15 @@ const handleCalcul = (event) => {
       setTotalSum(savedTotalSum);
     }
   }, []);
+ 
   const handleAddProduct = (e) => {
     e.preventDefault();
     handleCalcul(e).then(result => {
-      setFormResults(prevResults => [...prevResults, result]);
+      const newCalcInfo = { ...calcInfo }; // Create a copy of current calcInfo
+      const updatedFormResults = [...formResults, newCalcInfo];
+      setFormResults(updatedFormResults); // Add calcInfo to formResults
       setTotalSum(prevSum => prevSum + result);
-      setCalcInfo(prevCalcInfo => ({
-        ...prevCalcInfo,
+      setCalcInfo({
         secteur1: '',
         secteur2: '',
         secteur3: '',
@@ -458,9 +436,29 @@ const handleCalcul = (event) => {
         localisation: '',
         souslocalisation: ''
         // Reset other form fields as needed
-      }));
+      });
+      setSecteur1('');
+      setSecteur2('');
+      setSecteur3('');
+      setSecteur4('');
+      setSecteur5('');
+      setproduit('');
+      setproduit('');
+      setligne('');
+      setunite('');
+      setNomAttribut('');
+      setNomFrontiere('');
+      setcontributeur('');
+      setlocalisation('');
+      setsouslocalisation('');
+      setQuantite('');
+  
+
+      // Save formResults to local storage
+      localStorage.setItem('formResults', JSON.stringify(updatedFormResults));
       localStorage.setItem('totalSum', JSON.stringify(totalSum + result));
-      window.location.reload();
+      setSelectedScope('form-1');
+      //window.location.reload();
     }).catch(error => {
       console.error('Error in handleAddProduct:', error);
     });
@@ -469,10 +467,11 @@ const handleCalcul = (event) => {
     e.preventDefault();
     handleCalcul(e)
       .then(result => {
-        setFormResults(prevResults => [...prevResults, result]);
+        const newCalcInfo = { ...calcInfo }; // Create a copy of current calcInfo
+        const updatedFormResults = [...formResults, newCalcInfo];
+      setFormResults(updatedFormResults); // Add calcInfo to formResults
         setTotalSum(prevSum => prevSum + result);
-        setCalcInfo(prevCalcInfo => ({
-          ...prevCalcInfo,
+        setCalcInfo({
           secteur1: '',
           secteur2: '',
           secteur3: '',
@@ -489,25 +488,97 @@ const handleCalcul = (event) => {
           localisation: '',
           souslocalisation: ''
           // Reset other form fields as needed
-        }));
-        alert(`Total sum: ${totalSum}`);
+        });
+          
+        setSecteur1('');
+        setSecteur2('');
+        setSecteur3('');
+        setSecteur4('');
+        setSecteur5('');
+        setproduit('');
+        setproduit('');
+        setligne('');
+        setunite('');
+        setNomAttribut('');
+        setNomFrontiere('');
+        setcontributeur('');
+        setlocalisation('');
+        setsouslocalisation('');
+        setQuantite('');
+    
         // Clear totalSum from local storage
-        localStorage.setItem('totalSum', JSON.stringify(0));
+        localStorage.setItem('totalSum', JSON.stringify(totalSum + result));
+
+        // Save formResults to local storage
+        localStorage.setItem('formResults', JSON.stringify([...formResults, newCalcInfo]));
+        localStorage.setItem('isSubmitted', true);
+        window.location.reload();
       })
       .catch(error => {
         console.error('Error in handleFinalSubmit:', error);
       });
   };
   
-  
+  const [selectedScope, setSelectedScope] = useState('form-1');
 
+  const handleRadioChange = (event) => {
+    setSelectedScope(event.target.value);
+  };
   return (
-    <div className='formulaire'>
-            <div className="section">
-      <h2>Section 1</h2>
+    <div className="Selectionner">
+      <p>  Remplissez toutes les informations necessaires aux calculs: </p>
+       <div className="SELECTION">
+        <div className="radio-input">
+          <input type="hidden" id="selectedScope" value={selectedScope} />
 
-      <form onSubmit={handleFinalSubmit}>
-        <label htmlFor="secteur1">Secteur1:</label>
+          {/* Radio buttons with labels */}
+          <label>
+            <input
+              type="radio"
+              value="form-1"
+              name="value-radio"
+              id="value-1"
+              onChange={handleRadioChange}
+              checked={selectedScope === 'form-1'} // Set checked based on state
+            />
+            <span>Sous Secteurs</span>
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="form-2"
+              name="value-radio"
+              id="value-2"
+              onChange={handleRadioChange}
+              checked={selectedScope === 'form-2'} // Set checked based on state
+            />
+            <span>Spécifications Produit</span>
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              value="form-3"
+              name="value-radio"
+              id="value-3"
+              onChange={handleRadioChange}
+              checked={selectedScope === 'form-3'} // Set checked based on state
+            />
+            <span>Autres</span>
+          </label>
+         
+    
+        </div>
+ 
+
+      <div id="form-container" >
+      {selectedScope === 'form-1' && (
+        <div id="form1">
+           <div className="formulaire">
+     
+
+           <form >
+        <label htmlFor="secteur1">Secteur général:</label>
         <select id="sector1" name="secteur1" value={calcInfo.secteur1} onChange={handleChange(setSecteur1, 'secteur1')}>
           <option value="">--select--</option>
           {secteur1Options.map(option => <option key={option} value={option}>{option}</option>)}
@@ -515,30 +586,30 @@ const handleCalcul = (event) => {
         
         <br/>
 
-        <label htmlFor="secteur2">Secteur2:</label>
+        <label htmlFor="secteur2">Sous secteur 1:</label>
         <select id="Secteur2" name="secteur2" value={secteur2} onChange={handleChange(setSecteur2, 'secteur2')}>
           <option value=" ">--select--</option>
           {secteur2Options.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
 
-        <label htmlFor="secteur3">Secteur3:</label>
+        <label htmlFor="secteur3">Sous secteur 2:</label>
         <select id="Secteur3" name="secteur3" value={secteur3} onChange={handleChange(setSecteur3, 'secteur3')}>
-          <option value=" ">--select--</option>
+          <option value=" ">--no option--</option>
           {secteur3Options.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
 
-        <label htmlFor="secteur4">Secteur4:</label>
+        <label htmlFor="secteur4">Sous secteur 3:</label>
         <select id="Secteur4" name="secteur4" value={secteur4} onChange={handleChange(setSecteur4, 'secteur4')}>
-          <option value=" ">--select--</option>
+          <option value=" ">--no option--</option>
           {secteur4Options.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
 
-        <label htmlFor="secteur5">Secteur5:</label>
+        <label htmlFor="secteur5">Sous secteur 4:</label>
         <select id="Secteur5" name="secteur5" value={secteur5} onChange={handleChange(setSecteur5, 'secteur5')}>
-  <option value=" ">--select--</option>
+  <option value=" ">--no option--</option>
   {secteur5Options.length > 0 ? (
     <>
       <option value=" " disabled hidden>Empty</option>
@@ -550,16 +621,22 @@ const handleCalcul = (event) => {
     <option value=" " disabled>No options available</option>
   )}
 </select>
-
-        <br/>
         </form>
         </div>
-        <div className="section">
-      <h2>Section 2</h2>
-      <form onSubmit={handleFinalSubmit}>
-        <label htmlFor="nom">Nom du produit:</label>
-        <select id="nom" name="nom" value={produit} onChange={handleChange(setproduit, 'nom')}>
-          <option value="">--select--</option>
+       
+        </div> )}
+
+
+
+
+        {selectedScope === 'form-2' && (
+        <div id="form2">
+         <div className="formulaire">
+
+<form >
+<label htmlFor="nom">Nom du produit:</label>
+        <select id="nom" name="nom" value={produit} onChange={handleChange(setproduit,'nom')}>
+          <option value="">--no option--</option>
           {produitOptions.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
@@ -583,55 +660,67 @@ const handleCalcul = (event) => {
 
         <label htmlFor="unite">l'unite :</label>
         <select id="unite" name="unite" value={unite} onChange={handleChange(setunite, 'unite')}>
-          <option value=" ">--select--</option>
+          <option value=" ">--no option--</option>
           {uniteOptions.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
-        </form>
+  </form>
+  </div>
         </div>
-        <div className="section">
-      <h2>Section 3</h2>
-      <form onSubmit={handleFinalSubmit}>
-        <label htmlFor="NomAttribut">le nom de l'attribut :</label>
-        <select id="NomAttribut" name="NomAttribut" value={NomAttribut} onChange={handleChange(setNomAttribut)}>
-          <option value=" ">--select--</option>
+      )}
+
+
+
+
+{selectedScope === 'form-3' && (
+        <div id="form3">
+          <div className="formulaire">
+     
+      <form>
+      <label htmlFor="NomAttribut">le nom de l'attribut :</label>
+        <select id="NomAttribut" name="NomAttribut" value={NomAttribut} onChange={handleChange(setNomAttribut , 'NomAttribut')}>
+          <option value=" ">--no option--</option>
           {NomAttributOptions.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
         
         <label htmlFor="NomFrontiere">le nom de la frontiere :</label>
-        <select id="NomFrontiere" name="NomFrontiere" value={NomFrontiere} onChange={handleChange(setNomFrontiere)}>
-          <option value=" ">--select--</option>
+        <select id="NomFrontiere" name="NomFrontiere" value={NomFrontiere} onChange={handleChange(setNomFrontiere, 'NomFrontiere')}>
+          <option value=" ">--no option--</option>
           {NomFrontiereOptions.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
         
         <label htmlFor="contributeur">le contributeur:</label>
-        <select id="contributeur" name="contributeur" value={contributeur} onChange={handleChange(setcontributeur)}>
-          <option value=" ">--select--</option>
+        <select id="contributeur" name="contributeur" value={contributeur} onChange={handleChange(setcontributeur, 'contributeur')}>
+          <option value=" ">--no option--</option>
           {contributeurOptions.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
         
         <label htmlFor="localisation">la localisation:</label>
-        <select id="localisation" name="localisation" value={localisation} onChange={handleChange(setlocalisation)}>
-          <option value=" ">--select--</option>
+        <select id="localisation" name="localisation" value={localisation} onChange={handleChange(setlocalisation,'localisation')}>
+          <option value=" ">--no option--</option>
           {localisationOptions.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
 
         <label htmlFor="souslocalisation">la sous localisation:</label>
-        <select id="souslocalisation" name="souslocalisation" value={souslocalisation} onChange={handleChange(setsouslocalisation)}>
-          <option value=" ">--select--</option>
+        <select id="souslocalisation" name="souslocalisation" value={souslocalisation} onChange={handleChange(setsouslocalisation ,'souslocalisation')}>
+          <option value=" ">--no option--</option>
           {souslocalisationOptions.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
-        <button onClick={handleAddProduct}>Add Product</button>
-        <input type="submit" value="Submit" />
-      </form>
+        <button onClick={handleAddProduct}className="btn1"style={{ margin: '0.3125rem' }}>Add Product</button>
+        <button onClick={handleFinalSubmit} className="btn2" > Voir le resultat</button> </form>
       </div>
-    </div>
+  
+        </div>
+      )}
+       
+       {tableData && <Tableau data={tableData }  facteur ={quantite} />}   </div>
+    </div> </div>
   );
 }
 
-export default MyForm;
+export default Sele;

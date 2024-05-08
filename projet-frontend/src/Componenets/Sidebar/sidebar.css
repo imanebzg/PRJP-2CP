@@ -1,195 +1,260 @@
 @import url('https://fonts.cdnfonts.com/css/gilroy-bold');
 @import url('https://fonts.cdnfonts.com/css/proxima-nova-condensed');
 
-/*===== VARIABLES CSS =====*/
-:root{
-    --nav-width: 92px;
-  
-    /*===== Colores =====*/
-    --first-color: #a72929;
-    --bg-color: #12192C;
-    --sub-color: #ffffff;
-    --white-color: #FFF;
+
+
+  .bar{position: fixed;
+   
+    margin: 0;
+     width: 100%;
+    height: 100%;
+    font-family:'Proxima Nova Condensed', 'Gilroy-Regular';
     
-    /*===== Fuente y tipografia =====*/
-    --body-font: 'gilroy', sans-serif;
-    --normal-font-size: 1rem;
-    --ch_normal-font-size: .900rem;
-    --small-font-size: .700rem;
     
-    /*===== z index =====*/
-    --z-fixed: 100;
-  }
+    transition: 0.5s;
+    text-align: center;
+
   
-  
-  
-  /*===== BASE =====*/
-  *,::before,::after{
-    box-sizing: border-box;
+ 
   }
 
-  .nbar{position: fixed;
-    z-index: 10;
-    margin: 0; width: 100%;
-    position: relative;
-    margin: 25px;
-    padding: 2rem 0 0 6.75rem;
-    font-family: var(--body-font);
-    font-size: var(--normal-font-size);
-    transition: .5s;
-    text-align: left;
-    position: fixed;
-  top: 0;
-  left: 0;
-  width: var(--nav-width);
-  height: 100vh;
-  background-color: var(--bg-color);
-  color: var(--white-color);
-  padding: 1.5rem 1.5rem 2rem;
-  transition: .5s;
-  z-index: var(--z-fixed);
+a {
+    text-decoration: none;
   }
-
+  
+  /* Remove the default purple color */
+  a:link, a:visited {
+    color: inherit; /* Use the color inherited from the parent */
+  }
  .bar .nav{
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content:space-between;
     overflow: hidden;
   }
 
-
 .bar .Dashboard {
-  display: flex; /* Use flexbox */
-  align-items: center; /* Align items vertically */
-  position: relative; /* Set position to relative */
-  column-gap: .75rem;
-  border-radius: .5rem;
-  cursor: pointer;
-
-}
-
-.bar .Dashboard2 {
-  border-radius: .5rem;
-  display: flex; /* Use flexbox */
-  align-items: center; /* Align items vertically */
-  position: relative; /* Set position to relative */
-  column-gap: .75rem;
-  cursor: pointer;
-
-}
-.bar .Dashboard1 {
-  border-radius: .5rem;
-  display: flex; /* Use flexbox */
-  align-items: center; /* Align items vertically */
-  position: relative; /* Set position to relative */
-  column-gap: .75rem;
-  cursor: pointer;
-
-}
-.bar .Dashboard3 {
  
-  column-gap: .75rem;
-  border-radius: .5rem;
-  cursor: pointer;
-
-}
-
-.bar .Dashboard4 {
-  border-radius: .5rem;
   display: flex; /* Use flexbox */
   align-items: center; /* Align items vertically */
-  position: relative; /* Set position to relative */
-  column-gap: .75rem;
+ 
+  
   cursor: pointer;
-  list-style-type: none;
 
 }
+.bar .Dashboard2 {
+  display: flex; /* Use flexbox */
+  align-items: center; /* Align items vertically */
+ 
+  
+  cursor: pointer;
 
-.bar .Dashboard3:hover, .bar .Dashboard3.active {
-  background-color: #a72929;
+}.bar .Dashboard :hover{
+  color: #e14c31;
+  border-radius: 5px;
+  padding: 5%;
 }
-
 .bar .Dashboard2 :hover{
-  background-color: #a72929;
+  color: #e14c31;
+  border-radius: 5px;
+padding:5px;
 }
+.bar .item {
+ 
+  display: flex; /* Use flexbox */
+  align-items: center; /* Align items vertically */
+  text-align: center;
+  font-family:'Proxima Nova Condensed', 'Gilroy-Regular';
+  height: 10%;
+  font-size: 100%;
+ 
+
+}
+.bar .item2 {
+ margin-top: 100%;
+ padding-top:50%;
+margin-left: 10%;
+  display: flex; /* Use flexbox */
+  align-items: center; /* Align items vertically */
+  text-align: center;
+ 
+ 
+
+}
+
+
   .bar .sidebar{
     position: fixed;
-    transition: .5s;
-    top: 0;
-    left: 0;
-    z-index: var(--z-fixed);
-    height: 100Vh;
-    width: 13%;
-    background-color: #12192C;
+    transition: 0.5s;
+    text-align: center;
+   padding: 0;
+    height: 100%;
+    width: 14%;
+    background-color:#031273;
      margin: 0;
+     top: 0;
+     bottom: 0;
     color: #ffffff;
    
   }
   .bar .sidebar1{
-    height: 100Vh;
+    height: 100%;
     position: fixed;
+    text-align: center;
     top: 0;
-    text-align: left;
-    left: 0;
-    z-index: var(--z-fixed);
+    top: 0;
+    bottom: 0;
     width: 5%;
-    transition: .5s;
+    transition: 0.5s;
     color: #ffffff;
     margin: 0;
-    background-color: #12192C;
+    background-color:#031273;
   }
-  
   .bar .main{
+    text-align: center; 
+  cursor: pointer;
+width: 100%;
+height: 5rem;
+  }
+  .bar .main1{
     text-align: left;
-    margin-right: 50%;
+    cursor: pointer;
+
   }
-  .bar .sub-menu {
-    list-style-type: none;
-    padding: 2;
-    margin-top: 0;
-    top: 100%; /* Position the submenu below the Dashboard */
+  .bar .icon1{
+ margin-left: 5%;
+margin-top: 15%;
+height: 30%;
+width: 30%;
+
   }
+  .bar .icon1:hover{
+  color: #e14c31;
+
+  padding: 1%;
+   
+     }
+  .bar .icon11{
+margin-left: 30%;
+height: 40%;
+width: 40%;
+
+     }
+  .bar .icon2{
+
+   height: 35%;
+   width: 35%;
+   
+     }
+     .bar .icon22{
+margin-left: 30%;
+      height: 40%;
+      width: 40%;
+      margin-top: 10%;
+      padding-top: 10%;
+      position: fixed;
+        }
+ .bar .icon{
+    height: 40%;
+    width: 40%;
+   
+  }
+.sub-menu {
+
+  padding: 0;
+  margin: 5%;
+ margin-left: 35%;
+ margin-top: 0%;
+  left: 0; /* Align the submenu to the left */
+  top: 100%; /* Position the submenu below the parent element */
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Box shadow of the submenu */
+  
+}
+
+
   
   .bar .sub-menu li {
-    font-size: 15px;
-    color: #ffffff;
+    padding: 0;
+    list-style-type: none; 
+    border: 0.1rem solid #5963A3;
+    margin: 3%;
+    background-color: white ; /* Background color of the submenu */
+    border-radius: 5px; /* Border radius of the submenu */
+    color: #e14c31;
     cursor: pointer;
   }
   
   .bar .sub-menu li:hover {
-    background-color: #700808;
+    background-color:  #e14c31;
+    color:white;
   }
- .bar .icon{
-    height: 20px;
-    width: 20px;
-    cursor:pointer;
-    text-align: left;
-  }
- .bar ul{
-    padding: 15px 0 0 15px;
-    list-style: none;
-  }
-    
- .bar li{
-    text-align: left;
-    margin-top:16px ;
-    font-size: 20px;
+
+
+  .bar button {
     display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    
     cursor: pointer;
-    display: grid;
-  grid-template-columns: max-content max-content;
-  align-items: center;
-  column-gap: .75rem;
-  padding: .75rem;
-  color: var(--white-color);
-  border-radius: .5rem;
-  margin-bottom: 0.75rem;
-  transition: .3s;
-  cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    background-color: rgb(255, 65, 65);
   }
- .bar h2{
-    font-size: 15px;
-    font-weight: 400;
-    margin: 5px 0 0 10px;
+  
+  /* plus sign */
+  .bar .sign {
+    width: 100%;
+    transition-duration: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .bar .sign svg {
+    width: 17px;
+  }
+  
+  .bar .sign svg path {
+    fill: white;
+  }
+  /* text */
+  .bar .text1 {
+    position: absolute;
+    right: 0%;
+    width: 0%;
+    opacity: 0;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition-duration: .3s;
+  }
+  /* hover effect on button width */
+  .bar button:hover {
+    width: 125px;
+    border-radius: 40px;
+    transition-duration: .3s;
+  }
+  
+  .bar button:hover .sign {
+    width: 30%;
+    transition-duration: .3s;
+    padding-left: 1px;
+  }
+  /* hover effect button's text */
+  .bar button:hover .text1 {
+    opacity: 1;
+    width: 70%;
+    transition-duration: .3s;
+    padding-right: 10px;
+  }
+  /* button click effect*/
+  .bar button:active {
+    transform: translate(2px ,2px);
   }

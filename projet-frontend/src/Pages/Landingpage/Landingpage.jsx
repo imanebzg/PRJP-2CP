@@ -10,28 +10,30 @@ import Contact from "../../Componenets/contact/contact";
 import Background from "../../Componenets/backgroung/background";
 import Signin from "../../Componenets/Signup/signup";
 import Learn from "../../Componenets/learn_more/learn";
+import ScrollHandler from '../../Componenets/scroll/scroll';
+
 const LandingPage = (props) => {
-  
-  
-    return (
-
-        <div > 
-
-           <Navbar/>
-           <Home /> 
-           <Background />
-           <Why/>
-           <Signin/>
-           <Learn /> 
-           <Blog/>
-           <About/>
-           <Feedback/>
-           <Contact/>
-           <Footer/>
-          
-         
-        </div>
-      );
-}
+   const authToken = localStorage.getItem('authToken');
+ 
+   return (
+     <div className="landing">
+       <Navbar />
+       <Home />
+       <Background />
+       <Why />
+       {!authToken && <Signin />} {/* Render SignIn only if authToken is not present */}
+       <Learn />
+       <ScrollHandler>
+       <Blog />
+    </ScrollHandler>
+      
+       <About />
+       <Feedback />
+       <Contact />
+       <Footer />
+     </div>
+   );
+ };
+ 
  
 export default LandingPage;

@@ -1,104 +1,103 @@
 @import url('https://fonts.cdnfonts.com/css/gilroy-bold');
 @import url('https://fonts.cdnfonts.com/css/proxima-nova-condensed');
 
-.Histogrm {
+.histo {
   font-family: 'Proxima Nova Condensed';
 }
 
-.Histogrm .container {
-    max-width: 95%;
-    width: 100%;
-    background: #ffffff;
-    border-radius: 0.5rem;
-    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1),
-                0px 5px 12px -2px rgba(0, 0, 0, 0.1),
-                0px 18px 36px -6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    margin: 40px;
+.histo .container {
+  max-width: 100%;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 5px #a3c0d2;
+   overflow: hidden;
+  border: 2px solid #4CA950;
+
 }
 
-.Histogrm .title {
-    padding: 17px;
-    background: #E0E8F5;
-    color: #031273;
-    font-family:'Proxima Nova Condensed';
-}
-
-.Histogrm .user_details {
+.histo .container .scopes{
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 25px;
+  margin:2%;
+}
+.histo .container .scopes1{
+  width: 47%; /* par exemple, vous pouvez ajuster cette valeur selon vos besoins */
+  height: 17rem;
+  flex: 1;
+  background: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 5px #a3c0d2;
+  overflow: hidden;
+margin: 2%;
+  border: 2px solid #1a1b1a29;
+}
+.histo .container .scopes3{
+  width: 47%; /* par exemple, vous pouvez ajuster cette valeur selon vos besoins */
+  height: 17rem;
+  background: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 5px #a3c0d2;
+  overflow: hidden;
+  margin-left: 25%;
+   border: 2px solid #1a1b1a29;
+   margin-bottom: 3%;
+   margin-top: 0;
+}
+.histo .container .chart-container{
+  margin-top: 0%;
 }
 
-.Histogrm .title_big p {
-  font-size: 20px;
-  background: #fcfdff;
+.histo p{
+  padding-top: 0;
+  margin: 0;
+ padding: 4%;
+ font-family: 'Proxima Nova Condensed';
+}
+
+
+
+.histo 
+.btn1 {
+  display: inline-block;
+  margin:1%;
+  margin-left: 25%;
+  font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
+  padding: 0.625rem 1.25rem; /* 10px 20px / 16px */
+  border: 0.125rem solid #4CA950; /* 2px solid #e14c31 / 16px */
+  background-color:  #4CA950; 
+  font-size: 1rem;   /* 20px / 16px */
+  font-weight: bold;
   color: #031273;
-  margin-left: 30px;
-  font-weight: bold;
-  margin-top: 30px;
-  font-family: 'gilroy-bold';
-}
-
-.Histogrm .programming-stats,
-.Histogrm .programming-stats2,
-.Histogrm .programming-stats3 {
-  font-family: 'gilroy-bold';
-  display: flex;
-  align-items: center;
-  gap: 12px; /* Réduire l'espace entre les éléments */
-  margin: 1 auto;
-  margin-bottom: 20px; /* Réduire l'espace entre les blocs */
-  width: fit-content;
-  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.3);
-  border-radius: 20px;
-  padding: 8px 16px; /* Réduire le padding */
-  color: #0f2f3f;
-  transition: all 400ms ease;
-}
-
-.Histogrm .programming-stats:hover,
-.Histogrm .programming-stats2:hover,
-.Histogrm .programming-stats3:hover {
-  transform: scale(1.02);
-  box-shadow: 0 4px 16px -7px rgba(0, 0, 0, 0.3);
-}
-
-.Histogrm .programming-stats .details ul,
-.Histogrm .programming-stats2 .details2 ul,
-.Histogrm .programming-stats3 .details3 ul {
-  list-style: none;
-  padding: 0;
-}
-
-.Histogrm .programming-stats .details ul li,
-.Histogrm .programming-stats2 .details2 ul li,
-.Histogrm .programming-stats3 .details3 ul li {
-  font-size: 16px;
-  margin: 8px 0; /* Réduire la marge */
   text-transform: uppercase;
+  letter-spacing: 0.0625rem; /* 0.1em / 16px */
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.625rem; /* 10px / 16px */
+  transition: all 0.3s ease-in-out;
 }
 
-.Histogrm .programming-stats .details .percentage,
-.Histogrm .programming-stats2 .details2 .percentage,
-.Histogrm .programming-stats3 .details3 .percentage {
-  font-weight: bold;
-  color: #000000;
+.histo .btn1::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: #fff;
+  opacity: 0.2;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease-in-out;
 }
 
-@media screen and (max-width: 584px) {
-  .Histogrm .user_details {
-    max-height: 340px;
-    overflow-y: scroll;
-  }
+.histo .btn1:hover {
+  background-color: #fff;
+  color:  #4CA950; 
+  box-shadow: #4CA950; 
+}
 
-  .Histogrm .user_details::-webkit-scrollbar {
-    width: 0;
-  }
-
-  .Histogrm .user_details .input_box {
-    width: 100%;
-  }
+.histo .btn1:hover::before {
+  width: 200%;
+  height: 200%;
 }

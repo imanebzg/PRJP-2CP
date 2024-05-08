@@ -1,57 +1,40 @@
-import React from "react";
-import "./tableau.css";
+import React from 'react';
 
-// import "./review.css";
-export default function page15() {
-  return (
-    <div>
-      <div class="tableau-affichage">
-        <div class="vector-785"></div>
-        <br />
-        <br />
-        <br />
-        <div class="ligne1">
-          <span class="type-poste"> Type poste </span>
-          <span class="co-2"> CO2 </span>
-          <span class="ch-4-f"> CH4f </span>
-          <span class="ch-4-d"> CH4d </span>
-          <span class="n-2-o"> N2O </span>
-          <span class="autre"> Autre </span>
-          <span class="total"> Total </span>
-          <span class="co-2-b"> CO2b </span>
+const Tableau = ({ data , facteur }) => { // Destructure the data directly from props
+    return (
+        <div style={{ fontFamily: 'Montserrat, sans-serif' }}>
+            <table style={{
+                width: '100%',
+                borderCollapse: 'separate',
+                borderSpacing: '10px',
+                margin: '20px 0'
+            }}>
+                <thead>
+                    <tr>
+                        <th>Postes</th>
+                        <th>CO2f</th>
+                        <th>CH4f</th>
+                        <th>N2O</th>
+                        <th>CO2b</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {data.rows.map((item, index) => ( // Make sure 'data' is the array
+                        <tr key={index}>
+                            <td>{item.Type_poste}</td>
+                            <td>{(parseFloat(item.CO2f).toFixed(3) * parseFloat(facteur)).toFixed(3)}</td>
+                            <td>{(parseFloat(item.CH4f).toFixed(3) * parseFloat(facteur)).toFixed(3)}</td>
+                            <td>{(parseFloat(item.N2O).toFixed(3) * parseFloat(facteur)).toFixed(3)}</td>
+                            <td>{(parseFloat(item.CO2b).toFixed(3) * parseFloat(facteur)).toFixed(3)}</td>
+                            <td style={{ backgroundColor: '#E8EFFB' }}>{(parseFloat(item.Total_poste_non_decompose).toFixed(3) * parseFloat(facteur)).toFixed(3)}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
+    );
+};
 
-        <div class="ligne">
-          <span class="case1"> Combustion </span>
-          <span class="case2">50.2 </span>
-          <span class="case3"> </span>
-          <span class="case4"> </span>
-          <span class="case5"> </span>
-          <span class="case6"> 0</span>
-          <span class="case7"> </span>
-          <span class="case8"> </span>
-        </div>
-        <div class="ligne">
-          <span class="case1"> Amont </span>
-          <span class="case2">50.2 </span>
-          <span class="case3"> </span>
-          <span class="case4"> </span>
-          <span class="case5"> </span>
-          <span class="case6"> 0</span>
-          <span class="case7"> </span>
-          <span class="case8"> </span>
-        </div>
-        <div class="ligne last">
-          <span class="case1"> Total </span>
-          <span class="case2 lastcase">50.2 </span>
-          <span class="case3"> </span>
-          <span class="case4"> </span>
-          <span class="case5"> </span>
-          <span class="case6"> 0</span>
-          <span class="case7"> </span>
-          <span class="case8"> </span>
-        </div>
-      </div>
-    </div>
-  );
-}
+export default Tableau;
+
