@@ -15,9 +15,9 @@ function getCompanyById(req, res) {
 
 function updateCompany(req, res) {
     const { id } = req.params;
-    const { name, industry, email, phonenum, password, contactPerson, location, postalCode } = req.body;
-    const queryString = "UPDATE companies SET company_name = ?, industry = ?, email = ?, phone_number = ?, password = ?, contact_person = ?, location = ?, postal_code = ? WHERE company_id = ?";
-    connection.query(queryString, [name, industry, email, phonenum, password, contactPerson, location, postalCode, id], (err, results) => {
+    const { name, industry, email, phonenum, contactPerson, location, postalCode } = req.body;
+    const queryString = "UPDATE companies SET company_name = ?, industry = ?, email = ?, phone_number = ?, contact_person = ?, location = ?, postal_code = ? WHERE company_id = ?";
+    connection.query(queryString, [name, industry, email, phonenum, contactPerson, location, postalCode, id], (err, results) => {
         if (err) {
             console.error("Failed to update company: " + err);
             res.sendStatus(500);

@@ -173,7 +173,6 @@ function EditCompany({ companyId }) {
         industry: '',
         email: '',
         phone_number: '',
-        password: '',
         contact_person: '',
         location: '',
         postal_code: ''
@@ -232,7 +231,6 @@ function EditCompany({ companyId }) {
                         <div className="input_box"><p><strong>Nom de l'entreprise:</strong> {company.company_name}</p></div>
                         <div className="input_box"><p><strong>Industrie:</strong> {company.industry}</p></div>
                         <div className="input_box"><p><strong>Email:</strong> {company.email}</p></div>
-                        <div className="input_box"><p><strong>Mot de passe:</strong> {'*'.repeat(company.password.length)}</p></div>
                         <div className="input_box"><p><strong>Numero de telephone:</strong> {company.phone_number}</p></div>
                         <div className="input_box"><p><strong>Personne à contacter:</strong> {company.contact_person}</p></div>
                         <div className="input_box"><p><strong>Addresse:</strong> {company.location}</p></div>
@@ -242,14 +240,13 @@ function EditCompany({ companyId }) {
                 </div>
             ) : (
                 <form onSubmit={handleSubmit} className="user_details">
-                    <div className="input_box"><label>Nom de l'entreprise: <input type="text" name="name" value={company.company_name} onChange={handleChange} /></label></div>
+                    <div className="input_box"><label>Nom de l'entreprise: <input type="text" name="company_name" value={company.company_name} onChange={handleChange} /></label></div>
                     <div className="input_box"><label>Industrie: <input type="text" name="industry" value={company.industry} onChange={handleChange} /></label></div>
                     <div className="input_box"><label>Email: <input type="email" name="email" value={company.email} onChange={handleChange} /></label></div>
-                    <div className="input_box"><label>Mot de passe: <input type="text" name="password" value={company.password} onChange={handleChange} /></label></div>
-                    <div className="input_box"><label>Numero de telephone: <input type="tel" name="phoneNumber" value={company.phone_number} onChange={handleChange} /></label></div>
-                    <div className="input_box"><label>Personne à contacter: <input type="text" name="contactPerson" value={company.contact_person} onChange={handleChange} /></label></div>
-                    <div className="input_box"><label>Addresse: <input type="text" name="address" value={company.location} onChange={handleChange} /></label></div>
-                    <div className="input_box"><label>Code postal: <input type="text" name="postalCode" value={company.postal_code} onChange={handleChange} /></label></div>
+                    <div className="input_box"><label>Numero de telephone: <input type="tel" name="phone_number" value={company.phone_number} onChange={handleChange} /></label></div>
+                    <div className="input_box"><label>Personne à contacter: <input type="text" name="contact_person" value={company.contact_person} onChange={handleChange} /></label></div>
+                    <div className="input_box"><label>Addresse: <input type="text" name="location" value={company.location} onChange={handleChange} /></label></div>
+                    <div className="input_box"><label>Code postal: <input type="text" name="postal_code" value={company.postal_code} onChange={handleChange} /></label></div>
                     <div className="button_container">
                       <button className="btn1" type="submit">Sauvegarder</button>
                       <button className="btn1" type="button" onClick={handleCancel}>Annuler</button>
