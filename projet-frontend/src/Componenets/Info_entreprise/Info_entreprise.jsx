@@ -2,9 +2,10 @@ import React from 'react';
 import EditCompany from './EditCompany';
 
 function CompanyProfilePage({ companyId }) {
+  let Id = localStorage.getItem('userEmail')
   return (
     <div>
-      <EditCompany companyId={3} />
+      <EditCompany companyId={Id} />
     </div>
   );
 }

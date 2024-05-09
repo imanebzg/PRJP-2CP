@@ -27,6 +27,7 @@ const getOptionsRoutes = require('./routes/getOptions');
 const getSendRoutes = require('./routes/sendings');
 const getproductRoutes = require('./routes/productRoutes');
 const getcompanyRoutes = require('./routes/infoRoute');
+const getsecurityRoutes = require('./routes/securiteRoute');
 
 /*
 app.use(session({
@@ -45,6 +46,7 @@ app.use('/getters', getOptionsRoutes);
 app.use('/sendings', getSendRoutes);
 app.use('/api', getproductRoutes);
 app.use('/info', getcompanyRoutes);
+app.use('/securite', getsecurityRoutes);
 
 
 app.use((req, res, next) => {

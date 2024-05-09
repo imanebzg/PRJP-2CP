@@ -1,6 +1,6 @@
 import Info_entreprise from "../../Componenets/Info_entreprise/Info_entreprise";
 import Notifications from "../../Componenets/Notifications/Notifications";
-import Securite from "../../Componenets/Securite/Securite";
+import Securiteform from "../../Componenets/Securite/Securitecomponent";
 import Supprimer from "../../Componenets/Supprimer/Supprimer";
 import Error from "../../Componenets/error/error"
 import "./second_page.css";
@@ -14,7 +14,7 @@ const second_page = (props) => {
           <Error/>
            <Info_entreprise/>
            <Notifications/>
-           <Securite/>
+           <Securiteform/>
            <Supprimer/>
            </div>
 
