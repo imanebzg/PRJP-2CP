@@ -6,10 +6,6 @@ exports.changePassword = (req, res) => {
     const { id } = req.params;
     const { oldPassword, newPassword } = req.body;
    // const userId = req.user.company_id; 
-   console.log("id changePassword= ", id)
-   console.log("oldPassword changePassword= ", oldPassword)
-   console.log("newPassword changePassword= ", newPassword)
-
     connection.query('SELECT password FROM companies WHERE email = ?', [id], async (error, results) => {
         if (error) {
             return res.status(500).json({ message: 'Database error' });

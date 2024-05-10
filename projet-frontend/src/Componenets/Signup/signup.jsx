@@ -6,6 +6,8 @@ import myGif from './gif/gif1.gif';
 import myGif2 from './gif/gif2.gif';
 
 const Signup = () => {
+    const navigate = useNavigate();
+
     const containerRef = useRef(null);
     const [signInError, setSignInError] = useState(false);
     const [signUpError, setSignUpError] = useState(false);
@@ -73,7 +75,12 @@ const Signup = () => {
                 localStorage.setItem('userData', data.user);
                 localStorage.setItem('userEmail', data.user.email);
                 localStorage.setItem('isSubmitted', isSubmitted);
-                window.location.href = '/second-page'; 
+                if (data.user.email === "admin_01@gmail.com"){
+                   navigate('/admin-page'); 
+
+                }else{
+                    navigate( '/second-page'); 
+                }
                 // Set session timeout for 1 day (24 hours)
                 setTimeout(() => {
                     localStorage.removeItem('authToken'); // Clear authToken after timeout
@@ -112,8 +119,13 @@ const Signup = () => {
                 localStorage.setItem('userData', data.user);
                 localStorage.setItem('userEmail', data.user.email);
                 localStorage.setItem('isSubmitted', isSubmitted);
+                console.log("data.user.email =",data.user.email )
 
-                window.location.href = '/second-page'; 
+                if (data.user.email === "admin_01@gmail.com"){
+                    navigate('/admin-page'); 
+                 }else{
+                     navigate( '/second-page'); 
+                 }
                 // Set session timeout for 1 day (24 hours)
                 setTimeout(() => {
                     localStorage.removeItem('authToken'); // Clear authToken after timeout

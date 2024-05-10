@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './Securite.css'; 
 
 function ChangePasswordForm({ companyId }) {
-    console.log("company id changepasswordform.jsx",companyId)
     const [formData, setFormData] = useState({
         oldPassword: '',
         newPassword: '',

@@ -28,6 +28,10 @@ const getSendRoutes = require('./routes/sendings');
 const getproductRoutes = require('./routes/productRoutes');
 const getcompanyRoutes = require('./routes/infoRoute');
 const getsecurityRoutes = require('./routes/securiteRoute');
+const getaddproductRoutes = require('./routes/addBddRoute');
+const getdeleteproductRoutes = require('./routes/deleteBddRoute');
+const getnumbercompaniesRoutes = require('./routes/numberUsers');
+const getmanagecompaniesRoutes = require('./routes/companyMethRoute')
 
 /*
 app.use(session({
@@ -47,6 +51,10 @@ app.use('/sendings', getSendRoutes);
 app.use('/api', getproductRoutes);
 app.use('/info', getcompanyRoutes);
 app.use('/securite', getsecurityRoutes);
+app.use('/addproduct', getaddproductRoutes);
+app.use('/deleteproduct', getdeleteproductRoutes);
+app.use('/countUsers', getnumbercompaniesRoutes);
+app.use('/manage', getmanagecompaniesRoutes);
 
 
 app.use((req, res, next) => {
