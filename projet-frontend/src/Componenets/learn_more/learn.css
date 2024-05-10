@@ -18,14 +18,13 @@
 .learn .buttons {
   display: flex;
   justify-content: space-between;
-  
   padding-right: 12.5rem;  /* 200px / 16px */
   padding-left: 12.5rem;  /* 200px / 16px */
+
 }
 
 .learn button.active {
   text-decoration: overline;
-  
   text-decoration-thickness: 0.3125rem; /* 5px / 16px */
   color: #031273;
 }
@@ -44,6 +43,7 @@
   transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
   transition-duration: 400ms;
   transition-property: color;
+
 }
 
 .learn button.focus,
@@ -98,6 +98,7 @@
   .learn th, .learn td {
     padding: 0.9375rem 1.25rem; /* 15px 20px / 16px */
     text-align: center;
+
   }
   
   .learn tbody tr, .learn td, .learn th {
@@ -106,6 +107,7 @@
   
   .learn tbody tr:nth-child(even) {
     background-color: #e0e8f5b6;
+
   }
   
   @media screen {

@@ -14,6 +14,9 @@
     display: none; /* Pour cacher les cases à cocher par défaut */
     
   }
+  .avancement {
+    background-color: white;
+  }
 
   .second .radio-input1 input[type="radio"] {
     display: none; /* Pour cacher les cases à cocher par défaut */
