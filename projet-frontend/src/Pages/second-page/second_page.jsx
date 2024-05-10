@@ -12,6 +12,7 @@ import "./second_page.css";
 import Sidbar from "../../Componenets/Sidebar/Sidebar";
 import Avancement_exmp from '../../Componenets/Avancement_exmp/Avancement_exmp';
 import Plus_prod from '../../Componenets/Plus_prod/Plus_prod';
+import PostesProduit from '../../Componenets/PostesProduit/PostesProduit';
 
 
 function Second_page (props) {
@@ -21,16 +22,23 @@ if (isSubmitted === 'true') {
 } else {
   isSubmitted = false;
 }
-  const [selectedScope, setSelectedScope] = useState('');
+  const [selectedScope, setSelectedScope] = useState('form-8');
 
   const handleRadioChange = (event) => {
     setSelectedScope(event.target.value);
   };
-  const [selectedScope2, setSelectedScope2] = useState('');
+  const [selectedScope2, setSelectedScope2] = useState('form-4');
 
   const handleRadioChange2 = (event) => {
     setSelectedScope2(event.target.value);
   };
+
+  const handleCalcAgain = () => {
+    localStorage.removeItem('totalSum'); 
+    localStorage.removeItem('formResults');
+    localStorage.setItem('isSubmitted', false); 
+    window.location.reload();
+   };
        return (
 
         <div className="second"> 
@@ -38,6 +46,7 @@ if (isSubmitted === 'true') {
           <div className="content2">
           <Form/>
           {isSubmitted ? (  <div className="mini_cont">
+          <button className='btn1' onClick={handleCalcAgain}> Calculer de nouveau un bilan carbone ?</button>
           <div className="radio-input">
           <input type="hidden" id="selectedScope" value={selectedScope} />
 
@@ -51,7 +60,7 @@ if (isSubmitted === 'true') {
               onChange={handleRadioChange}
               checked={selectedScope === 'form-8'} // Set checked based on state
             />
-            <span>Bilon global</span>
+            <span>Bilan global</span>
           </label>
           <label>
             <input
@@ -62,7 +71,7 @@ if (isSubmitted === 'true') {
               onChange={handleRadioChange}
               checked={selectedScope === 'form-9'} // Set checked based on state
             />
-            <span>Details de produit</span>
+            <span>Details de chaque activité</span>
           </label>
 
         </div>
@@ -143,13 +152,14 @@ if (isSubmitted === 'true') {
       {selectedScope === 'form-9' && (
         <div id="form9">
           
-        <Plus_prod/>
+        <PostesProduit/>
         
        
        </div> )}
        </div>
+       
         </div> ) : (
-    ''
+    <h5>Remplir le formulaire pour avoir le résultat </h5>
     )
     }
         </div>

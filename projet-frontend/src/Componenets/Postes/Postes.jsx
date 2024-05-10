@@ -21,7 +21,7 @@ const populateUl = (ul, chartData) => {
 };
 
 
-
+/*
 const generateColors = (numColors) => {
   const colors = [];
 
@@ -35,8 +35,12 @@ const generateColors = (numColors) => {
   }
 
   return colors;
-};
+};*/
 
+const generateColors = (num) => {
+  // Generate colors logic
+  return Array.from({ length: num }, () => "#" + Math.floor(Math.random() * 16777215).toString(16));
+};
 
 const initialData = {
   Combustibles: {scope1: 0,scope2: 0,scope3: 0},
@@ -270,7 +274,7 @@ if (!localStorage.getItem('formResults')) {
         labels: chart1Data.labels,
         datasets: [
           {
-            label: " pourcentage du scope 3 / produits",
+            label: " pourcentage du scope 2 / produits",
             data: chart1Data.data,
             backgroundColor: backgroundColors,
             borderColor: borderColors,
@@ -312,7 +316,7 @@ if (!localStorage.getItem('formResults')) {
           labels: chart2Data.labels,
           datasets: [
             {
-              label: " pourcentage du scope 2 / produits ",
+              label: " pourcentage du scope 3 / produits ",
               data: chart2Data.data,
               backgroundColor: backgroundColors,
               borderColor: borderColors,
@@ -448,11 +452,11 @@ if (!localStorage.getItem('formResults')) {
               </div>
         
       </div>
-      <button className='btn1' onClick={handleCalcAgain}> Calculer de nouveau un bilan carbone ! </button>
+     
     </div>
 
     ) : (
-      <a href="#top">Remplir le formulaire pour avoir le résultat </a>
+      ''
     )
     }
     </div>
