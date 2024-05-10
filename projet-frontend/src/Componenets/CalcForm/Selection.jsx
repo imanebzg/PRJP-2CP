@@ -45,8 +45,6 @@ function Sele() {
   const [secteur4Options, setSecteur4Options] = useState([]);
   const [secteur5Options, setSecteur5Options] = useState([]);
   const [produitOptions, setproduitOptions] = useState([]);
-  const [posteOptions, setposteOptions] = useState([]);
-  const [ligneOptions, setligneOptions] = useState([]);
   const [uniteOptions, setuniteOptions] = useState([]);
   const [NomAttributOptions, setNomAttributOptions] = useState([]);
   const [NomFrontiereOptions, setNomFrontiereOptions] = useState([]);
@@ -64,7 +62,6 @@ const fetchProductData = (produit,quantite,unite,NomAttribut,NomFrontiere,contri
 
     .then(response => response.json())
     .then(datatable => {
-      console.log("Product Data:", datatable);
       setTableData(datatable);
       // Handle additional state updates or operations based on the fetched data
     })
@@ -172,42 +169,8 @@ useEffect(() => {
       fetchproductOptions(`/getters/getProductOptions?sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&&sector3=${encodeURIComponent(secteur3)}&&sector4=${encodeURIComponent(secteur4)}&&sector5=${encodeURIComponent(secteur5)}`, setproduitOptions);
     }
   }, [secteur5]);  
-//poste
-  async function fetchposteOptions(url, updateState) {
-    try {
-      const response = await fetch(`http://localhost:3001/getters/getPosteOptions?nom=${encodeURIComponent(produit)}&typeLigne=${encodeURIComponent(ligne)}`);
-      const data = await response.json();
-      updateState(data); // Directly updating state passed as a function
-      console.log('data',data)
 
-    } catch (error) {
-      console.error('Failed to fetch options:', error);
-    }
-  }
-  useEffect(() => {
-    if (produit && ligne) { 
-      fetchposteOptions(`getters/getPosteOptions?nom=${encodeURIComponent(produit)}&typeLigne=${encodeURIComponent(ligne)}`, setposteOptions);
 
-    }
-  }, [produit , ligne]);  
-//ligne
-  async function fetchligneOptions(url, updateState) {
-    try {
-      const response = await fetch(`http://localhost:3001/getters/getligneOptions?nom=${encodeURIComponent(produit)}`);
-      const data = await response.json();
-      updateState(data); // Directly updating state passed as a function
-      console.log('data',data)
-
-    } catch (error) {
-      console.error('Failed to fetch options:', error);
-    }
-  }
-  useEffect(() => {
-    if (produit) { 
-      fetchligneOptions(`getters/getligneOptions?nom=${encodeURIComponent(produit)}`, setligneOptions);
-
-    }
-  }, [produit]); 
 //unite
   async function fetchuniteOptions(url, updateState) {
     try {
@@ -330,8 +293,6 @@ useEffect(() => {
     secteur4: '',
     secteur5: '',
     nom: '',
-    ligne: '',
-    poste: '',
     quantite: '',
     unite: '',
     NomAttribut: '',
@@ -339,7 +300,6 @@ useEffect(() => {
     contributeur: '', 
     localisation: '',
     souslocalisation: ''
-    //verification: '',
 });
 
 /*
@@ -426,8 +386,6 @@ const handleCalcul = (event) => {
         secteur4: '',
         secteur5: '',
         nom: '',
-        ligne: '',
-        poste: '',
         quantite: '',
         unite: '',
         NomAttribut: '',
@@ -435,7 +393,6 @@ const handleCalcul = (event) => {
         contributeur: '', 
         localisation: '',
         souslocalisation: ''
-        // Reset other form fields as needed
       });
       setSecteur1('');
       setSecteur2('');
@@ -443,8 +400,6 @@ const handleCalcul = (event) => {
       setSecteur4('');
       setSecteur5('');
       setproduit('');
-      setproduit('');
-      setligne('');
       setunite('');
       setNomAttribut('');
       setNomFrontiere('');
@@ -478,8 +433,6 @@ const handleCalcul = (event) => {
           secteur4: '',
           secteur5: '',
           nom: '',
-          ligne: '',
-          poste: '',
           quantite: '',
           unite: '',
           NomAttribut: '',
@@ -496,8 +449,6 @@ const handleCalcul = (event) => {
         setSecteur4('');
         setSecteur5('');
         setproduit('');
-        setproduit('');
-        setligne('');
         setunite('');
         setNomAttribut('');
         setNomFrontiere('');
@@ -552,7 +503,7 @@ const handleCalcul = (event) => {
               onChange={handleRadioChange}
               checked={selectedScope === 'form-2'} // Set checked based on state
             />
-            <span>Spécifications Produit</span>
+            <span>Spécifications Activité</span>
           </label>
 
           <label>
@@ -634,26 +585,13 @@ const handleCalcul = (event) => {
          <div className="formulaire">
 
 <form >
-<label htmlFor="nom">Nom du produit:</label>
+<label htmlFor="nom">Nom de l'Activité:</label>
         <select id="nom" name="nom" value={produit} onChange={handleChange(setproduit,'nom')}>
           <option value="">--no option--</option>
           {produitOptions.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
 
-        <label htmlFor="ligne">Nom de la ligne:</label>
-        <select id="ligne" name="ligne" value={ligne} onChange={handleChange(setligne, 'ligne')}>
-          <option value=" ">--select--</option>
-          {ligneOptions.map(option => <option key={option} value={option}>{option}</option>)}
-        </select>
-        <br/>
-
-        <label htmlFor="poste">Nom du poste:</label>
-        <select id="poste" name="poste" value={poste} onChange={handleChange(setposte, 'poste')}>
-          <option value=" ">--select--</option>
-          {posteOptions.map(option => <option key={option} value={option}>{option}</option>)}
-        </select>
-        <br/>
 
         <label htmlFor="quantite">Quantité:</label>
         <input type="text" id="quantite" name="quantite" value={quantite} onChange={handleChange(setQuantite, 'quantite')}/><br/>
