@@ -66,10 +66,10 @@ exports.calc = (req, res) => {
 const connection = require('../config/database');
 // calcul un produit
 exports.calc = async (req, res) => {
-    const { ligne, nom, secteur1, secteur2, secteur3, secteur4, secteur5, unite, poste, quantite } = req.body;
-    const info = [ligne, nom, secteur1, secteur2, secteur3, secteur4, secteur5, unite, poste, quantite];
+    const { nom, secteur1, secteur2, secteur3, secteur4, secteur5, unite, quantite } = req.body;
+    const info = [ nom, secteur1, secteur2, secteur3, secteur4, secteur5, unite, quantite];
     try {
-        const totalPosteNonDecompose = await gettaux(ligne, nom, secteur1, secteur2, secteur3, secteur4, secteur5, unite, poste, quantite);
+        const totalPosteNonDecompose = await gettaux(nom, secteur1, secteur2, secteur3, secteur4, secteur5, unite, quantite);
         let carbonBalance = parseFloat(totalPosteNonDecompose) * parseFloat(quantite);
         return res.status(200).json({ info, carbonBalance });
     } catch (error) {
@@ -82,7 +82,7 @@ exports.calc = async (req, res) => {
     
 };
 
-async function gettaux(ligne, nom, secteur1, secteur2, secteur3, secteur4, secteur5, unite, poste) {
+async function gettaux( nom, secteur1, secteur2, secteur3, secteur4, secteur5, unite) {
     let sqlquery = `
     SELECT DISTINCT \`Total_poste_non_decompose\`
     FROM \`base_de_donnees\`
@@ -92,11 +92,9 @@ async function gettaux(ligne, nom, secteur1, secteur2, secteur3, secteur4, secte
     AND TRIM(\`Secteur4\`) = ?
     AND TRIM(\`Secteur5\`) = ?
     AND TRIM(\`Nom\`) = ?
-    AND TRIM(\`Type_Ligne\`) = ?
-    AND TRIM(\`Type_poste\`) = ? 
     AND TRIM(\`Unite_français\`) = ?;`
     return new Promise((resolve, reject) => {
-        connection.query(sqlquery, [secteur1.trim(), secteur2.trim(), secteur3.trim(), secteur4.trim(), secteur5.trim(), nom.trim(), ligne.trim(), poste.trim(), unite.trim()], (err, result) => {
+        connection.query(sqlquery, [secteur1.trim(), secteur2.trim(), secteur3.trim(), secteur4.trim(), secteur5.trim(), nom.trim(), unite.trim()], (err, result) => {
             if (err) {
                 console.error('Error executing query:', err);
                 reject(err);

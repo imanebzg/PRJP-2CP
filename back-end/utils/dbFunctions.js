@@ -115,44 +115,6 @@ async function getProducts(secteur1, secteur2, secteur3, secteur4, secteur5) {
 }
 
 
-async function getPostes(nom, choix) {
-  let sql = `SELECT DISTINCT Type_poste FROM \`base_de_donnees\` WHERE TRIM(\`Nom\`) = ${mysql.escape(nom)} and TRIM(\`Type_Ligne\`) = 'Poste' ;`;
-  const params = [nom, choix];
-  return new Promise((resolve, reject) => {
-    if (choix === "Elément") {
-      resolve([' ']);//a voir
-    } else {
-      connection.query(sql, [nom.trim(), choix.trim()], (err, result) => {
-        if (err) {
-          console.log("Error" + err);
-          reject(err); // Reject the promise with the error
-        } else {
-          const distinctValues = result.map(result => result["Type_poste"]);
-          resolve(distinctValues);
-        }
-      });
-    }
-  });
-}
-
-async function getLignes(nom) {
-  let sql = `SELECT DISTINCT Type_Ligne FROM \`base_de_donnees\` WHERE TRIM(\`Nom\`) = ${mysql.escape(nom)} ;`;
-  const params = [nom];
-
-  return new Promise((resolve, reject) => {
-    connection.query(sql, [nom.trim()], (err, result) => {
-      if (err) {
-        console.log("Error" + err);
-        reject(err); // Reject the promise with the error
-      } else {
-        const distinctValues = result.map(result => result["Type_Ligne"]);
-        resolve(distinctValues);
-      }
-    });
-  });
-
-}
-
 
 async function getUnit(product,secteur1, secteur2, secteur3, secteur4, secteur5, res) {
   let sql;
@@ -342,4 +304,4 @@ getScopes('Poisson (pêche)','Achats de biens ',postes);*/
 
 
 
-module.exports = {getSecteur5,getSecteur4 ,getSecteur3, getSecteurs, getProducts , getPostes , getLignes , getUnit , getNomAttribut, getNomFrontiere , getContributeur, getLocalisation ,getSousLocalisation};
+module.exports = {getSecteur5,getSecteur4 ,getSecteur3, getSecteurs, getProducts , getUnit , getNomAttribut, getNomFrontiere , getContributeur, getLocalisation ,getSousLocalisation};

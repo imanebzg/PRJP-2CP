@@ -67,48 +67,33 @@
   .Info_entreprise .input_box input:focus,
   .Info_entreprise .input_box input:valid{
     box-shadow: 0px 0px 0px 2px #090b90;
-  }
-  .Info_entreprise .btn1 {
-    display: inline-block;
-    font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
-    padding: 10px 20px;
-    border: 2px solid #e14c31;
-    background-color: #e14c31;
-    color: white;
-    font-size: 20px;
+  }.Info_entreprise .btn1 {
+    font-family: 'Proxima Nova Condensed', sans-serif;
+    font-size: 16px;
     font-weight: bold;
+    color: white;
+    background-color: #e14c31;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 1px;
     cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    transition: all 0.3s ease-in-out;
-    margin-left: 78%;
-    margin-bottom: 3%;
-    text-align: right;
-  }
-  
-  .Info_entreprise .btn1::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background-color: #fff;
-    opacity: 0.2;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: all 0.3s ease-in-out;
-   
-  }
-  
-  .Info_entreprise .btn1:hover {
-    background-color: #fff;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    outline: none; /* Removes the outline */
+    width: auto; /* Adjust width as needed or use min-width for a consistent size */
+}
+
+.Info_entreprise .btn1:hover, .Info_entreprise .btn1:focus {
+    background-color: #ffffff;
     color: #e14c31;
-    box-shadow: #e14c31;
-  }
+    box-shadow: 0 0 8px rgba(225, 76, 49, 0.5);
+}
+
+.Info_entreprise .btn1:active {
+    box-shadow: 0 0 12px rgba(225, 76, 49, 0.8);
+}
+
   
   .Info_entreprise .btn1:hover::before {
     width: 200%;
@@ -171,3 +156,19 @@
         width: 100%;
     }
   }
+
+  .Info_entreprise .button_container {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 15px; /* Space between buttons */
+    padding: 20px 25px; /* Padding inside the button container */
+    box-sizing: border-box; /* Ensures padding doesn't add to the width */
+}
+
+/* Ensure responsiveness on smaller screens */
+@media screen and (max-width: 584px){
+    .Info_entreprise .button_container {
+        justify-content: center; /* Center align buttons on smaller screens */
+        padding: 20px 10px; /* Reduce padding on smaller screens */
+    }
+}
