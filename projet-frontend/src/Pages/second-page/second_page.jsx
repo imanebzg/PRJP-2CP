@@ -83,34 +83,31 @@ if (isSubmitted === 'true') {
 
           
           <Avancement_exmp/>
-          <div className="radio-input2">
-          <input type="hidden" id="selectedScope2" value={selectedScope2} />
+          <div className="btn-container">
+  <input type="hidden" id="selectedScope2" value={selectedScope2} />
+  <label>
+    <input
+      type="radio"
+      value="form-4"
+      name="value-radio"
+      id="value-4"
+      onChange={handleRadioChange2}
+      checked={selectedScope2 === 'form-4'}
+    />
+    <input
+      type="radio"
+      value="form-5"
+      name="value-radio"
+      id="value-5"
+      onChange={handleRadioChange2}
+      checked={selectedScope2 === 'form-5'}
+    />
+    <span className="btn-color-mode-switch-inner" data-on="Cercle" data-off="Histo">
+      {selectedScope2 === 'form-4' ? 'Cercle' : 'Histo'}
+    </span>
+  </label>
+</div>
 
-          {/* Radio buttons with labels */}
-          <label>
-            <input
-              type="radio"
-              value="form-4"
-              name="value-radio4"
-              id="value-4"
-              onChange={handleRadioChange2}
-              checked={selectedScope2 === 'form-4'} // Set checked based on state
-            />
-            <span>Cercle</span>
-          </label>
-          <label>
-            <input
-              type="radio"
-              value="form-5"
-              name="value-radio5"
-              id="value-5"
-              onChange={handleRadioChange2}
-              checked={selectedScope2 === 'form-5'} // Set checked based on state
-            />
-            <span>Histo</span>
-          </label>
-
-        </div>
           <div className="mini_cont2">
        
 
