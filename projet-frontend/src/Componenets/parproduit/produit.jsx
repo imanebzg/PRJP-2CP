@@ -99,7 +99,6 @@ if (!localStorage.getItem('formResults')) {
   storedFormResults = JSON.parse(localStorage.getItem('formResults'));
 }
 
-// STOPPPPPPPPP COPYINNNNNNNNNNNNNNNNNNNNNNNNNNNNGGGGGG
   const secteur1Array = useMemo(() => storedFormResults.map(result => result.secteur1.trim()).filter(secteur1 => secteur1 !== ''), [storedFormResults]);
 
 

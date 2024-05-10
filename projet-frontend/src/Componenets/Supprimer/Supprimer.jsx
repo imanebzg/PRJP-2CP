@@ -17,7 +17,7 @@ const Supprimer = () => {
                 <p>Supprimer votre compte personel :</p>
             </div>
             <div class="title_small">
-                <p>   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod </p>
+              
             </div>
           </div>
             <div class="cheking">
@@ -50,7 +50,7 @@ const Supprimer = () => {
                 </p>
             </div>
             <div class="title_small">
-                <p>   Lorem ipsum dolor sit amet, consectetur adipiscing elit , sed do eiusmod</p>
+               
             </div>
             </div>
             <div class="cheking">

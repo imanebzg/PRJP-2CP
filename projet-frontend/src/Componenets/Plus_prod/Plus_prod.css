@@ -1,0 +1,73 @@
+.Prod {
+    position: relative;
+    margin-bottom: 3%;
+  }
+  
+  .Prod .rectang {
+    width: 80%; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    background-color: #ffffff;
+    border: 2px solid #4CA950;
+    cursor: pointer;
+    text-align: center;
+    line-height: 50px; /* Center text vertically */
+    margin-left: 10%; /* Adjust margin as needed */
+    margin-top: 2%;
+    border-radius: 0.5rem;
+    cursor: pointer;
+   margin-left: 10%;
+  }
+  
+  .Prod .rectang.liked {
+    border-bottom-color: green; /* Change color when liked */
+  }
+  
+  .Prod .container-rest {
+    width: 80%; /* Adjust width as needed */
+    height: 90%px; /* Adjust height as needed */
+    background-color: #ebecee;
+    cursor: pointer;
+    text-align: center;
+    line-height: 50px; /* Center text vertically */
+    margin-left: 10%; /* Adjust margin as needed */
+    cursor: pointer;
+   margin-left: 10%;
+  }
+   .Prod .rectang2 {
+    width: 80%; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    background-color: #ffffff;
+    border: 2px solid #4CA950;
+    cursor: pointer;
+    text-align: center;
+    line-height: 50px; /* Center text vertically */
+    margin-left: 10%; /* Adjust margin as needed */
+    margin-top: 2%;
+    border-radius: 0.5rem;
+    cursor: pointer;
+   margin-left: 10%;
+  }
+  
+  .Prod .rectang2.liked {
+    border-bottom-color: green; /* Change color when liked */
+  }
+  
+  .Prod .container-rest2 {
+    width: 80%; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    background-color: #f1f2f5;
+    cursor: pointer;
+    text-align: center;
+    line-height: 50px; /* Center text vertically */
+    margin-left: 10%; /* Adjust margin as needed */
+    cursor: pointer;
+   margin-left: 10%;
+
+
+
+  }
+
+  .Prod .title{
+    margin-top: 5%;
+    margin-left: 2%;
+  }

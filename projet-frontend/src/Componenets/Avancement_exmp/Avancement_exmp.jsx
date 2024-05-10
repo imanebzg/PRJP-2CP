@@ -3,8 +3,9 @@ import './Avancement_exmp.css';
 
 
 const Avancement_exmp = () => {
+  const bilan = localStorage.getItem('totalSum')
   const [progressValue, setProgressValue] = useState(0);
-  const progressEndValue = 90;
+  const progressEndValue = 60;
   const speed = 10;
 
   useEffect(() => {
@@ -21,13 +22,11 @@ const Avancement_exmp = () => {
   return (
     <div className="Avancement_exmp">
       <div className="container">
-        <div className="title">
-          <p>Avancement par exemple</p>
-        </div>
+       
 
-        <div className="user_details">
-          <div className="resultat">
+      <p>Le bilan de carbone global est :</p>
             <div className="container_circc">
+              
               <div
                 className="circular-progress"
                 style={{
@@ -35,14 +34,14 @@ const Avancement_exmp = () => {
                     #ffffff ${progressValue * 3.6}deg,
                     #747BAD ${progressValue * 3.6}deg
                   )`
+                  
                 }}
               >
-                <div className="value-container">{`${progressValue}%`}</div>
+                <div className="value-container">{bilan}</div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        
     </div>
   );
 };

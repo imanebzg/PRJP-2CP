@@ -16,7 +16,7 @@ const Notifications = () => {
                         <p>Email notifications :</p>
                     </div>
                     <div class="title_small">
-                        <p>Get Emails to find what’s going    on whan you’re not online.</p>
+                        
                     </div>
                     </div>
                     <div class="cheking">
@@ -34,7 +34,7 @@ const Notifications = () => {
                             
                           </div>
                           <div class="title_small">
-                            <p> get push notificatio kjcsc azeans to find hen you’re offline</p>
+                          
                         </div>
                           
                           <div class="checkbox-wrapper-4">
@@ -50,7 +50,7 @@ const Notifications = () => {
                             </svg>
                           </div>
                           <div class="title_small">
-                            <p>  get push notificatio kjcsc azeans to find hen you’re offline</p>
+                           
                         </div>
 
                           <div class="checkbox-wrapper-4">

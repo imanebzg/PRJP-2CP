@@ -18,18 +18,21 @@
 .learn .buttons {
   display: flex;
   justify-content: space-between;
+  
   padding-right: 12.5rem;  /* 200px / 16px */
   padding-left: 12.5rem;  /* 200px / 16px */
 }
 
 .learn button.active {
   text-decoration: overline;
+  
   text-decoration-thickness: 0.3125rem; /* 5px / 16px */
   color: #031273;
 }
 
 .learn button {
   font-size: 1.5625rem;  /* 25px / 16px */
+  
   color: black;
   font-family: 'Proxima Nova Condensed';
   font-weight: 800;

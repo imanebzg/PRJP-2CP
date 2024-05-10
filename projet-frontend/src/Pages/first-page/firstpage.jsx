@@ -1,14 +1,19 @@
-
-
-import P1 from "../../Componenets/page1/page11/page11"
-import P2 from "../../Componenets/page1/page12/page12"
-
-
+import Info_entreprise from "../../Componenets/Info_entreprise/Info_entreprise";
+import Notifications from "../../Componenets/Notifications/Notifications";
+import Supprimer from "../../Componenets/Supprimer/Supprimer";
+import Sidbar from "../../Componenets/Sidebar/Sidebar"
+import Securite from "../../Componenets/Securite/Securite";
+import "./firstpage.css";
 const Firstpage = (props) => {
    return (
-        <div > 
-                 <P1/>
-                 <P2/>
+        <div className="first"> 
+            <Sidbar/> 
+            <div className="content">
+            <Info_entreprise/>
+            <Notifications/>
+            <Securite/>
+            <Supprimer/>    
+            </div>    
                
         </div>
       );

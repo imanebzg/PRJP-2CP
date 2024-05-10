@@ -21,7 +21,7 @@ export default function page12() {
   role:"admin"}]
   
   return (
-    <div>
+    <div className="">
       <div className="page12">
         <div className="top-bar">
           <div className="container-4">

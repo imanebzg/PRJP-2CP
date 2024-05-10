@@ -16,26 +16,26 @@ exports.register = (req, res) => {
     connection.query('SELECT email FROM companies WHERE email = ?', [email], async (err, result) => {
         // email already used
         if (err) {
-            return res.status(400).json({error: "An error occurred while checking email availability"});
+            return res.status(400).json({error: "Erreur de verification de la disponibilité de l'email."});
         }
         if (result.length > 0) {
-            return res.status(400).json({ error: 'Email is already registered.' });
+            return res.status(400).json({error: 'Email déjà utilisé.' });
         }
 
         if (!validator.isEmail(email)) {
-            return res.status(400).json({error :'Email incorrect!'});
+            return res.status(400).json({error :'Email incorrect.'});
         }
             
         if (!passwordRegex.test(password)) {
-            return res.status(400).json({error: "Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character and be at least 8 characters long."});
+            return res.status(400).json({error: "Mot de passe doit contenir au moins une lettre majiscule, une lettre miniscule, un chiffre, et un caractère spécial. Le mot de passe doit avoir un minimum de 8 caractères."});
         }
     
         if (password !== confirmPassword) {
-             return res.status(400).json({error :"Passwords don't match"});
+             return res.status(400).json({error :"Les mots de passe ne correspondent pas"});
         }
 
         if (!algerianPhoneRegex.test(phoneNumber)) {
-            return res.status(400).json({error : "Invalid Algerian phone number format"});
+            return res.status(400).json({error : "Numéro de téléphone Algérien invalid."});
         }
         /*
         if (!verification) {
@@ -46,7 +46,7 @@ exports.register = (req, res) => {
         connection.query('INSERT INTO companies SET ?', {company_name: companyName, email: email, password: hashedPassword, location: location, industry: industry, contact_person: contactPerson, phone_number: phoneNumber, postal_code: postalCode}, (err, result) => {
             if (err) {
                 console.log(err);
-                return res.status(400).json({error: "ERROR"});
+                return res.status(400).json({error: "Erreur connection pour la sauvegrade des données."});
             }
             else {
                 const user = req.body;
@@ -63,17 +63,17 @@ exports.login = (req, res) => {
     connection.query('SELECT * FROM companies WHERE TRIM(`email`) = ?', [email], (err, results)=> {
         if (err) {
             console.error('Error retrieving user data:', err);
-            return res.status(400).json({ error: 'An error occurred while retrieving user data' });
+            return res.status(400).json({ error: 'Erreur de connection pour la verification des informations entrées.' });
           }
           if (results.length === 0) {
-            return res.status(400).json({ error: 'Email is incorrect.' });
+            return res.status(400).json({ error: 'Email incorrect.' });
           }
 
           const hashedPassword = results[0].password;
 
           bcrypt.compare(password, hashedPassword, (err, isMatch) => {
             if (err) {
-              return res.status(400).json({error: 'An error occurred while comparing passwords' });
+              return res.status(400).json({error: 'Une erreur s\'est produite lors de la verification du mot de passe.' });
             }
             if (isMatch) {
               // Passwords match
@@ -82,7 +82,7 @@ exports.login = (req, res) => {
               return res.status(200).json({ message: 'User authenticated', user, token});
             } else {
               // Passwords don't match
-              return res.status(400).json({ message: 'Password is incorrect.' });
+              return res.status(400).json({ error: 'Mot de passe incorrect.' });
             }
         });
     });

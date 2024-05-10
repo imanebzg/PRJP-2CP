@@ -154,14 +154,12 @@ async function getLignes(nom) {
 }
 
 
-async function getUnit(product, res) {
+async function getUnit(product,secteur1, secteur2, secteur3, secteur4, secteur5, res) {
   let sql;
-  sql = `SELECT DISTINCT \`Unite_français\` FROM \`base_de_donnees\` WHERE TRIM(Nom) = ${mysql.escape(product)} ;`;
-  const params = [product, res];
-
+  sql = `SELECT DISTINCT \`Unite_français\` FROM \`base_de_donnees\` WHERE TRIM(Nom) = ? AND TRIM(\`Secteur1\`) = ?  and TRIM(\`Secteur2\`) = ?  and TRIM(\`Secteur3\`) = ? and TRIM(\`Secteur4\`) = ? and TRIM(\`Secteur5\`) = ?;`;
 
   return new Promise((resolve, reject) => {
-    connection.query(sql, params, (err, result) => {
+    connection.query(sql, [product.trim(),secteur1.trim(), secteur2.trim(), secteur3.trim(), secteur4.trim() , secteur5.trim()], (err, result) => {
       if (err) {
         console.log("Error" + err);
         reject(err); // Reject the promise with the error
@@ -176,11 +174,12 @@ async function getUnit(product, res) {
 
 
 // Fonction pour récupérer le nom attribut
-async function getNomAttribut(product, res) {
-  let sql = `SELECT DISTINCT \`Nom_attribut_français\` FROM \`base_de_donnees\` WHERE TRIM(\`Nom\`) = ${mysql.escape(product)}  ;`;
+async function getNomAttribut(product,secteur1, secteur2, secteur3, secteur4, secteur5, unite, res) {
+  let sql = `SELECT DISTINCT \`Nom_attribut_français\` FROM \`base_de_donnees\` WHERE TRIM(Nom) = ? AND TRIM(\`Secteur1\`) = ?  and TRIM(\`Secteur2\`) = ?  and TRIM(\`Secteur3\`) = ? and TRIM(\`Secteur4\`) = ? and TRIM(\`Secteur5\`) = ? AND TRIM(\`Unite_français\`) = ? ;`;
+
   const params = [product , res];
   return new Promise((resolve, reject) => {
-    connection.query(sql, params, (err, result) => {
+    connection.query(sql, [product.trim(),secteur1.trim(), secteur2.trim(), secteur3.trim(), secteur4.trim() , secteur5.trim() , unite.trim()], (err, result) => {
       if (err) {
         console.log("Error" + err);
         reject(err); // Reject the promise with the error
@@ -193,15 +192,12 @@ async function getNomAttribut(product, res) {
 }
 
 // Fonction pour récupérer le nom  frontiere
-async function getNomFrontiere(product, NomAttribut, res) {
-  let sql = `SELECT DISTINCT \`Nom_frontière_français\` FROM \`base_de_donnees\` WHERE TRIM(\`Nom\`) =  ${mysql.escape(product)}`;
-  if (NomAttribut && typeof NomAttribut === 'string') {
-    sql += ` AND TRIM(\`Nom_attribut_français\`) = ${mysql.escape(NomAttribut)}`;  
-  }
+async function getNomFrontiere(product,secteur1, secteur2, secteur3, secteur4, secteur5, unite, NomAttribut, res) {
+  let sql = `SELECT DISTINCT \`Nom_frontière_français\` FROM \`base_de_donnees\` WHERE TRIM(Nom) = ? AND TRIM(\`Secteur1\`) = ?  and TRIM(\`Secteur2\`) = ?  and TRIM(\`Secteur3\`) = ? and TRIM(\`Secteur4\`) = ? and TRIM(\`Secteur5\`) = ? AND TRIM(\`Unite_français\`) = ? AND TRIM(\`Nom_attribut_français\`) = ?;`;
 
   const params = [product,NomAttribut , res];
   return new Promise((resolve, reject) => {
-    connection.query(sql, params, (err, result) => {
+    connection.query(sql, [product.trim(),secteur1.trim(), secteur2.trim(), secteur3.trim(), secteur4.trim() , secteur5.trim() , unite.trim() , NomAttribut.trim()], (err, result) => {
       if (err) {
         console.log("Error" + err);
         reject(err); // Reject the promise with the error
@@ -216,17 +212,11 @@ async function getNomFrontiere(product, NomAttribut, res) {
 
 
 // Fonction pour récupérer le contributeur
-async function getContributeur(product, NomAttribut, NomFrontiere, res) {
-  let sql = `SELECT DISTINCT \`Contributeur\` FROM \`base_de_donnees\` WHERE TRIM(\`Nom\`) = ${mysql.escape(product)} AND TRIM(\`Nom_attribut_français\`) = ${mysql.escape(NomAttribut)}`;
+async function getContributeur(product,secteur1, secteur2, secteur3, secteur4, secteur5, unite, NomAttribut, NomFrontiere, res) {
+  let sql = `SELECT DISTINCT \`Contributeur\` FROM \`base_de_donnees\` WHERE TRIM(Nom) = ? AND TRIM(\`Secteur1\`) = ?  and TRIM(\`Secteur2\`) = ?  and TRIM(\`Secteur3\`) = ? and TRIM(\`Secteur4\`) = ? and TRIM(\`Secteur5\`) = ? AND TRIM(\`Unite_français\`) = ? AND TRIM(\`Nom_attribut_français\`) = ? AND TRIM(\`Nom_frontière_français\`) = ? ;`;
 
-  if (NomFrontiere && typeof NomFrontiere === 'string') {
-    // S'il y a un seul tag, ajoutez simplement la condition pour ce tag
-    sql += ` AND TRIM(\`Nom_frontière_français\`) = ${mysql.escape(NomFrontiere)}`;
-  }
-
-  const params = [product,NomAttribut , NomFrontiere ,res];
   return new Promise((resolve, reject) => {
-    connection.query(sql, params, (err, result) => {
+    connection.query(sql, [product.trim(),secteur1.trim(), secteur2.trim(), secteur3.trim(), secteur4.trim() , secteur5.trim() , unite.trim() , NomAttribut.trim() ,NomFrontiere.trim()], (err, result) => {
       if (err) {
         console.log("Error" + err);
         reject(err); // Reject the promise with the error
@@ -239,15 +229,11 @@ async function getContributeur(product, NomAttribut, NomFrontiere, res) {
 }
 
 // Fonction pour récupérer la localisation
-async function getLocalisation(product, NomAttribut, NomFrontiere, contributeur,res) {
-  let sql = `SELECT DISTINCT \`Localisation_geographique\` FROM \`base_de_donnees\` WHERE TRIM(\`Nom\`) = ${mysql.escape(product)} AND TRIM(\`Nom_attribut_français\`) = ${mysql.escape(NomAttribut)} AND TRIM(\`Nom_frontière_français\`) = ${mysql.escape(NomFrontiere)}`;
+async function getLocalisation(product,secteur1, secteur2, secteur3, secteur4, secteur5, unite, NomAttribut, NomFrontiere, contributeur,res) {
+  let sql = `SELECT DISTINCT \`Localisation_geographique\` FROM \`base_de_donnees\` WHERE TRIM(Nom) = ? AND TRIM(\`Secteur1\`) = ?  and TRIM(\`Secteur2\`) = ?  and TRIM(\`Secteur3\`) = ? and TRIM(\`Secteur4\`) = ? and TRIM(\`Secteur5\`) = ? AND TRIM(\`Unite_français\`) = ? AND TRIM(\`Nom_attribut_français\`) = ? AND TRIM(\`Nom_frontière_français\`) = ?  AND TRIM(\`Contributeur\`) = ? ;`;
 
-  if (contributeur && typeof contributeur === 'string') {
-    sql += ` AND TRIM(\`Contributeur\`) = '${contributeur}'`;
-  }
-  const params = [product,NomAttribut , NomFrontiere ,contributeur,res];
   return new Promise((resolve, reject) => {
-    connection.query(sql, params, (err, result) => {
+    connection.query(sql, [product.trim(),secteur1.trim(), secteur2.trim(), secteur3.trim(), secteur4.trim() , secteur5.trim() , unite.trim() , NomAttribut.trim() ,NomFrontiere.trim() , contributeur.trim()], (err, result) => {
       if (err) {
         console.log("Error" + err);
         reject(err); // Reject the promise with the error
@@ -261,15 +247,11 @@ async function getLocalisation(product, NomAttribut, NomFrontiere, contributeur,
 }
 
 // Fonction pour récupérer la sous localisation
-async function getSousLocalisation(product, NomAttribut, NomFrontiere, contributeur,localisation, res) {
-  let sql = `SELECT DISTINCT \`Sous_localisation_geographique_français\` FROM \`base_de_donnees\` WHERE TRIM(\`Nom\`) = ${mysql.escape(product)} AND TRIM(\`Nom_attribut_français\`) = ${mysql.escape(NomAttribut)} AND TRIM(\`Nom_frontière_français\`) = ${mysql.escape(NomFrontiere)} AND TRIM(\`Contributeur\`) = '${contributeur}'`;
+async function getSousLocalisation(product,secteur1, secteur2, secteur3, secteur4, secteur5, unite, NomAttribut, NomFrontiere, contributeur,localisation, res) {
+  let sql = `SELECT DISTINCT \`Sous_localisation_geographique_français\` FROM \`base_de_donnees\` WHERE TRIM(Nom) = ? AND TRIM(\`Secteur1\`) = ?  and TRIM(\`Secteur2\`) = ?  and TRIM(\`Secteur3\`) = ? and TRIM(\`Secteur4\`) = ? and TRIM(\`Secteur5\`) = ? AND TRIM(\`Unite_français\`) = ? AND TRIM(\`Nom_attribut_français\`) = ? AND TRIM(\`Nom_frontière_français\`) = ?  AND TRIM(\`Contributeur\`) = ?  AND TRIM(\`Localisation_geographique\`) = ? ;`;
 
-  if (contributeur && typeof contributeur === 'string') {
-    sql += ` AND TRIM(\`Localisation_geographique\`) = ${mysql.escape(localisation)}`;
-  }
-  const params = [product,NomAttribut , NomFrontiere ,contributeur,localisation,res];
   return new Promise((resolve, reject) => {
-    connection.query(sql, params, (err, result) => {
+    connection.query(sql, [product.trim(),secteur1.trim(), secteur2.trim(), secteur3.trim(), secteur4.trim() , secteur5.trim() , unite.trim() , NomAttribut.trim() ,NomFrontiere.trim() , contributeur.trim() , localisation.trim() ], (err, result) => {
       if (err) {
         console.log("Error" + err);
         reject(err); // Reject the promise with the error
