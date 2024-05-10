@@ -407,7 +407,7 @@ const populateUl = (ul, chartData) => {
 };
 
 
-
+/*
 const generateColors = (numColors) => {
   const colors = [];
   const step = 360 / numColors; // Calculer l'incrément pour répartir les couleurs uniformément
@@ -420,6 +420,11 @@ const generateColors = (numColors) => {
   return colors;
 
 
+};*/
+
+const generateColors = (num) => {
+  // Generate colors logic
+  return Array.from({ length: num }, () => "#" + Math.floor(Math.random() * 16777215).toString(16));
 };
 
 const Histogram = React.memo(function Histogram({formResults}) {
@@ -822,11 +827,11 @@ const Histogram = React.memo(function Histogram({formResults}) {
               </div>
         
       </div>
-      <button className='btn1' onClick={handleCalcAgain}> Calculer de nouveau un bilan carbone ! </button>
+     
     </div>
 
     ) : (
-      <a href="#top">Remplir le formulaire pour avoir le résultat </a>
+      ''
     )
     }
     </div>

@@ -711,7 +711,7 @@ const handleCalcul = (event) => {
           {souslocalisationOptions.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
-        <button onClick={handleAddProduct}className="btn1"style={{ margin: '0.3125rem' }}>Add Product</button>
+        <button onClick={handleAddProduct}className="btn1"style={{ margin: '0.3125rem' }}>Ajouter activité</button>
         <button onClick={handleFinalSubmit} className="btn2" > Voir le resultat</button> </form>
       </div>
   
