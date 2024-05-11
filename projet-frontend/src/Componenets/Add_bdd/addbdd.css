@@ -1,0 +1,72 @@
+
+
+
+
+.AJOUTER {
+    max-width: 90%;
+    width: 100%;
+    background: #ffffff;
+    color:  #031273;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 5px #a3c0d2;
+    border: 1px solid #4CA950;
+    overflow: hidden;
+    margin-left: 5%;
+    margin-top: 3%;
+    
+}
+
+.add .form-container {
+    display: flex;
+}
+
+.add .form-column {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.add .form-column:last-child {
+    margin-right: 0;
+}
+
+/* Style général du formulaire */
+.add form {
+    width: 300px; /* Largeur du formulaire */
+    margin: auto; /* Centrer le formulaire horizontalement */
+    padding: 20px; /* Espacement à l'intérieur du formulaire */
+    border: 1px solid #ccc; /* Bordure autour du formulaire */
+    border-radius: 5px; /* Coins arrondis */
+    background-color: #f9f9f9; /* Couleur de fond */
+  }
+  
+  /* Style des étiquettes */
+  .add label {
+    display: block; /* Afficher les étiquettes sur une ligne différente */
+    margin-bottom: 5px; /* Espacement entre les étiquettes */
+  }
+  
+  /* Style des champs de saisie */
+  .add input[type="text"] {
+    width: calc(100% - 10px); /* Largeur du champ de saisie, moins la marge */
+    padding: 5px; /* Espacement à l'intérieur du champ de saisie */
+    margin-bottom: 10px; /* Espacement entre les champs de saisie */
+    border: 1px solid #ccc; /* Bordure autour du champ de saisie */
+    border-radius: 3px; /* Coins arrondis */
+  }
+  
+  /* Style du bouton */
+  .add button[type="submit"] {
+    width: 100%; /* Largeur du bouton */
+    padding: 10px; /* Espacement à l'intérieur du bouton */
+    background-color: #007bff; /* Couleur de fond du bouton */
+    color: #fff; /* Couleur du texte du bouton */
+    border: none; /* Supprimer la bordure du bouton */
+    border-radius: 3px; /* Coins arrondis */
+    cursor: pointer; /* Curseur pointer au survol */
+  }
+  
+  /* Style du bouton au survol */
+  .add button[type="submit"]:hover {
+    background-color: #0056b3; /* Couleur de fond du bouton au survol */
+  }
+  

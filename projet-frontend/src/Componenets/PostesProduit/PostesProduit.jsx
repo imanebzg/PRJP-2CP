@@ -136,10 +136,17 @@ if (!localStorage.getItem('formResults')) {
 
 
 
-const generateColors = (num) => {
-  // Generate colors logic
-  return Array.from({ length: num }, () => "#" + Math.floor(Math.random() * 16777215).toString(16));
-};
+    const generateColors = (numColors) => {
+      const colors = [];
+      const step = 360 / numColors; // Calculer l'incrément pour répartir les couleurs uniformément
+    
+      for (let i = 0; i < numColors; i++) {
+        const hue = (i * step) % 360; // Calculer la teinte en fonction de l'incrément
+        colors.push(`hsla(${hue}, 70%, 50%, 0.6)`);
+      }
+    
+      return colors;};
+    
 
 
 const ChartComponent = ({ secteur, dataByCategory, secteur1Array }) => {
@@ -197,12 +204,13 @@ const ChartComponent = ({ secteur, dataByCategory, secteur1Array }) => {
 
 
 return (
-  <div>
+  <div  className="Postes">
     {secteur1Array.map((secteur, index) => (
-      <div>
-        <h3>{secteur}</h3>
+      
+      <div className="scopes1">
+        <h3>{secteur}</h3>  <div className="chart-container">
         <ChartComponent key={index} dataByCategory={dataByCategory} secteur={secteur} />
-        </div>
+        </div> </div>
     ))}
 </div>
 );

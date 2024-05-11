@@ -359,6 +359,9 @@ const handleCalcul = (event) => {
     const value = event.target.value;
     setter(value);
     updateCalcInfo(fieldName, value);
+    if (fieldName = 'quantite'){
+      localStorage.setItem('quantite',quantite)
+    }
 };
 
 
@@ -656,7 +659,9 @@ const handleCalcul = (event) => {
         </div>
       )}
        
-       {tableData && <Tableau data={tableData }  facteur ={quantite} />}   </div>
+       {tableData &&  <Tableau data={tableData }  facteur ={quantite} />} 
+       {tableData && localStorage.setItem('tableData', JSON.stringify(tableData)) } 
+         </div>
     </div> </div>
   );
 }

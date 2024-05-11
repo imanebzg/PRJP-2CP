@@ -13,10 +13,21 @@ import Sidbar from "../../Componenets/Sidebar/Sidebar";
 import Avancement_exmp from '../../Componenets/Avancement_exmp/Avancement_exmp';
 import Plus_prod from '../../Componenets/Plus_prod/Plus_prod';
 import PostesProduit from '../../Componenets/PostesProduit/PostesProduit';
-
-
+import Tableau from '../../Componenets/tableau/tableau';
 function Second_page (props) {
 let isSubmitted = localStorage.getItem('isSubmitted');
+let quantite = localStorage.getItem('quantite');
+const [storedData, setTableData] = useState([]);
+useEffect(() => {
+
+  // Récupérer les données du localStorage lors du chargement initial
+  const storedData = localStorage.getItem('tableData');
+  if (storedData) {
+    setTableData(JSON.parse(storedData));
+  }
+}, []);
+
+
 if (isSubmitted === 'true') {
   isSubmitted = true;
 } else {
@@ -150,7 +161,7 @@ if (isSubmitted === 'true') {
         <div id="form9">
           
         <PostesProduit/>
-        
+         <Tableau data={storedData }  facteur ={quantite} />
        
        </div> )}
        </div>

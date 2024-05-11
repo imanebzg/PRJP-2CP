@@ -11,7 +11,6 @@ const adminPage = (props) => {
          
             <h2>Coucou Admin</h2>
             <Credentials/>
-
             <ModifyBDD />
             <InfoUsers />
             

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './addbdd.css';
 
 const AddProductForm = () => {
     const [formData, setFormData] = useState({
@@ -17,7 +18,7 @@ const AddProductForm = () => {
         Code_gaz_supplémentaire_4: '', Valeur_gaz_supplémentaire_4: '',
         Code_gaz_supplémentaire_5: '', Valeur_gaz_supplémentaire_5: '',
         Autres_GES: '', CO2b: ''
-    });//8
+    });
 
     const handleChange = (e) => {
         setFormData({
@@ -48,28 +49,254 @@ const AddProductForm = () => {
         }
     };
 
+    const [selectedScope, setSelectedScope] = useState('form-1');
+
+    const handleRadioChange = (e) => {
+        setSelectedScope(e.target.value);
+    };
+
     return (
-        <div>
-        <h1>Ajouter une activite a la base de donnee: </h1>
-        <form onSubmit={handleSubmit}>
-            {/* Input fields */}
-            {Object.keys(formData).map(key => (
-                <div key={key}>
-                    <label>{key.replace(/_/g, ' ')}:</label>
+        <div className='AJOUTER'>
+                 <h1>Ajouter une activite a la base de donnee: </h1>
+            <div className="radio-input">
+                <input type="hidden" id="selectedScope" value={selectedScope} />
+
+                {/* Radio buttons with labels */}
+                <label>
                     <input
-                        type="text"
-                        name={key}
-                        value={formData[key]}
-                        onChange={handleChange}
-                        placeholder={key.replace(/_/g, ' ')}
+                        type="radio"
+                        value="form-1"
+                        name="value-radio"
+                        id="value-1"
+                        onChange={handleRadioChange}
+                        checked={selectedScope === 'form-1'}
                     />
-                </div>
-            ))}
-            <button type="submit">Add Product</button>
-        </form>
+                    <span>1</span>
+                </label>
+                <label>
+                    <input
+                        type="radio"
+                        value="form-2"
+                        name="value-radio"
+                        id="value-2"
+                        onChange={handleRadioChange}
+                        checked={selectedScope === 'form-2'}
+                    />
+                    <span> 2</span>
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        value="form-3"
+                        name="value-radio"
+                        id="value-3"
+                        onChange={handleRadioChange}
+                        checked={selectedScope === 'form-3'}
+                    />
+                    <span>3</span>
+                </label>
+                <label>
+                    <input
+                        type="radio"
+                        value="form-4"
+                        name="value-radio"
+                        id="value-4"
+                        onChange={handleRadioChange}
+                        checked={selectedScope === 'form-4'}
+                    />
+                    <span>4</span>
+                </label>
+            </div>
+
+            {/* Render the selected form based on the value of selectedScope */}
+            {selectedScope === 'form-1' && (
+                <Form1 formData={formData} handleChange={handleChange} handleSubmit={handleSubmit} />
+            )}
+            {selectedScope === 'form-2' && (
+                <Form2 formData={formData} handleChange={handleChange} handleSubmit={handleSubmit} />
+            )}
+            {selectedScope === 'form-3' && (
+                <Form3 formData={formData} handleChange={handleChange} handleSubmit={handleSubmit} />
+            )}
+              {selectedScope === 'form-4' && (
+                <Form4 formData={formData} handleChange={handleChange} handleSubmit={handleSubmit} />
+            )}
         </div>
-        
     );
 };
+const Form1 = ({ formData, handleChange, handleSubmit }) => {
+    return (
+        <div className='add'>
+
+            <form onSubmit={handleSubmit} className="form-container">
+                {/* Input fields - Form 1 */}
+                <div className="form-column">
+                    {Object.keys(formData).slice(0, 5).map(key => (
+                        <div key={key}>
+                            <label>{key.replace(/_/g, ' ')}:</label>
+                            <input
+                                type="text"
+                                name={key}
+                                value={formData[key]}
+                                onChange={handleChange}
+                                placeholder={key.replace(/_/g, ' ')}
+                            />
+                        </div>
+                    ))}
+                </div>
+                <div className="form-column">
+                    {Object.keys(formData).slice(5, 11).map(key => (
+                        <div key={key}>
+                            <label>{key.replace(/_/g, ' ')}:</label>
+                            <input
+                                type="text"
+                                name={key}
+                                value={formData[key]}
+                                onChange={handleChange}
+                                placeholder={key.replace(/_/g, ' ')}
+                            />
+                        </div>
+                    ))}
+                </div>
+               
+            </form>
+        </div>
+    );
+};
+
+const Form2 = ({ formData, handleChange, handleSubmit }) => {
+    return (
+        <div className='add'>
+           
+            <form onSubmit={handleSubmit} className="form-container">
+                {/* Input fields - Form 2 */}
+                <div className="form-column">
+                    {Object.keys(formData).slice(11, 16).map(key => (
+                        <div key={key}>
+                            <label>{key.replace(/_/g, ' ')}:</label>
+                            <input
+                                type="text"
+                                name={key}
+                                value={formData[key]}
+                                onChange={handleChange}
+                                placeholder={key.replace(/_/g, ' ')}
+                            />
+                        </div>
+                    ))}
+                </div>
+                <div className="form-column">
+                    {Object.keys(formData).slice(16, 21).map(key => (
+                        <div key={key}>
+                            <label>{key.replace(/_/g, ' ')}:</label>
+                            <input
+                                type="text"
+                                name={key}
+                                value={formData[key]}
+                                onChange={handleChange}
+                                placeholder={key.replace(/_/g, ' ')}
+                            />
+                        </div>
+                    ))}
+                </div>
+                
+            </form>
+        </div>
+    );
+};
+const Form3 = ({ formData, handleChange, handleSubmit }) => {
+    return (
+        <div className='add'>
+          
+            <form onSubmit={handleSubmit} className="form-container">
+                {/* Input fields - Form 3 */}
+                <div className="form-column">
+                    {Object.keys(formData).slice(21, 26).map(key => (
+                        <div key={key}>
+                            <label>{key.replace(/_/g, ' ')}:</label>
+                            <input
+                                type="text"
+                                name={key}
+                                value={formData[key]}
+                                onChange={handleChange}
+                                placeholder={key.replace(/_/g, ' ')}
+                            />
+                        </div>
+                    ))}
+                </div>
+                <div className="form-column">
+                    {Object.keys(formData).slice(26, 31).map(key => (
+                        <div key={key}>
+                            <label>{key.replace(/_/g, ' ')}:</label>
+                            <input
+                                type="text"
+                                name={key}
+                                value={formData[key]}
+                                onChange={handleChange}
+                                placeholder={key.replace(/_/g, ' ')}
+                            />
+                        </div>
+                    ))}
+                </div>
+              
+            </form>
+        </div>
+    );
+};const Form4 = ({ formData, handleChange, handleSubmit }) => {
+    return (
+        <div className='add'>
+           
+            <form onSubmit={handleSubmit} className="form-container">
+                {/* Input fields - Form 4 (Left Column) */}
+                <div className="column">
+                    {Object.keys(formData).slice(31, 34).map(key => (
+                        <div key={key}>
+                            <label>{key.replace(/_/g, ' ')}:</label>
+                            <input
+                                type="text"
+                                name={key}
+                                value={formData[key]}
+                                onChange={handleChange}
+                                placeholder={key.replace(/_/g, ' ')}
+                            />
+                        </div>
+                    ))}
+                </div>
+                {/* Input fields - Form 4 (Middle Column) */}
+                <div className="column">
+                    {Object.keys(formData).slice(34, 38).map(key => (
+                        <div key={key}>
+                            <label>{key.replace(/_/g, ' ')}:</label>
+                            <input
+                                type="text"
+                                name={key}
+                                value={formData[key]}
+                                onChange={handleChange}
+                                placeholder={key.replace(/_/g, ' ')}
+                            />
+                        </div>
+                    ))}
+                </div>
+                {/* Input fields - Form 4 (Right Column) */}
+                <div className="column">
+                    {Object.keys(formData).slice(38).map(key => (
+                        <div key={key}>
+                            <label>{key.replace(/_/g, ' ')}:</label>
+                            <input
+                                type="text"
+                                name={key}
+                                value={formData[key]}
+                                onChange={handleChange}
+                                placeholder={key.replace(/_/g, ' ')}
+                            />
+                        </div>
+                    ))}
+                </div>
+               
+            </form> <button type="submit">Add Product</button>
+        </div>
+    );
+};
+
 
 export default AddProductForm;
