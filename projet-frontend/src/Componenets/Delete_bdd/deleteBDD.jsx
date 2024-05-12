@@ -74,7 +74,7 @@ function DeleteForm() {
 export default DeleteForm;
 */
 import React, { useState } from 'react';
-
+import './deleteBDD.css'
 function DeleteForm() {
     const [fields, setFields] = useState([{ key: '', value: '' }]);
 

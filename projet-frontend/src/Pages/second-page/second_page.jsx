@@ -13,7 +13,7 @@ import Sidbar from "../../Componenets/Sidebar/Sidebar";
 import Avancement_exmp from '../../Componenets/Avancement_exmp/Avancement_exmp';
 import Plus_prod from '../../Componenets/Plus_prod/Plus_prod';
 import PostesProduit from '../../Componenets/PostesProduit/PostesProduit';
-
+import HistoryTable from '../../Componenets/Table_historique/history'
 
 function Second_page (props) {
 let isSubmitted = localStorage.getItem('isSubmitted');
@@ -44,6 +44,7 @@ if (isSubmitted === 'true') {
         <div className="second"> 
           <Sidbar/>
           <div className="content2">
+          <HistoryTable />
           <Form/>
           {isSubmitted ? (  <div className="mini_cont">
           <button className='btn1' onClick={handleCalcAgain}> Calculer de nouveau un bilan carbone ?</button>

@@ -304,4 +304,43 @@ getScopes('Poisson (pêche)','Achats de biens ',postes);*/
 
 
 
+async function calculeParScope(nom, NomAtt, NomFrontiere, contributeur, localisation, sousLocalisation, secteur1, secteur2, secteur3, secteur4, secteur5, unite) {
+    try {
+    
+        const tauxElement = await getTaux('element', nom, NomAtt, NomFrontiere, contributeur, localisation, sousLocalisation, secteur1, secteur2, secteur3, secteur4, secteur5, unite, '');
+        const postes = await getPostes(nom, 'Poste');
+
+        let sumScope1 = 0;
+        let sumScope2 = 0;
+        let sumScope3 = 0;
+
+        for (let poste of postes) {
+            const scopes = await getScopes(nom, NomAtt, NomFrontiere, contributeur, localisation, sousLocalisation, secteur1, secteur2, secteur3, secteur4, secteur5, poste);
+            const tauxPoste = await getTaux('poste', nom, NomAtt, NomFrontiere, contributeur, localisation, sousLocalisation, secteur1, secteur2, secteur3, secteur4, secteur5, unite, poste);
+
+            // Somme des taux pour chaque scope
+            for (let scope of scopes) {
+                switch (scope) {
+                    case 1:
+                        sumScope1 += tauxPoste.reduce((acc, curr) => acc + curr, 0);
+                        break;
+                    case 2:
+                        sumScope2 += tauxPoste.reduce((acc, curr) => acc + curr, 0);
+                        break;
+                    case 3:
+                        sumScope3 += tauxPoste.reduce((acc, curr) => acc + curr, 0);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        console.log(`Somme des taux pour le scope 1: ${sumScope1}`);
+        console.log(`Somme des taux pour le scope 2: ${sumScope2}`);
+        console.log(`Somme des taux pour le scope 3: ${sumScope3}`);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
 module.exports = {getSecteur5,getSecteur4 ,getSecteur3, getSecteurs, getProducts , getUnit , getNomAttribut, getNomFrontiere , getContributeur, getLocalisation ,getSousLocalisation};
