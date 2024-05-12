@@ -1,4 +1,3 @@
-
 import Avancement from "../../Componenets/Avancement_exmp/Avancement_exmp"
 import Info_entreprise from "../../Componenets/Info_entreprise/Info_entreprise"
 import Notif from "../../Componenets/Notifications/Notifications"
@@ -12,6 +11,7 @@ import Sdb from "../../Componenets/Sidebar/Sidebar"
 import Tableau from "../../Componenets/tableau/tableau"
 import CompanyProfilePage from "../../Componenets/Info_entreprise/Info_entreprise"
 import SecuritePage from "../../Componenets/Securite/Securitecomponent"
+import DeleteAccount from "../../Componenets/Supprimer/Supprimer" 
 
 const Thirdpage = (props) => {
   
@@ -31,6 +31,7 @@ const Thirdpage = (props) => {
            <Supprimer/>*/}
           <CompanyProfilePage/>
           <SecuritePage/>
+          <DeleteAccount />
           
                   
         </div>

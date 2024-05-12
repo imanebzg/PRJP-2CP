@@ -23,6 +23,7 @@
   position: absolute;
   top: 45%;
   margin: 0;
+  z-index: 1;
   left: 20%;  /* 250px / 16px */
   transform: translateY(-50%);
   transform: translateX(3%);

@@ -34,6 +34,7 @@ const getnumbercompaniesRoutes = require('./routes/numberUsers');
 const getmanagecompaniesRoutes = require('./routes/companyMethRoute')
 const gethistoryRoutes = require('./routes/historyRoute');
 const gettablehistoryRoutes = require('./routes/Displayhistory')
+const getdeleteRoutes = require('./routes/deleteAccountRoute')
 /*
 app.use(session({
   secret: 'some secret', 
@@ -57,9 +58,9 @@ app.use('/addproduct', getaddproductRoutes);
 app.use('/deleteproduct', getdeleteproductRoutes);
 app.use('/countUsers', getnumbercompaniesRoutes);
 app.use('/manage', getmanagecompaniesRoutes);
-app.use('/bilans', gethistoryRoutes)
-app.use('/table_bilans', gettablehistoryRoutes)
-
+app.use('/bilans', gethistoryRoutes);
+app.use('/table_bilans', gettablehistoryRoutes);
+app.use('/delete', getdeleteRoutes);
 
 app.use((req, res, next) => {
   res.status(404).render("404");
