@@ -1,0 +1,33 @@
+
+@import url('https://fonts.cdnfonts.com/css/gilroy-bold');
+@import url('https://fonts.cdnfonts.com/css/proxima-nova-condensed');
+
+.inf {   max-width: 80%;
+    width: 70%;
+    background: #ffffff;
+    color:  #031273;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 5px #a3c0d2;
+    border: 1px solid #E0E8F5;
+    overflow: hidden;
+    margin-left: 15%;
+    margin-top: 3%;
+  }
+
+
+    
+  
+   .inf .title{
+    padding: 0.1%;
+    text-align: center;
+    background: #031273;
+
+    font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
+  }
+ .inf .title p{
+  font-size:30px ;
+  font-weight: 700;
+  color: #E0E8F5;
+  font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
+
+}

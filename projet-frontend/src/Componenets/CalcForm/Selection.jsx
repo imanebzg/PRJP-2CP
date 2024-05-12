@@ -1,10 +1,9 @@
-
  // Assurez-vous d'importer correctement Form2
 
  import React, { useEffect, useState } from 'react';
- // import { calc } from '../../../../back-end/controllers/calc';
   import './form.css';
   import Tableau from "../tableau/tableau"
+  import BilanForm from "../Datecomponent/BilanFom"
 function Sele() {
  
   // useState to hold the fetched data
@@ -83,7 +82,6 @@ useEffect(() => {
       const response = await fetch(`http://localhost:3001/getters/getSector2Options?sector1=${encodeURIComponent(secteur1)}`);
       const data = await response.json();
       updateState(data); // Directly updating state passed as a function
-      console.log('data',data)
 
     } catch (error) {
       console.error('Failed to fetch options:', error);
@@ -98,9 +96,7 @@ useEffect(() => {
 //secteur3
   useEffect(() => {
     if (secteur1 && secteur2) { 
-      console.log('hna')
       fetch3Options(`http://localhost:3001/getters/getSector3Options?sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}`, setSecteur3Options);
-      console.log('setSecteur3Options',secteur3Options)
 
     }
   }, [secteur1, secteur2]);  
@@ -110,7 +106,6 @@ useEffect(() => {
       const response = await fetch(`http://localhost:3001/getters/getSector3Options?sector1=${encodeURIComponent(secteur1)}&sector2=${sec2}`);
       const data2 = await response.json();
       update2State(data2); // Directly updating state passed as a function
-      console.log('data2',data2)
 
     } catch (error) {
       console.error('Failed to fetch options:', error);
@@ -301,6 +296,33 @@ useEffect(() => {
     localisation: '',
     souslocalisation: ''
 });
+// frontend/script.js
+
+const saveTotalSumToDatabase = async () => {
+  const company_id = localStorage.getItem('userEmail'); 
+  const totalSum = localStorage.getItem('totalSum').toString(); 
+  console.log("totalSum",totalSum);
+  
+  const start_date = localStorage.getItem('start_date');
+  const end_start = localStorage.getItem('end_date');
+  try {
+    const response = await fetch('http://localhost:3001/bilans/history', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({company_id , totalSum , start_date , end_start  })
+    });
+    if (response.ok) {
+      console.log('Total sum saved to database successfully');
+    } else {
+      console.error('Error saving total sum to database');
+    }
+  } catch (error) {
+    console.error('Error saving total sum to database: ', error);
+  }
+};
+
 
 /*
     const handleCalcul = async (event) => {
@@ -359,9 +381,6 @@ const handleCalcul = (event) => {
     const value = event.target.value;
     setter(value);
     updateCalcInfo(fieldName, value);
-    if (fieldName = 'quantite'){
-      localStorage.setItem('quantite',quantite)
-    }
 };
 
 
@@ -423,11 +442,12 @@ const handleCalcul = (event) => {
   };
   const handleFinalSubmit = (e) => {
     e.preventDefault();
+    saveTotalSumToDatabase();
     handleCalcul(e)
-      .then(result => {
+      .then ( result => {
         const newCalcInfo = { ...calcInfo }; // Create a copy of current calcInfo
         const updatedFormResults = [...formResults, newCalcInfo];
-      setFormResults(updatedFormResults); // Add calcInfo to formResults
+        setFormResults(updatedFormResults); // Add calcInfo to formResults
         setTotalSum(prevSum => prevSum + result);
         setCalcInfo({
           secteur1: '',
@@ -466,11 +486,14 @@ const handleCalcul = (event) => {
         // Save formResults to local storage
         localStorage.setItem('formResults', JSON.stringify([...formResults, newCalcInfo]));
         localStorage.setItem('isSubmitted', true);
-        window.location.reload();
+        window.location.reload(); 
       })
       .catch(error => {
         console.error('Error in handleFinalSubmit:', error);
       });
+   
+
+     
   };
   
   const [selectedScope, setSelectedScope] = useState('form-1');
@@ -479,6 +502,11 @@ const handleCalcul = (event) => {
     setSelectedScope(event.target.value);
   };
   return (
+    <div>
+
+
+    <BilanForm />
+
     <div className="Selectionner">
       <p>  Remplissez toutes les informations necessaires aux calculs: </p>
        <div className="SELECTION">
@@ -659,10 +687,10 @@ const handleCalcul = (event) => {
         </div>
       )}
        
-       {tableData &&  <Tableau data={tableData }  facteur ={quantite} />} 
-       {tableData && localStorage.setItem('tableData', JSON.stringify(tableData)) } 
-         </div>
+       {tableData && <Tableau data={tableData }  facteur ={quantite} />}   </div>
     </div> </div>
+    </div>
+
   );
 }
 

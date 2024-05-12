@@ -51,7 +51,7 @@ function CompanyManager() {
 
 export default CompanyManager;*/
 import React, { useEffect, useState } from 'react';
-
+import './cmpny.css'
 function CompanyManager() {
     const [companies, setCompanies] = useState([]);
     const [selectedCompany, setSelectedCompany] = useState(null);
@@ -87,7 +87,7 @@ function CompanyManager() {
     };
 
     return (
-        <div>
+        <div className='manager'>
             <select onChange={handleSelectCompany} value={selectedCompany ? selectedCompany.company_name : ''}>
                 <option value="">Select a company</option>
                 {companies.map(company => (

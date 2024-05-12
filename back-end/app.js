@@ -32,7 +32,8 @@ const getaddproductRoutes = require('./routes/addBddRoute');
 const getdeleteproductRoutes = require('./routes/deleteBddRoute');
 const getnumbercompaniesRoutes = require('./routes/numberUsers');
 const getmanagecompaniesRoutes = require('./routes/companyMethRoute')
-
+const gethistoryRoutes = require('./routes/historyRoute');
+const gettablehistoryRoutes = require('./routes/Displayhistory')
 /*
 app.use(session({
   secret: 'some secret', 
@@ -56,6 +57,8 @@ app.use('/addproduct', getaddproductRoutes);
 app.use('/deleteproduct', getdeleteproductRoutes);
 app.use('/countUsers', getnumbercompaniesRoutes);
 app.use('/manage', getmanagecompaniesRoutes);
+app.use('/bilans', gethistoryRoutes)
+app.use('/table_bilans', gettablehistoryRoutes)
 
 
 app.use((req, res, next) => {
@@ -67,4 +70,3 @@ app.listen(port, (err) => {
   if (err) console.log(`Error listening on port ${port}`);
   else  console.log(`Running on port ${port}`);
 });
-

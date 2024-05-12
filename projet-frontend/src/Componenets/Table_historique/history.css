@@ -1,0 +1,31 @@
+/* frontend/src/HistoryTable.css */
+
+.history-table-container {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .history-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .history-table th,
+  .history-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .history-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .history-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .history-table tr:hover {
+    background-color: #ddd;
+  }
+  

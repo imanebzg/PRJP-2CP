@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import './nmbr.css'
 function CompanyCount() {
     const [count, setCount] = useState(0);
 
@@ -18,7 +18,7 @@ function CompanyCount() {
     }, []);
 
     return (
-        <div>
+        <div className='nmbr'>
             <h3>Number of Companies: {count}</h3>
         </div>
     );

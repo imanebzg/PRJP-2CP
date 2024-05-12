@@ -1,26 +1,39 @@
 
 
+.AJOUTER .title{
+  padding: 0.1%;
+  text-align: center;
+  background: #031273;
 
+  font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
+}
+.AJOUTER .title p{
+font-size:30px ;
+font-weight: 700;
+color: #E0E8F5;
+font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
 
+}
 .AJOUTER {
-    max-width: 90%;
-    width: 100%;
+    max-width: 80%;
+    width: 70%;
     background: #ffffff;
     color:  #031273;
     border-radius: 0.5rem;
     box-shadow: 0 0 5px #a3c0d2;
-    border: 1px solid #4CA950;
+    border: 1px solid #E0E8F5;
     overflow: hidden;
-    margin-left: 5%;
+    margin-left: 15%;
     margin-top: 3%;
-    
+ padding: 0;
+    font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
 }
 
-.add .form-container {
+.AJOUTER .add .form-container {
     display: flex;
 }
 
-.add .form-column {
+.AJOUTER .add .form-column {
     flex: 1;
     margin-right: 20px;
 }
@@ -29,24 +42,33 @@
     margin-right: 0;
 }
 
+.AJOUTER .add .column4 {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.AJOUTER .add .column4:last-child {
+    margin-right: 0;
+}
 /* Style général du formulaire */
-.add form {
-    width: 300px; /* Largeur du formulaire */
-    margin: auto; /* Centrer le formulaire horizontalement */
-    padding: 20px; /* Espacement à l'intérieur du formulaire */
-    border: 1px solid #ccc; /* Bordure autour du formulaire */
+.AJOUTER .add form {
+    width: 70%; /* Largeur du formulaire */
+    margin: 3%; /* Centrer le formulaire horizontalement */
+    padding: 2%; /* Espacement à l'intérieur du formulaire */
+    margin-left: 12%;
+    border: 1px solid  #4CA950;  /* Bordure autour du formulaire */
     border-radius: 5px; /* Coins arrondis */
-    background-color: #f9f9f9; /* Couleur de fond */
+    background-color: white; /* Couleur de fond */
   }
   
   /* Style des étiquettes */
-  .add label {
+  .AJOUTER .add label {
     display: block; /* Afficher les étiquettes sur une ligne différente */
     margin-bottom: 5px; /* Espacement entre les étiquettes */
   }
   
   /* Style des champs de saisie */
-  .add input[type="text"] {
+  .AJOUTER .add input[type="text"] {
     width: calc(100% - 10px); /* Largeur du champ de saisie, moins la marge */
     padding: 5px; /* Espacement à l'intérieur du champ de saisie */
     margin-bottom: 10px; /* Espacement entre les champs de saisie */
@@ -55,10 +77,10 @@
   }
   
   /* Style du bouton */
-  .add button[type="submit"] {
+  .AJOUTER .add button[type="submit"] {
     width: 100%; /* Largeur du bouton */
     padding: 10px; /* Espacement à l'intérieur du bouton */
-    background-color: #007bff; /* Couleur de fond du bouton */
+   
     color: #fff; /* Couleur du texte du bouton */
     border: none; /* Supprimer la bordure du bouton */
     border-radius: 3px; /* Coins arrondis */
@@ -66,7 +88,181 @@
   }
   
   /* Style du bouton au survol */
-  .add button[type="submit"]:hover {
+  .AJOUTER  .add button[type="submit"]:hover {
     background-color: #0056b3; /* Couleur de fond du bouton au survol */
   }
   
+.AJOUTER  h1{
+padding: 1%;
+background: #E0E8F5;
+color: #031273;
+font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
+}
+  
+
+  .AJOUTER .SELE .radio-input input[type="radio"] {
+  display: none; /* Pour cacher les cases à cocher par défaut */
+  
+}
+.AJOUTER .SELE  {
+margin: 2%;
+align-items: center;
+
+
+}
+.AJOUTER .SELE .radio-input {
+  max-width: 90%;
+  height: 40%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 9999px;
+  background-color: #E0E8F5;
+ margin-left: 5%;
+  color: #000000;
+  width: var(--container_width);
+  overflow: hidden;
+  border: 0.1px solid  #5963a361;
+}
+.AJOUTER .SELE .radio-input label {
+  width: 100%;
+  padding:1.5%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  font-size: 15px;
+  text-align: center;
+}
+
+
+.AJOUTER .SELE .selection {
+  display: none;
+  position: absolute;
+  height: 100%;
+  width: calc(var(--container_width) / 3);
+  z-index: 0;
+  left: 0;
+  top: 0;
+  transition: .15s;
+}
+.AJOUTER .SELE .radio-input label:has(input:checked) {
+  color:white;  background-color: #5963A3;
+  margin: 0.4%;
+  border-top-right-radius: 20px; /* Coin supérieur droit */
+  border-bottom-right-radius: 20px; /* Coin inférieur droit */
+  border-top-left-radius: 20px; /* Coin supérieur droit */
+  border-bottom-left-radius: 20px; /* Coin inférieur droit */
+  display: inline-block;
+  text-align: center;
+}
+.AJOUTER .btn-conteiner {
+  display: flex;
+  justify-content: center;
+  margin-left: 5%;
+  --color-text: #9ee5fa;
+  --color-background: #353535;
+  --color-outline: #9ee5fa80;
+  --color-shadow: #00000080;
+}
+
+.AJOUTER .btn-content {
+  display: flex;
+  align-items: center;
+  padding: 0px 3px;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 25px;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition: 1s;
+  border-radius: 100px;
+  box-shadow: 0 0 0.2em 0 var(--color-background);
+}
+
+.AJOUTER .AJOUTER .btn-content:hover,
+.AJOUTER .btn-content:focus {
+  transition: 0.5s;
+  -webkit-animation: btn-content 1s;
+  animation: btn-content 1s;
+  outline: 0.1em solid transparent;
+  outline-offset: 0.2em;
+  box-shadow: 0 0 0.4em 0 var(--color-background);
+}
+
+.AJOUTER .AJOUTER .btn-content .icon-arrow {
+  transition: 0.5s;
+  margin-right: 0px;
+  transform: scale(0.6);
+}
+
+.AJOUTER .btn-content:hover .icon-arrow {
+  transition: 0.5s;
+  margin-right: 25px;
+}
+
+.AJOUTER .icon-arrow {
+  width: 20px;
+  margin-left: 15px;
+  position: relative;
+  top: 6%;
+}
+
+/* SVG */
+.AJOUTER #arrow-icon-one {
+  transition: 0.4s;
+  transform: translateX(-60%);
+}
+
+.AJOUTER #arrow-icon-two {
+  transition: 0.5s;
+  transform: translateX(-30%);
+}
+
+.AJOUTER .btn-content:hover #arrow-icon-three {
+  animation: color_anim 1s infinite 0.2s;
+}
+
+.btn-content:hover #arrow-icon-one {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.6s;
+}
+
+.btn-content:hover #arrow-icon-two {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.4s;
+}
+
+/* SVG animations */
+@keyframes color_anim {
+  0% {
+    fill: white;
+  }
+
+  50% {
+    fill: var(--color-background);
+  }
+
+  100% {
+    fill: #9ee5fa;
+  }
+}
+
+/* Button animations */
+@-webkit-keyframes btn-content {
+  0% {
+    outline: 0.2em solid var(--color-background);
+    outline-offset: 0;
+  }
+}
+
+@keyframes btn-content {
+  0% {
+    outline: 0.2em solid var(--color-background);
+    outline-offset: 0;
+  }
+}

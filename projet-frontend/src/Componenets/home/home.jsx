@@ -27,22 +27,22 @@ const Home = () => {
   
 
       {authToken ? (
-              <a  onClick={handelsend} className="no-underline"> 
-                <button className="btn2" style={{ margin: '0.3125rem' }}>Mon compte</button> 
+              <a  onClick={handelsend}> 
+                <button className="btn2" style={{ margin: '0.4rem' }}>Mon compte</button> 
               </a>
             ) : (
-              <a href="#sign-in" className="no-underline"> 
-              <button className="btn2" style={{ margin: '0.3125rem' }}>Mon compte</button>
+              <a href="#sign-in" > 
+              <button className="btn2" style={{ margin: '0.4rem' }}>Mon compte</button>
               </a>
             )}
 
 
                {authToken ? (
-              <a  onClick={handlesecond} className="no-underline"> 
+              <a  onClick={handlesecond} > 
                  <button className="btn1">Commencer</button>
               </a>
             ) : (
-              <a href="#sign-in" className="no-underline"> 
+              <a href="#sign-in" > 
          <button className="btn1">Commencer</button>
               </a>
             )} 

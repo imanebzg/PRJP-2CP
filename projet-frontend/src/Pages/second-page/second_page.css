@@ -138,7 +138,7 @@
   
   }
   
-  .btn1 {
+  .second .btn1 {
     display: inline-block;
     margin:1%;
     margin-left: 25%;
@@ -160,7 +160,7 @@
     transition: all 0.3s ease-in-out;
   }
   
-  .btn1::before {
+  .second .btn1::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -174,13 +174,13 @@
     transition: all 0.3s ease-in-out;
   }
   
-  .btn1:hover {
+  .second .btn1:hover {
     background-color: #fff;
     color:  #4CA950; 
     box-shadow: #4CA950; 
   }
   
-  .btn1:hover::before {
+  .second .btn1:hover::before {
     width: 200%;
     height: 200%;
   }
@@ -188,7 +188,7 @@
 
 
 
-  .btn-container {
+  .second .btn-container {
     display: table-cell;
     vertical-align: middle;
     text-align: center;
@@ -200,7 +200,7 @@
     position: relative;
   }
   
-  .btn-color-mode-switch > label {
+  .second .btn-color-mode-switch > label {
     margin: 0px;
     width: 140px;
     height: 40px;
@@ -212,7 +212,7 @@
     display: block;
   }
   
-  .btn-color-mode-switch > label:before {
+  .second .btn-color-mode-switch > label:before {
     content: attr(data-on);
     position: absolute;
     font-size: 20px;
@@ -223,7 +223,7 @@
     color: #222;
   }
   
-  .btn-color-mode-switch > label:after {
+  .second .btn-color-mode-switch > label:after {
     content: attr(data-off);
     width: 70px;
     height: 25px;
@@ -244,7 +244,7 @@
     font-weight: 600;
   }
   
-  .btn-color-mode-switch input[type="radio"] {
+  .second .btn-color-mode-switch input[type="radio"] {
     cursor: pointer;
     width: 50px;
     height: 25px;
@@ -255,16 +255,16 @@
     margin: 0px;
   }
   
-  .btn-color-mode-switch input[type="radio"]:checked + label {
+  .second .btn-color-mode-switch input[type="radio"]:checked + label {
     background-color: #fcce8a;
   }
   
-  .btn-color-mode-switch input[type="radio"]:checked + label:after {
+  .second .btn-color-mode-switch input[type="radio"]:checked + label:after {
     content: attr(data-on);
     left: 68px;
   }
   
-  .btn-color-mode-switch input[type="radio"]:checked + label:before {
+  .second .btn-color-mode-switch input[type="radio"]:checked + label:before {
     content: attr(data-off);
     right: auto;
     left: 20px;

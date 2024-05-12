@@ -7,15 +7,16 @@ import "./firstpage.css";
 const Firstpage = (props) => {
    return (
         <div className="first"> 
-            <Sidbar/> 
-            <div className="content">
+       
+            <Sidbar/>   
+            
             <Info_entreprise/>
             <Notifications/>
             <Securite/>
             <Supprimer/>    
-            </div>    
+            </div>
                
-        </div>
+      
       );
 }
  

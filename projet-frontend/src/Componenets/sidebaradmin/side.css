@@ -3,10 +3,10 @@
 
 
 
-  .bar{position: fixed;
+  .bar2{position: fixed;
    
     margin: 0;
-     
+
     height: 100%;
     font-family:'Proxima Nova Condensed', 'Gilroy-Regular';
     font-size: 100;
@@ -18,11 +18,11 @@
  
   }
 
-  .bar #checkbox {
+  .bar2 #checkbox {
     display: none;
   }
   
-  .bar .toggle {
+  .bar2 .toggle {
     position: relative;
    
     cursor: pointer;
@@ -36,31 +36,31 @@
     transition-duration: .5s;
   }
   
-  .bar .bars {
+  .bar2 .bars {
     width: 90%;
     height: 2.5px;
     background-color:white;
     border-radius: 5px;
   }
   
-  .bar #bar2 {
+  .bar2 #bar2 {
     transition-duration: .8s;
 
   }
   
   
   
-  .bar #checkbox:checked + .toggle .bars {
+  .bar2 #checkbox:checked + .toggle .bars {
     position: absolute;
     transition-duration: .5s;
   }
   
-  .bar #checkbox:checked + .toggle #bar2 {
+  .bar2 #checkbox:checked + .toggle #bar2 {
     transform: scaleX(0);
     transition-duration: .5s;
   }
   
-  .bar #checkbox:checked + .toggle #bar1 {
+  .bar2 #checkbox:checked + .toggle #bar1 {
    
     transform: rotate(45deg);
     transition-duration: .5s;
@@ -70,7 +70,7 @@
     border-radius: 5px;
   }
 
-  .bar #checkbox:checked + .toggle #bar3 {
+  .bar2 #checkbox:checked + .toggle #bar3 {
     width: 50%;
     height: 2.5px;
     background-color:white;
@@ -79,19 +79,19 @@
     transition-duration: .5s;
   }
   
-  .bar #checkbox:checked + .toggle {
+  .bar2 #checkbox:checked + .toggle {
     transition-duration: .5s;
     transform: rotate(180deg);
   }
 
- .bar .nav{
+ .bar2 .nav{
     height: 100%;
     display: flex;
     flex-direction: column;
     overflow: hidden;
   }
 
-.bar .Dashboard {
+.bar2 .Dashboard {
  
   display: flex; /* Use flexbox */
   align-items: center; /* Align items vertically */
@@ -101,7 +101,7 @@
 
 }
 
-.bar .item {
+.bar2 .item {
  
   display: flex; /* Use flexbox */
   align-items: center; /* Align items vertically */
@@ -112,7 +112,7 @@
  
 
 }
-.bar .item2 {
+.bar2 .item2 {
  margin-top: 100%;
  padding-top:50%;
 margin-left: 10%;
@@ -129,7 +129,6 @@ margin-left: 10%;
 
 
   
- 
 .bar2 h3 {
   padding:0.4rem; /* 0.2px 0.5px / 16px */
   padding-left: 0.1rem;
@@ -151,7 +150,7 @@ margin-left: 10%;
   color:#e14c31;
 }
 
-  .bar .sidebar{
+  .bar2 .sidebar{
     position: fixed;
     transition: 0.5s;
     text-align: center;
@@ -165,7 +164,7 @@ margin-left: 10%;
     color: #ffffff;
    
   }
-  .bar .sidebar1{
+  .bar2 .sidebar1{
     height: 100%;
     position: fixed;
     text-align: center;
@@ -178,43 +177,43 @@ margin-left: 10%;
     margin: 0;
     background-color:#031273;
   }
-  .bar .main{
+  .bar2 .main{
     text-align: center; 
   cursor: pointer;
 width: 100%;
 height: 5rem;
   }
-  .bar .main1{
+  .bar2 .main1{
     text-align: left;
     cursor: pointer;
 
   }
-  .bar .icon1{
+  .bar2 .icon1{
  margin-left: 5%;
 margin-top: 15%;
 height: 30%;
 width: 30%;
 
   }
-  .bar .icon1:hover{
+  .bar2 .icon1:hover{
   color: #e14c31;
 
   padding: 1%;
    
      }
-  .bar .icon11{
+  .bar2 .icon11{
 margin-left: 30%;
 height: 40%;
 width: 40%;
 
      }
-  .bar .icon2{
+  .bar2 .icon2{
 
    height: 35%;
    width: 35%;
    
      }
-     .bar .icon22{
+     .bar2 .icon22{
 margin-left: 30%;
       height: 40%;
       width: 40%;
@@ -222,12 +221,12 @@ margin-left: 30%;
       padding-top: 10%;
       position: fixed;
         }
- .bar .icon{
+ .bar2 .icon{
     height: 40%;
     width: 40%;
    
   }
-  .bar .sub-menu {
+  .bar2 .sub-menu {
 
   padding: 0;
   margin: 5%;
@@ -242,7 +241,7 @@ margin-left: 30%;
 
 
   
-  .bar .sub-menu li {
+  .bar2 .sub-menu li {
     padding: 0;
     list-style-type: none; 
     border: 0.1rem solid #5963A3;
@@ -253,13 +252,13 @@ margin-left: 30%;
     cursor: pointer;
   }
   
-  .bar .sub-menu li:hover {
+  .bar2 .sub-menu li:hover {
     background-color:  #e14c31;
     color:white;
   }
 
 
-  .bar button {
+  .bar2 button {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -276,7 +275,7 @@ margin-left: 30%;
   }
   
   /* plus sign */
-  .bar .sign {
+  .bar2 .sign {
     width: 100%;
     transition-duration: .3s;
     display: flex;
@@ -284,15 +283,15 @@ margin-left: 30%;
     justify-content: center;
   }
   
-  .bar .sign svg {
+  .bar2 .sign svg {
     width: 17px;
   }
   
-  .bar .sign svg path {
+  .bar2 .sign svg path {
     fill: white;
   }
   /* text */
-  .bar .text1 {
+  .bar2 .text1 {
     position: absolute;
     right: 0%;
     width: 0%;
@@ -303,25 +302,25 @@ margin-left: 30%;
     transition-duration: .3s;
   }
   /* hover effect on button width */
-  .bar button:hover {
+  .bar2 button:hover {
     width: 125px;
     border-radius: 40px;
     transition-duration: .3s;
   }
   
-  .bar button:hover .sign {
+  .bar2 button:hover .sign {
     width: 30%;
     transition-duration: .3s;
     padding-left: 1px;
   }
   /* hover effect button's text */
-  .bar button:hover .text1 {
+  .bar2 button:hover .text1 {
     opacity: 1;
     width: 70%;
     transition-duration: .3s;
     padding-right: 10px;
   }
   /* button click effect*/
-  .bar button:active {
+  .bar2 button:active {
     transform: translate(2px ,2px);
   }

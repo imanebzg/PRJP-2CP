@@ -1,0 +1,199 @@
+@import url('https://fonts.cdnfonts.com/css/gilroy-bold');
+@import url('https://fonts.cdnfonts.com/css/proxima-nova-condensed');
+
+
+.delete{max-width: 80%;
+    width: 70%;
+    background: #ffffff;
+    color:  #031273;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 5px #a3c0d2;
+    border: 1px solid #E0E8F5;
+    overflow: hidden;
+    margin-left: 15%;
+    margin-top: 3%;
+ padding: 0;
+    font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';}
+
+
+    .delete .title{
+        padding: 0.1%;
+        text-align: center;
+        background: #031273;
+    
+        font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
+      }
+     .delete .title p{
+      font-size:30px ;
+      font-weight: 700;
+      color: #E0E8F5;
+      font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
+    
+    }
+
+    .delete input[type="text"] {
+        width: 35%; /* Largeur du champ de saisie, moins la marge */
+        padding: 9px; /* Espacement à l'intérieur du champ de saisie */
+      margin-right: 3%;
+        border: 1px solid #ccc; /* Bordure autour du champ de saisie */
+        border-radius: 3px; /* Coins arrondis */
+      }
+      
+
+    /* Style de base pour la liste déroulante */
+    .delete select[name="key"] {
+    width: 40%; /* Ajustez la largeur selon vos besoins */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #fff; /* Couleur de fond de la liste déroulante */
+    outline: none; /* Supprime le contour par défaut */
+    /* Ajoutez d'autres styles au besoin */
+}
+
+/* Style au survol de la liste déroulante */
+.delete select[name="key"]:hover {
+    border-color: #999; /* Changement de couleur de bordure au survol */
+}
+
+/* Style au focus de la liste déroulante */
+.delete select[name="key"]:focus {
+    border-color: #ec1515; /* Changement de couleur de bordure lorsqu'il est focus */
+}
+
+/* Style pour les options de la liste déroulante */
+.delete select[name="key"] option {
+    font-size: 14px; /* Ajustez la taille de la police selon vos besoins */
+    width: 50%; /* Ajoutez d'autres styles au besoin */
+}
+
+/* Style pour l'option sélectionnée */
+.delete select[name="key"] option:checked {
+    background-color: #E0E8F5; /* Changement de couleur de fond pour l'option sélectionnée */
+    /* Ajoutez d'autres styles au besoin */
+}
+
+.delete .but {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgb(20, 20, 20);
+    border: none;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+    cursor: pointer; 
+    transition-duration: 0.3s;
+    overflow: hidden;
+    position: relative;
+    gap: 2px;
+  }
+  
+  .delete .svgIcon {
+    width: 12px;
+    transition-duration: 0.3s;
+  }
+  
+  .delete .svgIcon path {
+    fill: white;
+  }
+  
+  .delete .but:hover {
+    transition-duration: 0.3s;
+    background-color:#ec1515;
+    align-items: center;
+    gap: 0;
+  }
+  
+  .delete .bin-top {
+    transform-origin: bottom right;
+  }
+  .delete .but:hover .bin-top {
+    transition-duration: 0.5s;
+    transform: rotate(160deg);
+  }
+  
+
+
+  .delete .but1{
+    margin: 5%;
+    position: relative;
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 1px solid #34974d;
+    background-color: #3aa856;
+  }
+  
+  .delete .but1,   .delete .button__icon,   .delete .button__text {
+    transition: all 0.3s;
+  }
+  
+  .delete .but1 .button__text {
+    transform: translateX(0.5%);
+    color: #fff;
+    font-weight: 600;
+  }
+  
+  .delete .but1 .button__icon {
+    position: absolute;
+    transform: translateX(104px);
+    height: 100%;
+    width: 39px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #34974d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .delete .but1 .svg {
+    width: 30px;
+    stroke: #fff;
+  }
+  
+  .delete .but1:hover {
+    background: #34974d;
+  }
+  
+  .delete .but1:hover .button__text {
+    color: transparent;
+  }
+  
+  .delete .but1:hover .button__icon {
+    width: 148px;
+    transform: translateX(-5px);
+    border-bottom-left-radius:5px ;
+    border-top-left-radius:5px ;
+  }
+  
+  .delete .but1:active .button__icon {
+    background-color: #2e8644;
+ 
+  }
+  
+  .delete .but1:active {
+    border: 1px solid #2e8644;
+  }
+  .delete .item {
+    display: flex; /* Utilise Flexbox */
+    align-items: center; /* Alignement vertical des éléments */
+}
+
+.delete .item .field-container {
+    margin-right: 1%; /* Espace entre les champs */
+}
+
+.delete .but,
+.delete .but1 {
+    margin-top: 10px; /* Espace entre les boutons et les champs */
+    /* Autres styles de bouton */
+}
