@@ -1,81 +1,63 @@
 
-
 @import url('https://fonts.cdnfonts.com/css/gilroy-bold');
 @import url('https://fonts.cdnfonts.com/css/proxima-nova-condensed');
 
 
-.Avancement_exmp .container{
+.Avancement_exmp {
     max-width: 90%;
     width: 100%;
     background: #ffffff;
-    border-color: #a72929;
+    color:  #031273;
     border-radius: 0.5rem;
     box-shadow: 0 0 5px #a3c0d2;
-    border: 2px solid #4CA950;
+    border: 1px solid #4CA950;
     overflow: hidden;
     margin-left: 5%;
     margin-top: 3%;
-  
+    
 }
   
-.Avancement_exmp .container p{
-font-weight: 400;
-font-size: larger;
-  margin-left: 30%;
+.Avancement_exmp p{
+font-weight: 600;
+font-size: 30px;
+ align-items: center;
+ text-align: center;
   margin-top: 3%;
-
+ 
+  font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
 }
-  .Avancement_exmp .title p{
-    font-size: 18px;
-    color: #000000; 
-    font-family: "proxima-nova-condensed",sans-serif;
-    margin-left: 5%;
-    font-weight: 500;
-  }
-  .Avancement_exmp .user_details{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 25px;
-  }
+ 
 
-  .Avancement_exmp .container_circc {
-    width: 200px;
-    height: 200px;
-    margin-left: 35%;
+  .Avancement_exmp .meter-container {
+    width: 50%;
+    height: 50%;
+   margin-left: 25%;
     margin-bottom: 5%;
     margin-top: 5%;
+    padding-top: 2%;
+    border: 1px solid #4CA950;
     box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.3);
     border-radius: 20px;
-    background-color: #747BAD;
     display: grid;
     place-items: center;
-  }
-  .Avancement_exmp .circular-progress {
-    position: relative;
-    height: 140px;
-    width: 150px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-  }
-  .Avancement_exmp .circular-progress:before {
-    content: "";
-    position: absolute;
-    height: 84%;
-    width: 84%;
-    background-color: #747BAD;
-    border-radius: 50%;
-  }
+  }/* Cibler le conteneur du speedomètre */
+.Avancement_exmp .react-speedometer-container {
+  margin: 0; /* Définit la marge à zéro */
+  padding: 0; /* Définit le rembourrage à zéro */
+  margin-bottom: 0; 
+}
 
-  .Avancement_exmp .value-container {
-    position: relative;
-    font-family: "gilroy", sans-serif;
-    font-weight: 500;
-    font-size: 25px;
-    color: #ffffff;
-  }
+.Avancement_exmp .value-container {
+  position: relative;
+  font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
+  font-weight: 600;
+  padding: 0;
+  margin-top: -130px; /* Ajoutez la marge supérieure souhaitée */
+  margin-bottom: 2%; /* Ou ajoutez la marge inférieure souhaitée */
+  padding: 0;
+  font-size: 35px;
+}
+
 
   @-moz-keyframes wave-4 {
     50% {
@@ -101,36 +83,3 @@ font-size: larger;
     }
   }
   
-  
-  
-  #radio_1:checked ~ .category label .one,
-  #radio_2:checked ~ .category label .two,
-  #radio_3:checked ~ .category label .three{
-    border-color: #d9d9d9;
-    background: #a72929;
-  }
-
-   /*Show collapse*/
-   .Avancement_exmp .showCollapse{
-  display: inline;
-}
-
-/*Rotate icon*/
-.Avancement_exmp .rotate{
-  transform: rotate(180deg);
-}
-@media screen and (max-width: 584px){
-
-  .Avancement_exmp .user_details{
-      max-height: 340px;
-      overflow-y: scroll;
-  }
-
-  .Avancement_exmp .user_details::-webkit-scrollbar{
-      width: 0;
-  }
-
-  .Avancement_exmp .user_details .input_box{
-      width: 100%;
-  }
-}

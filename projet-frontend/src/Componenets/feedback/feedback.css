@@ -3,21 +3,40 @@
 @import url('https://fonts.cdnfonts.com/css/proxima-nova-condensed'); 
 
 .feedback-container {
-  max-width: 56.25rem;    /* 900px / 16px */
-  margin: 0 auto;
-  padding: 1.25rem;       /* 20px / 16px */
-  border: 0.0625rem solid #ccc; /* 1px solid #ccc / 16px */
-  border-radius: 0.3125rem; /* 5px / 16px */
-  background-color:#F5F6FA;
-  margin-top: 12.5rem;     /* 200px / 16px */
-  margin-bottom: 5rem;     /* 80px / 16px */
+  max-width: 80%;
+  width: 70%;
+  background: #ffffff;
+  color:  #031273;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 5px #a3c0d2;
+  border: 1px solid #E0E8F5;
+  overflow: hidden;
+  margin-left: 15%;
+  margin-top: 15%;
+padding:0;
+margin-bottom: 15%;
+  font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';    /* 80px / 16px */
 }
+.feedback-container .title{
+  padding: 0.05%;
+  text-align: center;
+  background: #031273;
 
+  font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
+}
+.feedback-container .title p{
+font-size:30px ;
+font-weight: 700;
+color: #E0E8F5;
+font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
+
+}
 .feedback-container .button-container {
   display: flex;
   justify-content: space-between;
   margin-bottom: 1.25rem;  /* 20px / 16px */
 }
+.feedback-container .contenue {padding: 2%;}
 
 .feedback-container input {
   width: calc(100% - 2.5rem); /* Adjust for padding and border */
@@ -26,8 +45,12 @@
   padding: 0.625rem;       /* 10px / 16px */
   font-size: 1rem;          /* 16px / 16px (assuming this should not be converted) */
   font-family: 'Gilroy-Regular';
-  background-color:#f2f2f2;
-  border: 0.1rem solid rgb(215, 214, 214);
+ border: none;
+ color: white;
+
+background-color: #E0E8F5;
+box-shadow: 0 0 2px #a3c0d2;
+border: 1px solid#e0e8f572;
   border-radius: 0.5rem;
 }
 

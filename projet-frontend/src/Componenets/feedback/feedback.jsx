@@ -50,14 +50,16 @@ const Feedback = () => {
   };
 
   return (
-    <div className="feedback-container">
-      <h2 className='title'>Avis</h2>
+
+      <div className="feedback-container">
+        <div className='title'><p>Avis</p></div>
+<div className='contenue'>
       <div className="button-container">
         <button className='b1' onClick={toggleFeedbackView}>
           {showPreviousFeedbacks ? 'Masquer les retours précédents' : 'Afficher les retours précédents'}
         </button>
         <button className='b1' onClick={() => setShowPreviousFeedbacks(false)}>Écrire un commentaire</button>
-      </div>
+      </div> 
       {!showPreviousFeedbacks && (
         <div>
           <input
@@ -91,7 +93,7 @@ const Feedback = () => {
           ))}
         </div>
       )}
-    </div>
+    </div></div>
   );
 };
 

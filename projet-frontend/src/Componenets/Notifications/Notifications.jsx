@@ -93,22 +93,6 @@ const Notifications = () => {
                             
                           </div>
                          
-                          
-                          <div class="checkbox-wrapper-4">
-                            <input class="inp-cbx" id="morning5" type="checkbox"/>
-                            <label class="cbx" for="morning5"><span>
-                            <svg width="12px" height="10px">
-                              
-                            </svg></span><span>AAAAA</span></label>
-                            <svg class="inline-svg">
-                              <symbol id="check-4" viewBox="0 0 12 10">
-                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                              </symbol>
-                            </svg>
-                          </div>
-                         
-
-                          
                         </div>
 
                     

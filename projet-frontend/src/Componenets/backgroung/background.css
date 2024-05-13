@@ -4,7 +4,7 @@ video {
   position: relative; /* Positionne la vidéo en absolu */
   top: 0; /* Positionne la vidéo en haut */
   left: 0; /* Positionne la vidéo à gauche */
-  z-index: -1; /* Place la vidéo derrière les autres éléments */
+  z-index: 0; /* Place la vidéo derrière les autres éléments */
 opacity: 0.7;
 
 }

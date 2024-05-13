@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef, useMemo, createRef } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios'; 
 import Chart from 'chart.js/auto';
+import Tableau from "../tableau/tableau"
+
 //import './PostesProduit.css';
 
 
@@ -24,8 +26,9 @@ const initialData = {
 };
 
 const PostesProduit = React.memo(function PostesProduit({formResults}) {
+  const [tables, setTables] = useState([]);
 
-
+  
   let isSubmitted = localStorage.getItem('isSubmitted');
   if (isSubmitted === 'true') {
     isSubmitted = true;
@@ -99,6 +102,14 @@ if (!localStorage.getItem('formResults')) {
     '': ''
   }), []);
 
+  useEffect(() => {
+    const storedTables = localStorage.getItem('tables');
+  
+    if (storedTables) {
+      const tablesArray = JSON.parse(storedTables);
+      setTables(tablesArray);
+    }
+  }, []);
 
     useEffect(() => {
 
@@ -136,10 +147,17 @@ if (!localStorage.getItem('formResults')) {
 
 
 
-const generateColors = (num) => {
-  // Generate colors logic
-  return Array.from({ length: num }, () => "#" + Math.floor(Math.random() * 16777215).toString(16));
-};
+    const generateColors = (numColors) => {
+      const colors = [];
+      const step = 360 / numColors; // Calculer l'incrément pour répartir les couleurs uniformément
+    
+      for (let i = 0; i < numColors; i++) {
+        const hue = (i * step) % 360; // Calculer la teinte en fonction de l'incrément
+        colors.push(`hsla(${hue}, 70%, 50%, 0.6)`);
+      }
+    
+      return colors;};
+    
 
 
 const ChartComponent = ({ secteur, dataByCategory, secteur1Array }) => {
@@ -197,13 +215,28 @@ const ChartComponent = ({ secteur, dataByCategory, secteur1Array }) => {
 
 
 return (
-  <div>
-    {secteur1Array.map((secteur, index) => (
+  <div  className="Postes">
+    {isSubmitted ? (
       <div>
-        <h3>{secteur}</h3>
-        <ChartComponent key={index} dataByCategory={dataByCategory} secteur={secteur} />
+      {secteur1Array.map((secteur, index) => (
+      
+        <div className="scopes1">
+          <h3>{secteur}</h3>  <div className="chart-container">
+          <ChartComponent key={index} dataByCategory={dataByCategory} secteur={secteur} />
+          </div> </div>
+      ))}
+
+{tables.map((tableData, index) => (
+        <div key={index} className="scopes1">
+          <Tableau data={tableData} facteur={index} />
         </div>
-    ))}
+      ))}
+      </div>
+
+    ) : (
+      ''
+    )}
+    
 </div>
 );
 });

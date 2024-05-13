@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Tableau = ({ data , facteur }) => { // Destructure the data directly from props
+    console.log('Data received by Tableau:', data);
     return (
         <div style={{ fontFamily: 'Montserrat, sans-serif' }}>
             <table style={{
@@ -35,6 +37,13 @@ const Tableau = ({ data , facteur }) => { // Destructure the data directly from 
         </div>
     );
 };
-
+/*
+Tableau.propTypes = {
+    data: PropTypes.shape({
+      rows: PropTypes.array.isRequired, // Assuming rows is an array and is required
+      // Add more validations for other properties in data if needed
+    }).isRequired,
+  };
+  */
 export default Tableau;
 

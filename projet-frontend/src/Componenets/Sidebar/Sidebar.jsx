@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import './sidebar.css';
 
 import { Link } from 'react-router-dom';
-
-import { GiHamburgerMenu } from 'react-icons/gi';
 import { AiOutlineHome, AiFillSetting, AiOutlineLogout, AiOutlineQuestion, AiOutlineQrcode, AiOutlineBell } from 'react-icons/ai';
 function ReactSideBar() {
     const [show, setShow] = useState('sidebar');
@@ -27,6 +25,8 @@ function ReactSideBar() {
         // For example:
         localStorage.removeItem('authToken'); // Remove access token from local storage
         localStorage.removeItem('userData'); // Remove user data from local storage
+        localStorage.removeItem('formResults');
+        
         window.location.href = '/'; // Redirect to the login page
       };
      

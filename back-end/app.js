@@ -9,7 +9,7 @@ const dbConfig = require('./config/database');
 const port = 3001;
 const corsOptions = {
   origin: 'http://localhost:3000', // Allow requests from this origin
-  methods: ['GET', 'POST'], // Allow specified HTTP methods
+  methods: ['GET', 'POST', 'PUT' , 'DELETE'], // Allow specified HTTP methods
 };
 app.use(cors(corsOptions));
 const publicDirectory = path.join(__dirname, '/public'); 
@@ -26,7 +26,15 @@ const getOptionsRoutes = require('./routes/getOptions');
 const getSendRoutes = require('./routes/sendings');
 const getproductRoutes = require('./routes/productRoutes');
 const getScopesRoutes = require('./routes/getScopes');
-
+const getcompanyRoutes = require('./routes/infoRoute');
+const getsecurityRoutes = require('./routes/securiteRoute');
+const getaddproductRoutes = require('./routes/addBddRoute');
+const getdeleteproductRoutes = require('./routes/deleteBddRoute');
+const getnumbercompaniesRoutes = require('./routes/numberUsers');
+const getmanagecompaniesRoutes = require('./routes/companyMethRoute')
+const gethistoryRoutes = require('./routes/historyRoute');
+const gettablehistoryRoutes = require('./routes/Displayhistory')
+const getdeleteRoutes = require('./routes/deleteAccountRoute')
 /*
 app.use(session({
   secret: 'some secret', 
@@ -44,8 +52,15 @@ app.use('/getters', getOptionsRoutes);
 app.use('/sendings', getSendRoutes);
 app.use('/api', getproductRoutes);
 app.use('/scopes', getScopesRoutes)
-
-
+app.use('/info', getcompanyRoutes);
+app.use('/securite', getsecurityRoutes);
+app.use('/addproduct', getaddproductRoutes);
+app.use('/deleteproduct', getdeleteproductRoutes);
+app.use('/countUsers', getnumbercompaniesRoutes);
+app.use('/manage', getmanagecompaniesRoutes);
+app.use('/bilans', gethistoryRoutes);
+app.use('/table_bilans', gettablehistoryRoutes);
+app.use('/delete', getdeleteRoutes);
 
 app.use((req, res, next) => {
   res.status(404).render("404");
@@ -56,4 +71,3 @@ app.listen(port, (err) => {
   if (err) console.log(`Error listening on port ${port}`);
   else  console.log(`Running on port ${port}`);
 });
-

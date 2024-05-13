@@ -1,0 +1,32 @@
+/* Style pour la section de gestion des entreprises */
+
+
+/* Style pour les sélecteurs */
+.manager select {
+    width: 100%; /* Largeur de 100% */
+    padding: 10px; /* Espacement intérieur */
+    margin-bottom: 10px; /* Espacement en bas */
+    border: 1px solid #ccc; /* Bordure grise */
+    border-radius: 5px; /* Coins arrondis */
+}
+
+/* Style pour les paragraphes */
+.manager p {
+    margin-bottom: 5px; /* Espacement en bas */
+}
+
+/* Style pour le bouton */
+.manager button {
+    padding: 10px 20px; /* Espacement intérieur */
+    background-color: #007bff; /* Couleur de fond bleue */
+    color: #fff; /* Couleur du texte blanc */
+    border: none; /* Supprime la bordure */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Curseur pointer */
+    transition: background-color 0.3s ease; /* Animation de transition */
+}
+
+/* Style pour le bouton au survol */
+.manager button:hover {
+    background-color: #0056b3; /* Couleur de fond plus foncée au survol */
+}

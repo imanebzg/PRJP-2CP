@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
 import './sign-up.css';
 import myGif from './gif/gif1.gif'; 
 import myGif2 from './gif/gif2.gif';
 
 const Signup = () => {
+
     const containerRef = useRef(null);
     const [signInError, setSignInError] = useState(false);
     const [signUpError, setSignUpError] = useState(false);
@@ -70,11 +70,15 @@ const Signup = () => {
             if (response.ok) {
                 let isSubmitted = false;
                 localStorage.setItem('authToken', data.token);
-                localStorage.setItem('userData', data.user); 
-                localStorage.setItem('useremail', data.user.email);
-                
+                localStorage.setItem('userData', data.user);
+                localStorage.setItem('userEmail', data.user.email);
                 localStorage.setItem('isSubmitted', isSubmitted);
-                window.location.href = '/second-page'; 
+                if (data.user.email === "admin_01@gmail.com"){
+                    window.location.href = '/admin-page';  
+
+                }else{
+                    window.location.href = '/second-page'; 
+                }
                 // Set session timeout for 1 day (24 hours)
                 setTimeout(() => {
                     localStorage.removeItem('authToken'); // Clear authToken after timeout
@@ -111,9 +115,16 @@ const Signup = () => {
                 //navigate('../profile/profile.jsx'); // to create the page "profile"
                 localStorage.setItem('authToken', data.token);
                 localStorage.setItem('userData', data.user);
+                localStorage.setItem('userEmail', data.user.email);
                 localStorage.setItem('isSubmitted', isSubmitted);
+                localStorage.setItem('isAdmin', true);
+                console.log("data.user.email =",data.user.email )
 
-                window.location.href = '/second-page'; 
+                if (data.user.email === "admin_01@gmail.com"){
+                    window.location.href = '/admin-page';   
+                 }else{
+                    window.location.href = '/second-page'; 
+                 }
                 // Set session timeout for 1 day (24 hours)
                 setTimeout(() => {
                     localStorage.removeItem('authToken'); // Clear authToken after timeout

@@ -1,0 +1,326 @@
+@import url('https://fonts.cdnfonts.com/css/gilroy-bold');
+@import url('https://fonts.cdnfonts.com/css/proxima-nova-condensed');
+
+
+
+  .bar2{position: fixed;
+   
+    margin: 0;
+
+    height: 100%;
+    font-family:'Proxima Nova Condensed', 'Gilroy-Regular';
+    font-size: 100;
+    
+    transition: 0.5s;
+    text-align: center;
+
+  
+ 
+  }
+
+  .bar2 #checkbox {
+    display: none;
+  }
+  
+  .bar2 .toggle {
+    position: relative;
+   
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    margin: 25%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    transition-duration: .5s;
+  }
+  
+  .bar2 .bars {
+    width: 90%;
+    height: 2.5px;
+    background-color:white;
+    border-radius: 5px;
+  }
+  
+  .bar2 #bar2 {
+    transition-duration: .8s;
+
+  }
+  
+  
+  
+  .bar2 #checkbox:checked + .toggle .bars {
+    position: absolute;
+    transition-duration: .5s;
+  }
+  
+  .bar2 #checkbox:checked + .toggle #bar2 {
+    transform: scaleX(0);
+    transition-duration: .5s;
+  }
+  
+  .bar2 #checkbox:checked + .toggle #bar1 {
+   
+    transform: rotate(45deg);
+    transition-duration: .5s;
+    width: 50%;
+    height: 2.5px;
+    background-color:white;
+    border-radius: 5px;
+  }
+
+  .bar2 #checkbox:checked + .toggle #bar3 {
+    width: 50%;
+    height: 2.5px;
+    background-color:white;
+    border-radius: 5px;
+    transform: rotate(-45deg);
+    transition-duration: .5s;
+  }
+  
+  .bar2 #checkbox:checked + .toggle {
+    transition-duration: .5s;
+    transform: rotate(180deg);
+  }
+
+ .bar2 .nav{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+.bar2 .Dashboard {
+ 
+  display: flex; /* Use flexbox */
+  align-items: center; /* Align items vertically */
+ 
+  
+  cursor: pointer;
+
+}
+
+.bar2 .item {
+ 
+  display: flex; /* Use flexbox */
+  align-items: center; /* Align items vertically */
+  text-align: center;
+  font-family:'Proxima Nova Condensed', 'Gilroy-Regular';
+  height: 10%;
+  font-size: 100%;
+ 
+
+}
+.bar2 .item2 {
+ margin-top: 100%;
+ padding-top:50%;
+margin-left: 10%;
+  display: flex; /* Use flexbox */
+  align-items: center; /* Align items vertically */
+  text-align: center;
+ 
+ 
+
+}
+
+
+
+
+
+  
+.bar2 h3 {
+  padding:0.4rem; /* 0.2px 0.5px / 16px */
+  padding-left: 0.1rem;
+  padding-right: 0.1rem;
+  color: white;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  
+  display: inline-block;
+  
+}
+
+
+
+
+.bar2 h3:hover {
+  width: 100%; /* Largeur 100% au survol */
+  color:#e14c31;
+}
+
+  .bar2 .sidebar{
+    position: fixed;
+    transition: 0.5s;
+    text-align: center;
+   padding: 0;
+    height: 100%;
+    width: 14%;
+    background-color:#031273;
+     margin: 0;
+     top: 0;
+     bottom: 0;
+    color: #ffffff;
+   
+  }
+  .bar2 .sidebar1{
+    height: 100%;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    top: 0;
+    bottom: 0;
+    width: 5%;
+    transition: 0.5s;
+    color: #ffffff;
+    margin: 0;
+    background-color:#031273;
+  }
+  .bar2 .main{
+    text-align: center; 
+  cursor: pointer;
+width: 100%;
+height: 5rem;
+  }
+  .bar2 .main1{
+    text-align: left;
+    cursor: pointer;
+
+  }
+  .bar2 .icon1{
+ margin-left: 5%;
+margin-top: 15%;
+height: 30%;
+width: 30%;
+
+  }
+  .bar2 .icon1:hover{
+  color: #e14c31;
+
+  padding: 1%;
+   
+     }
+  .bar2 .icon11{
+margin-left: 30%;
+height: 40%;
+width: 40%;
+
+     }
+  .bar2 .icon2{
+
+   height: 35%;
+   width: 35%;
+   
+     }
+     .bar2 .icon22{
+margin-left: 30%;
+      height: 40%;
+      width: 40%;
+      margin-top: 10%;
+      padding-top: 10%;
+      position: fixed;
+        }
+ .bar2 .icon{
+    height: 40%;
+    width: 40%;
+   
+  }
+  .bar2 .sub-menu {
+
+  padding: 0;
+  margin: 5%;
+ margin-left: 35%;
+ margin-top: 0%;
+  left: 0; /* Align the submenu to the left */
+  top: 100%; /* Position the submenu below the parent element */
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Box shadow of the submenu */
+  
+}
+
+
+  
+  .bar2 .sub-menu li {
+    padding: 0;
+    list-style-type: none; 
+    border: 0.1rem solid #5963A3;
+    margin: 3%;
+    background-color: white ; /* Background color of the submenu */
+    border-radius: 5px; /* Border radius of the submenu */
+    color: #e14c31;
+    cursor: pointer;
+  }
+  
+  .bar2 .sub-menu li:hover {
+    background-color:  #e14c31;
+    color:white;
+  }
+
+
+  .bar2 button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    background-color: rgb(255, 65, 65);
+  }
+  
+  /* plus sign */
+  .bar2 .sign {
+    width: 100%;
+    transition-duration: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .bar2 .sign svg {
+    width: 17px;
+  }
+  
+  .bar2 .sign svg path {
+    fill: white;
+  }
+  /* text */
+  .bar2 .text1 {
+    position: absolute;
+    right: 0%;
+    width: 0%;
+    opacity: 0;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition-duration: .3s;
+  }
+  /* hover effect on button width */
+  .bar2 button:hover {
+    width: 125px;
+    border-radius: 40px;
+    transition-duration: .3s;
+  }
+  
+  .bar2 button:hover .sign {
+    width: 30%;
+    transition-duration: .3s;
+    padding-left: 1px;
+  }
+  /* hover effect button's text */
+  .bar2 button:hover .text1 {
+    opacity: 1;
+    width: 70%;
+    transition-duration: .3s;
+    padding-right: 10px;
+  }
+  /* button click effect*/
+  .bar2 button:active {
+    transform: translate(2px ,2px);
+  }

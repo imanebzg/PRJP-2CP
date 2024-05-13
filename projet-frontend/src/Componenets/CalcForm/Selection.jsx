@@ -1,10 +1,9 @@
-
  // Assurez-vous d'importer correctement Form2
 
  import React, { useEffect, useState } from 'react';
- // import { calc } from '../../../../back-end/controllers/calc';
   import './form.css';
   import Tableau from "../tableau/tableau"
+  import BilanForm from "../Datecomponent/BilanFom"
 function Sele() {
  
   // useState to hold the fetched data
@@ -28,10 +27,17 @@ function Sele() {
   const [souslocalisation, setsouslocalisation] = useState('');
   const [quantite, setQuantite] = useState('');
 
-  const [tableData, setTableData] = useState(null);
+  const [tableData, setTableData] = useState([]);
 
 
+  const addTable = (newTable) => {
+    const transformedTable = { ...newTable };
+  setTableData([...tableData, transformedTable]);
   
+  
+  // Store in localStorage
+  localStorage.setItem('tables', JSON.stringify([...tableData, transformedTable]));
+  };
 
   const secteur1Options = [
     'Combustibles', 'Process et émissions fugitives', 'UTCF',
@@ -45,8 +51,6 @@ function Sele() {
   const [secteur4Options, setSecteur4Options] = useState([]);
   const [secteur5Options, setSecteur5Options] = useState([]);
   const [produitOptions, setproduitOptions] = useState([]);
-  const [posteOptions, setposteOptions] = useState([]);
-  const [ligneOptions, setligneOptions] = useState([]);
   const [uniteOptions, setuniteOptions] = useState([]);
   const [NomAttributOptions, setNomAttributOptions] = useState([]);
   const [NomFrontiereOptions, setNomFrontiereOptions] = useState([]);
@@ -54,8 +58,19 @@ function Sele() {
   const [localisationOptions, setlocalisationOptions] = useState([]);
   const [souslocalisationOptions, setsouslocalisationOptions] = useState([]);
 
-
-
+  const formatFloatingNumbers = (obj) => {
+    const formattedObj = {};
+    for (const key in obj) {
+      const value = obj[key];
+      if (!isNaN(value) && parseFloat(value) !== parseInt(value)) {
+        formattedObj[key] = parseFloat(value).toFixed(2);
+      } else {
+        formattedObj[key] = value;
+      }
+    }
+    return formattedObj;
+  };
+  
 
 
 /////////////////////
@@ -64,9 +79,10 @@ const fetchProductData = (produit,quantite,unite,NomAttribut,NomFrontiere,contri
 
     .then(response => response.json())
     .then(datatable => {
-      console.log("Product Data:", datatable);
-      setTableData(datatable);
+      //setTableData(datatable);
       // Handle additional state updates or operations based on the fetched data
+      const formattedTableObject = formatFloatingNumbers(datatable);
+      addTable(formattedTableObject);
     })
     .catch(error => console.error('Failed to fetch product data:', error));
 };
@@ -86,7 +102,6 @@ useEffect(() => {
       const response = await fetch(`http://localhost:3001/getters/getSector2Options?sector1=${encodeURIComponent(secteur1)}`);
       const data = await response.json();
       updateState(data); // Directly updating state passed as a function
-      console.log('data',data)
 
     } catch (error) {
       console.error('Failed to fetch options:', error);
@@ -101,9 +116,7 @@ useEffect(() => {
 //secteur3
   useEffect(() => {
     if (secteur1 && secteur2) { 
-      console.log('hna')
       fetch3Options(`http://localhost:3001/getters/getSector3Options?sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}`, setSecteur3Options);
-      console.log('setSecteur3Options',secteur3Options)
 
     }
   }, [secteur1, secteur2]);  
@@ -113,7 +126,6 @@ useEffect(() => {
       const response = await fetch(`http://localhost:3001/getters/getSector3Options?sector1=${encodeURIComponent(secteur1)}&sector2=${sec2}`);
       const data2 = await response.json();
       update2State(data2); // Directly updating state passed as a function
-      console.log('data2',data2)
 
     } catch (error) {
       console.error('Failed to fetch options:', error);
@@ -172,42 +184,8 @@ useEffect(() => {
       fetchproductOptions(`/getters/getProductOptions?sector1=${encodeURIComponent(secteur1)}&sector2=${encodeURIComponent(secteur2)}&&sector3=${encodeURIComponent(secteur3)}&&sector4=${encodeURIComponent(secteur4)}&&sector5=${encodeURIComponent(secteur5)}`, setproduitOptions);
     }
   }, [secteur5]);  
-//poste
-  async function fetchposteOptions(url, updateState) {
-    try {
-      const response = await fetch(`http://localhost:3001/getters/getPosteOptions?nom=${encodeURIComponent(produit)}&typeLigne=${encodeURIComponent(ligne)}`);
-      const data = await response.json();
-      updateState(data); // Directly updating state passed as a function
-      console.log('data',data)
 
-    } catch (error) {
-      console.error('Failed to fetch options:', error);
-    }
-  }
-  useEffect(() => {
-    if (produit && ligne) { 
-      fetchposteOptions(`getters/getPosteOptions?nom=${encodeURIComponent(produit)}&typeLigne=${encodeURIComponent(ligne)}`, setposteOptions);
 
-    }
-  }, [produit , ligne]);  
-//ligne
-  async function fetchligneOptions(url, updateState) {
-    try {
-      const response = await fetch(`http://localhost:3001/getters/getligneOptions?nom=${encodeURIComponent(produit)}`);
-      const data = await response.json();
-      updateState(data); // Directly updating state passed as a function
-      console.log('data',data)
-
-    } catch (error) {
-      console.error('Failed to fetch options:', error);
-    }
-  }
-  useEffect(() => {
-    if (produit) { 
-      fetchligneOptions(`getters/getligneOptions?nom=${encodeURIComponent(produit)}`, setligneOptions);
-
-    }
-  }, [produit]); 
 //unite
   async function fetchuniteOptions(url, updateState) {
     try {
@@ -330,8 +308,6 @@ useEffect(() => {
     secteur4: '',
     secteur5: '',
     nom: '',
-    ligne: '',
-    poste: '',
     quantite: '',
     unite: '',
     NomAttribut: '',
@@ -339,8 +315,34 @@ useEffect(() => {
     contributeur: '', 
     localisation: '',
     souslocalisation: ''
-    //verification: '',
 });
+// frontend/script.js
+
+const saveTotalSumToDatabase = async () => {
+  const company_id = localStorage.getItem('userEmail'); 
+  const totalSum = localStorage.getItem('totalSum').toString(); 
+  console.log("totalSum",totalSum);
+  
+  const start_date = localStorage.getItem('start_date');
+  const end_start = localStorage.getItem('end_date');
+  try {
+    const response = await fetch('http://localhost:3001/bilans/history', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({company_id , totalSum , start_date , end_start  })
+    });
+    if (response.ok) {
+      console.log('Total sum saved to database successfully');
+    } else {
+      console.error('Error saving total sum to database');
+    }
+  } catch (error) {
+    console.error('Error saving total sum to database: ', error);
+  }
+};
+
 
 /*
     const handleCalcul = async (event) => {
@@ -426,8 +428,6 @@ const handleCalcul = (event) => {
         secteur4: '',
         secteur5: '',
         nom: '',
-        ligne: '',
-        poste: '',
         quantite: '',
         unite: '',
         NomAttribut: '',
@@ -435,7 +435,6 @@ const handleCalcul = (event) => {
         contributeur: '', 
         localisation: '',
         souslocalisation: ''
-        // Reset other form fields as needed
       });
       setSecteur1('');
       setSecteur2('');
@@ -443,8 +442,6 @@ const handleCalcul = (event) => {
       setSecteur4('');
       setSecteur5('');
       setproduit('');
-      setproduit('');
-      setligne('');
       setunite('');
       setNomAttribut('');
       setNomFrontiere('');
@@ -465,11 +462,12 @@ const handleCalcul = (event) => {
   };
   const handleFinalSubmit = (e) => {
     e.preventDefault();
+    saveTotalSumToDatabase();
     handleCalcul(e)
-      .then(result => {
+      .then ( result => {
         const newCalcInfo = { ...calcInfo }; // Create a copy of current calcInfo
         const updatedFormResults = [...formResults, newCalcInfo];
-      setFormResults(updatedFormResults); // Add calcInfo to formResults
+        setFormResults(updatedFormResults); // Add calcInfo to formResults
         setTotalSum(prevSum => prevSum + result);
         setCalcInfo({
           secteur1: '',
@@ -478,8 +476,6 @@ const handleCalcul = (event) => {
           secteur4: '',
           secteur5: '',
           nom: '',
-          ligne: '',
-          poste: '',
           quantite: '',
           unite: '',
           NomAttribut: '',
@@ -496,8 +492,6 @@ const handleCalcul = (event) => {
         setSecteur4('');
         setSecteur5('');
         setproduit('');
-        setproduit('');
-        setligne('');
         setunite('');
         setNomAttribut('');
         setNomFrontiere('');
@@ -505,18 +499,28 @@ const handleCalcul = (event) => {
         setlocalisation('');
         setsouslocalisation('');
         setQuantite('');
-    
+        
         // Clear totalSum from local storage
         localStorage.setItem('totalSum', JSON.stringify(totalSum + result));
-
+        setTimeout(() => {
+          localStorage.removeItem('totalSum');
+          localStorage.setItem('isSubmitted', false); 
+          localStorage.removeItem('tables'); 
+          localStorage.removeItem('formResults');
+          window.location.reload();
+        }, 60 * 1000); // 5 minutes in milliseconds
         // Save formResults to local storage
         localStorage.setItem('formResults', JSON.stringify([...formResults, newCalcInfo]));
         localStorage.setItem('isSubmitted', true);
-        window.location.reload();
+        localStorage.setItem('tables', JSON.stringify(tableData));
+        window.location.reload(); 
       })
       .catch(error => {
         console.error('Error in handleFinalSubmit:', error);
       });
+   
+
+     
   };
   
   const [selectedScope, setSelectedScope] = useState('form-1');
@@ -525,6 +529,11 @@ const handleCalcul = (event) => {
     setSelectedScope(event.target.value);
   };
   return (
+    <div>
+
+
+    <BilanForm />
+
     <div className="Selectionner">
       <p>  Remplissez toutes les informations necessaires aux calculs: </p>
        <div className="SELECTION">
@@ -552,7 +561,7 @@ const handleCalcul = (event) => {
               onChange={handleRadioChange}
               checked={selectedScope === 'form-2'} // Set checked based on state
             />
-            <span>Spécifications Produit</span>
+            <span>Spécifications Activité</span>
           </label>
 
           <label>
@@ -634,26 +643,13 @@ const handleCalcul = (event) => {
          <div className="formulaire">
 
 <form >
-<label htmlFor="nom">Nom du produit:</label>
+<label htmlFor="nom">Nom de l'Activité:</label>
         <select id="nom" name="nom" value={produit} onChange={handleChange(setproduit,'nom')}>
           <option value="">--no option--</option>
           {produitOptions.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
 
-        <label htmlFor="ligne">Nom de la ligne:</label>
-        <select id="ligne" name="ligne" value={ligne} onChange={handleChange(setligne, 'ligne')}>
-          <option value=" ">--select--</option>
-          {ligneOptions.map(option => <option key={option} value={option}>{option}</option>)}
-        </select>
-        <br/>
-
-        <label htmlFor="poste">Nom du poste:</label>
-        <select id="poste" name="poste" value={poste} onChange={handleChange(setposte, 'poste')}>
-          <option value=" ">--select--</option>
-          {posteOptions.map(option => <option key={option} value={option}>{option}</option>)}
-        </select>
-        <br/>
 
         <label htmlFor="quantite">Quantité:</label>
         <input type="text" id="quantite" name="quantite" value={quantite} onChange={handleChange(setQuantite, 'quantite')}/><br/>
@@ -718,8 +714,10 @@ const handleCalcul = (event) => {
         </div>
       )}
        
-       {tableData && <Tableau data={tableData }  facteur ={quantite} />}   </div>
+       </div>
     </div> </div>
+    </div>
+
   );
 }
 
