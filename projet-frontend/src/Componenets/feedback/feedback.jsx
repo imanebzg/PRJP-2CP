@@ -9,10 +9,7 @@ const Feedback = () => {
   const [showPreviousFeedbacks, setShowPreviousFeedbacks] = useState(false);
 
   useEffect(() => {
-    const storedFeedbacks = localStorage.getItem('feedbacks');
-    if (storedFeedbacks) {
-      setFeedbacks(JSON.parse(storedFeedbacks));
-    }
+    fetchLastThreeFeedbacks();
   }, []);
 
   useEffect(() => {
@@ -30,23 +27,54 @@ const Feedback = () => {
   const handleEmailChange = (event) => {
     setUserEmail(event.target.value);
   };
-
-  const handleAddFeedback = () => {
+  
+  const handleAddFeedback = async () => {
     if (currentFeedback.trim() !== '' && userName.trim() !== '' && userEmail.trim() !== '') {
       const newFeedback = {
         name: userName,
         email: userEmail,
         feedback: currentFeedback
       };
-      setFeedbacks([newFeedback, ...feedbacks]); // Adding new feedback at the beginning
-      setCurrentFeedback('');
-      setUserName('');
-      setUserEmail('');
+  
+      try {
+        const response = await fetch('http://localhost:3001/sendings/feedbacks', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(newFeedback),
+        });
+  
+        if (response.ok) {
+          console.log('Feedback added successfully.');
+          fetchLastThreeFeedbacks(); // Fetch updated list of feedbacks after adding a new one
+          setCurrentFeedback('');
+          setUserName('');
+          setUserEmail('');
+        } else {
+          console.error('Failed to add feedback.');
+        }
+      } catch (error) {
+        console.error('Error adding feedback:', error);
+      }
     }
   };
-
   const toggleFeedbackView = () => {
     setShowPreviousFeedbacks(!showPreviousFeedbacks);
+  };
+  const fetchLastThreeFeedbacks = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/sendings/recent-feedbacks');
+
+      if (response.ok) {
+        const data = await response.json();
+        setFeedbacks(data.results);
+      } else {
+        console.error('Failed to fetch last 3 feedbacks.');
+      }
+    } catch (error) {
+      console.error('Error fetching last 3 feedbacks:', error);
+    }
   };
 
   return (

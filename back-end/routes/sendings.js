@@ -1,49 +1,27 @@
 const express = require('express'); 
 const router = express.Router();
+const connection = require('../config/database');
 const nodemailer = require('nodemailer');
 
-const feedbackTransporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: 'feedback-email@gmail.com', 
-      pass: 'feedback-email-password', 
-    },
-  });
+
   
   const contactUsTransporter = nodemailer.createTransport({
     service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
-      user: 'contact-us-email@gmail.com', 
-      pass: 'contact-us-email-password',
+      user: 'reachsendings@gmail.com', 
+      pass: 'rjbp afea hlht mdeb', 
     },
-  });
+   });
 
-  router.post('/send-feedback', async (req, res) => {
-    const { name, email, feedback } = req.body;
-  
-    const mailOptions = {
-      from: 'feedback-email@gmail.com',
-      to: 'recipient-feedback-email@gmail.com', 
-      subject: 'Feedback from your website',
-      text: `Name: ${name}\nEmail: ${email}\nFeedback: ${feedback}`,
-    };
-  
-    try {
-      await feedbackTransporter.sendMail(mailOptions);
-      console.log('Feedback email sent successfully.');
-      return res.status(200).send('Feedback email sent successfully.');
-    } catch (error) {
-      console.error('Error sending feedback email:', error);
-      return res.status(500).send('Error sending feedback email.');
-    }
-  });
-  
   router.post('/send-contact-us', async (req, res) => {
     const { name, email, message } = req.body;
   
     const mailOptions = {
-      from: 'contact-us-email@gmail.com', // mets email pour envoyer
-      to: 'contact-us-recipient@gmail.com', // email to recieve results
+      from: 'reachsendings@gmail.com', // mets email pour envoyer
+      to: 'md_bedjghit@esi.dz', // email to recieve results
       subject: 'Contact Us Message',
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
     };
@@ -51,12 +29,43 @@ const feedbackTransporter = nodemailer.createTransport({
     try {
       await contactUsTransporter.sendMail(mailOptions);
       console.log('Contact Us email sent successfully.');
-      return res.status(200).send('Contact Us email sent successfully.');
+      return res.status(200).json({ok: true, message: 'Message envoyé avec succès.'});
     } catch (error) {
       console.error('Error sending Contact Us email:', error);
-      return es.status(500).send('Error sending Contact Us email.');
+      return res.status(500).json({ok: false, error: 'Problème de connection.'});
     }
   });
 
+
+  router.post('/feedbacks', (req, res) => {
+    const { name, email, feedback } = req.body;
+    const createdAt = new Date().toISOString().slice(0, 19).replace('T', ' '); // Current timestamp
+  
+    const sql = `INSERT INTO feedbacks (name, email, feedback, created_at) VALUES (?, ?, ?, ?)`;
+    const values = [name, email, feedback, createdAt];
+  
+    connection.query(sql, values, (err, result) => {
+      if (err) {
+        console.error('Error storing feedback:', err);
+        res.status(500).json({ ok: false, error: 'Erreur : problème de connection.' });
+      } else {
+        res.status(201).json({ ok:true, message: 'Feedback retenu' });
+      }
+    });
+  });
+  
+  // Endpoint to retrieve last three feedbacks
+  router.get('/recent-feedbacks', (req, res) => {
+    const sql = `SELECT * FROM feedbacks ORDER BY created_at DESC LIMIT 4`;
+  
+    connection.query(sql, (err, results) => {
+      if (err) {
+        console.error('Error retrieving recent feedbacks:', err);
+        res.status(500).json({ ok: false, error: 'Error retrieving recent feedbacks' });
+      } else {
+        res.status(200).json({ok: true, results});
+      }
+    });
+  });
   
 module.exports = router;

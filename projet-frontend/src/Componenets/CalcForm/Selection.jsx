@@ -26,7 +26,7 @@
   const [souslocalisation, setsouslocalisation] = useState('');
   const [quantite, setQuantite] = useState('');
 
-  const [tableData, setTableData] = useState(null);
+  const [tableData, setTableData] = useState([]);
 
 
   
@@ -53,15 +53,30 @@
 
 
 
-
+  const formatFloatingNumbers = (obj) => {
+    const formattedObj = {};
+    for (const key in obj) {
+      const value = obj[key];
+      if (!isNaN(value) && parseFloat(value) !== parseInt(value)) {
+        formattedObj[key] = parseFloat(value).toFixed(2);
+      } else {
+        formattedObj[key] = value;
+      }
+    }
+    return formattedObj;
+  };
+  
 /////////////////////
 const fetchProductData = (produit,quantite,unite,NomAttribut,NomFrontiere,contributeur,localisation,souslocalisation,secteur1,secteur2,secteur3,secteur4,secteur5) => {
   fetch(`http://localhost:3001/api/products?nom=${encodeURIComponent(produit)}&Secteur1=${encodeURIComponent(secteur1)}&Secteur2=${encodeURIComponent(secteur2)}&Secteur3=${encodeURIComponent(secteur3)}&Secteur4=${encodeURIComponent(secteur4)}&Secteur5=${encodeURIComponent(secteur5)}&Unite_français=${encodeURIComponent(unite)}&Nom_attribut_français=${encodeURIComponent(NomAttribut)}&Nom_frontière_français=${encodeURIComponent(NomFrontiere)}&Contributeur=${encodeURIComponent(contributeur)}&Localisation_geographique=${encodeURIComponent(localisation)}&Sous_localisation_geographique_français=${encodeURIComponent(souslocalisation)}&Quantite=${encodeURIComponent(quantite)}`)
 
     .then(response => response.json())
     .then(datatable => {
+      console.log("Product Data:", datatable);
       setTableData(datatable);
       // Handle additional state updates or operations based on the fetched data
+      const formattedTableObject = formatFloatingNumbers(datatable);
+      addTable(formattedTableObject);
     })
     .catch(error => console.error('Failed to fetch product data:', error));
 };
@@ -280,6 +295,15 @@ useEffect(() => {
 
 
 
+  const addTable = (newTable) => {
+    const transformedTable = { ...newTable };
+  setTableData([...tableData, transformedTable]);
+  
+  
+  // Store in localStorage
+  localStorage.setItem('tables', JSON.stringify([...tableData, transformedTable]));
+  };
+
   const [calcInfo, setCalcInfo] = useState({
     secteur1: '',
     secteur2: '',
@@ -299,7 +323,7 @@ useEffect(() => {
 
 const saveTotalSumToDatabase = async () => {
   const company_id = localStorage.getItem('userEmail'); 
-  const totalSum = localStorage.getItem('totalSum').toString(); 
+  const totalSum = localStorage.getItem('totalSum'); 
   console.log("totalSum",totalSum);
   
   const start_date = localStorage.getItem('start_date');
@@ -479,22 +503,41 @@ const handleCalcul = (event) => {
         setsouslocalisation('');
         setQuantite('');
     
-        // Clear totalSum from local storage
         localStorage.setItem('totalSum', JSON.stringify(totalSum + result));
-
-        // Save formResults to local storage
         localStorage.setItem('formResults', JSON.stringify([...formResults, newCalcInfo]));
         localStorage.setItem('isSubmitted', true);
         window.location.reload(); 
+        initiatePageReload();
       })
       .catch(error => {
         console.error('Error in handleFinalSubmit:', error);
       });
-   
+  
 
      
   };
+
+  if (window.location.pathname === '/second-page') {
+    // After the page reloads, initiate the setTimeout
+    window.onload = () => {
+      initiatePageReload();
+    };
+  }
+  const initiatePageReload = () => {
+    // Set a timeout to execute after 1 minute (60 seconds * 1000 milliseconds)
+    setTimeout(() => {
+      // Clear items from local storage
+      localStorage.removeItem('totalSum');
+      localStorage.setItem('isSubmitted', false);
+      localStorage.removeItem('tables');
+      localStorage.removeItem('formResults');
+      localStorage.removeItem('start_date');
+
   
+      // Reload the page
+      window.location.reload();
+    }, 10 *60 * 1000);
+  };
   const [selectedScope1, setSelectedScope1] = useState('form-1');
 
   const handleRadioChange1 = (event) => {
@@ -502,10 +545,6 @@ const handleCalcul = (event) => {
   };
   return (
     <div>
-
-
-   
-
     <div className="Selectionner">
     <div className='title'><p>Remplissez toutes les informations necessaires aux calculs: </p></div>
       <div className="SELECTION">
@@ -687,7 +726,7 @@ const handleCalcul = (event) => {
         </div>
       )}
        
-       {tableData && <Tableau data={tableData }  facteur ={quantite} />}   </div>
+    </div>
     </div> </div>
     </div>
 

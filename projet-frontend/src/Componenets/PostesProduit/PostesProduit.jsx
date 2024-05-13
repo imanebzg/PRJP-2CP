@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef, useMemo, createRef } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios'; 
 import Chart from 'chart.js/auto';
+import Tableau from "../tableau/tableau"
+
 //import './PostesProduit.css';
 
 
@@ -68,6 +70,8 @@ if (!localStorage.getItem('formResults')) {
   const secteur1Array = useMemo(() => storedFormResults.map(result => result.secteur1.trim()).filter(secteur1 => secteur1 !== ''), [storedFormResults]);
 
 
+
+
   const [dataByCategory, setDataByCategory] = useState(initialData);
 
   
@@ -99,7 +103,17 @@ if (!localStorage.getItem('formResults')) {
     '': ''
   }), []);
 
+  const [tables, setTables] = useState([]);
 
+
+  useEffect(() => {
+    const storedTables = localStorage.getItem('tables');
+  
+    if (storedTables) {
+      const tablesArray = JSON.parse(storedTables);
+      setTables(tablesArray);
+    }
+  }, []);
     useEffect(() => {
 
       const fetchData = async () => {
@@ -205,13 +219,28 @@ const ChartComponent = ({ secteur, dataByCategory, secteur1Array }) => {
 
 return (
   <div  className="Postes">
-    {secteur1Array.map((secteur, index) => (
+    {isSubmitted ? (
+      <div>
+      {secteur1Array.map((secteur, index) => (
       
-      <div className="scopes1">
-        <h3>{secteur}</h3>  <div className="chart-container">
-        <ChartComponent key={index} dataByCategory={dataByCategory} secteur={secteur} />
-        </div> </div>
-    ))}
+        <div className="scopes1">
+          <h3>{secteur}</h3>  <div className="chart-container">
+          <ChartComponent key={index} dataByCategory={dataByCategory} secteur={secteur} />
+          </div> </div>
+      ))}
+
+{tables.map((tableData, index) => (
+        <div key={index} className="scopes1">
+          <Tableau data={tableData} facteur={index} />
+        </div>
+      ))}
+      </div>
+
+    ) : (
+      ''
+    )}
+    
+    
 </div>
 );
 });
