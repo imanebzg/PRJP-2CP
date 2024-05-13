@@ -6,34 +6,50 @@
 
 
     .Selectionner {
- 
-    align-items: center;
- 
-    max-width: 100%;
- background-color: white;
-    padding: 2%;
-    border-radius: 8px;
-    border: 2px solid  #E0E8F5;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      max-width: 100%;
+      width: 100%;
+      background: #ffffff;
+      color:  #031273;
+     
+      box-shadow: 0 0 5px #a3c0d2;
+      border: 1px solid #E0E8F5;
+      overflow: hidden;
+     border-radius: 5px;
+padding-bottom: 3%;
+   
+      font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
     
       }
 
 
-.SELECTION {
+      .Selectionner .SELECTION {
  
 align-items: center;
 
 
   }
+  .Selectionner .title{
+    padding: 0.05%;
+    text-align: center;
+    background: #031273;
+  margin-bottom: 3%;
+    font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
+  }
+  .Selectionner .title p{
+  font-size:30px ;
+  font-weight: 700;
+  color: #E0E8F5;
+  font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
+  
+  }
 
-
-.radio-input input[type="radio"] {
+  .Selectionner .radio-input input[type="radio"] {
     display: none; /* Pour cacher les cases à cocher par défaut */
     
   }
   
   
-  .radio-input {
+  .Selectionner .radio-input {
     max-width: 100%;
     height: 40%;
     position: relative;
@@ -48,7 +64,7 @@ align-items: center;
     border: 0.3px solid rgba(53, 52, 52, 0.226);
   }
   
-  .radio-input label {
+  .Selectionner .radio-input label {
     width: 100%;
     
     padding:1.5%;
@@ -61,41 +77,33 @@ align-items: center;
     letter-spacing: 0.7px;
     font-size: 15px;
     text-align: center;
+    
   }
   
-  .selection {
+  .Selectionner .selection {
     display: none;
     position: absolute;
     height: 100%;
     width: calc(var(--container_width) / 4);
     z-index: 0;
     left: 0;
-    
+
     top: 0;
     transition: .15s;
-  }.radio-input label {
-    position: relative;
   }
   
-  .radio-input label:has(input:checked)::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: -10px; /* Adjust this value based on your arrow size */
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 8px; /* Adjust this value based on your arrow size */
-    border-color: transparent transparent transparent #5963A3; /* Adjust background color here */
-    transform: translateY(-50%) rotate(45deg);
-    background: linear-gradient(to left top, transparent 50%, #5963A3 50%);
+  .Selectionner .radio-input label:has(input:checked) {
+    color:white;  background-color: #5963A3;
+
+    display: inline-block;
+    text-align: center;
   }
   
   .Selectionner .btn2 {
     display: inline-block;
     font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
     padding: 0.625rem 3.4375rem; /* 10px 55px / 16px */
-    border: 0.125rem solid  #4CA950;/* 2px solid #e14c31 / 16px */
+    border: 1px solid  #4CA950;/* 2px solid #e14c31 / 16px */
     background-color: #ffffff;
     color: #031273;
     font-size: 1rem;   /* 20px / 16px */
@@ -136,24 +144,24 @@ align-items: center;
     height: 200%;
   }
 
-.formulaire{
+  .Selectionner .formulaire{
 
-  padding-top: 5%;
 justify-content: center;
 
 }
-.formulaire form {
+.Selectionner .formulaire form {
     background-color: #ffffff;
     max-width: 600px;
     margin:auto;
+ 
     padding: 30px;
     border-radius: 8px;
-    border: 2px solid #4CA950; 
+    border: 1px solid #4CA950; 
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 
-.formulaire select, .formulaire input[type="text"] {
+.Selectionner .formulaire select,.Selectionner .formulaire input[type="text"] {
     width: 100%;
     padding: 5px;
     margin-bottom: 5px;
@@ -162,14 +170,14 @@ justify-content: center;
     box-sizing: border-box;
 }
 
-.formulaire select:focus,.formulaire input[type="text"]:focus {
+.Selectionner .formulaire select:focus,.Selectionner .formulaire input[type="text"]:focus {
     outline: none;
     border-color: #031273;
     box-shadow: 0 0 5px #031273;
 }
 
 
-.formulaire 
+.Selectionner .formulaire 
 .btn1 {
   display: inline-block;
   
@@ -179,7 +187,7 @@ justify-content: center;
   background-color:  #4CA950; 
   font-size: 1rem;   /* 20px / 16px */
   font-weight: bold;
-  color: #031273;
+  color:#ffffff;
   text-transform: uppercase;
   letter-spacing: 0.0625rem; /* 0.1em / 16px */
   cursor: pointer;
@@ -189,7 +197,7 @@ justify-content: center;
   transition: all 0.3s ease-in-out;
 }
 
-.formulaire .btn1::before {
+.Selectionner .formulaire .btn1::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -203,13 +211,13 @@ justify-content: center;
   transition: all 0.3s ease-in-out;
 }
 
-.formulaire .btn1:hover {
+.Selectionner .formulaire .btn1:hover {
   background-color: #fff;
   color:  #4CA950; 
   box-shadow: #4CA950; 
 }
 
-.formulaire .btn1:hover::before {
+.Selectionner .formulaire .btn1:hover::before {
   width: 200%;
   height: 200%;
 }
@@ -218,7 +226,7 @@ justify-content: center;
   
   
   /* Styles pour le bouton de soumission personnalisé */
-.formulaire input[type="submit"].custom-submit-button {
+  .Selectionner .formulaire input[type="submit"].custom-submit-button {
     display: inline-block;
     font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
     padding: 6px 13px;
@@ -237,7 +245,7 @@ justify-content: center;
     transition: all 0.3s ease-in-out;
   }
   
-  .formulaire input[type="submit"].custom-submit-button::before {
+  .Selectionner .formulaire input[type="submit"].custom-submit-button::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -251,13 +259,13 @@ justify-content: center;
     transition: all 0.3s ease-in-out;
   }
   
-  .formulaire input[type="submit"].custom-submit-button:hover {
+  .Selectionner .formulaire input[type="submit"].custom-submit-button:hover {
     background-color: #4CA950;
     color: #031273;
     box-shadow: #e14c31;
   }
   
-  .formulaire input[type="submit"].custom-submit-button:hover::before {
+  .Selectionner .formulaire input[type="submit"].custom-submit-button:hover::before {
     width: 200%;
     height: 200%;
   }

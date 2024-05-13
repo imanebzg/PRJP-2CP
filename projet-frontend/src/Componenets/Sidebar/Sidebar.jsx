@@ -3,6 +3,8 @@ import './sidebar.css';
 
 import { Link } from 'react-router-dom';
 import { AiOutlineHome, AiFillSetting, AiOutlineLogout, AiOutlineQuestion, AiOutlineQrcode, AiOutlineBell } from 'react-icons/ai';
+
+
 function ReactSideBar() {
     const [show, setShow] = useState('sidebar');
     const [showDashboardSubMenu, setShowDashboardSubMenu] = useState(false);
@@ -49,13 +51,14 @@ function ReactSideBar() {
                     <div className='item'>
                         <AiOutlineHome className={show ? 'icon11' : 'icon'} />
                         <div className='Dashboard'>
-                            {show ? "" : <Link to='/'><h3>Home</h3></Link>  }
+                            {show ? "" : <Link to='/' className='link'><h3>Home</h3></Link>  }
                         </div>
                     </div>
                     <div className='item'>
                         <AiOutlineQrcode className={show ? 'icon11' : 'icon'} />
                         <div className='Dashboard'>
-                            {show ? "" :<Link to='/second-page'><h3>Calculer</h3></Link> }
+                          
+{show ? "" :<Link to='/second-page'className="link"><h3>Calculer</h3></Link> }
                         </div>
                     </div>
                    
@@ -66,8 +69,8 @@ function ReactSideBar() {
                         </div></div>
                         {showSubMenu && (
                             <div className="sub-menu">
-                                <Link to ='/first-page'> <li>Mon compte</li> </Link>
-                                <Link to ='/'><a href='#feedback'><li>Avis</li> </a>  </Link>
+                                <Link to ='/first-page'className='link'> <li>Mon compte</li> </Link>
+                                <Link to ='/' className='link'><li>Avis</li>   </Link>
                                
                             </div>
                         )}
@@ -90,3 +93,6 @@ function ReactSideBar() {
 }
 
 export default ReactSideBar;
+
+
+

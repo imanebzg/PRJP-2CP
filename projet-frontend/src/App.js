@@ -5,7 +5,7 @@ import Secondpage from './Pages/second-page/second_page';
 import Thirdpage from './Pages/third-page/thirs-page';
 import Firstpage from './Pages/first-page/firstpage';
 import Adminpage from './Pages/admin-page/admin_page';
-import Sup from '../src/Componenets/Supprimer/Supprimer';
+import Hist from './Pages/history-page/history';
 
 import {BrowserRouter as Router, Routes, Route, Link}from 'react-router-dom';
 
@@ -19,7 +19,7 @@ function App() {
           <Route path='third-page' element={  <div className='page'> <Thirdpage /></div>} />
           <Route path='first-page' element={  <div className='page'> <Firstpage /></div>} />
           <Route path='admin-page' element={  <div className='page'> <Adminpage /></div>} />
-          <Route path='sup-page' element={  <div className='page'> <Sup /></div>} />
+          <Route path='hist-page' element={  <div className='page'> <Hist /></div>} />
         </Routes>
       </main>
     </Router>

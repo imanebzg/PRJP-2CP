@@ -78,7 +78,7 @@
     padding-top: 1.25rem;    /* 2rem / 16px */
   }
   
-  .buttons-container {
+  .footer .buttons-container {
     margin-top: 1.9375rem;  /* 1.5rem / 16px */
     display: flex;
     align-items: center;
@@ -86,7 +86,7 @@
     margin-left: -0.6875rem; /* -1.1rem / 16px */
   }
   
-  .button {
+  .footer .button {
     --color: #e14c31;
     padding: 0.5365rem 0.7625rem; /* 0.583rem 1rem / 16px */
     background-color: transparent;
@@ -102,7 +102,7 @@
     margin-right: 0.3125rem;  /* 0.5rem / 16px */
   }
   
-  .footer .button .text {
+  .footer .footer .button .text {
     color: white;
     font-size: 0.9375rem;    /* 15px / 16px */
     padding-right: 0.3125rem; /* 5px / 16px */
@@ -112,7 +112,7 @@
   
  
   
-  .arrow {
+  .footer .arrow {
     display: inline-flex;
     position: relative;
     width: 1.875rem;      /* 30px / 16px */
@@ -120,14 +120,14 @@
     margin-left: 0.3125rem;  /* 0.5rem / 16px */
   }
   
-  .arrow::after,
-  .arrow::before {
+  .footer .arrow::after,
+  .footer .arrow::before {
     content: "";
     display: inline-block;
     position: absolute;
     border-color: var(--color);
   }
-  .arrow::after {
+  .footer .arrow::after {
     width: 0.625rem;  /* 10px / 16px */
     height: 0;
     border: 0.125rem solid var(--color); /* 2px solid var(--color) / 16px */
@@ -136,7 +136,7 @@
     transform: translateY(-50%);
   }
   
-  .arrow::before {
+  .footer .arrow::before {
     width: 0.625rem;  /* 10px / 16px */
     height: 0.625rem; /* 10px / 16px */
     border-top: 0.25rem solid var(--color); /* 4px solid var(--color) / 16px */
@@ -146,45 +146,45 @@
     transform: translateY(-50%) rotate(45deg);
   }
   
-  .button:hover {
+  .footer .button:hover {
     background-color: var(--color);
     color: white;
   }
   
-  .button:hover .arrow {
+  .footer .button:hover .arrow {
     transform: translateX(0.625rem); /* 10px / 16px */
   }
   
-  .button:hover .text {
+  .footer .button:hover .text {
   
     color: #ffffff;
   
   }
   
-  .button:hover .arrow::after {
+  .footer .button:hover .arrow::after {
     width: 1.5625rem; /* 25px / 16px */
     border-color: white;
   }
   
-  .button:hover .arrow::before {
+  .footer .button:hover .arrow::before {
     left: 0.9375rem;  /* 15px / 16px */
     border-color: white;
   }
   
   .footer.button,
   .footer.text,
-  .arrow,
-  .arrow::after,
-  .arrow::before,
-  .button::before,
-  .button::after {
+  .footer .arrow,
+  .footer .arrow::after,
+  .footer .arrow::before,
+  .footer .button::before,
+  .footer .button::after {
     transition: all 0.3s, box-shadow 0.2s;
     
     color: #031273;
     font-size: 1rem;        /* 16px / 16px (assuming this should not be converted) */
   }
   
-  .button::before {
+  .footer .button::before {
     content: "";
     position: absolute;
     height: 100%;
@@ -198,7 +198,7 @@
     transform: translateY(-50%);
   }
   
-  .button::after {
+  .footer .button::after {
     content: "";
     position: absolute;
     height: 100%;
@@ -212,12 +212,12 @@
     transform: translateY(-50%);
   }
   
-  .button:hover:before,
-  .button:hover:after {
+  .footer .button:hover:before,
+  .footer .button:hover:after {
     width: 50% !important;
   }
   
-  .button:active {
+  .footer .button:active {
     box-shadow: 0px 0px 0px 0.3125rem #031273; /* 7px #031273 / 16px */
   }
   

@@ -13,7 +13,7 @@ const Home = () => {
 
   const handlesecond = () => {
    
-    window.location.href = '/second-page'; 
+    window.location.href = '/hist-page'; 
     // You may also want to redirect the user to the login page or another appropriate page
   };
   return (

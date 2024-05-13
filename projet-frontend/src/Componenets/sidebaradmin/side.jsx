@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import './side.css';
 
 import { Link } from 'react-router-dom';
-import { AiOutlineConsoleSql,AiOutlineHome, AiFillSetting } from 'react-icons/ai';
-function ReactSideBar() {
+import { AiOutlineHome, AiFillSetting, AiOutlineLogout, AiOutlineQuestion, AiOutlineQrcode, AiOutlineBell } from 'react-icons/ai';
+function ReactSideBar1() {
     const [show, setShow] = useState('sidebar');
     const [showDashboardSubMenu, setShowDashboardSubMenu] = useState(false);
     const [showSubMenu, setShowSubMenu] = useState(false);
@@ -46,11 +46,16 @@ function ReactSideBar() {
                 <div className="bars" id="bar3"></div>
             </label>
                   
-                   
                     <div className='item'>
-                        <AiOutlineConsoleSql className={show ? 'icon11' : 'icon'} />
+                        <AiOutlineHome className={show ? 'icon11' : 'icon'} />
                         <div className='Dashboard'>
-                            {show ? "" :<Link to='/sup-page'><h3>admin</h3></Link> }
+                            {show ? "" : <Link to='/' className='link'><h3>Home</h3></Link>  }
+                        </div>
+                    </div>
+                    <div className='item'>
+                        <AiOutlineQrcode className={show ? 'icon11' : 'icon'} />
+                        <div className='Dashboard'>
+                            {show ? "" :<Link to='/admin-page' className='link'><h3>admin</h3></Link> }
                         </div>
                     </div>
                    
@@ -61,8 +66,8 @@ function ReactSideBar() {
                         </div></div>
                         {showSubMenu && (
                             <div className="sub-menu">
-                                <Link to ='/first-page'> <li>Mon compte</li> </Link>
-                                <Link to ='/'><a href='#feedback'><li>Avis</li> </a>  </Link>
+                                <Link to ='/first-page'className='link'> <li>Mon compte</li> </Link>
+                                <Link to ='/' className='link'><li>Avis</li>   </Link>
                                
                             </div>
                         )}
@@ -84,4 +89,4 @@ function ReactSideBar() {
     );
 }
 
-export default ReactSideBar;
+export default ReactSideBar1;

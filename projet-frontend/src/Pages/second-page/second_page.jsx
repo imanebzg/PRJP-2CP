@@ -13,21 +13,9 @@ import Sidbar from "../../Componenets/Sidebar/Sidebar";
 import Avancement_exmp from '../../Componenets/Avancement_exmp/Avancement_exmp';
 import Plus_prod from '../../Componenets/Plus_prod/Plus_prod';
 import PostesProduit from '../../Componenets/PostesProduit/PostesProduit';
-import Tableau from '../../Componenets/tableau/tableau';
+
 function Second_page (props) {
 let isSubmitted = localStorage.getItem('isSubmitted');
-let quantite = localStorage.getItem('quantite');
-const [storedData, setTableData] = useState([]);
-useEffect(() => {
-
-  // Récupérer les données du localStorage lors du chargement initial
-  const storedData = localStorage.getItem('tableData');
-  if (storedData) {
-    setTableData(JSON.parse(storedData));
-  }
-}, []);
-
-
 if (isSubmitted === 'true') {
   isSubmitted = true;
 } else {
@@ -55,6 +43,7 @@ if (isSubmitted === 'true') {
         <div className="second"> 
           <Sidbar/>
           <div className="content2">
+          
           <Form/>
           {isSubmitted ? (  <div className="mini_cont">
           <button className='btn1' onClick={handleCalcAgain}> Calculer de nouveau un bilan carbone ?</button>
@@ -161,13 +150,15 @@ if (isSubmitted === 'true') {
         <div id="form9">
           
         <PostesProduit/>
-         <Tableau data={storedData }  facteur ={quantite} />
+        
        
        </div> )}
        </div>
        
-        </div> ) : (
-    <h5>Remplir le formulaire pour avoir le résultat </h5>
+        </div> ) : (<div class="loader">
+  <label>Remplir le formulaire pour avoir le résultat...</label>
+  <div class="loading"></div>
+</div>
     )
     }
         </div>

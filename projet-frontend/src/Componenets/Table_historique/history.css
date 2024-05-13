@@ -1,31 +1,42 @@
-/* frontend/src/HistoryTable.css */
 
-.history-table-container {
+
+  
+  .history-table-container .history-table {
+    border-collapse: collapse;
+    box-shadow: 0 0.3125rem 3.125rem rgba(0, 0, 0, 0.15); /* 0 5px 50px rgba(0,0,0,0.15) / 16px */
+    cursor: pointer;
+    font-family: 'Gilroy-Regular';
+    margin: 0 auto;
     width: 100%;
     margin-top: 20px;
+    border: 0.125rem solid #031273;
   }
   
-  .history-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .history-table th,
-  .history-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
+  .history-table-container .history-table thead tr {
+    background-color: #031273;
+    color: #fff;
     text-align: left;
   }
   
-  .history-table th {
-    background-color: #f2f2f2;
+  .history-table-container .history-table th,  .history-table-container .history-table td {
+    padding: 0.9375rem 1.25rem; /* 15px 20px / 16px */
+    text-align: center;
   }
   
-  .history-table tr:nth-child(even) {
-    background-color: #f2f2f2;
+ .history-table-container .history-table tbody tr,   .history-table td,  .history-table-container .history-table th {
+    border: 0.0625rem solid #E0E8F5; /* 1px solid #E0E8F5 / 16px */
   }
   
-  .history-table tr:hover {
-    background-color: #ddd;
+  .history-table-container .history-table tbody tr:nth-child(even) {
+    background-color: #e0e8f5b6;
   }
-  
+
+
+  .history-table-container h2{
+  text-align: center;
+  font-size:30px ;
+font-weight: 700;
+color:  #e14c31;
+
+  font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
+}

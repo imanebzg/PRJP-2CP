@@ -227,12 +227,12 @@ align-items: center;
   animation: color_anim 1s infinite 0.2s;
 }
 
-.btn-content:hover #arrow-icon-one {
+.AJOUTER .btn-content:hover #arrow-icon-one {
   transform: translateX(0%);
   animation: color_anim 1s infinite 0.6s;
 }
 
-.btn-content:hover #arrow-icon-two {
+.AJOUTER .btn-content:hover #arrow-icon-two {
   transform: translateX(0%);
   animation: color_anim 1s infinite 0.4s;
 }

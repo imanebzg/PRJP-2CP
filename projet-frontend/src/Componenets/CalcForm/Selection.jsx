@@ -3,8 +3,7 @@
  import React, { useEffect, useState } from 'react';
   import './form.css';
   import Tableau from "../tableau/tableau"
-  import BilanForm from "../Datecomponent/BilanFom"
-function Sele() {
+ function Sele() {
  
   // useState to hold the fetched data
   
@@ -434,7 +433,7 @@ const handleCalcul = (event) => {
       // Save formResults to local storage
       localStorage.setItem('formResults', JSON.stringify(updatedFormResults));
       localStorage.setItem('totalSum', JSON.stringify(totalSum + result));
-      setSelectedScope('form-1');
+      setSelectedScope1('form-1');
       //window.location.reload();
     }).catch(error => {
       console.error('Error in handleAddProduct:', error);
@@ -496,22 +495,22 @@ const handleCalcul = (event) => {
      
   };
   
-  const [selectedScope, setSelectedScope] = useState('form-1');
+  const [selectedScope1, setSelectedScope1] = useState('form-1');
 
-  const handleRadioChange = (event) => {
-    setSelectedScope(event.target.value);
+  const handleRadioChange1 = (event) => {
+    setSelectedScope1(event.target.value);
   };
   return (
     <div>
 
 
-    <BilanForm />
+   
 
     <div className="Selectionner">
-      <p>  Remplissez toutes les informations necessaires aux calculs: </p>
-       <div className="SELECTION">
+    <div className='title'><p>Remplissez toutes les informations necessaires aux calculs: </p></div>
+      <div className="SELECTION">
         <div className="radio-input">
-          <input type="hidden" id="selectedScope" value={selectedScope} />
+          <input type="hidden" id="selectedScope1" value={selectedScope1} />
 
           {/* Radio buttons with labels */}
           <label>
@@ -520,10 +519,10 @@ const handleCalcul = (event) => {
               value="form-1"
               name="value-radio"
               id="value-1"
-              onChange={handleRadioChange}
-              checked={selectedScope === 'form-1'} // Set checked based on state
+              onChange={handleRadioChange1}
+              checked={selectedScope1 === 'form-1'} // Set checked based on state
             />
-            <span>Sous Secteurs</span>
+            <span>Scope 1</span>
           </label>
           <label>
             <input
@@ -531,10 +530,10 @@ const handleCalcul = (event) => {
               value="form-2"
               name="value-radio"
               id="value-2"
-              onChange={handleRadioChange}
-              checked={selectedScope === 'form-2'} // Set checked based on state
+              onChange={handleRadioChange1}
+              checked={selectedScope1 === 'form-2'} // Set checked based on state
             />
-            <span>Spécifications Activité</span>
+            <span>Scope 2</span>
           </label>
 
           <label>
@@ -543,18 +542,19 @@ const handleCalcul = (event) => {
               value="form-3"
               name="value-radio"
               id="value-3"
-              onChange={handleRadioChange}
-              checked={selectedScope === 'form-3'} // Set checked based on state
+              onChange={handleRadioChange1}
+              checked={selectedScope1 === 'form-3'} // Set checked based on state
             />
-            <span>Autres</span>
+            <span>Scope </span>
           </label>
-         
+          
+
     
         </div>
  
 
       <div id="form-container" >
-      {selectedScope === 'form-1' && (
+      {selectedScope1 === 'form-1' && (
         <div id="form1">
            <div className="formulaire">
      
@@ -611,7 +611,7 @@ const handleCalcul = (event) => {
 
 
 
-        {selectedScope === 'form-2' && (
+        {selectedScope1 === 'form-2' && (
         <div id="form2">
          <div className="formulaire">
 
@@ -641,7 +641,7 @@ const handleCalcul = (event) => {
 
 
 
-{selectedScope === 'form-3' && (
+{selectedScope1 === 'form-3' && (
         <div id="form3">
           <div className="formulaire">
      
