@@ -13,6 +13,7 @@ import Sidbar from "../../Componenets/Sidebar/Sidebar";
 import Avancement_exmp from '../../Componenets/Avancement_exmp/Avancement_exmp';
 import Plus_prod from '../../Componenets/Plus_prod/Plus_prod';
 import PostesProduit from '../../Componenets/PostesProduit/PostesProduit';
+import HistogramProduit from '../../Componenets/HistogramProduit/HistogramProduit'
 
 function Second_page (props) {
 let isSubmitted = localStorage.getItem('isSubmitted');
@@ -150,6 +151,7 @@ if (isSubmitted === 'true') {
         <div id="form9">
           
         <PostesProduit/>
+        <HistogramProduit/>
         
        
        </div> )}

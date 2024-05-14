@@ -37,19 +37,11 @@ const generateColors = (numColors) => {
   return colors;
 };*/
 
-const generateColors = (numColors) => {
-  const colors = [];
-  const step = 360 / numColors; // Calculer l'incrément pour répartir les couleurs uniformément
-
-  for (let i = 0; i < numColors; i++) {
-    const hue = (i * step) % 360; // Calculer la teinte en fonction de l'incrément
-    colors.push(`hsla(${hue}, 70%, 50%, 0.6)`);
-  }
-
-  return colors;
-
-
+const generateColors = (num) => {
+  // Generate colors logic
+  return Array.from({ length: num }, () => "#" + Math.floor(Math.random() * 16777215).toString(16));
 };
+
 
 const initialData = {
   Combustibles: {scope1: 0,scope2: 0,scope3: 0},
@@ -112,7 +104,6 @@ if (!localStorage.getItem('formResults')) {
   storedFormResults = JSON.parse(localStorage.getItem('formResults'));
 }
 
-// STOPPPPPPPPP COPYINNNNNNNNNNNNNNNNNNNNNNNNNNNNGGGGGG
   const secteur1Array = useMemo(() => storedFormResults.map(result => result.secteur1.trim()).filter(secteur1 => secteur1 !== ''), [storedFormResults]);
 
 
@@ -273,7 +264,7 @@ if (!localStorage.getItem('formResults')) {
   const myChart3Ref = useRef(null);
 
   useEffect(() => {
-    const numUniqueCategories = new Set(chart1Data.data).size;
+    const numUniqueCategories = chart1Data.data.length;
     const backgroundColors = generateColors(numUniqueCategories);
     const borderColors = generateColors(numUniqueCategories);
     if (myChartRef.current !== null) {
@@ -315,7 +306,8 @@ if (!localStorage.getItem('formResults')) {
   
   
   useEffect(() => {
-    const numUniqueCategories = new Set(chart2Data.data).size;
+    const numUniqueCategories = chart2Data.data.length;
+    console.log("NUM CATEGORY IN SCOPE 3 : "+numUniqueCategories);
     const backgroundColors = generateColors(numUniqueCategories);
     const borderColors = generateColors(numUniqueCategories);
     if (myChart2Ref.current !== null) {
@@ -356,7 +348,8 @@ if (!localStorage.getItem('formResults')) {
      
   }, [chart2Data.labels, chart2Data.data]);
   useEffect(() => {
-    const numUniqueCategories = new Set(chart3Data.data).size;
+    const numUniqueCategories = chart3Data.data.length;
+    console.log("NUM CATEGORY IN SCOPE 1 : "+numUniqueCategories);
     const backgroundColors = generateColors(numUniqueCategories);
     const borderColors = generateColors(numUniqueCategories);
     if (myChart3Ref.current !== null) {

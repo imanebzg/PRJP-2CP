@@ -647,7 +647,7 @@ const Histogram = React.memo(function Histogram({formResults}) {
   const myChart3Ref = useRef(null);
 
   useEffect(() => {
-    const numUniqueCategories = new Set(chart1Data.data).size;
+    const numUniqueCategories = chart1Data.data.length;
     const backgroundColors = generateColors(numUniqueCategories);
     const borderColors = generateColors(numUniqueCategories);
     if (myChartRef.current !== null) {
@@ -687,7 +687,7 @@ const Histogram = React.memo(function Histogram({formResults}) {
   }, [chart1Data.labels, chart1Data.data, show1Chart]); 
   
   useEffect(() => {
-    const numUniqueCategories = new Set(chart2Data.data).size;
+    const numUniqueCategories = chart2Data.data.length;
     const backgroundColors = generateColors(numUniqueCategories);
     const borderColors = generateColors(numUniqueCategories);
     if (myChart2Ref.current !== null) {
@@ -726,7 +726,7 @@ const Histogram = React.memo(function Histogram({formResults}) {
   }
   }, [chart2Data.labels, chart2Data.data, show2Chart]);
   useEffect(() => {
-    const numUniqueCategories = new Set(chart3Data.data).size;
+    const numUniqueCategories = chart3Data.data.length;
     const backgroundColors = generateColors(numUniqueCategories);
     const borderColors = generateColors(numUniqueCategories);
     if (myChart3Ref.current !== null) {
