@@ -10,17 +10,29 @@ import Hist from './Pages/history-page/history';
 import {BrowserRouter as Router, Routes, Route, Link}from 'react-router-dom';
 
 function App() {
+  const authToken = localStorage.getItem('authToken');
+  const handleRouteAccess = () => {
+    window.location.href = '/'; 
+  };
+
   return (
     <Router>
       <main>
         <Routes>
-          <Route path='/' exact element= {<div className='App'><LandingPage/></div> } />
-          <Route path='second-page' element={  <div className='page'> <Secondpage /></div>} />
-          <Route path='third-page' element={  <div className='page'> <Thirdpage /></div>} />
-          <Route path='first-page' element={  <div className='page'> <Firstpage /></div>} />
-          <Route path='admin-page' element={  <div className='page'> <Adminpage /></div>} />
-          <Route path='hist-page' element={  <div className='page'> <Hist /></div>} />
-        </Routes>
+        <Route path="/" exact element= {<div className='App'><LandingPage/></div> } />
+        {authToken ? (
+          <>
+            <Route path="/first-page" element={  <div className='page'> <Firstpage /></div>} />
+            <Route path="/second-page"  element={  <div className='page'> <Secondpage /></div>} />
+            <Route path="/third-page" element={  <div className='page'> <Thirdpage /></div>} />
+            <Route path='admin-page' element={  <div className='page'> <Adminpage /></div>} />
+            <Route path='hist-page' element={  <div className='page'> <Hist /></div>} />
+          </>
+        ) : (
+          <Route path="*" component={() => {handleRouteAccess();}} />
+        )}
+  
+      </Routes>
       </main>
     </Router>
 

@@ -14,6 +14,7 @@ import Avancement_exmp from '../../Componenets/Avancement_exmp/Avancement_exmp';
 import Plus_prod from '../../Componenets/Plus_prod/Plus_prod';
 import PostesProduit from '../../Componenets/PostesProduit/PostesProduit';
 import HistogramProduit from '../../Componenets/HistogramProduit/HistogramProduit'
+import TablesComponent from '../../Componenets/tableau/tableau';
 
 function Second_page (props) {
 let isSubmitted = localStorage.getItem('isSubmitted');
@@ -152,6 +153,8 @@ if (isSubmitted === 'true') {
           
         <PostesProduit/>
         <HistogramProduit/>
+        <TablesComponent/>
+        <h5>Les taux de gaz présentés dans ces tableaux sont exprimés pour une unité de quantité.</h5>
         
        
        </div> )}

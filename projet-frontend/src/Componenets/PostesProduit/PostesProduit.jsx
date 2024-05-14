@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef, useMemo, createRef } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios'; 
 import Chart from 'chart.js/auto';
-import Tableau from "../tableau/tableau"
+import TablesComponent from "../tableau/tableau"
 
 //import './PostesProduit.css';
 
@@ -228,26 +228,17 @@ return (
           <ChartComponent key={index} dataByCategory={dataByCategory} secteur={secteur} />
           </div> </div>
       ))}
-
-{tables.map((tableData, index) => (
-        <div key={index} className="scopes1">
-          <Tableau data={tableData} facteur={index} />
-        </div>
-      ))}
-      </div>
-
-    ) : (
-      ''
-    )}
+    </div>
     
-    
+
+) : 
+''
+}
 </div>
 );
-});
 
-PostesProduit.propTypes = {
-  formResults: PropTypes.array.isRequired
-};
+
+});
 
 export default PostesProduit;
 
