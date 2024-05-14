@@ -1,80 +1,6 @@
 
-/* without dropdowns
 import React, { useState } from 'react';
-
-function DeleteForm() {
-    const [fields, setFields] = useState([{ key: '', value: '' }]);
-
-    const handleAddField = () => {
-        setFields([...fields, { key: '', value: '' }]);
-    };
-
-    const handleChange = (index, event) => {
-        const newFields = fields.map((field, i) => {
-            if (i === index) {
-                return { ...field, [event.target.name]: event.target.value };
-            }
-            return field;
-        });
-        setFields(newFields);
-    };
-
-    const handleDelete = async (event) => {
-        event.preventDefault();
-        try {
-            const response = await fetch('http://localhost:3001/deleteproduct/delete', {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ conditions: fields })
-            });
-
-            if (!response.ok) {
-                throw new Error('Failed to delete: ' + (await response.text()));
-            }
-
-            const result = await response.json();
-            alert('Delete successful: ' + result.message);
-        } catch (error) {
-            alert(error.message);
-        }
-    };
-
-    return (
-        <div>
-        <h1>Supprimer une activite de la base de donnees
-        </h1>
-        <form onSubmit={handleDelete}>
-            {fields.map((field, index) => (
-                <div key={index}>
-                    <input
-                        type="text"
-                        name="key"
-                        placeholder="Field Name"
-                        value={field.key}
-                        onChange={(e) => handleChange(index, e)}
-                    />
-                    <input
-                        type="text"
-                        name="value"
-                        placeholder="Field Value"
-                        value={field.value}
-                        onChange={(e) => handleChange(index, e)}
-                    />
-                </div>
-            ))}
-            <button type="button" onClick={handleAddField}>Add Condition</button>
-            <button type="submit">Delete</button>
-        </form>
-        </div>
-
-    );
-}
-
-export default DeleteForm;
-*/
-import React, { useState } from 'react';
+import Sidebar from '../sidebaradmin/side'
 import './delete.css'
 function DeleteForm() {
     const [fields, setFields] = useState([{ key: '', value: '' }]);
@@ -161,7 +87,8 @@ function DeleteForm() {
         }
     };
 
-    return (
+    return (<>
+    <Sidebar/>
         <div className='delete'>
           
         <div className='title'> <p>Supprimer une activite de la base de donnees </p></div>
@@ -242,7 +169,7 @@ function DeleteForm() {
 
         
 
-        </div>
+        </div></>
 
     );
 }

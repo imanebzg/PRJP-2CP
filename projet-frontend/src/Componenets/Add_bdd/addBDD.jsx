@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './addbdd.css';
-
+import Sidebar from '../sidebaradmin/side'
 const AddProductForm = () => {
     const [formData, setFormData] = useState({
         Type_Ligne: '', Structure: '', Statut: '', Nom: '', Nom_attribut_français: '', Nom_frontière_français: '',
@@ -56,6 +56,7 @@ const AddProductForm = () => {
     };
 
     return (
+        <> <Sidebar/>
         <div className='AJOUTER'>
                 <div className='title'> <p>Ajouter une activite a la base de donnee: </p></div>
                  <div className='SELE'>
@@ -123,7 +124,7 @@ const AddProductForm = () => {
               {selectedScope === 'form-4' && (
                 <Form4 formData={formData} handleChange={handleChange} handleSubmit={handleSubmit} />
             )}
-        </div>
+        </div></>
     );
 };
 const Form1 = ({ formData, handleChange, handleSubmit }) => {

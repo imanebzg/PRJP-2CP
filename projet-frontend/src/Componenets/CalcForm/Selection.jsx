@@ -561,7 +561,7 @@ const handleCalcul = (event) => {
               onChange={handleRadioChange1}
               checked={selectedScope1 === 'form-1'} // Set checked based on state
             />
-            <span>Scope 1</span>
+            <span>Sous Secteurs d'Activité</span>
           </label>
           <label>
             <input
@@ -572,7 +572,7 @@ const handleCalcul = (event) => {
               onChange={handleRadioChange1}
               checked={selectedScope1 === 'form-2'} // Set checked based on state
             />
-            <span>Scope 2</span>
+            <span>Spécifications Produit</span>
           </label>
 
           <label>
@@ -584,7 +584,7 @@ const handleCalcul = (event) => {
               onChange={handleRadioChange1}
               checked={selectedScope1 === 'form-3'} // Set checked based on state
             />
-            <span>Scope </span>
+            <span>Autres </span>
           </label>
           
 

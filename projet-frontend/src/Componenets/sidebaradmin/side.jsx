@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './side.css';
 
 import { Link } from 'react-router-dom';
-import { AiOutlineHome, AiFillSetting, AiOutlineLogout, AiOutlineQuestion, AiOutlineQrcode, AiOutlineBell } from 'react-icons/ai';
+import { AiOutlineHome, AiFillSetting, AiOutlineLogout, AiOutlineQuestion, AiOutlineQrcode, AiOutlineBell, AiFillEdit, AiFillAccountBook, AiFillApi, AiOutlineProfile, AiOutlineQq, AiOutlineAlert, AiOutlineGroup } from 'react-icons/ai';
 function ReactSideBar1() {
     const [show, setShow] = useState('sidebar');
     const [showDashboardSubMenu, setShowDashboardSubMenu] = useState(false);
@@ -53,9 +53,9 @@ function ReactSideBar1() {
                         </div>
                     </div>
                     <div className='item'>
-                        <AiOutlineQrcode className={show ? 'icon11' : 'icon'} />
+                        <AiOutlineGroup className={show ? 'icon11' : 'icon'} />
                         <div className='Dashboard'>
-                            {show ? "" :<Link to='/admin-page' className='link'><h3>admin</h3></Link> }
+                            {show ? "" :<Link to='/admin-page' className='link'><h3>Compte admin</h3></Link> }
                         </div>
                     </div>
                    
@@ -66,12 +66,14 @@ function ReactSideBar1() {
                         </div></div>
                         {showSubMenu && (
                             <div className="sub-menu">
-                                <Link to ='/first-page'className='link'> <li>Mon compte</li> </Link>
-                                <Link to ='/' className='link'><li>Avis</li>   </Link>
+                                <Link to ='/Securite-admin'className='link'> <li>sécurité</li> </Link>
+                                <Link to ="/Ajouter-bdd" className='link'><li>Ajouter BDD</li>   </Link>
+                                <Link to ='/Supprimer-admin' className='link'><li>Supprimer BDD</li>   </Link>
+                                <Link to ='/info-users' className='link'><li>Entreprise</li>   </Link>
                                
                             </div>
                         )}
-                    
+                
                     <div className='item2' style={{ display: !showSubMenu && !show ? 'flex' : 'none' }}>
     
    

@@ -8,9 +8,10 @@
     margin: 0;
 
     height: 100%;
-    font-family:'Proxima Nova Condensed', 'Gilroy-Regular';
-    font-size: 100;
-    
+    font-family: 'Gilroy-Regular';
+    font-size: 0.8rem;
+    font-weight:600;
+
     transition: 0.5s;
     text-align: center;
 
@@ -223,20 +224,18 @@ margin-left: 30%;
         }
  .bar2 .icon{
     height: 40%;
-    width: 40%;
+    width: 30%;
    
   }
   .bar2 .sub-menu {
 
   padding: 0;
-  margin: 5%;
- margin-left: 35%;
+  margin: 10%;
+ margin-left: 20%;
  margin-top: 0%;
   left: 0; /* Align the submenu to the left */
   top: 100%; /* Position the submenu below the parent element */
-
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Box shadow of the submenu */
-  
+   
 }
 
 
@@ -244,7 +243,9 @@ margin-left: 30%;
   .bar2 .sub-menu li {
     padding: 0;
     list-style-type: none; 
-    border: 0.1rem solid #5963A3;
+    border: 0.1rem solid #031273;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Box shadow of the submenu */
+    font-size: 0.9rem;
     margin: 3%;
     background-color: white ; /* Background color of the submenu */
     border-radius: 5px; /* Border radius of the submenu */

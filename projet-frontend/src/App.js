@@ -8,8 +8,11 @@ import Adminpage from './Pages/admin-page/admin_page';
 import Hist from './Pages/history-page/history';
 import Notif from './Componenets/Notifications/Notifications'
 import Entrp from './Componenets/Info_entreprise/Info_entreprise'
-import Securite from './Componenets/Securite/Securitecomponent'
-import Supprimer from './Componenets/Supprimer/Supprimer'
+import Securite from './Componenets/Securite-admin/Securitecomponent'
+import Securite2 from './Componenets/Securite-user/Securitecomponent'
+import Supprimerbdd from './Componenets/Delete_bdd/deleteBDD'
+import Infusers from './Componenets/InfoUsers/infoUsers'
+import Ajouter from './Componenets/Add_bdd/addBDD'
 import {BrowserRouter as Router, Routes, Route, Link}from 'react-router-dom';
 
 function App() {
@@ -34,10 +37,14 @@ function App() {
 
 
             <Route path="/Notification" element={<Notif/>} />
+            
+            <Route path="/Ajouter-bdd" element={<Ajouter/>} />
         <Route path="/Info_entreprise" element={<Entrp/> } />
-        <Route path='/Securite' element={<Securite />} />
-        <Route path="/Sup" element={<Supprimer/> } />
-    
+        <Route path="/Info_entreprise" element={<Entrp/> } />
+        <Route path='/Securite-admin' element={<Securite />} />
+        <Route path='/Securite' element={<Securite2 />} />
+        <Route path="/Supprimer-admin" element={<Supprimerbdd/> } />
+        <Route path="/info-users" element={<Infusers/> } />
 
           </>
         ) : (

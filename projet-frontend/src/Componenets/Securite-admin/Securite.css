@@ -1,0 +1,164 @@
+@import url('https://fonts.cdnfonts.com/css/gilroy-bold');
+@import url('https://fonts.cdnfonts.com/css/proxima-nova-condensed');
+
+
+.Securite {
+  max-width: 80%;
+  width: 70%;
+  background: #ffffff;
+  color:  #031273;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 5px #a3c0d2;
+  border: 1px solid #E0E8F5;
+  overflow: hidden;
+  margin-left: 15%;
+  margin-top: 3%; 
+ }
+  
+   .Securite .title{
+    padding: 0.1%;
+    text-align: center;
+    background: #031273;
+
+    font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
+  }
+ .Securite .title p{
+  font-size:30px ;
+  font-weight: 700;
+  color: #E0E8F5;
+  font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
+
+}
+  .Securite .user_details{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 25px;
+  }
+  .Securite .user_details .input_box{
+    width: calc(100% / 2 - 20px);
+    margin: 0 0 12px 0;
+  }
+  
+  .Securite .input_box label{
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  
+  
+  .Securite .input_box input{
+    width: 100%;
+    height: 45px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-size: 15.5px;
+    padding-left: 15px;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+    background-color: #f6f8fa;
+    font-family: 'Poppins', sans-serif;
+    transition: all 120ms ease-out 0s;
+  }
+  
+  
+  .Securite .input_box input:focus,
+  .Securite .input_box input:valid{
+    box-shadow: 0px 0px 0px 2px #090b90;
+  }
+
+  
+  .Securite .btn1 {
+    display: inline-block;
+    font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
+   margin-top: 5%;
+    border: 0.125rem solid #e14c31; /* 2px solid #e14c31 / 16px */
+    background-color:#e14c31;
+    color: white;
+    font-size: 1.25rem;   /* 20px / 16px */
+    font-weight: bold;
+    height: 55px;
+    text-transform: uppercase;
+    letter-spacing: 0.04rem; /* 0.1em / 16px */
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.625rem; /* 10px / 16px */
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .Securite .btn1::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    opacity: 0.2;
+    border-radius: 50%;
+    transform: translate  (-50%, -50%);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .Securite .btn1:hover {
+    background-color: white;
+  
+    color:#e14c31;
+  }
+  
+  .Securite .btn1:hover::before {
+    width: 200%;
+    height: 200%;
+  }
+  
+  @-moz-keyframes wave-4 {
+    50% {
+      transform: scale(0.9);
+    }
+  }
+  
+  @-webkit-keyframes wave-4 {
+    50% {
+      transform: scale(0.9);
+    }
+  }
+  
+  @-o-keyframes wave-4 {
+    50% {
+      transform: scale(0.9);
+    }
+  }
+  
+  @keyframes wave-4 {
+    50% {
+      transform: scale(0.9);
+    }
+  }
+  
+  
+  
+  #radio_1:checked ~ .category label .one,
+  #radio_2:checked ~ .category label .two,
+  #radio_3:checked ~ .category label .three{
+    border-color: #d9d9d9;
+    background: #a72929;
+  }
+
+  
+  @media screen and (max-width: 584px){
+  
+    .Securite .user_details{
+        max-height: 340px;
+        overflow-y: scroll;
+    }
+  
+    .Securite .user_details::-webkit-scrollbar{
+        width: 0;
+    }
+  
+    .Securite .user_details .input_box{
+        width: 100%;
+    }
+  }

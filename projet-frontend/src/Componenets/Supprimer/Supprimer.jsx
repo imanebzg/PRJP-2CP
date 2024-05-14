@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './Supprimer.css';
-
 const Supprimer = () => {
   const [isChecked, setIsChecked] = useState(false);
 
@@ -35,7 +34,8 @@ const Supprimer = () => {
 
 
 
-  return (
+  return (<>
+  
     <div className="Supprimer">
       <div className="container">
         <div className="title">
@@ -119,7 +119,7 @@ const Supprimer = () => {
 
        
         </div>
-    </div>
+    </div></>
   );
 };
 
