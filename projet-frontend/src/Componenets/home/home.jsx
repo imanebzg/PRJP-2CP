@@ -19,9 +19,9 @@ const Home = () => {
   return (
     <div>
     <div className="intro-text" id='home'>
-      <h1>Calculateur du bilan de carbone</h1>
+      <h1>Calculateur de bilan de carbone</h1>
       <br/>
-      <p>  Calculez du bilan carbone de votre entreprise  </p>
+      <p>  Calculez le bilan carbone de votre entreprise  </p>
       <br />
      
   
