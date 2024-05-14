@@ -137,7 +137,7 @@
   }
   
   .Notifications .checkbox-wrapper-4 .cbx:hover span:first-child {
-    border-color: #bad162;
+    border-color:  #4CA950;
   }
   
   .Notifications .checkbox-wrapper-4 .inp-cbx {
@@ -146,8 +146,8 @@
   }
   
   .Notifications .checkbox-wrapper-4 .inp-cbx:checked + .cbx span:first-child {
-    background: #bad162;
-    border-color: #bad162;
+    background: #4CA950;
+    border-color: #4CA950;
     animation: wave-4 0.4s ease;
   }
   
@@ -251,3 +251,8 @@
     width: 200%;
     height: 200%;
   }
+
+
+
+
+  

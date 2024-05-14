@@ -7,7 +7,7 @@ import Firstpage from './Pages/first-page/firstpage';
 import Adminpage from './Pages/admin-page/admin_page';
 import Hist from './Pages/history-page/history';
 
-import {BrowserRouter as Router, Routes, Route, Link}from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route}from 'react-router-dom';
 
 function App() {
   return (

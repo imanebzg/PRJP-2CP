@@ -224,10 +224,10 @@ function EditCompany({ companyId }) {
 
     return (
         <div className="Info_entreprise">
-            {!isEditing ? (
+         <div className="title"><p>Informations sur l'entreprise</p></div>
+                   {!isEditing ? (
                 <div>
-                    <div className="title"><p>Informations sur l'entreprise</p></div>
-                    <div className="user_details">
+                        <div className="user_details">
                         <div className="input_box"><p><strong>Nom de l'entreprise:</strong> {company.company_name}</p></div>
                         <div className="input_box"><p><strong>Industrie:</strong> {company.industry}</p></div>
                         <div className="input_box"><p><strong>Email:</strong> {company.email}</p></div>

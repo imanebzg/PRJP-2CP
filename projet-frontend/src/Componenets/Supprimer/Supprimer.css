@@ -30,238 +30,172 @@ margin-bottom: 2%;
   font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
 
 }
-  .Supprimer .user_details{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 5%;
-    padding: 25px;
-    margin-right: 10%;
-  }
   .Supprimer .title_big p{
     font-size: 20px;
     background: #fcfdff;
     color: #031273;
     margin-left: 30px;
+    
     font-weight: 500;
-    margin-top: 30px;
+    margin-top: 10%;
+    margin-right: 10%;
+    margin-bottom: 5%;
     font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
-    text-align: left;
+    text-align: center;
   }
-  .Supprimer .title_small p{
-    font-size: 14px;
-    color: #7A7A7A;
-    margin-left: 55px;
-    font-weight: 100;
-    margin-top: 0px;
-    text-align: left;
-    width: 500px;
-  
-  }
-
-  .Supprimer .checkbox-wrapper-4 * {
-    box-sizing: border-box;
-    color: rgb(0, 0, 0);
-    margin: 5px;
-  }
-  
-  .Supprimer .cheking {
-margin-left: 15%;
-    width: 500px;
-  }
-  
-  .Supprimer .container_check{
-    display: inline;
-  }
-  .Supprimer .checkbox-wrapper-4 .cbx {
-    -webkit-user-select: none;
-    user-select: none;
-    cursor: pointer;
-    padding: 6px 8px;
-    border-radius: 6px;
-    font-size: 17px;
-    overflow: hidden;
-    transition: all 0.2s ease;
-    display: inline-block;
-    /* margin right */
-  }
-  
-  .Supprimer .checkbox-wrapper-4 .cbx:not(:last-child) {
-    margin-right: 6px;
-    
-  }
-  
-  .Supprimer .checkbox-wrapper-4 .cbx:hover {
-    background: rgba(0,119,255,0.06);
-  }
-  
-  .Supprimer .checkbox-wrapper-4 .cbx span {
-    float: left;
-    vertical-align: middle;
-    
-    transform: translate3d(0, 0, 0);
-  }
-  
-  .Supprimer .checkbox-wrapper-4 .cbx span:first-child {
-    position: relative;
-    width: 18px;
-    height: 18px;
-    border-radius: 4px;
-    transform: scale(1);
-    border: 1px solid #cccfdb;
-    transition: all 0.2s ease;
-    box-shadow: 0 1px 1px rgba(0,16,75,0.05);
-  }
-  
-  .Supprimer .checkbox-wrapper-4 .cbx span:first-child svg {
-    position: absolute;
-    top: 3px;
-    left: 2px;
-    fill: none;
-    stroke: #ffffff;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-dasharray: 16px;
-    stroke-dashoffset: 16px;
-    transition: all 0.3s ease;
-    transition-delay: 0.1s;
-    transform: translate3d(0, 0, 0);
-  }
-  
-  .Supprimer .checkbox-wrapper-4 .cbx span:last-child {
-    padding-left: 8px;
-    line-height: 18px;
-  }
-  
-  .Supprimer .checkbox-wrapper-4 .cbx:hover span:first-child {
-    border-color: #4CA950; 
-  }
-  
-  .Supprimer .checkbox-wrapper-4 .inp-cbx {
-    position: absolute;
-    visibility: hidden;
-  }
-  
-  .Supprimer .checkbox-wrapper-4 .inp-cbx:checked + .cbx span:first-child {
-    background:  #4CA950; 
-    border-color:  #4CA950; 
-    animation: wave-4 0.4s ease;
-  }
-  
-  .Supprimer .checkbox-wrapper-4 .inp-cbx:checked + .cbx span:first-child svg {
-    stroke-dashoffset: 0;
-  }
-  
-  .Supprimer .checkbox-wrapper-4 .inline-svg {
-    position: absolute;
-    width: 0;
-    height: 0;
-    pointer-events: none;
-    user-select: none;
-  }
-  
-  @media screen and (max-width: 640px) {
-    .Supprimer .checkbox-wrapper-4 .cbx {
-      width: 100%;
-      display: inline-block;
-    }
-  }
-  
-  @-moz-keyframes wave-4 {
-    50% {
-      transform: scale(0.9);
-    }
-  }
-  
-  @-webkit-keyframes wave-4 {
-    50% {
-      transform: scale(0.9);
-    }
-  }
-  
-  @-o-keyframes wave-4 {
-    50% {
-      transform: scale(0.9);
-    }
-  }
-  
-  @keyframes wave-4 {
-    50% {
-      transform: scale(0.9);
-    }
-  }
+ 
   
   
-  
-  #radio_1:checked ~ .category label .one,
-  #radio_2:checked ~ .category label .two,
-  #radio_3:checked ~ .category label .three{
-    border-color: #d9d9d9;
-    background: #e14c31;
-  }
-  
-  
-  
-  .Supprimer button {
-    width: 150px;
-    height: 50px;
-    cursor: pointer;
-    display: flex;
-    margin-left: 80%;
-    align-items: center;
-    background: #e14c31;
+  .Supprimer .but {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: rgb(20, 20, 20);
     border: none;
-    border-radius: 5px;
-    box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
-    background: #e14c31;;
-    font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
-   }
-   
-   .Supprimer button,  .Supprimer button span {
-    transition: 200ms;
-   }
-   
-   .Supprimer button .text {
-    transform: translateX(35px);
-    color: white;
-    font-weight: bold;
-   }
-   
-   .Supprimer button .icon {
-    position: absolute;
-    border-left: 1px solid #c41b1b;
-    transform: translateX(110px);
-    height: 40px;
-    width: 40px;
+    font-weight: 600;
+    margin-top: -9% ;
+    margin-bottom: 3%;
+    margin-left: 75%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-   }
-   
-   .Supprimer button svg {
-    width: 15px;
-    fill: #eee;
-   }
-   
-   .Supprimer button:hover {
-    background: #e14c31;
-   }
-   
-   .Supprimer button:hover .text {
-    color: transparent;
-   }
-   
-   .Supprimer button:hover .icon {
-    width: 150px;
-    border-left: none;
-    transform: translateX(0);
-   }
-   
-   .Supprimer button:focus {
-    outline: none;
-   }
-   
-   .Supprimer button:active .icon svg {
-    transform: scale(0.8);
-   }
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+    cursor: pointer; 
+    transition-duration: 0.3s;
+    overflow: hidden;
+    position: relative;
+    gap: 2px;
+  }
+  
+  .Supprimer .svgIcon {
+    width: 12px;
+    transition-duration: 0.3s;
+  }
+  
+  .Supprimer .svgIcon path {
+    fill: white;
+  }
+
+  .Supprimer .but:hover {
+    transition-duration: 0.3s;
+    background-color:#ec1515;
+    align-items: center;
+    gap: 0;
+  }
+  
+  .Supprimer .bin-top {
+    transform-origin: bottom right;
+  }
+  .Supprimer .but:hover .bin-top {
+    transition-duration: 0.5s;
+    transform: rotate(160deg);
+  }
+  
+
+
+.Supprimer 
+.error__icon {
+  width: 20px;
+  margin-top: 4%;
+  height: 20px;
+  transform: translateY(-2px);
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+
+.Supprimer .error__icon path {
+  fill: #ec1515;
+
+}
+
+
+
+
+  .Supprimer .notifications-container {
+    width: 320px;
+   margin-left: 30%;
+    height: auto;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .Supprimer .flex {
+    display: flex;
+  }
+
+  
+ 
+  
+  .Supprimer .success {
+    padding: 1rem;
+    border-radius: 0.375rem;
+    background-color:white;
+    border: 1px solid #ec1515; 
+    margin: 5%;
+  }
+  
+  
+  
+  .Supprimer .success-prompt-wrap {
+    margin-left: 0.75rem;
+  }
+  
+  .Supprimer  .success-prompt-heading {
+    font-weight: bold;
+    color:#ec1515;
+  }
+  
+  .Supprimer .success-prompt-prompt {
+    margin-top: 0.5rem;
+    color: #031273;
+  }
+  
+  .Supprimer .success-button-container {
+    display: flex;
+    margin-top: 0.875rem;
+    margin-bottom: -0.375rem;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+  }
+  
+  .Supprimer .success-button-main {
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+
+    background-color:#031273;
+    color:white;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: bold;
+    border-radius: 0.375rem;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .Supprimer .success-button-main:hover {
+    background-color: #ec1515;;
+    color: white;
+  }
+  
+  .Supprimer .success-button-secondary {
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin-left: 0.75rem;
+    background-color:white;
+    color: #031273;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    border-radius: 0.375rem;
+    border: none;
+    cursor: pointer;
+  }
+  

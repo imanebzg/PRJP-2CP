@@ -1,5 +1,5 @@
 import React from 'react'
-import CompanyProfilePage from "../Info_entreprise/Info_entreprise"
+import CompanyProfilePage from "../info-admin/info-admin"
 import SecuritePage from "../Securite/Securitecomponent"
 
 function credentials() {
