@@ -8,7 +8,7 @@ const Blog = () => {
     }, []);
   return (
     <div className="blog" id='blog'>
-        <h1 className='title'>Quelques articles interessants</h1>
+        <h1 className='title'>Quelques reco interessants</h1>
   <div class="slider">
 <div class="item">
     <h1>Qu'est-ce qu'un bilan carbone ?</h1>

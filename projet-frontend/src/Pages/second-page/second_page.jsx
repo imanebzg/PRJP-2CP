@@ -624,7 +624,7 @@ if (isSubmitted === 'true') {
        <div id="form-container" >
       {selectedScope === 'form-9' && (
       
-      <div className='detailss'> 
+      <div > 
       <div className="radio-input2">
     <label>
       <input
@@ -647,7 +647,8 @@ if (isSubmitted === 'true') {
       <span>Histogramme</span>
     </label>
   </div>
-  <div id="form9">
+  <div className='detailss'> 
+  <div id="form9" className='form9'>
     {/* Affichage conditionnel basé sur l'option sélectionnée */}
     {selectedOption === 'postes' && <PostesProduit />} {/* Afficher PostesProduit si l'option est sélectionnée */}
     {selectedOption === 'histogram' && <HistogramProduit />} {/* Afficher HistogramProduit si l'option est sélectionnée */}
@@ -658,7 +659,7 @@ if (isSubmitted === 'true') {
           <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
       </svg>
      Les taux de gaz présentés dans ces tableaux sont exprimés pour une unité de quantité.</h5>
-    
+     </div>
   </div> )}
        </div>
        
