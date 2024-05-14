@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom';
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
 import './sign-up.css';
 import myGif from './gif/gif1.gif'; 
 import myGif2 from './gif/gif2.gif';
 
 const Signup = () => {
-    const navigate = useNavigate();
 
     const containerRef = useRef(null);
     const [signInError, setSignInError] = useState(false);
@@ -76,10 +74,10 @@ const Signup = () => {
                 localStorage.setItem('userEmail', data.user.email);
                 localStorage.setItem('isSubmitted', isSubmitted);
                 if (data.user.email === "admin_01@gmail.com"){
-                   navigate('/admin-page'); 
+                    window.location.href = '/admin-page';
 
                 }else{
-                    navigate('/hist-page'); 
+                    window.location.href = '/hist-page';
                 }
                 // Set session timeout for 1 day (24 hours)
                 setTimeout(() => {
@@ -122,9 +120,9 @@ const Signup = () => {
                 console.log("data.user.email =",data.user.email )
 
                 if (data.user.email === "admin_01@gmail.com"){
-                    navigate('/admin-page'); 
+                    window.location.href = '/admin-page';
                  }else{
-                     navigate('/hist-page'); 
+                    window.location.href = '/hist-page';
                  }
                 // Set session timeout for 1 day (24 hours)
                 setTimeout(() => {

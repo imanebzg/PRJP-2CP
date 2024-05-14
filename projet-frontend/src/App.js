@@ -36,8 +36,6 @@ function App() {
             <Route path='/admin-page' element={  <div className='page'> <Adminpage /></div>} />
             <Route path='/hist-page' element={  <div className='page'> <Hist /></div>} />
 
-
-
             <Route path="/Notification" element={<Notif/>} />
             <Route path="/Supprimer" element={<Supprimer/> } />
             <Route path="/Ajouter-bdd" element={<Ajouter/>} />
