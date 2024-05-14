@@ -61,7 +61,7 @@ function ChangePasswordForm({ companyId }) {
                     <label>Confirm New Password:</label>
                     <input type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} />
                 </div>
-                <button type="submit" className="btn1">Change Password</button>
+                <button type="submit" className="btn1">Changer mot de passe</button>
             </form>
         </div>
     );

@@ -3,6 +3,7 @@
  import React, { useEffect, useState } from 'react';
   import './form.css';
   import Tableau from "../tableau/tableau"
+
  function Sele() {
  
   // useState to hold the fetched data
@@ -500,6 +501,10 @@ const handleCalcul = (event) => {
   const handleRadioChange1 = (event) => {
     setSelectedScope1(event.target.value);
   };
+
+  const handleClear = () => {
+    setSelectedScope1('');
+  };
   return (
     <div>
 
@@ -522,9 +527,9 @@ const handleCalcul = (event) => {
               onChange={handleRadioChange1}
               checked={selectedScope1 === 'form-1'} // Set checked based on state
             />
-            <span>Scope 1</span>
+            <span>Categorie d'activite</span>
           </label>
-          <label>
+          <label> 
             <input
               type="radio"
               value="form-2"
@@ -533,7 +538,7 @@ const handleCalcul = (event) => {
               onChange={handleRadioChange1}
               checked={selectedScope1 === 'form-2'} // Set checked based on state
             />
-            <span>Scope 2</span>
+            <span>Specification sur activite</span>
           </label>
 
           <label>
@@ -689,9 +694,13 @@ const handleCalcul = (event) => {
        
        {tableData && <Tableau data={tableData }  facteur ={quantite} />}   </div>
     </div> </div>
+
+
     </div>
 
   );
 }
 
 export default Sele;
+
+

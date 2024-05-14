@@ -6,15 +6,14 @@ import Postes from "../../Componenets/Postes/Postes"
 import Histogram from "../../Componenets/histogrm/histogrm";
 import Supprimer from "../../Componenets/Supprimer/Supprimer";
 import Error from "../../Componenets/error/error"
-import P1 from "../../Componenets/page1/page11/page11"
-import P2 from "../../Componenets/page1/page12/page12"
+
 import "./second_page.css";
 import Sidbar from "../../Componenets/Sidebar/Sidebar";
 import Avancement_exmp from '../../Componenets/Avancement_exmp/Avancement_exmp';
 import Plus_prod from '../../Componenets/Plus_prod/Plus_prod';
 import PostesProduit from '../../Componenets/PostesProduit/PostesProduit';
 
-function Second_page (props) {
+function Second_page ({ handleClear }) {
 let isSubmitted = localStorage.getItem('isSubmitted');
 if (isSubmitted === 'true') {
   isSubmitted = true;
@@ -38,6 +37,20 @@ if (isSubmitted === 'true') {
     localStorage.setItem('isSubmitted', false); 
     window.location.reload();
    };
+
+
+   const handleBoth = () => {
+ 
+    handleCalcAgain();
+      handleClear();
+   
+  };
+
+
+
+
+
+
        return (
 
         <div className="second"> 
@@ -46,7 +59,7 @@ if (isSubmitted === 'true') {
           
           <Form/>
           {isSubmitted ? (  <div className="mini_cont">
-          <button className='btn1' onClick={handleCalcAgain}> Calculer de nouveau un bilan carbone ?</button>
+          <button className='btn1' onClick={handleBoth}> Calculer de nouveau un bilan carbone ?</button>
           <div className="radio-input">
           <input type="hidden" id="selectedScope" value={selectedScope} />
 
@@ -132,13 +145,10 @@ if (isSubmitted === 'true') {
           
         
        
-       </div> )}
+             </div> )}
 
            </div>
-
-
-
-        </div>
+           </div>
 
         </div>
        

@@ -76,22 +76,8 @@ font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
     border-radius: 3px; /* Coins arrondis */
   }
   
-  /* Style du bouton */
-  .AJOUTER .add button[type="submit"] {
-    width: 100%; /* Largeur du bouton */
-    padding: 10px; /* Espacement à l'intérieur du bouton */
-   
-    color: #fff; /* Couleur du texte du bouton */
-    border: none; /* Supprimer la bordure du bouton */
-    border-radius: 3px; /* Coins arrondis */
-    cursor: pointer; /* Curseur pointer au survol */
-  }
-  
-  /* Style du bouton au survol */
-  .AJOUTER  .add button[type="submit"]:hover {
-    background-color: #0056b3; /* Couleur de fond du bouton au survol */
-  }
-  
+ 
+
 .AJOUTER  h1{
 padding: 1%;
 background: #E0E8F5;
@@ -160,83 +146,94 @@ align-items: center;
   display: inline-block;
   text-align: center;
 }
-.AJOUTER .btn-conteiner {
-  display: flex;
-  justify-content: center;
-  margin-left: 5%;
-  --color-text: #9ee5fa;
-  --color-background: #353535;
-  --color-outline: #9ee5fa80;
-  --color-shadow: #00000080;
-}
 
-.AJOUTER .btn-content {
+.AJOUTER .but1{
+  margin: 4%;
+  position: relative;
+  width: 17%;
+  height: 40px;
+  border-radius: 5px;
+  margin-left: 43%;
+  
+  margin-bottom: 5%;
+  cursor: pointer;
   display: flex;
   align-items: center;
-  padding: 0px 3px;
-  text-decoration: none;
-  font-family: "Poppins", sans-serif;
-  font-size: 25px;
-  color: var(--color-text);
-  background: var(--color-background);
-  transition: 1s;
-  border-radius: 100px;
-  box-shadow: 0 0 0.2em 0 var(--color-background);
+  border: 1px solid #34974d;
+  background-color: #3aa856;
 }
 
-.AJOUTER .AJOUTER .btn-content:hover,
-.AJOUTER .btn-content:focus {
-  transition: 0.5s;
-  -webkit-animation: btn-content 1s;
-  animation: btn-content 1s;
-  outline: 0.1em solid transparent;
-  outline-offset: 0.2em;
-  box-shadow: 0 0 0.4em 0 var(--color-background);
+.AJOUTER .but1,   .delete .button__icon,   .delete .button__text {
+  transition: all 0.3s;
 }
 
-.AJOUTER .AJOUTER .btn-content .icon-arrow {
-  transition: 0.5s;
-  margin-right: 0px;
-  transform: scale(0.6);
+.AJOUTER .but1 .button__text {
+  transform: translateX(0.5%);
+  color: #fff;
+  font-weight: 600;
+  padding-right: 25%; 
 }
 
-.AJOUTER .btn-content:hover .icon-arrow {
-  transition: 0.5s;
-  margin-right: 25px;
+.AJOUTER .but1 .button__icon {
+  position: absolute;
+  transform: translateX(104px);
+  height: 100%;
+  width: 39px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #34974d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.AJOUTER .icon-arrow {
-  width: 20px;
-  margin-left: 15px;
-  position: relative;
-  top: 6%;
+.AJOUTER .but1 .svg {
+  width: 30px;
+  stroke: #fff;
 }
 
-/* SVG */
-.AJOUTER #arrow-icon-one {
-  transition: 0.4s;
-  transform: translateX(-60%);
+.AJOUTER .but1:hover {
+  background: #34974d;
 }
 
-.AJOUTER #arrow-icon-two {
-  transition: 0.5s;
-  transform: translateX(-30%);
+.AJOUTER .but1:hover .button__text {
+  color: transparent;
 }
 
-.AJOUTER .btn-content:hover #arrow-icon-three {
-  animation: color_anim 1s infinite 0.2s;
+.AJOUTER .but1:hover .button__icon {
+  width: 148px;
+  transform: translateX(-5px);
+  border-bottom-left-radius:5px ;
+  border-top-left-radius:5px ;
 }
 
-.AJOUTER .btn-content:hover #arrow-icon-one {
-  transform: translateX(0%);
-  animation: color_anim 1s infinite 0.6s;
+.AJOUTER .but1:active .button__icon {
+  background-color: #2e8644;
+
 }
 
-.AJOUTER .btn-content:hover #arrow-icon-two {
-  transform: translateX(0%);
-  animation: color_anim 1s infinite 0.4s;
+.AJOUTER .but1:active {
+  border: 1px solid #2e8644;
+}
+.AJOUTER .item {
+  margin-top: 3%;
+  margin-bottom: 6%;
+  margin-left: 8%;
+  display: flex; /* Utilise Flexbox */
+  align-items: center; /* Alignement vertical des éléments */
+}
+.AJOUTER .new-conditions{margin: 2%;
+}
+.AJOUTER .item .field-container {
+  margin-left: 1%;
+ 
+
 }
 
+.delete .but,
+.delete .but1 {
+  margin-top: 10px; 
+}
 /* SVG animations */
 @keyframes color_anim {
   0% {

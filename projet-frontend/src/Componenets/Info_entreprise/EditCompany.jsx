@@ -235,7 +235,7 @@ function EditCompany({ companyId }) {
                         <div className="input_box"><p><strong>Personne à contacter:</strong> {company.contact_person}</p></div>
                         <div className="input_box"><p><strong>Addresse:</strong> {company.location}</p></div>
                         <div className="input_box"><p><strong>Code postal:</strong> {company.postal_code}</p></div>
-                        <button className="btn1" onClick={handleEdit}>Modifier</button>
+                        <button className="btn2" onClick={handleEdit}>Modifier</button>
                     </div>
                 </div>
             ) : (
@@ -248,7 +248,7 @@ function EditCompany({ companyId }) {
                     <div className="input_box"><label>Addresse: <input type="text" name="location" value={company.location} onChange={handleChange} /></label></div>
                     <div className="input_box"><label>Code postal: <input type="text" name="postal_code" value={company.postal_code} onChange={handleChange} /></label></div>
                     <div className="button_container">
-                      <button className="btn1" type="submit">Sauvegarder</button>
+                      <button className="btn2" type="submit">Sauvegarder</button>
                       <button className="btn1" type="button" onClick={handleCancel}>Annuler</button>
                     </div>
 

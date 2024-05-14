@@ -301,7 +301,7 @@
     z-index: 1;
     animation: loading 0.6s alternate infinite;
   }
-  .second label {
+  .second .loader label {
     color: #031273;
     font-size: 18px;
     animation: bit 0.6s alternate infinite;
