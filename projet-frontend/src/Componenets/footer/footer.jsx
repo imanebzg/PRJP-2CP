@@ -7,7 +7,7 @@ const Footer = () => {
     <div className="footer">
     
           <div className="heading">
-            <h2>CAS | Carbon Accountibility Solution</h2>
+            <h2>C2OO | Carbon Operation options</h2>
         
 
             <div className="buttons-container"><a href="#sign-in"className="no-underline">

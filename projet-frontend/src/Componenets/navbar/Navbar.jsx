@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="left">
-        <h1>C2OO</h1>
+        <h1>C2OO | Carbon Operation options</h1>
       </div>
       <div className="right">
         <input type="checkbox" id="check" />

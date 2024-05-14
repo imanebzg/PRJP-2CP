@@ -55,7 +55,7 @@ import './contact.css';
     <h2>Coordonnées de contact</h2>
     <ul>
       <li><span className="icon">📞</span> <strong>Téléphone:</strong> +213 7 935569962</li>
-      <li><span className="icon">✉️</span> <strong>Email:</strong> md_bedjghit@esi.dz</li>
+      <li><span className="icon">✉️</span> <strong>Email:</strong> C2OO@gmail.com</li>
       <li><span className="icon">📍</span> <strong>Addresse:</strong> Ecole Nationale Supérieure d'Informatique (ESI ex.INI), <br/> Alger, Oued Smar 16309</li>
     </ul>
   </div>
