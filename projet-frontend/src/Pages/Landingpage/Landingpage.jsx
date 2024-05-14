@@ -10,7 +10,6 @@ import Contact from "../../Componenets/contact/contact";
 import Background from "../../Componenets/backgroung/background";
 import Signin from "../../Componenets/Signup/signup";
 import Learn from "../../Componenets/learn_more/learn";
-import ScrollHandler from '../../Componenets/scroll/scroll';
 
 const LandingPage = (props) => {
    const authToken = localStorage.getItem('authToken');
@@ -23,9 +22,8 @@ const LandingPage = (props) => {
        <Why />
        {!authToken && <Signin />} {/* Render SignIn only if authToken is not present */}
        <Learn />
-       <ScrollHandler>
+      
        <Blog />
-    </ScrollHandler>
       
        <About />
        <Feedback />

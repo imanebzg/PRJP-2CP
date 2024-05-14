@@ -1,6 +1,42 @@
+.nmbr {
+    margin: 5%;
+   margin-left: 30%;
+    position: relative; /* Assurez-vous que le conteneur est positionné relativement à son parent */
+}
 
-.nmbr h3 {
-    margin: 0; /* Supprime les marges par défaut */
-    font-size: 20px; /* Taille de la police */
-    color: #8a1e1e; /* Couleur du texte */
+.nmbr .btn-shine {
+    display: inline-flex; /* Affiche l'image et le texte sur la même ligne */
+    align-items: center; /* Centre verticalement les éléments */
+    color:  #031273; /* Couleur du texte */
+    font-size: 30px;
+    font-weight: 600;
+    font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
+}
+
+.nmbr .btn-shine img {
+    margin-right: 10px; /* Ajoute une marge à droite de l'image pour l'espacement */
+    width: 55px; /* Largeur de l'image */
+    height: 55px; /* Hauteur de l'image */
+}
+
+.nmbr .btn-shine span {
+    background: linear-gradient(to right, #031273 0, #a3c0d2 10%, #031273 20%);
+    background-position: 0;
+    -webkit-background-clip: text;
+    background-clip: text; /* Propriété standard */
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s infinite linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes shine {
+    0% {
+        background-position: 0;
+    }
+    60% {
+        background-position: 180px;
+    }
+    100% {
+        background-position: 180px;
+    }
 }

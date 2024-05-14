@@ -3,30 +3,71 @@
 
 /* Style pour les sélecteurs */
 .manager select {
-    width: 100%; /* Largeur de 100% */
-    padding: 10px; /* Espacement intérieur */
-    margin-bottom: 10px; /* Espacement en bas */
+    width: 60%; /* Largeur de 100% */
+    padding: 15px; /* Espacement intérieur */
+    margin-left:20% ;
+    margin-bottom: 5%; /* Espacement en bas */
     border: 1px solid #ccc; /* Bordure grise */
     border-radius: 5px; /* Coins arrondis */
 }
 
 /* Style pour les paragraphes */
 .manager p {
+text-align: center;
     margin-bottom: 5px; /* Espacement en bas */
+    font-weight: 400;
+    font-size: 20px;
 }
+.manager a {
+    text-align: center;
+        margin-bottom: 5px; /* Espacement en bas */
+        font-weight: 700;
+    }
+    
+.manager .but {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: rgb(20, 20, 20);
+    border: none;
+    font-weight: 600;
+    margin-bottom: 2% ;
+margin-top: 4%;
+    margin-left: 48%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+    cursor: pointer; 
+    transition-duration: 0.3s;
+    overflow: hidden;
+    position: relative;
+    gap: 2px;
+  }
+  
+  .manager .svgIcon {
+    width: 12px;
+    transition-duration: 0.3s;
+  }
+  
+  .manager .svgIcon path {
+    fill: white;
+  }
+  
+  .manager .but:hover {
+    transition-duration: 0.3s;
+    background-color:#ec1515;
+    align-items: center;
+    gap: 0;
+  }
+  
+  .manager .bin-top {
+    transform-origin: bottom right;
+  }
+  .manager .but:hover .bin-top {
+    transition-duration: 0.5s;
+    transform: rotate(160deg);
+  }
+  
 
-/* Style pour le bouton */
-.manager button {
-    padding: 10px 20px; /* Espacement intérieur */
-    background-color: #007bff; /* Couleur de fond bleue */
-    color: #fff; /* Couleur du texte blanc */
-    border: none; /* Supprime la bordure */
-    border-radius: 5px; /* Coins arrondis */
-    cursor: pointer; /* Curseur pointer */
-    transition: background-color 0.3s ease; /* Animation de transition */
-}
-
-/* Style pour le bouton au survol */
-.manager button:hover {
-    background-color: #0056b3; /* Couleur de fond plus foncée au survol */
-}

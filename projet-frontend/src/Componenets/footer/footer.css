@@ -78,7 +78,7 @@
     padding-top: 1.25rem;    /* 2rem / 16px */
   }
   
-  .footer .buttons-container {
+  .buttons-container {
     margin-top: 1.9375rem;  /* 1.5rem / 16px */
     display: flex;
     align-items: center;
@@ -86,9 +86,9 @@
     margin-left: -0.6875rem; /* -1.1rem / 16px */
   }
   
-  .footer .button {
+  .button {
     --color: #e14c31;
-    padding: 0.5365rem 0.7625rem; /* 0.583rem 1rem / 16px */
+    padding: 0.8365rem 0.8625rem; /* 0.583rem 1rem / 16px */
     background-color: transparent;
     color: var(--color);
     font-weight: bolder;
@@ -102,7 +102,7 @@
     margin-right: 0.3125rem;  /* 0.5rem / 16px */
   }
   
-  .footer .footer .button .text {
+  .footer .button .text {
     color: white;
     font-size: 0.9375rem;    /* 15px / 16px */
     padding-right: 0.3125rem; /* 5px / 16px */
@@ -166,7 +166,7 @@
     border-color: white;
   }
   
-  .footer .button:hover .arrow::before {
+  .button:hover .arrow::before {
     left: 0.9375rem;  /* 15px / 16px */
     border-color: white;
   }

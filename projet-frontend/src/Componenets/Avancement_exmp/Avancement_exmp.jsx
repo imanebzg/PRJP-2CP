@@ -7,7 +7,7 @@ const Avancement_exmp = () => {
   const bilan = localStorage.getItem('totalSum')
   const [progressValue, setProgressValue] = useState(0);
   const progressEndValue = 60;
-  const speed = 10;
+  const speed = 15;
   const [speed2, setSpeed] = useState(55); // Initial value set to 55
 
   useEffect(() => {

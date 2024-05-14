@@ -24,9 +24,6 @@ function BilanForm({ onSaveBilan }) {
           // Si les deux champs sont remplis, appeler les fonctions handleSaveBilan et handleSecond
           handleSaveBilan();
           handleSecond();
-          localStorage.removeItem('totalSum'); 
-          localStorage.removeItem('formResults');
-          localStorage.setItem('isSubmitted', false);
           setErrorMessage('');
         } else {
           // Sinon, afficher un message d'erreur ou effectuer une autre action appropriée

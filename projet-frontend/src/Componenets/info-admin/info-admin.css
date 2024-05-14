@@ -2,7 +2,7 @@
 @import url('https://fonts.cdnfonts.com/css/proxima-nova-condensed');
 
 
-.Info_entreprise {
+.infoadmin {
   max-width: 80%;
   width: 70%;
   background: #ffffff;
@@ -15,34 +15,36 @@
   margin-top: 3%;
 
    }
+
+
   
-   .Info_entreprise .title{
+   .infoadmin .title{
     padding: 0.1%;
     text-align: center;
     background: #031273;
 
     font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
   }
- .Info_entreprise .title p{
+ .infoadmin .title p{
   font-size:30px ;
   font-weight: 700;
   color: #E0E8F5;
   font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
 
 }
-  .Info_entreprise .user_details{
+  .infoadmin .user_details{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 20px;
     padding: 25px;
   }
-  .Info_entreprise .user_details .input_box{
+  .infoadmin .user_details .input_box{
     width: calc(100% / 2 - 20px);
     margin: 0 ;
   }
   
-  .Info_entreprise .input_box label{
+  .infoadmin .input_box label{
     font-weight: 500;
     margin-bottom: 5px;
     display: block;
@@ -52,7 +54,7 @@
   
   
   
-  .Info_entreprise .input_box input{
+  .infoadmin .input_box input{
     width: 100%;
     height: 45px;
     border: none;
@@ -67,11 +69,11 @@
   }
   
   
-  .Info_entreprise .input_box input:focus,
-  .Info_entreprise .input_box input:valid{
+  .infoadmin .input_box input:focus,
+  .infoadmin .input_box input:valid{
     box-shadow: 0px 0px 0px 2px #090b90;
   }
-  .Info_entreprise .btn2 {
+  .infoadmin .btn2 {
     display: inline-block;
     font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
     padding: 0.625rem 0.4375rem; /* 10px 55px / 16px */
@@ -91,7 +93,7 @@
     transition: all 0.3s ease-in-out;
   }
   
-  .Info_entreprise .btn2::before {
+  .infoadmin .btn2::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -105,13 +107,13 @@
     transition: all 0.3s ease-in-out;
   }
   
-  .Info_entreprise .btn2:hover {
+  .infoadmin .btn2:hover {
     background-color: #e14c31;
     color: white;
     box-shadow: #e14c31;
   }
   
-  .Info_entreprise .btn2:hover::before {
+  .infoadmin .btn2:hover::before {
     width: 200%;
     height: 200%;
   }
@@ -119,7 +121,7 @@
 
 
   
-  .Info_entreprise .btn1 {
+  .infoadmin .btn1 {
     display: inline-block;
     font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
     padding: 0.625rem 0.4375rem; /* 10px 55px / 16px */
@@ -138,7 +140,7 @@
     transition: all 0.3s ease-in-out;
   }
   
-  .Info_entreprise .btn1::before {
+  .infoadmin .btn1::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -151,13 +153,13 @@
     transition: all 0.3s ease-in-out;
   }
   
-  .Info_entreprise .btn1:hover {
+  .infoadmin .btn1:hover {
     background-color: white;
   
     color:#e14c31;
   }
   
-  .Info_entreprise .btn1:hover::before {
+  .infoadmin .btn1:hover::before {
     width: 200%;
     height: 200%;
   }
@@ -193,49 +195,50 @@
   
   
   
-  .Info_entreprise  #radio_1:checked ~ .category label .one,
-  .Info_entreprise  #radio_2:checked ~ .category label .two,
-  .Info_entreprise #radio_3:checked ~ .category label .three{
+  .infoadmin  #radio_1:checked ~ .category label .one,
+  .infoadmin  #radio_2:checked ~ .category label .two,
+  .infoadmin #radio_3:checked ~ .category label .three{
     border-color: #d9d9d9;
     background: #a72929;
   }
 
    /*Show collapse*/
-   .Info_entreprise .showCollapse{
+   .infoadmin .showCollapse{
     display: inline;
   }
   
   /*Rotate icon*/
-  .Info_entreprise .rotate{
+  .infoadmin .rotate{
     transform: rotate(180deg);
   }
   @media screen and (max-width: 584px){
   
-    .Info_entreprise .user_details{
+    .infoadmin .user_details{
         max-height: 340px;
         overflow-y: scroll;
     }
   
-    .Info_entreprise .user_details::-webkit-scrollbar{
+    .infoadmin .user_details::-webkit-scrollbar{
         width: 0;
     }
   
-    .Info_entreprise .user_details .input_box{
+    .infoadmin .user_details .input_box{
         width: 100%;
     }
   }
 
-  .Info_entreprise .button_container {
+  .infoadmin .button_container {
     display: flex;
     justify-content: flex-end; /* Align buttons to the right */
     gap: 15px; /* Space between buttons */
     padding: 20px 25px; /* Padding inside the button container */
+    margin-left: 65%;
     box-sizing: border-box; /* Ensures padding doesn't add to the width */
 }
 
 /* Ensure responsiveness on smaller screens */
 @media screen and (max-width: 584px){
-    .Info_entreprise .button_container {
+    .infoadmin .button_container {
         justify-content: center; /* Center align buttons on smaller screens */
         padding: 20px 10px; /* Reduce padding on smaller screens */
     }

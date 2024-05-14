@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './nmbr.css'
+import gif from './img/gif.gif'
 function CompanyCount() {
     const [count, setCount] = useState(0);
 
@@ -19,8 +20,9 @@ function CompanyCount() {
 
     return (
         <div className='nmbr'>
-            <h3>Number of Companies: {count}</h3>
-        </div>
+            
+           <a class="btn-shine"> <img src={gif} alt="Loading GIF" /> Number of Companies: {count}</a>
+  </div>
     );
 }
 

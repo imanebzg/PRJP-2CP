@@ -224,10 +224,10 @@ function EditCompany({ companyId }) {
 
     return (
         <div className="Info_entreprise">
-            {!isEditing ? (
+         <div className="title"><p>Informations sur l'entreprise</p></div>
+                   {!isEditing ? (
                 <div>
-                    <div className="title"><p>Informations sur l'entreprise</p></div>
-                    <div className="user_details">
+                        <div className="user_details">
                         <div className="input_box"><p><strong>Nom de l'entreprise:</strong> {company.company_name}</p></div>
                         <div className="input_box"><p><strong>Industrie:</strong> {company.industry}</p></div>
                         <div className="input_box"><p><strong>Email:</strong> {company.email}</p></div>
@@ -235,7 +235,7 @@ function EditCompany({ companyId }) {
                         <div className="input_box"><p><strong>Personne à contacter:</strong> {company.contact_person}</p></div>
                         <div className="input_box"><p><strong>Addresse:</strong> {company.location}</p></div>
                         <div className="input_box"><p><strong>Code postal:</strong> {company.postal_code}</p></div>
-                        <button className="btn1" onClick={handleEdit}>Modifier</button>
+                        <button className="btn2" onClick={handleEdit}>Modifier</button>
                     </div>
                 </div>
             ) : (
@@ -248,7 +248,7 @@ function EditCompany({ companyId }) {
                     <div className="input_box"><label>Addresse: <input type="text" name="location" value={company.location} onChange={handleChange} /></label></div>
                     <div className="input_box"><label>Code postal: <input type="text" name="postal_code" value={company.postal_code} onChange={handleChange} /></label></div>
                     <div className="button_container">
-                      <button className="btn1" type="submit">Sauvegarder</button>
+                      <button className="btn2" type="submit">Sauvegarder</button>
                       <button className="btn1" type="button" onClick={handleCancel}>Annuler</button>
                     </div>
 

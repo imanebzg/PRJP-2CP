@@ -6,7 +6,10 @@ import Thirdpage from './Pages/third-page/thirs-page';
 import Firstpage from './Pages/first-page/firstpage';
 import Adminpage from './Pages/admin-page/admin_page';
 import Hist from './Pages/history-page/history';
-
+import Notif from './Componenets/Notifications/Notifications'
+import Entrp from './Componenets/Info_entreprise/Info_entreprise'
+import Securite from './Componenets/Securite/Securitecomponent'
+import Supprimer from './Componenets/Supprimer/Supprimer'
 import {BrowserRouter as Router, Routes, Route, Link}from 'react-router-dom';
 
 function App() {
@@ -27,6 +30,15 @@ function App() {
             <Route path="/third-page" element={  <div className='page'> <Thirdpage /></div>} />
             <Route path='admin-page' element={  <div className='page'> <Adminpage /></div>} />
             <Route path='hist-page' element={  <div className='page'> <Hist /></div>} />
+
+
+
+            <Route path="/Notification" element={<Notif/>} />
+        <Route path="/Info_entreprise" element={<Entrp/> } />
+        <Route path='/Securite' element={<Securite />} />
+        <Route path="/Sup" element={<Supprimer/> } />
+    
+
           </>
         ) : (
           <Route path="*" component={() => {handleRouteAccess();}} />

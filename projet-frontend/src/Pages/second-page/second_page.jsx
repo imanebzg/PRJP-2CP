@@ -1,17 +1,11 @@
-import React, { useEffect, useState, useRef, useMemo  } from 'react';
-import Info_entreprise from "../../Componenets/Info_entreprise/Info_entreprise";
-import Notifications from "../../Componenets/Notifications/Notifications";
+import React, { useState  } from 'react';
 import Form from "../../Componenets/CalcForm/Selection";
 import Postes from "../../Componenets/Postes/Postes"
 import Histogram from "../../Componenets/histogrm/histogrm";
-import Supprimer from "../../Componenets/Supprimer/Supprimer";
-import Error from "../../Componenets/error/error"
-import P1 from "../../Componenets/page1/page11/page11"
-import P2 from "../../Componenets/page1/page12/page12"
+
 import "./second_page.css";
 import Sidbar from "../../Componenets/Sidebar/Sidebar";
 import Avancement_exmp from '../../Componenets/Avancement_exmp/Avancement_exmp';
-import Plus_prod from '../../Componenets/Plus_prod/Plus_prod';
 import PostesProduit from '../../Componenets/PostesProduit/PostesProduit';
 import HistogramProduit from '../../Componenets/HistogramProduit/HistogramProduit'
 import TablesComponent from '../../Componenets/tableau/tableau';
