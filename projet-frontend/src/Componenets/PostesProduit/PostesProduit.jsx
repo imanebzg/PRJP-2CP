@@ -114,6 +114,30 @@ if (!localStorage.getItem('formResults')) {
       setTables(tablesArray);
     }
   }, []);
+
+  
+  const [labels, setLabels] = useState([]);
+
+  useEffect(() => {
+    let newLabels = [];
+
+    storedFormResults.forEach((storedFormResults, index) => {
+      let formLabels = [];
+
+      for (let key in storedFormResults) {
+        if (key.startsWith('secteur')) {
+          formLabels.push(storedFormResults[key]);
+        }
+      }
+
+      newLabels.push(formLabels.join(' > '));
+    });
+
+    setLabels(newLabels);
+  }, []); 
+
+
+
     useEffect(() => {
 
       const fetchData = async () => {
@@ -224,7 +248,7 @@ return (
       {secteur1Array.map((secteur, index) => (
       
         <div className="scopes1">
-          <h3>{secteur}</h3>  <div className="chart-container">
+          <h3>{labels[index]}</h3>  <div className="chart-container">
           <ChartComponent key={index} dataByCategory={dataByCategory} secteur={secteur} />
           </div> </div>
       ))}

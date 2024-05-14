@@ -34,7 +34,7 @@
   const secteur1Options = [
     'Combustibles', 'Process et émissions fugitives', 'UTCF',
     'Electricité', 'Achats de biens', 'Transport de marchandises',
-    'Transport de personnes', 'Traitement des déchets', 'Statistiques territoriales'
+    'Transport de personnes', 'Traitement des déchets'
   ];
 
   // State to store options fetched for Secteur2
