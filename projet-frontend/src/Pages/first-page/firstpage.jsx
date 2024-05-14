@@ -9,10 +9,9 @@ const Firstpage = (props) => {
         <div className="first"> 
        
             <Sidbar/>   
-            
-            <Info_entreprise/>
-            <Notifications/>
-            <Securite/>
+             <Info_entreprise/>
+          
+       
             <Supprimer/>    
             </div>
                

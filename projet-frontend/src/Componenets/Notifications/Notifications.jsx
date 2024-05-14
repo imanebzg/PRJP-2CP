@@ -1,7 +1,12 @@
 import './Notifications.css';
+import Sidebar from '../Sidebar/Sidebar'
 import React from 'react';
 const Notifications = () => {
     return (
+
+
+      <>
+      <Sidebar/>
         <div className="Notifications">
 <div class="container">
             <div class="title">
@@ -108,7 +113,7 @@ const Notifications = () => {
       <button className="btn1">Modifier</button>
       <br/>
         </div>
-        </div>
+        </div></>
          );
         };
         export default Notifications;

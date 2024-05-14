@@ -1,241 +1,30 @@
-.tableau-affichage {
-  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.18);
-  background: #f5f6fa;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2px 0 143.3px 0;
-  width: 1394px;
-  box-sizing: border-box;
+/* Stylisation du tableau */
+.tables-container {
+  font-family: 'Montserrat', sans-serif;
 }
-.tableau-affichage .title {
-  margin: 2px 0;
-  display: inline-block;
-  overflow-wrap: break-word;
-  font-family: "Gilroy-Regular", "Roboto Condensed";
-  font-weight: 400;
-  font-size: 28px;
-  line-height: 1.286;
-  color: #000000;
+
+.tables-container h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
 }
-.tableau-affichage .ligne1 {
-  border-radius: 10px;
-  background: rgba(193, 193, 193, 0.4);
-  margin: 0 20px 10px 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 10px 30px 10px 20px;
-  width: 1100px;
-  box-sizing: border-box;
+
+.tables-container table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid black;
+  margin: 20px 0;
 }
-.tableau-affichage .type-poste {
-  margin-left: 24px;
-  width: 199px;
-  overflow-wrap: break-word;
-  font-family: "ProximaNova", "Roboto Condensed";
-  font-weight: 400;
-  font-size: 22px;
-  line-height: 2.5;
-  color: #000000;
-}
-.tableau-affichage .co-2 {
-  overflow-wrap: break-word;
-  font-family: "ProximaNova", "Roboto Condensed";
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 2.5;
-  color: #000000;
-  height: 40px;
-  width: 70px;
+
+.tables-container th,
+.tables-container td {
+  padding: 8px;
   text-align: center;
 }
-.tableau-affichage .ch-4-f {
-  overflow-wrap: break-word;
-  font-family: "ProximaNova", "Roboto Condensed";
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 2.5;
-  color: #000000;
-  height: 40px;
-  width: 70px;
-  text-align: center;
+
+.tables-container th {
+  background-color: #a70f0f;
 }
-.tableau-affichage .ch-4-d {
-  overflow-wrap: break-word;
-  font-family: "ProximaNova", "Roboto Condensed";
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 2.5;
-  color: #000000;
-  height: 40px;
-  width: 70px;
-  text-align: center;
-}
-.tableau-affichage .n-2-o {
-  overflow-wrap: break-word;
-  font-family: "ProximaNova", "Roboto Condensed";
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 2.5;
-  color: #000000;
-  height: 40px;
-  width: 70px;
-  text-align: center;
-}
-.tableau-affichage .autre {
-  overflow-wrap: break-word;
-  font-family: "ProximaNova", "Roboto Condensed";
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 2.5;
-  color: #000000;
-  height: 40px;
-  width: 70px;
-  text-align: center;
-}
-.tableau-affichage .total {
-  overflow-wrap: break-word;
-  font-family: "ProximaNova", "Roboto Condensed";
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 2.5;
-  color: #000000;
-  height: 40px;
-  width: 70px;
-  text-align: center;
-}
-.tableau-affichage .vector {
-  margin-right: 23.3px;
-  width: 30px;
-  height: 30px;
-  text-align: center;
-}
-.tableau-affichage .co-2-b {
-  overflow-wrap: break-word;
-  font-family: "ProximaNova", "Roboto Condensed";
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 2.5;
-  color: #000000;
-  height: 40px;
-  width: 70px;
-  text-align: center;
-}
-/* ------------------------------------------------------------------------- */
-.tableau-affichage .ligne {
-  border-radius: 10px;
-  margin: 0 20px 10px 20px;
-  background-color: #ffffff;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 0px 30px 0px 20px;
-  width: 1100px;
-  height: 90px;
-  align-items: center;
-  box-sizing: border-box;
-}
-.tableau-affichage .case1 {
-  margin-left: 24px;
-  width: 199px;
-  overflow-wrap: break-word;
-  font-family: "ProximaNova", "Roboto Condensed";
-  font-weight: 400;
-  font-size: 22px;
-  align-items: center;
-  height: 40px;
-  color: #000000;
-}
-.tableau-affichage .case2 {
-  overflow-wrap: break-word;
-  font-family: "ProximaNova", "Roboto Condensed";
-  font-weight: 400;
-  font-size: 20px;
-  color: #000000;
-  height: 90px;
-  width: 85px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  background-color: #e8effb;
-}
-.tableau-affichage .case3 {
-  overflow-wrap: break-word;
-  font-family: "ProximaNova", "Roboto Condensed";
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 2.5;
-  color: #000000;
-  height: 40px;
-  width: 70px;
-  text-align: center;
-}
-.tableau-affichage .case4 {
-  overflow-wrap: break-word;
-  font-family: "ProximaNova", "Roboto Condensed";
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 2.5;
-  color: #000000;
-  height: 40px;
-  width: 70px;
-  text-align: center;
-}
-.tableau-affichage .case5 {
-  overflow-wrap: break-word;
-  font-family: "ProximaNova", "Roboto Condensed";
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 2.5;
-  color: #000000;
-  height: 40px;
-  width: 70px;
-  text-align: center;
-}
-.tableau-affichage .case6 {
-  overflow-wrap: break-word;
-  font-family: "ProximaNova", "Roboto Condensed";
-  font-weight: 400;
-  font-size: 20px;
-  color: #000000;
-  height: 40px;
-  width: 70px;
-  text-align: center;
-}
-.tableau-affichage .case7 {
-  overflow-wrap: break-word;
-  font-family: "ProximaNova", "Roboto Condensed";
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 2.5;
-  color: #000000;
-  height: 40px;
-  width: 70px;
-  text-align: center;
-}
-.tableau-affichage .vector {
-  margin-right: 23.3px;
-  width: 30px;
-  height: 30px;
-  text-align: center;
-}
-.tableau-affichage .case8 {
-  overflow-wrap: break-word;
-  font-family: "ProximaNova", "Roboto Condensed";
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 2.5;
-  color: #000000;
-  height: 40px;
-  width: 70px;
-  text-align: center;
-}
-/* ------------------------------------------------------------------------- */
-.tableau-affichage .last {
-  background-color: #e8effb;
-}
-.tableau-affichage .lastcase {
-  background-color: #c3d9fe;
+
+.tables-container tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
 }

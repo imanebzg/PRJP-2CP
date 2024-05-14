@@ -79,7 +79,7 @@ const Signup = () => {
                    navigate('/admin-page'); 
 
                 }else{
-                    navigate( '/hist-page'); 
+                    navigate('/hist-page'); 
                 }
                 // Set session timeout for 1 day (24 hours)
                 setTimeout(() => {
@@ -124,7 +124,7 @@ const Signup = () => {
                 if (data.user.email === "admin_01@gmail.com"){
                     navigate('/admin-page'); 
                  }else{
-                     navigate( '/hist-page'); 
+                     navigate('/hist-page'); 
                  }
                 // Set session timeout for 1 day (24 hours)
                 setTimeout(() => {

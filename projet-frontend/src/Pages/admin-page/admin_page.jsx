@@ -1,5 +1,5 @@
 
-import Profile from '../../Componenets/info-admin/editcompanyadmin';
+import Profile from '../../Componenets/info-admin/info-admin';
 import Sideba from '../../Componenets/sidebaradmin/side'
 const adminPage = (props) => {
   

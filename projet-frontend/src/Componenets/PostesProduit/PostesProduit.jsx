@@ -4,7 +4,7 @@ import axios from 'axios';
 import Chart from 'chart.js/auto';
 import TablesComponent from "../tableau/tableau"
 
-//import './PostesProduit.css';
+import './PostesProduit.css';
 
 
 
@@ -228,13 +228,14 @@ const ChartComponent = ({ secteur, dataByCategory, secteur1Array }) => {
 
         return () => {
           myChart.destroy();
+          
         };
       } 
       
   }, [secteur1Array, dataByCategory, secteur]);
 
   return (
-    <div>
+<div className='container' >
           <canvas ref={chartRef}></canvas>
     </div>
   );
@@ -242,7 +243,7 @@ const ChartComponent = ({ secteur, dataByCategory, secteur1Array }) => {
 
 
 return (
-  <div  className="Postes">
+  <div  className="Postes" >
     {isSubmitted ? (
       <div>
       {secteur1Array.map((secteur, index) => (

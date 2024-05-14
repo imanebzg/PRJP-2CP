@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Supprimer.css';
+import Sidebar from '../Sidebar/Sidebar'
 const Supprimer = () => {
   const [isChecked, setIsChecked] = useState(false);
 
@@ -36,6 +37,7 @@ const Supprimer = () => {
 
   return (<>
   
+  <Sidebar/>
     <div className="Supprimer">
       <div className="container">
         <div className="title">

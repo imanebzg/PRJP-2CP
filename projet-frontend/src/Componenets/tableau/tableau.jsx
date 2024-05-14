@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef, useMemo, createRef } from 'react';
+import './tableau.css'
 /*
 const Tableau = ({ data , facteur }) => { // Destructure the data directly from props
     console.log("display data table : "+data.sums.Total_poste_non_decompose);
@@ -56,10 +57,11 @@ const TablesComponent = () => {
 
 
     return (
-        <div className="tables-container">
+      <>
             {tables.map((tableData, tableIndex) => (
-                <div key={tableIndex} className="table-wrapper">
+                <div key={tableIndex} >
                     <h2>{tableData.rows[0].Secteur1}</h2>
+                    
                     <div style={{ fontFamily: 'Montserrat, sans-serif' }}>
                         <table style={{ width: '100%', borderCollapse: 'collapse', border: '1px solid black', margin: '20px 0' }}>
                             <thead>
@@ -95,7 +97,7 @@ const TablesComponent = () => {
                     </div>
                 </div>
             ))}
-        </div>
+        </>
     );
 };
 

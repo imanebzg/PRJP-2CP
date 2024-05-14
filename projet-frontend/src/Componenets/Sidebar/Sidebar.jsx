@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './sidebar.css';
 
 import { Link } from 'react-router-dom';
-import { AiOutlineHome, AiFillSetting, AiOutlineQuestion, AiOutlineQrcode, AiOutlineBell, AiFillCalculator } from 'react-icons/ai';
+import { AiOutlineHome, AiFillSetting, AiOutlineQuestion, AiOutlineQrcode, AiOutlineBell, AiFillCalculator, AiFillBell } from 'react-icons/ai';
 
 
 function ReactSideBar() {
@@ -61,16 +61,22 @@ function ReactSideBar() {
 {show ? "" :<Link to='/second-page'className="link"><h3>Calculer</h3></Link> }
                         </div>
                     </div>
-                   
+                    <div className='item'>
+                        <AiFillBell className={show ? 'icon11' : 'icon'} />
+                        <div className='Dashboard'>
+                          
+{show ? "" :<Link to='/Notification'className="link"><h3>Notification</h3></Link> }
+                        </div>
+                    </div>
                     <div className='item'>
                         <AiFillSetting className={show ? 'icon11' : 'icon'} />
                         <div className='Dashboard' onClick={toggleSubMenu}>
-                            {show ? '' : <h3>Parametres</h3>}
+                            {show ? '' : <h3>Mon compte</h3>}
                         </div></div>
                         {showSubMenu && (
                             <div className="sub-menu">
-                                <Link to ='/first-page'className='link'> <li>Mon compte</li> </Link>
-                                <Link to ='/' className='link'><li>Avis</li>   </Link>
+                                <Link to ='/Securite'className='link'> <li>sécurité</li> </Link>
+                                <Link to ='/' className='link'><li>Supprimer </li>   </Link>
                                
                             </div>
                         )}

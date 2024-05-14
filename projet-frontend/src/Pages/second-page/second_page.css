@@ -15,7 +15,7 @@
     
   }
 
-  .second .radio-input1 input[type="radio"] {
+  .second .radio-input input[type="radio"] {
     display: none; /* Pour cacher les cases à cocher par défaut */
     
   }
@@ -44,9 +44,9 @@
   }
   
   .second .radio-input2 {
-    max-width: 25%;
-    height: 1%;
-  
+    max-width: 35%;
+    height: 2.5rem;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.18);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,9 +55,9 @@
     color: #000000;
     width: var(--container_width);
     overflow: hidden;
-  
+  margin-top: 10%;
     margin: 3%;
-    margin-left:38%
+    margin-left:30%
   
   }
   
@@ -81,7 +81,7 @@
   }
   .second .radio-input label {
     width: 100%;
-    padding:1.5%;
+    padding:1%;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -120,22 +120,19 @@
   }
   .second .radio-input label:has(input:checked) {
     color:white;  background-color: #5963A3;
-
     border-top-right-radius: 20px; /* Coin supérieur droit */
     border-bottom-right-radius: 20px; /* Coin inférieur droit */
     border-top-left-radius: 20px; /* Coin supérieur droit */
     border-bottom-left-radius: 20px; /* Coin inférieur droit */
-    margin: 0.2%;
+    margin: 0.4%;
     display: inline-block;
     text-align: center;
   }
   .second .radio-input2 label:has(input:checked) {
-    color:white;  background-color: #5963A3;
-    border-top-right-radius: 20px; /* Coin supérieur droit */
-    border-bottom-right-radius: 20px; /* Coin inférieur droit */
-    border-top-left-radius: 20px; /* Coin supérieur droit */
-    border-bottom-left-radius: 20px; /* Coin inférieur droit */
-    margin: 0.2%;
+    color:white;  background-color: #4CA950;
+   
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.18);
+    margin: 0.5%;
     display: inline-block;
     text-align: center;
   }
@@ -148,52 +145,84 @@
   padding-top: 5%;
   justify-content: center;
   }
-  
+
+  .second #form9 {
+    display: flex; /* Utiliser un conteneur flex pour les éléments en ligne */
+    align-items: center; /* Aligner verticalement les éléments */
+}
+
+.second #form9 PostesProduit,
+.second #form9 HistogramProduit {
+    flex: 1; /* Les éléments vont prendre autant d'espace que possible */
+    margin-right: 10px; /* Marge entre les éléments */
+}
+
+    
   .second .btn1 {
-    display: inline-block;
-    margin:1%;
-    margin-left: 25%;
-    font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
-    padding: 0.625rem 1.25rem; /* 10px 20px / 16px */
-    border: 0.125rem solid #4CA950; /* 2px solid #e14c31 / 16px */
-    background-color:  #4CA950; 
-    font-size: 1rem;   /* 20px / 16px */
-    font-weight: bold;
-    color: #031273;
-    text-transform: uppercase;
-    letter-spacing: 0.0625rem; /* 0.1em / 16px */
-    cursor: pointer;
+    --color:   #4CA950; 
     position: relative;
-    overflow: hidden;
-    border-radius: 0.625rem; /* 10px / 16px */
-    margin-top: 0.67%;
-    margin-bottom: 6%;
-    transition: all 0.3s ease-in-out;
+    display: flex;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30%;
+  margin-bottom: 8%;
+    transition: all .5s;
+    border: none;
+    background-color: transparent;
+  }
+
+  .second .btn1 div {
+    letter-spacing: 2px;
+    font-weight: bold;
+    background: var(--color);
+    border-radius: 2rem;
+    color: white;
+    z-index: 1;
+    font-size: small;
+    padding: 0.7rem;
   }
   
   .second .btn1::before {
     content: '';
+    z-index:0;
+    background-color: var(--color);
+    border: 2px solid white;
+    border-radius: 2rem;
+    width: 100%;
+    height: 100%;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background-color: #fff;
+    transform: rotate(10deg);
+    transition: .5s;
     opacity: 0.2;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: all 0.3s ease-in-out;
   }
   
   .second .btn1:hover {
-    background-color: #fff;
-    color:  #4CA950; 
-    box-shadow: #4CA950; 
+    cursor: pointer;
+    filter: brightness(1.2);
+    transform: scale(1.1);
   }
   
   .second .btn1:hover::before {
-    width: 200%;
-    height: 200%;
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  
+  .second .btn1 svg {
+    transform: translateX(-200%);
+    transition: .5s;
+    width: 0;
+    opacity: 0;
+  }
+  
+  .second .btn1:hover svg {
+    width: 25px;
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  
+  .second .btn1:active {
+    filter: brightness(1.4);
   }
   
 

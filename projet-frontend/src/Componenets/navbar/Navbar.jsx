@@ -1,8 +1,7 @@
 import React from 'react';
 import './navbar.css'; 
-import { Link } from 'react-router-dom';
 
-import globe from './img/globe.png';
+
 const Navbar = () => {
   const authToken = localStorage.getItem('authToken');
 
@@ -15,7 +14,7 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="left">
-        <h1>CAS</h1>
+        <h1>C2OO</h1>
       </div>
       <div className="right">
         <input type="checkbox" id="check" />

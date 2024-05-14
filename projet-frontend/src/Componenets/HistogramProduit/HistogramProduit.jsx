@@ -36,7 +36,6 @@ const PostesProduit = React.memo(function PostesProduit({formResults}) {
 let storedFormResults = formResults;
 
 if (!localStorage.getItem('formResults')) {
-  // Key doesn't exist, create it and set initial value
   const initialFormResults = [{
     secteur1: '',
     secteur2: '',
@@ -55,13 +54,10 @@ if (!localStorage.getItem('formResults')) {
     souslocalisation: ''
   }];
 
-  // Convert to JSON and set in local storage
   localStorage.setItem('formResults', JSON.stringify(initialFormResults));
 
-  // Set storedFormResults to the initial value if it doesn't exist in props
   storedFormResults = initialFormResults;
 } else {
-  // Retrieve the stored value from local storage
   storedFormResults = JSON.parse(localStorage.getItem('formResults'));
 }
 
@@ -160,7 +156,6 @@ if (!localStorage.getItem('formResults')) {
 
 
 const generateColors = (num) => {
-  // Generate colors logic
   return Array.from({ length: num }, () => "#" + Math.floor(Math.random() * 16777215).toString(16));
 };
 
@@ -169,7 +164,7 @@ const ChartComponent = ({ secteur, dataByCategory, secteur1Array }) => {
   const chartRef = useRef(null);
 
   useEffect(() => {
-      const backgroundColors = generateColors(3); // Assuming always 3 scopes (scope1, scope2, scope3)
+      const backgroundColors = generateColors(3); 
       const borderColors = generateColors(3);
       let dataSet = dataByCategory[sectorMapping[secteur]];
    
@@ -236,4 +231,3 @@ PostesProduit.propTypes = {
 };
 
 export default PostesProduit;
-

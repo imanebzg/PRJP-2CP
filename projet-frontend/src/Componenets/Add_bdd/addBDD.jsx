@@ -3,14 +3,11 @@ import './addbdd.css';
 import Sidebar from '../sidebaradmin/side'
 const AddProductForm = () => {
     const [formData, setFormData] = useState({
-        Type_Ligne: '', Structure: '', Statut: '', Nom: '', Nom_attribut_français: '', Nom_frontière_français: '',
+        Type_Ligne: '', Structure: '',  Nom: '', Nom_attribut_français: '', Nom_frontière_français: '',
         Secteur1: '', Secteur2: '', Secteur3: '', Secteur4: '', Secteur5: '',
         Unite_français: '', Contributeur: '',
         Localisation_geographique: '', Sous_localisation_geographique_français: '',
-        Incertitude: '',
-        Transparence: '', Qualité: '', Qualité_TeR: '',
-        Qualité_GR: '', Qualité_TiR: '', Qualité_C: '', Qualité_P: '', Qualit_M: '', 
-        Commentaire_français: '', Type_poste: '', 
+        Type_poste: '', 
         Total_poste_non_decompose: '', CO2f: '', CH4f: '', CH4b: '', N2O: '',
         Code_gaz_supplémentaire_1: '', Valeur_gaz_supplémentaire_1: '',
         Code_gaz_supplémentaire_2: '', Valeur_gaz_supplémentaire_2: '',

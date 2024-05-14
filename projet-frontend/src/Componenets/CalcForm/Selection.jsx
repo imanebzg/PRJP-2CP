@@ -464,6 +464,8 @@ const handleCalcul = (event) => {
     });
   };
   const handleFinalSubmit = (e) => {
+
+    setSelectedScope1("");
     e.preventDefault();
     saveTotalSumToDatabase();
     handleCalcul(e)
@@ -514,6 +516,9 @@ const handleCalcul = (event) => {
       });
   
 
+
+
+
      
   };
 
@@ -523,6 +528,11 @@ const handleCalcul = (event) => {
       initiatePageReload();
     };
   }
+
+
+
+  
+
   const initiatePageReload = () => {
     // Set a timeout to execute after 1 minute (60 seconds * 1000 milliseconds)
     setTimeout(() => {
