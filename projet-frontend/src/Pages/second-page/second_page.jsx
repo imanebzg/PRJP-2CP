@@ -1,262 +1,3 @@
-/*import React, { useState  } from 'react';
-import Form from "../../Componenets/CalcForm/Selection";
-import Postes from "../../Componenets/Postes/Postes"
-import Histogram from "../../Componenets/histogrm/histogrm";
-
-import "./second_page.css";
-import Sidbar from "../../Componenets/Sidebar/Sidebar";
-import Avancement_exmp from '../../Componenets/Avancement_exmp/Avancement_exmp';
-import PostesProduit from '../../Componenets/PostesProduit/PostesProduit';
-import HistogramProduit from '../../Componenets/HistogramProduit/HistogramProduit'
-import TablesComponent from '../../Componenets/tableau/tableau';
-
-function Second_page (props) {
-let isSubmitted = localStorage.getItem('isSubmitted');
-if (isSubmitted === 'true') {
-  isSubmitted = true;
-} else {
-  isSubmitted = false;
-}
-  const [selectedScope, setSelectedScope] = useState('form-8');
-
-  const handleRadioChange = (event) => {
-    setSelectedScope(event.target.value);
-  };
-  const [selectedScope2, setSelectedScope2] = useState('form-4');
-
-  const handleRadioChange2 = (event) => {
-    setSelectedScope2(event.target.value);
-  };
-
-  const handleCalcAgain = () => {
-    localStorage.removeItem('totalSum'); 
-    localStorage.removeItem('formResults');
-    localStorage.setItem('isSubmitted', false); 
-    window.location.reload();
-   };
-
-
-   const [selectedOption, setSelectedOption] = useState('postes'); // État local pour suivre l'option sélectionnée
-
-   // Gérer le changement d'option radio
-   const handleRadioChange3 = (event) => {
-     setSelectedOption(event.target.value); // Mettre à jour l'option sélectionnée
-   };
-       return (
-
-        <div className="second"> 
-          <Sidbar/>
-          <div className="content2">
-          
-        
-          {isSubmitted ? (  <>
-       
-
-
-          <div className="button-container">
-            <button className="btn1"  onClick={handleCalcAgain}>
-             
-              <div>Calculer de nouveau un bilan carbone ?</div>
-              <svg fill="none" viewBox="0 0 24 24" height="25px" width="25px" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinejoin="round" strokeLinecap="round" strokeMiterlimit="10" strokeWidth="2" stroke="white" d="M11.6801 14.62L14.2401 12.06L11.6801 9.5"></path>
-                <path strokeLinejoin="round" strokeLinecap="round" strokeMiterlimit="10" strokeWidth="2" stroke="white" d="M4 12.0601H14.17"></path>
-                <path strokeLinejoin="round" strokeLinecap="round" strokeMiterlimit="10" strokeWidth="2" stroke="white" d="M12 4C16.42 4 20 7 20 12C20 17 16.42 20 12 20"></path>
-              </svg>
-
-            </button>
-        
-          </div>   
-          <div className="mini_cont">
-
-          <div className="radio-input">
-          <input type="hidden" id="selectedScope" value={selectedScope} />
-
-          
-          <label>
-            <input
-              type="radio"
-              value="form-8"
-              name="value-radio8"
-              id="value-8"
-              onChange={handleRadioChange}
-              checked={selectedScope === 'form-8'} // Set checked based on state
-            />
-            <span>Bilan global</span>
-          </label>
-          <label>
-            <input
-              type="radio"
-              value="form-9"
-              name="value-radio9"
-              id="value-9"
-              onChange={handleRadioChange}
-              checked={selectedScope === 'form-9'} // Set checked based on state
-            />
-            <span>Details de chaque activité</span>
-          </label>
-
-        </div>
-
-        <div id="form-container" >
-      {selectedScope === 'form-8' && (
-        <div id="form8">
-           <div className="formulaire18">
-
-          
-          <Avancement_exmp/>
-          <div className="radio-input2">
-          <input type="hidden" id="selectedScope2" value={selectedScope2} />
-
-         
-          <label>
-            <input
-              type="radio"
-              value="form-4"
-              name="value-radio4"
-              id="value-4"
-              onChange={handleRadioChange2}
-              checked={selectedScope2 === 'form-4'} // Set checked based on state
-            />
-            <span>rftgyhjutgr</span>
-          </label>
-          <label>
-            <input
-              type="radio"
-              value="form-5"
-              name="value-radio5"
-              id="value-5"
-              onChange={handleRadioChange2}
-              checked={selectedScope2 === 'form-5'} // Set checked based on state
-            />
-            <span>histogarm</span>
-          </label>
-
-        </div>
-
-          <div className="mini_cont2">
-       
-
-        <div id="form-container" >
-      {selectedScope2 === 'form-4' && (
-        <div id="form4">
-           <div className="formulaire14">
-
-          <Postes/>
-
-          </div>
-       
-       </div> )}
-       </div>
-
-       
-       <div id="form-container" >
-      {selectedScope2 === 'form-5' && (
-        <div id="form5">
-           
-          <Histogram/>
-          
-        
-       
-       </div> )}
-
-           </div>
-
-
-
-        </div>
-
-        </div>
-       
-       </div> )}
-       </div>
-
-       <div id="form-container" >
-      {selectedScope === 'form-9' && (<>
-       
-        <div className="radio-input2">
-        <label>
-          <input
-            type="radio"
-            value="postes"
-            name="value-radio"
-            onChange={handleRadioChange3}
-            checked={selectedOption === 'postes'} // Vérifier si l'option est sélectionnée
-          />
-          <span>dfghdfgh</span>
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="histogram"
-            name="value-radio"
-            onChange={handleRadioChange3}
-            checked={selectedOption === 'histogram'} // Vérifier si l'option est sélectionnée
-          />
-          <span>Histogram</span>
-        </label>
-      </div>
-
-      
-      {selectedOption === 'postes' && <PostesProduit />} 
-      {selectedOption === 'histogram' && <HistogramProduit />} 
-
-        <TablesComponent/>
-        <h5>Les taux de gaz présentés dans ces tableaux sont exprimés pour une unité de quantité.</h5>
-        </>
-       
-       )}
-       </div>
-       
-        </div></> ) : ( 
-          
-          <>  <Form/>
-          <div class="loader">
-  <label>Remplir le formulaire pour avoir le résultat...</label>
-  <div class="loading"></div>
-</div></>
-    )
-    }
-        </div>
-        </div>
-      );
-}
-     
-
- 
-export default Second_page;
-
-
-
-
-
-
-
-
-
-
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -395,6 +136,7 @@ if (isSubmitted === 'true') {
     localStorage.removeItem('formResults');
     localStorage.setItem('isSubmitted', false); 
     window.location.reload();
+    window.location.href = '/hist-page'; 
    };
 
    const [selectedOption, setSelectedOption] = useState('postes'); // État local pour suivre l'option sélectionnée
@@ -457,7 +199,7 @@ if (isSubmitted === 'true') {
               onChange={handleRadioChange}
               checked={selectedScope === 'form-9'} // Set checked based on state
             />
-            <span>Details de chaque activité</span>
+            <span>Détails de chaque activité</span>
           </label>
 
         </div>
@@ -472,7 +214,9 @@ if (isSubmitted === 'true') {
 
 
          <PostesDirIndir/>
-          <div className="radio-input2">
+         <div className='choisir' style={{ marginTop: '60px'}}> 
+         <h1 style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', color:'rgb(112, 111, 111)'}}>Veuillez choisir votre affichage !</h1>
+          <div className="radio-input"  style={{ marginBottom: '20px'}}>
           <input type="hidden" id="selectedScope2" value={selectedScope2} />
 
       
@@ -485,7 +229,7 @@ if (isSubmitted === 'true') {
               onChange={handleRadioChange2}
               checked={selectedScope2 === 'form-4'} // Set checked based on state
             />
-            <span>Cercle relatif</span>
+            <span>Cercle Relatif</span>
           </label>
           <label>
             <input
@@ -496,11 +240,11 @@ if (isSubmitted === 'true') {
               onChange={handleRadioChange2}
               checked={selectedScope2 === 'form-5'} // Set checked based on state
             />
-            <span>histogarm</span>
+            <span>Histogramme</span>
           </label>
 
         </div>
-
+        </div>
 
           <div className="mini_cont2">
        
@@ -544,8 +288,9 @@ if (isSubmitted === 'true') {
        <div id="form-container" >
       {selectedScope === 'form-9' && (
       
-      <div > 
-      <div className="radio-input2">
+      <div className='choisir'> 
+     <h1 style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', color:'rgb(112, 111, 111)'}}>Veuillez choisir votre affichage !</h1>
+      <div className="radio-input">
     <label>
       <input
         type="radio"
@@ -572,7 +317,10 @@ if (isSubmitted === 'true') {
     {/* Affichage conditionnel basé sur l'option sélectionnée */}
     {selectedOption === 'postes' && <PostesProduit />} {/* Afficher PostesProduit si l'option est sélectionnée */}
     {selectedOption === 'histogram' && <HistogramProduit />} {/* Afficher HistogramProduit si l'option est sélectionnée */}
-</div> 
+</div>  </div> 
+<div className='detailss'> 
+<h1 style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', color: '#031273', fontWeight: 700, fontSize: '30px', fontFamily: "'Proxima Nova Condensed', 'Gilroy-Regular'" }}>Table d'émission de Gaz par poste :</h1>
+
     <TablesComponent />
     <h5>
         <svg class="info-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">

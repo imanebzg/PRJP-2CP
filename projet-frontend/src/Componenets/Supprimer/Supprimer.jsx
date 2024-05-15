@@ -50,7 +50,7 @@ const Supprimer = () => {
                
        
 
-          <button type='button' class="but" onClick={handleCheckboxChange}>
+          <button type='button' class="but" >
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -112,7 +112,7 @@ const Supprimer = () => {
         </div>
           <div class="success-button-container">
             <button type="button" class="success-button-main" onClick={handleDelete}>Supprimer</button>
-            <button type="button" class="success-button-secondary" onClick={handleCheckboxChange}>Annulé</button>
+            <button type="button" class="success-button-secondary" onClick={handleCheckboxChange}>Annuler</button>
           </div>
       </div>
     </div>

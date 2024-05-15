@@ -3,9 +3,13 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-.tables-container h2 {
+.TABLEAU h2 {
   font-size: 24px;
-  margin-bottom: 10px;
+  margin-bottom: 3%;
+  margin-top: 10%;
+  color: white;
+  background-color: #031273;
+ 
 }
 
 .tables-container table {

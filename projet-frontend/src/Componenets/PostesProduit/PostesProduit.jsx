@@ -235,9 +235,10 @@ const ChartComponent = ({ secteur, dataByCategory, secteur1Array }) => {
   }, [secteur1Array, dataByCategory, secteur]);
 
   return (
-<div className='container' >
-          <canvas ref={chartRef}></canvas>
-    </div>
+<div className='container'>
+  <canvas ref={chartRef} style={{ margin: '0px' }}></canvas>
+</div>
+
   );
 };
 
@@ -245,8 +246,9 @@ const ChartComponent = ({ secteur, dataByCategory, secteur1Array }) => {
 return (
   <div  className="Postes" >
     {isSubmitted ? (
-      <div>
-      {secteur1Array.map((secteur, index) => (
+      <div  style={{  display: 'flex', flexDirection: 'column', alignItems: 'center', color:'rgb(112, 111, 111)', fontSize:'14px',fontWeight:100}}>
+    <h1 style={{ display: 'flex', flexDirection: 'column',fontWeight: 700, fontSize: '20px', alignItems: 'center', color: '#031273' }}>
+Statistiques des répartitions des secteurs globaux par scope :</h1>  {secteur1Array.map((secteur, index) => (
       
         <div className="scopes1">
           <h3>{labels[index]}</h3>  <div className="chart-container">

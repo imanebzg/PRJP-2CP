@@ -118,7 +118,9 @@ const Histogrm_T = () => {
 
   return (
     <div className="Rapport_det">
+
       <div className="container">
+        
         <div className="title">
           <p>Rapport détaillé</p>
         </div>

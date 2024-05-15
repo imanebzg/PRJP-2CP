@@ -6,7 +6,7 @@ const Home = () => {
   const authToken = localStorage.getItem('authToken');
   const handelsend  = () => {
   
-    window.location.href = '/first-page'; 
+    window.location.href = '/Info_entreprise'; 
     // You may also want to redirect the user to the login page or another appropriate page
   };
 

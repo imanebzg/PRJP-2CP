@@ -208,10 +208,12 @@ if (!localStorage.getItem('formResults')) {
   };
 
 
-  return (
+  return (<div className='indir' style={{ marginTop: '80px' }}><h1 style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>Type d'émission :</h1>
     <div className='dir' style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-    <div style={{ marginRight: '20px' }}>
-   <p>DIRECT</p>   <svg width={200} height={200}>
+      
+      
+    <div style={{ marginRight: '15px' }}>
+   <p>DIRECTE</p>   <svg width={200} height={200}>
         <g transform={`rotate(-90 ${"100 100"})`}>
           <Circle colour="lightgrey" />
           <Circle colour={random1.colour} pct={pctDir} />
@@ -221,7 +223,7 @@ if (!localStorage.getItem('formResults')) {
       
     </div>
     <div>
-   <p>INDIRECT</p>   <svg width={200} height={200}>
+   <p>INDIRECTE</p>   <svg width={200} height={200}>
         <g transform={`rotate(-90 ${"100 100"})`}>
           <Circle colour="lightgrey" />
           <Circle colour={random2.colour} pct={pctInDir} />
@@ -231,7 +233,7 @@ if (!localStorage.getItem('formResults')) {
       
     </div>
   </div>
-  
+  </div>
   );
 });
 

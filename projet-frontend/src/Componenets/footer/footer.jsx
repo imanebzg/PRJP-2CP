@@ -14,9 +14,10 @@ const Footer = () => {
                 <div className="button">
                   <span className="text">S'identifier</span> <span class="arrow"></span>
                 </div></a >
-                <div className="button">
+               <a href="#contact" className="no-underline"> <div className="button"> 
                   <span className="text "mail>Contacter</span> <span class="arrow"></span>
                 </div>
+                </a>
               </div>
               
           </div>
@@ -26,9 +27,9 @@ const Footer = () => {
               <h4>Navigation</h4>
               <p><a href="#home">Accueil</a></p>
               <p><a href="#about">À propos</a></p>
-              <p><a href="#why">Pourquoi CAS?</a></p>
+              <p><a href="#why">Pourquoi C2OO?</a></p>
               <p><a href="#learn">Plus de details</a></p>
-              <p><a href="#blog">Blogs</a></p>
+            
             </div>
             <div className="details">
                 <h4 className="What We Do">Que faisons-nous</h4>
@@ -39,7 +40,7 @@ const Footer = () => {
             <div className="Support">
                 <h4>Support</h4>
                 <p><a href="#">Centre d'aide</a></p>
-                <p><a href="#">FAQ</a></p>
+                <p><a href="#blog">FAQ</a></p>
                 <p><a href="#contact">Contact</a></p>
                 <p><a href="#feedback">Avis</a></p>
               </div>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './sidebar.css';
 
 import { Link } from 'react-router-dom';
-import { AiOutlineHome, AiFillSetting, AiOutlineQuestion, AiOutlineQrcode, AiOutlineBell, AiFillCalculator, AiFillBell } from 'react-icons/ai';
+import { AiOutlineHome, AiFillSetting, AiOutlineQuestion, AiOutlineQrcode, AiOutlineBell, AiFillCalculator, AiFillBell, AiFillHighlight, AiOutlineRadarChart } from 'react-icons/ai';
 
 
 function ReactSideBar() {
@@ -65,7 +65,7 @@ function ReactSideBar() {
                         <AiFillBell className={show ? 'icon11' : 'icon'} />
                         <div className='Dashboard'>
                           
-{show ? "" :<Link to='/Notification'className="link"><h3>Notification</h3></Link> }
+{show ? "" :<Link to='/Notification'className="link"><h3>Notifications</h3></Link> }
                         </div>
                     </div>
                     <div className='item'>
@@ -75,12 +75,20 @@ function ReactSideBar() {
                         </div></div>
                         {showSubMenu && (
                             <div className="sub-menu">
+                                <Link to ='/Info_entreprise' className='link'><li>Information </li>   </Link>
                                 <Link to ='/Securite'className='link'> <li>sécurité</li> </Link>
-                                <Link to ='/' className='link'><li>Supprimer </li>   </Link>
+                                <Link to ='/Supprimer' className='link'><li>Supprimer </li>   </Link>
                                
                             </div>
                         )}
-                    
+                     <div className='item'>
+                        <AiOutlineQuestion className={show ? 'icon11' : 'icon'} />
+                        <div className='Dashboard'>
+                     
+{show ? "" : <a href="  https://drive.google.com/file/d/1rJFtULnpJn_z78dR4QgOiiySk0QAneLn/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+<h3>Aide</h3></a> }
+                        </div>
+                    </div>
                     <div className='item2' style={{ display: !showSubMenu && !show ? 'flex' : 'none' }}>
     
    

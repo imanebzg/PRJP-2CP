@@ -1,10 +1,14 @@
+@import url('https://fonts.cdnfonts.com/css/gilroy-bold');
+@import url('https://fonts.cdnfonts.com/css/proxima-nova-condensed');
+
 .second .content2{
     position: relative;
     width: calc(100%-11%);
     align-items: center;
     align-content: center;
     align-self: center;
-    
+    font-family: 'Proxima Nova Condensed', 'Gilroy-Regular';
+font-size: 20px;
     margin-left: 15%;
     margin-right: 15%;
     margin-top: 4%;
@@ -14,7 +18,9 @@
     display: none; /* Pour cacher les cases à cocher par défaut */
     
   }
-
+.second .choisir h1 {margin-top: 10%;
+  font-size: 20px;
+font-weight: 300;}
   .second .radio-input input[type="radio"] {
     display: none; /* Pour cacher les cases à cocher par défaut */
     
@@ -154,7 +160,7 @@
 .second #form9 PostesProduit,
 .second #form9 HistogramProduit {
     flex: 1; /* Les éléments vont prendre autant d'espace que possible */
-    margin-right: 10px; /* Marge entre les éléments */
+
 }
 
     

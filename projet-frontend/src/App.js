@@ -3,7 +3,6 @@ import './App.css';
 import LandingPage from './Pages/Landingpage/Landingpage';
 import Secondpage from './Pages/second-page/second_page';
 import Thirdpage from './Pages/third-page/thirs-page';
-import Firstpage from './Pages/first-page/firstpage';
 import Adminpage from './Pages/admin-page/admin_page';
 import Hist from './Pages/history-page/history';
 import Notif from './Componenets/Notifications/Notifications'
@@ -30,19 +29,18 @@ function App() {
         <Route path="/" exact element= {<div className='App'><LandingPage/></div> } />
         {authToken ? (
           <>
-            <Route path="/first-page" element={  <div className='page'> <Firstpage /></div>} />
+            
             <Route path="/second-page"  element={  <div className='page'> <Secondpage /></div>} />
             <Route path="/third-page" element={  <div className='page'> <Thirdpage /></div>} />
             <Route path='/admin-page' element={  <div className='page'> <Adminpage /></div>} />
             <Route path='/hist-page' element={  <div className='page'> <Hist /></div>} />
 
-
-
+        
             <Route path="/Notification" element={<Notif/>} />
             <Route path="/Supprimer" element={<Supprimer/> } />
             <Route path="/Ajouter-bdd" element={<Ajouter/>} />
         <Route path="/Info_entreprise" element={<Entrp/> } />
-        <Route path="/Info_entreprise" element={<Entrp/> } />
+ 
         <Route path='/Securite-admin' element={<Securite />} />
         <Route path='/Securite' element={<Securite2 />} />
         <Route path="/Supprimer-admin" element={<Supprimerbdd/> } />

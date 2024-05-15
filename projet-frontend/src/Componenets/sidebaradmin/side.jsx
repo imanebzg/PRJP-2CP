@@ -66,10 +66,10 @@ function ReactSideBar1() {
                         </div></div>
                         {showSubMenu && (
                             <div className="sub-menu">
-                                <Link to ='/Securite-admin'className='link'> <li>sécurité</li> </Link>
-                                <Link to ="/Ajouter-bdd" className='link'><li>Ajouter BDD</li>   </Link>
-                                <Link to ='/Supprimer-admin' className='link'><li>Supprimer BDD</li>   </Link>
-                                <Link to ='/info-users' className='link'><li>Entreprise</li>   </Link>
+                                <Link to ='/Securite-admin'className='link'> <li>Sécurité</li> </Link>
+                                <Link to ="/Ajouter-bdd" className='link'><li>Ajouter activité</li>   </Link>
+                                <Link to ='/Supprimer-admin' className='link'><li>Supprimer activité</li>   </Link>
+                                <Link to ='/info-users' className='link'><li>Gestion</li>   </Link>
                                
                             </div>
                         )}

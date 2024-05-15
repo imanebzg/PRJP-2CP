@@ -2,6 +2,9 @@ import React , { useEffect } from 'react';
 import './blog.css'; // Assuming your styles are in a separate file
 import blogScript from './blg.js';
 import arrow from './img/arrow.png';
+
+
+
 const Blog = () => {  
     useEffect(() => {
       blogScript();

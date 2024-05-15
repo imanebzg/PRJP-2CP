@@ -191,11 +191,11 @@ const ChartComponent = ({ secteur, dataByCategory, secteur1Array }) => {
             radius: "37%",
             plugins: {
               legend: {
-                display: true,
+                display: false,
                 position: "right",
                 align: "center",
               },
-            },
+            }, 
           },
         });
 
@@ -208,14 +208,16 @@ const ChartComponent = ({ secteur, dataByCategory, secteur1Array }) => {
 
   return (
     <div>
-          <canvas ref={chartRef}></canvas>
+          <canvas ref={chartRef} style={{ margin: '0px' }}></canvas>
     </div>
   );
 };
 
 
 return (
-  <div>
+<div  style={{  display: 'flex', flexDirection: 'column', alignItems: 'center', color:'rgb(112, 111, 111)', fontSize:'14px',fontWeight:100}}>
+<h1 style={{ display: 'flex', flexDirection: 'column',fontWeight: 700, fontSize: '20px', alignItems: 'center', color: '#031273' }}>
+Statistiques des répartitions des secteurs globaux par scope :</h1>
     {secteur1Array.map((secteur, index) => (
       <div>
         <h3>{labels[index]}</h3>

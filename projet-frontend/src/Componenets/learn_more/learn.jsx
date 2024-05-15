@@ -81,7 +81,7 @@ Lors du calcul du bilan de carbone, les émissions sont généralement catégori
         } };
 
   return (
-    <div className="learn">
+    <div className="learn" id="learn">
       <h1>
 Plus d'informations sur cette calculatrice</h1>
       <div class="line"></div>

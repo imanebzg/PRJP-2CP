@@ -420,7 +420,8 @@ if (!localStorage.getItem('formResults')) {
     <div className="Postes">
       
       <div className="container">
-   
+      <h1 style={{ display: 'flex', flexDirection: 'column',fontWeight: 700, fontSize: '30px', alignItems: 'center', color: '#031273' }}>
+      Statistiques des répartitions des secteurs globaux par scope :</h1>
       <div className="scopes">
             <div className="scopes1">
               <p>Scope 1 :  </p>

@@ -114,8 +114,8 @@
 
 }
 .bar .item2 {
- margin-top: 100%;
- padding-top:50%;
+ margin-top: 80%;
+ padding-top:5%;
 margin-left: 10%;
   display: flex; /* Use flexbox */
   align-items: center; /* Align items vertically */

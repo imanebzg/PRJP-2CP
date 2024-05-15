@@ -28,20 +28,8 @@
   border-radius: 0.5rem;
   box-shadow: 0 0 5px #a3c0d2;
   overflow: hidden;
-margin: 2%;
+
   border: 2px solid #1a1b1a29;
-}
-.Postes .container .scopes3{
-  width: 47%; /* par exemple, vous pouvez ajuster cette valeur selon vos besoins */
-  height: 17rem;
-  background: #ffffff;
-  border-radius: 0.5rem;
-  box-shadow: 0 0 5px #a3c0d2;
-  overflow: hidden;
-  margin-left: 25%;
-   border: 2px solid #1a1b1a29;
-   margin-bottom: 3%;
-   margin-top: 0;
 }
 .Postes .container .chart-container{
   margin-top: -25%;

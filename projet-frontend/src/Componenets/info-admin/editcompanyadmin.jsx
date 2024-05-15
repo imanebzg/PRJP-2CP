@@ -70,8 +70,7 @@ function EditCompany({ companyId }) {
                         <div className="input_box"><p><strong>Numero de telephone:</strong> {company.phone_number}</p></div>
                         <div className="input_box"><p><strong>Personne à contacter:</strong> {company.contact_person}</p></div>
                         <div className="input_box"><p><strong>Addresse:</strong> {company.location}</p></div>
-                        <div className="input_box"><p><strong>Code postal:</strong> {company.postal_code}</p></div>
-
+                        
                         <button className="btn2" style={{ marginLeft: '80%' }} onClick={handleEdit}>Modifier</button>
           </div>
                 </div>
@@ -82,8 +81,7 @@ function EditCompany({ companyId }) {
                     <div className="input_box"><label>Numero de telephone: <input type="tel" name="phone_number" value={company.phone_number} onChange={handleChange} /></label></div>
                     <div className="input_box"><label>Personne à contacter: <input type="text" name="contact_person" value={company.contact_person} onChange={handleChange} /></label></div>
                     <div className="input_box"><label>Addresse: <input type="text" name="location" value={company.location} onChange={handleChange} /></label></div>
-                    <div className="input_box"><label>Code postal: <input type="text" name="postal_code" value={company.postal_code} onChange={handleChange} /></label></div>
-                    <div className="button_container">
+                      <div className="button_container">
                       <button className="btn2" type="submit">Sauvegarder</button>
                       <button className="btn1" type="button" onClick={handleCancel}>Annuler</button>
                     </div>
