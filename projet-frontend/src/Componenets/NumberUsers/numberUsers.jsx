@@ -21,7 +21,7 @@ function CompanyCount() {
     return (
         <div className='nmbr'>
             
-           <a class="btn-shine"> <img src={gif} alt="Loading GIF" /> Number of Companies: {count}</a>
+           <a class="btn-shine"> <img src={gif} alt="Loading GIF" /> Nombre d'entreprise: {count}</a>
   </div>
     );
 }

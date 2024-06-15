@@ -8,11 +8,6 @@ import './PostesProduit.css';
 
 
 
-
-
-
-
-
 const initialData = {
   Combustibles: {scope1: 0,scope2: 0,scope3: 0},
   ProcessEmissionsFugitives: {scope1: 0,scope2: 0,scope3: 0 },

@@ -34,11 +34,11 @@ function BilanForm({ onSaveBilan }) {
     return (
       <div className="bilan-form">
         <div className='title'>
-          <p>Cree un Bilan</p>
+          <p>Créer un Bilan</p>
         </div>
         <div className='contnuee'>
           <div className="date-container">
-            <label htmlFor="start-date">Date de debut :</label>
+            <label htmlFor="start-date">Date de début :</label>
             <input type="date" id="start-date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
             <label htmlFor="end-date">Date de fin:</label>
             <input type="date" id="end-date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
@@ -53,7 +53,7 @@ function BilanForm({ onSaveBilan }) {
                   <path d="m4 11h16"></path>
                 </g>
               </svg>
-              <div>Creer le bilan et commencer les calculs</div>
+              <div>Créer le bilan et commencer les calculs</div>
               <svg fill="none" viewBox="0 0 24 24" height="25px" width="25px" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinejoin="round" strokeLinecap="round" strokeMiterlimit="10" strokeWidth="2" stroke="white" d="M11.6801 14.62L14.2401 12.06L11.6801 9.5"></path>
                 <path strokeLinejoin="round" strokeLinecap="round" strokeMiterlimit="10" strokeWidth="2" stroke="white" d="M4 12.0601H14.17"></path>

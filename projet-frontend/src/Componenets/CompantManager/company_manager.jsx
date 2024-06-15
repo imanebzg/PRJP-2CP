@@ -38,7 +38,7 @@ function  CompanyManager() {
     return (
         <div className='manager'>
             <select onChange={handleSelectCompany} value={selectedCompany ? selectedCompany.company_name : ''}>
-                <option value="">Select a company</option>
+                <option value="">Sélectionner une entreprise</option>
                 {companies.map(company => (
                     <option key={company.company_name} value={company.company_name}>{company.company_name}</option>
                 ))}

@@ -47,18 +47,18 @@ function ChangePasswordForm({ companyId }) {
 
     return (
         <div className="Securite">
-            <div className="title"><p>Change Password</p></div>
+            <div className="title"><p>Changer le mot de passe</p></div>
             <form onSubmit={handleSubmit} className="user_details">
                 <div className="input_box">
-                    <label>Old Password:</label>
+                    <label>ancien mot de passe:</label>
                     <input type="password" name="oldPassword" value={formData.oldPassword} onChange={handleChange} />
                 </div>
                 <div className="input_box">
-                    <label>New Password:</label>
+                    <label>nouveau mot de passe:</label>
                     <input type="password" name="newPassword" value={formData.newPassword} onChange={handleChange} />
                 </div>
                 <div className="input_box">
-                    <label>Confirm New Password:</label>
+                    <label>Confirmer le nouveau mot de passe :</label>
                     <input type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} />
                 </div>
                 <button type="submit" className="btn1">Changer mot de passe</button>

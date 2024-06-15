@@ -1,7 +1,4 @@
 
-
-
-
 import React, { useEffect, useState, useRef, useMemo  } from 'react';
 import { PDFDocument, rgb } from 'pdf-lib';
 import jsPDF from 'jspdf';

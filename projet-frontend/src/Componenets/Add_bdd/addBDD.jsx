@@ -55,7 +55,7 @@ const AddProductForm = () => {
     return (
         <> <Sidebar/>
         <div className='AJOUTER'>
-                <div className='title'> <p>Ajouter une activite a la base de donnee: </p></div>
+                <div className='title'> <p>Ajouter une activité à la base de donnée: </p></div>
                  <div className='SELE'>
             <div className="radio-input">
                 <input type="hidden" id="selectedScope" value={selectedScope} />

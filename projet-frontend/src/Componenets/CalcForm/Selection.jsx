@@ -347,27 +347,6 @@ const saveTotalSumToDatabase = async () => {
 };
 
 
-/*
-    const handleCalcul = async (event) => {
-      event.preventDefault();
-      console.log(JSON.stringify(calcInfo));
-      try {
-        const response = await fetch('http://localhost:3001/calc/bilan', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(calcInfo)
-        });
-
-        const data = await response.json();
-        if (response.ok) {
-          return (data.carbonBalance);
-
-        }
-      } catch (error) {
-
-      }
-    }
-*/
 
 const handleCalcul = (event) => {
   event.preventDefault();
@@ -556,7 +535,7 @@ const handleCalcul = (event) => {
   return (
     <div>
     <div className="Selectionner">
-    <div className='title'><p>Remplissez toutes les informations necessaires aux calculs: </p></div>
+    <div className='title'><p>Remplissez toutes les informations nécessaires aux calculs: </p></div>
       <div className="SELECTION">
         <div className="radio-input">
           <input type="hidden" id="selectedScope1" value={selectedScope1} />
@@ -649,7 +628,7 @@ const handleCalcul = (event) => {
       ))}
     </>
   ) : (
-    <option value=" " disabled>No options available</option>
+    <option value=" " disabled>pas d'option</option>
   )}
 </select>
         </form>
@@ -667,7 +646,7 @@ const handleCalcul = (event) => {
 <form >
 <label htmlFor="nom">Nom de l'Activité:</label>
         <select id="nom" name="nom" value={produit} onChange={handleChange(setproduit,'nom')}>
-          <option value="">--no option--</option>
+          <option value="">pas d'options</option>
           {produitOptions.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
@@ -678,7 +657,7 @@ const handleCalcul = (event) => {
 
         <label htmlFor="unite">l'unite :</label>
         <select id="unite" name="unite" value={unite} onChange={handleChange(setunite, 'unite')}>
-          <option value=" ">--no option--</option>
+          <option value=" ">pas d'options</option>
           {uniteOptions.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
@@ -697,35 +676,35 @@ const handleCalcul = (event) => {
       <form>
       <label htmlFor="NomAttribut">le nom de l'attribut :</label>
         <select id="NomAttribut" name="NomAttribut" value={NomAttribut} onChange={handleChange(setNomAttribut , 'NomAttribut')}>
-          <option value=" ">--no option--</option>
+          <option value=" ">pas d'options</option>
           {NomAttributOptions.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
         
         <label htmlFor="NomFrontiere">le nom de la frontiere :</label>
         <select id="NomFrontiere" name="NomFrontiere" value={NomFrontiere} onChange={handleChange(setNomFrontiere, 'NomFrontiere')}>
-          <option value=" ">--no option--</option>
+          <option value=" ">pas d'options</option>
           {NomFrontiereOptions.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
         
         <label htmlFor="contributeur">le contributeur:</label>
         <select id="contributeur" name="contributeur" value={contributeur} onChange={handleChange(setcontributeur, 'contributeur')}>
-          <option value=" ">--no option--</option>
+          <option value=" ">pas d'options</option>
           {contributeurOptions.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
         
         <label htmlFor="localisation">la localisation:</label>
         <select id="localisation" name="localisation" value={localisation} onChange={handleChange(setlocalisation,'localisation')}>
-          <option value=" ">--no option--</option>
+          <option value=" ">pas d'options</option>
           {localisationOptions.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>
 
         <label htmlFor="souslocalisation">la sous localisation:</label>
         <select id="souslocalisation" name="souslocalisation" value={souslocalisation} onChange={handleChange(setsouslocalisation ,'souslocalisation')}>
-          <option value=" ">--no option--</option>
+          <option value=" ">pas d'options</option>
           {souslocalisationOptions.map(option => <option key={option} value={option}>{option}</option>)}
         </select>
         <br/>

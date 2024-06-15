@@ -15,7 +15,7 @@ const Plus_prod = () => {
     return (
       <div className="Prod">
         <div className='title'>
-            <p>voir les details sur les produits : </p>
+            <p>voir les détails sur les produits : </p>
         </div>
         <div className={`rectang ${liked ? 'liked' : ''}`} onClick={toggleLiked}>
           produit 1 :
@@ -35,7 +35,7 @@ const Plus_prod = () => {
         {liked2 && (
           <div className="container-rest2">
             {/* Content to show when liked */}
-           Details produit 2
+           Détails produit 2
           </div>
         )} 
       </div>

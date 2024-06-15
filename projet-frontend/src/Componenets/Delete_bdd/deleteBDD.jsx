@@ -91,7 +91,7 @@ function DeleteForm() {
     <Sidebar/>
         <div className='delete'>
           
-        <div className='title'> <p>Supprimer une activite de la base de donnees </p></div>
+        <div className='title'> <p>Supprimer une activité de la base de données </p></div>
          <form onSubmit={handleDelete}>
          <div className='item'>
          <div className="new-conditions">
@@ -102,7 +102,7 @@ function DeleteForm() {
                         value={field.key}
                         onChange={e => handleChange(index, e)}
                     >
-                        <option value="">Select Field</option>
+                        <option value="">Sélectionner </option>
                         {fieldOptions.map(option => (
                             <option key={option.value} value={option.value}>{option.label}</option>
                         ))}
@@ -117,7 +117,7 @@ function DeleteForm() {
                 </div>
             ))}
         </div>
-    <button type='submit' class="but" >
+    <button type='submit' class="but"onClick={handleDelete} >
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"

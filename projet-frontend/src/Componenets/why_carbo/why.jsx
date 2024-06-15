@@ -27,7 +27,7 @@ export default function why() {
         </div>
       </div>
       <div class="Content">
-        <p class="title-why-carbo">Pourquoi choisir Carbon Accountibility Solution ?</p>
+        <p class="title-why-carbo">Pourquoi choisir Carbon Operation options ?</p>
         <p class="description">
           Carbon Accountibility Solution est votre partenaire incontournable pour évaluer et optimiser le bilan carbone de votre entreprise. Notre plateforme gratuite offre une analyse détaillée et précise, vous permettant de comprendre l'impact environnemental de vos opérations à chaque étape de votre chaîne de valeur.
         </p>

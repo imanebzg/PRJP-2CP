@@ -23,13 +23,23 @@ const populateUl = (ul, chartData) => {
 };
 
 
+const generateColors = (numColors) => {
+  const colors = [];
+  const step = 360 / numColors; // Calculer l'incrément pour répartir les couleurs uniformément
 
+  for (let i = 0; i < numColors; i++) {
+    const hue = (i * step) % 360; // Calculer la teinte en fonction de l'incrément
+    colors.push(`hsla(${hue}, 70%, 50%, 0.6)`);
+  }
 
+  return colors;};
+
+/*
 const generateColors = (num) => {
   // Generate colors logic
   return Array.from({ length: num }, () => "#" + Math.floor(Math.random() * 16777215).toString(16));
 };
-
+*/
 const Histogram = React.memo(function Histogram({formResults}) {
   const [show1Chart, setShow1Chart] = useState(false);
   const [show2Chart, setShow2Chart] = useState(false);

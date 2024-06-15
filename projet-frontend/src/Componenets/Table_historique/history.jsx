@@ -31,13 +31,13 @@ const HistoryTable = () => {
 
   return (
     <div className="history-table-container">
-      <h2>History of Bilans</h2>
+      <h2>Historique de Bilans</h2>
       <table className="history-table">
         <thead>
           <tr>
             <th>Bilan</th>
-            <th>Start Date</th>
-            <th>End Date</th>
+            <th> Date début</th>
+            <th> Date fin</th>
           </tr>
         </thead>
         <tbody>

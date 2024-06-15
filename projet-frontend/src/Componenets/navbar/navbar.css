@@ -85,11 +85,12 @@
   position: absolute;
   right: 0%;
   width: 0%;
+  
   opacity: 0;
   color: white;
-  font-size: 1.2em;
-  margin-right: -2%;
-  font-weight: 600;
+  margin-right: -8%;
+  font-size: 1em;
+  font-weight: 100;
   transition-duration: .3s;
 }
 /* hover effect on button width */

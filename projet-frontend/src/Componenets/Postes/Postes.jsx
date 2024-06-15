@@ -21,21 +21,6 @@ const populateUl = (ul, chartData) => {
 };
 
 
-/*
-const generateColors = (numColors) => {
-  const colors = [];
-
-  for (let i = 0; i < numColors; i++) {
-    const hue = Math.floor(Math.random() * 360); // Valeur aléatoire pour la teinte (entre 0 et 360)
-    const saturation = Math.floor(Math.random() * 101); // Valeur aléatoire pour la saturation (entre 0 et 100)
-    const lightness = Math.floor(Math.random() * 51) + 50; // Valeur aléatoire pour la luminosité (entre 50 et 100 pour des couleurs plus lumineuses)
-    const alpha = 0.6; // Alpha fixe à 0.6
-
-    colors.push(`hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`);
-  }
-
-  return colors;
-};*/
 
 const generateColors = (numColors) => {
   const colors = [];

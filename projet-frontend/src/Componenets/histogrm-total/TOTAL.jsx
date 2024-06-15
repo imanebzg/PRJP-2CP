@@ -128,7 +128,7 @@ const Histogrm_T = () => {
           <div className="user_details">
             <div className="resultat">
               <div className="title_big">
-                <p>Resultats par types d'emissions direct :</p>
+                <p>Resultats par types d'émissions direct :</p>
               </div>
               <div className="programming-stats4">
                 <div className="chart-container">
@@ -141,7 +141,7 @@ const Histogrm_T = () => {
             </div>
             <div className="resultat">
               <div className="title_big">
-                <p>Resultats par types d'emissions indirect :</p>
+                <p>Resultats par types d'émissions indirect :</p>
               </div>
               <div className="programming-stats5">
                 <div className="chart-container">

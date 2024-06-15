@@ -56,7 +56,7 @@ function EditCompany({ companyId }) {
         .catch(error => console.error("Error updating company:", error));
     };
 
-    if (!company) return <div>Loading...</div>;
+    if (!company) return <div>Chargement...</div>;
 
     return (
         <div className="infoadmin">
